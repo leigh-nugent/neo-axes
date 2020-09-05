@@ -1,12 +1,12 @@
 ---
-author: 'Your R. Name'
-date: 'May 20xx'
-division: 'Mathematics and Natural Sciences'
-advisor: 'Advisor F. Name'
+author: 'GTNV0'
+date: 'November 2020'
+division: 'Computational Archaeology'
+advisor: 'Andrew Bevan'
 #altadvisor: 'Your Other Advisor'
 # Delete line 6 if you only have one advisor
-department: 'Mathematics'
-title: 'My Final College Paper'
+department: 'Institute of Arcaeology'
+title: 'Neo Axes'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 

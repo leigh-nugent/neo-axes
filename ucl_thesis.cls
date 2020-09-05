@@ -121,6 +121,7 @@
 %  The only difference between an MPhil and a PhD thesis is on the front cover, being the string
 %  in the submission statement.  Make PhD the default.
 %    \begin{macrocode}
+\newcommand \@msc{Master of Science}
 \newcommand \@doctor{Doctor of Philosophy}
 \newcommand \@master{Master of Philosophy}
 \newcommand \@mres{Master of Research}
@@ -137,6 +138,7 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[1997/12/01]
 \ProvidesClass{ucl_thesis}[\filedate\space\fileversion\space UCL MA/MRes/MPhil/PhD Thesis class]
+\DeclareOption{msc}{\renewcommand\@degree@string{\@msc}}
 \DeclareOption{mres}{\renewcommand\@degree@string{\@mres}}
 \DeclareOption{MRes}{\renewcommand\@degree@string{\@mres}}
 \DeclareOption{mphil}{\renewcommand\@degree@string{\@master}}
