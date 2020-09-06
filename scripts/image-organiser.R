@@ -38,10 +38,13 @@ pairs <- images_meta %>%
   select(no, path) %>%
   mutate(sheet = row_number())
 
-copy <- pairs %>%
+copy_rename <- pairs %>%
   ungroup() %>% as.data.frame() %>%
-  mutate(type = if_else(sheet == 1, "sheets", "drawings")) %>%
-  mutate(sheets_path = str_replace(path, "extracted-jpgs/(flint|stone)", type))
+  mutate(type = if_else(sheet == 1, "sheets", "drawings"),
+         base = basename(path),
+         base_rename = paste(no, "jpg", sep = "."),
+         new_path = str_replace(path, "extracted-jpgs/(flint|stone)", type) %>%
+           str_replace(base, base_rename))
 
 # dir_create(c("sheets", "drawings"))
 # 
@@ -53,13 +56,22 @@ pairs_sorted <- dir_info(c(here("drawings"), here("sheets"))) %>%
   select(path) %>%
   mutate(folder = str_extract(path, "drawings|sheets"),
          basename = basename(path),
-         no = str_extract(basename, "^[0-9a-b]*(?=-)"))
+         no = str_extract(basename, "^[0-9a-b]*(?=\\.jpg)"),
+         relative_path = str_remove(path, paste0(here(), "/"))) %>%
+  arrange(no) %>%
+  select(no, folder, relative_path)
+
+# post_rename <- pairs_sorted %>%
+#   mutate(base_rename = paste(no, "jpg", sep = "."),
+#          new_path = str_replace(path, basename, base_rename))
+# 
+# file_move(post_rename$path, post_rename$new_path)
 
 # if all numbers matched should return 0 row tibble:
 pairs_sorted %>%
-  select(-basename) %>%
+  select(relative_path, folder, no) %>%
   pivot_wider(names_from = folder,
-              values_from = path) %>%
+              values_from = relative_path) %>%
   filter(is.na(drawings) | is.na(sheets))
 
 write_csv(pairs_sorted, "pairs-sorted.csv", na = "")
