@@ -74,4 +74,4 @@ pairs_sorted %>%
               values_from = relative_path) %>%
   filter(is.na(drawings) | is.na(sheets))
 
-write_csv(pairs_sorted, "pairs-sorted.csv", na = "")
+write_csv(pairs_sorted, here("data/pairs-sorted.csv"), na = "")
