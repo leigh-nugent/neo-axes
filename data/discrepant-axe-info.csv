@@ -1,0 +1,95 @@
+path,id,n,type,actual_id,priority,action,problems
+extracted-jpgs/flint/10025-2016_07_11_12_20_14-003_003PDF-000.jpg,flint-10025,1,info,,,include,
+extracted-jpgs/flint/10026-2016_07_11_12_20_14-003_004PDF-000.jpg,flint-10026,3,drawing,flint-10025,,rename,
+extracted-jpgs/flint/10026-2016_07_11_12_20_14-003_005PDF-000.jpg,flint-10026,3,info,,,include,
+extracted-jpgs/flint/10026-2016_07_11_12_20_14-003_006PDF-000.jpg,flint-10026,3,drawing,,,include,
+extracted-jpgs/flint/10092-2016_07_11_10_21_16_001_038PDF-000.jpg,flint-10092,1,drawing,,,include,
+extracted-jpgs/flint/10097-2016_07_11_10_21_16_001_037PDF-000.jpg,flint-10097,3,info,flint-10092,,rename,
+extracted-jpgs/flint/10097-2016_07_11_10_21_16_001_047PDF-000.jpg,flint-10097,3,info,,,,
+extracted-jpgs/flint/10097-2016_07_11_10_21_16_001_048PDF-000.jpg,flint-10097,3,drawing,,,,
+extracted-jpgs/flint/10101-2016_07_11_12_00_47-001_001PDF-000.jpg,flint-10101,1,info,,,,
+extracted-jpgs/flint/10152-2016_07_11_10_30_41-002_001PDF-000.jpg,flint-10152,3,info,,,,
+extracted-jpgs/flint/10152-2016_07_11_10_30_41-002_002PDF-000.jpg,flint-10152,3,drawing,,,,
+extracted-jpgs/flint/10152-2016_07_11_10_30_41-002_003PDF-000.jpg,flint-10152,3,info,flint-10153,,,
+extracted-jpgs/flint/10153-2016_07_11_10_30_41-002_004PDF-000.jpg,flint-10153,1,drawing,,,,
+extracted-jpgs/flint/10179-2016_07_11_10_30_41-002_056PDF-000.jpg,flint-10179,1,drawing,,,,
+extracted-jpgs/flint/10197-2016_07_11_10_30_41-002_055PDF-000.jpg,flint-10197,3,info,flint-10179,,,
+extracted-jpgs/flint/10197-2016_07_11_10_35_40-003_035PDF-000.jpg,flint-10197,3,info,,,,
+extracted-jpgs/flint/10197-2016_07_11_10_35_40-003_036PDF-000.jpg,flint-10197,3,drawing,,,,
+extracted-jpgs/flint/10283-2016_07_11_11_41_24-004_023PDF-000.jpg,flint-10283,1,info,,,,
+extracted-jpgs/flint/10284-2016_07_11_11_41_24-004_024PDF-000.jpg,flint-10284,3,drawing,flint-10283,,,
+extracted-jpgs/flint/10284-2016_07_11_11_41_24-004_025PDF-000.jpg,flint-10284,3,info,,,,
+extracted-jpgs/flint/10284-2016_07_11_11_41_24-004_026PDF-000.jpg,flint-10284,3,drawing,,,,
+extracted-jpgs/flint/10340-2016_07_11_10_52_27-005_015PDF-000.jpg,flint-10340,1,info,,,,
+extracted-jpgs/flint/10341-2016_07_11_10_52_27-005_016PDF-000.jpg,flint-10341,3,drawing,flint-10340,,,
+extracted-jpgs/flint/10341-2016_07_11_10_52_27-005_017PDF-000.jpg,flint-10341,3,info,,,,
+extracted-jpgs/flint/10341-2016_07_11_10_52_27-005_018PDF-000.jpg,flint-10341,3,drawing,,,,
+extracted-jpgs/flint/10350-2016_07_11_10_52_27-005_041PDF-000.jpg,flint-10350,3,info,,,,
+extracted-jpgs/flint/10350-2016_07_11_10_52_27-005_042PDF-000.jpg,flint-10350,3,drawing,,,,
+extracted-jpgs/flint/10350-2016_07_11_11_28_46-003_010PDF-000.jpg,flint-10350,3,drawing,flint-10380,,,
+extracted-jpgs/flint/10351-2016_07_11_11_21_13PDF-000.jpg,flint-10351,4,info,,,,
+extracted-jpgs/flint/10351-2016_07_11_11_21_28PDF-000.jpg,flint-10351,4,drawing,,,,
+extracted-jpgs/flint/10351-2016_07_11_11_22_11-001_001PDF-000.jpg,flint-10351,4,info,,,,
+extracted-jpgs/flint/10351-2016_07_11_11_22_11-001_002PDF-000.jpg,flint-10351,4,drawing,,,,
+extracted-jpgs/flint/10365-2016_07_11_11_23_34-004_027PDF-000.jpg,flint-10365,3,info,,,,
+extracted-jpgs/flint/10365-2016_07_11_11_23_34-004_028PDF-000.jpg,flint-10365,3,drawing,,,,
+extracted-jpgs/flint/10365-2016_07_11_11_23_34-004_033PDF-000.jpg,flint-10365,3,info,,,,
+extracted-jpgs/flint/10368-2016_07_11_11_23_34-004_034PDF-000.jpg,flint-10368,1,drawing,,,,
+extracted-jpgs/flint/10380-2016_07_11_11_28_46-003_009PDF-000.jpg,flint-10380,1,info,,,,
+extracted-jpgs/flint/10538-2016_07_11_14_42_26-003_021PDF-000.jpg,flint-10538,1,info,,,,
+extracted-jpgs/flint/10539-2016_07_11_14_42_26-003_022PDF-000.jpg,flint-10539,3,drawing,flint-10538,,,
+extracted-jpgs/flint/10539-2016_07_11_14_42_26-003_023PDF-000.jpg,flint-10539,3,info,,,,
+extracted-jpgs/flint/10539-2016_07_11_14_42_26-003_024PDF-000.jpg,flint-10539,3,drawing,,,,
+extracted-jpgs/flint/10618-2016_07_11_14_14_07-002_035PDF-000.jpg,flint-10618,3,info,,,,
+extracted-jpgs/flint/10618-2016_07_11_14_14_07-002_036PDF-000.jpg,flint-10618,3,drawing,,0,,
+extracted-jpgs/flint/10618-2016_07_11_14_14_07-002_038PDF-000.jpg,flint-10618,3,drawing,,2,,
+extracted-jpgs/flint/10618a-2016_07_11_14_14_07-002_037PDF-000.jpg,flint-10618a,1,drawing,flint-10618,1,,
+extracted-jpgs/flint/10672-2016_07_11_14_01_33-002_041PDF-000.jpg,flint-10672,1,info,,,,
+extracted-jpgs/flint/10673-2016_07_11_14_01_33-002_042PDF-000.jpg,flint-10673,3,drawing,flint-10672,,,
+extracted-jpgs/flint/10673-2016_07_11_14_01_33-002_043PDF-000.jpg,flint-10673,3,info,,,,
+extracted-jpgs/flint/10673-2016_07_11_14_01_33-002_044PDF-000.jpg,flint-10673,3,drawing,,,,
+extracted-jpgs/flint/11305-2016_07_11_16_27_58-001_019PDF-000.jpg,flint-11305,1,drawing,,,,
+extracted-jpgs/flint/11310-2016_07_11_16_27_58-001_039PDF-000.jpg,flint-11310,1,drawing,,,,
+extracted-jpgs/stone/10042-2016_07_12_11_52_46-3_036PDF-000.jpg,stone-10042,1,drawing,flint-10042,0,,
+extracted-jpgs/stone/10057-2016_07_12_11_52_46-3_037PDF-000.jpg,stone-10057,1,drawing,flint-10057,0,,
+extracted-jpgs/stone/10326-2016_07_12_11_39_26PDF-000.jpg,stone-10326,3,drawing,flint-10326,1,,dup axe no
+extracted-jpgs/stone/10326-2016_07_12_11_45_23-1_001PDF-000.jpg,stone-10326,3,info,flint-10326,,,dup axe no with another in ‘flint’
+extracted-jpgs/stone/10326-2016_07_12_11_45_23-1_002PDF-000.jpg,stone-10326,3,drawing,flint-10326,0,,dup axe no
+extracted-jpgs/stone/60045-2016_07_12_09_35_10-3_039PDF-000.jpg,stone-60045,4,info,,,,
+extracted-jpgs/stone/60045-2016_07_12_09_35_10-3_041PDF-000.jpg,stone-60045,4,drawing,,,,
+extracted-jpgs/stone/60045-2016_07_12_12_43_03-1_025PDF-000.jpg,stone-60045,4,info,no number,,,"no material, unprov."
+extracted-jpgs/stone/60045-2016_07_12_12_43_03-1_026PDF-000.jpg,stone-60045,4,drawing,no number,,,"no material, unprov."
+extracted-jpgs/stone/60057-2016_07_12_09_40_59-1_013PDF-000.jpg,stone-60057,4,info,,,,
+extracted-jpgs/stone/60057-2016_07_12_09_40_59-1_014PDF-000.jpg,stone-60057,4,drawing,,,,
+extracted-jpgs/stone/60057-2016_07_12_11_45_23-1_011PDF-000.jpg,stone-60057,4,info,,,,"no measurements, axe no crossed out"
+extracted-jpgs/stone/60057-2016_07_12_11_45_23-1_012PDF-000.jpg,stone-60057,4,drawing,,,,
+extracted-jpgs/stone/60089-2016_07_12_09_45_03-3_030PDF-000.jpg,stone-60089,1,drawing,,,,
+extracted-jpgs/stone/60193-2016_07_12_10_09_27-3_015PDF-000.jpg,stone-60193,1,info,,,,
+extracted-jpgs/stone/60193a-2016_07_12_10_09_27-3_016PDF-000.jpg,stone-60193a,1,drawing,,,,
+extracted-jpgs/stone/60193b-2016_07_12_10_09_27-3_017PDF-000.jpg,stone-60193b,1,drawing,,,,
+extracted-jpgs/stone/60198-2016_07_12_10_13_41-4_001PDF-000.jpg,stone-60198,4,info,,,,"dup axe no, small axe"
+extracted-jpgs/stone/60198-2016_07_12_10_13_41-4_002PDF-000.jpg,stone-60198,4,drawing,,,,"dup axe no, small axe"
+extracted-jpgs/stone/60198-2016_07_12_11_52_46-3_009PDF-000.jpg,stone-60198,4,info,,,,"dup axe no, langdale axe"
+extracted-jpgs/stone/60198-2016_07_12_11_52_46-3_010PDF-000.jpg,stone-60198,4,drawing,,,,"dup axe no, langdale axe"
+extracted-jpgs/stone/60199-2016_07_12_10_13_41-4_003PDF-000.jpg,stone-60199,3,drawing,,,,
+extracted-jpgs/stone/60199-2016_07_12_10_13_41-4_004PDF-000.jpg,stone-60199,3,drawing,,,,dup drawing
+extracted-jpgs/stone/60199-2016_07_25-001008PDF-000.jpg,stone-60199,3,info,E,,,what does ‘E’ mean???
+extracted-jpgs/stone/62016-2_001PDF-000.jpg,stone-62016,1,info,,,,
+extracted-jpgs/stone/62039-2016_07_12_10_27_26-3_001PDF-000.jpg,stone-62039,1,info,,,,
+extracted-jpgs/stone/62041-2016_07_12_10_27_26-3_004PDF-000.jpg,stone-62041,1,info,,,,
+extracted-jpgs/stone/62042-2016_07_12_10_27_26-3_006PDF-000.jpg,stone-62042,1,info,,,,
+extracted-jpgs/stone/62046-2016_07_12_10_27_26-3_014PDF-000.jpg,stone-62046,1,info,,,,
+extracted-jpgs/stone/62047-2016_07_12_10_27_26-3_016PDF-000.jpg,stone-62047,1,info,,,,
+extracted-jpgs/stone/70014-2016_07_12_10_44_12-1_027PDF-000.jpg,stone-70014,4,info,,,,"dup axe no, 0 measurements"
+extracted-jpgs/stone/70014-2016_07_12_10_44_12-1_028PDF-000.jpg,stone-70014,4,drawing,,,,"dup axe no, 0 measurements"
+extracted-jpgs/stone/70014-2016_07_12_11_45_23-1_013PDF-000.jpg,stone-70014,4,info,,,,"dup axe no, 1 measurement"
+extracted-jpgs/stone/70014-2016_07_12_11_45_23-1_014PDF-000.jpg,stone-70014,4,drawing,,,,"dup axe no, 1 measurement"
+extracted-jpgs/stone/70015-2016_07_12_10_44_12-1_029PDF-000.jpg,stone-70015,4,info,AT? blank,,,"dup axe no, worcester museum"
+extracted-jpgs/stone/70015-2016_07_12_10_44_12-1_030PDF-000.jpg,stone-70015,4,drawing,,,,"dup axe no, worcester museum"
+extracted-jpgs/stone/70015-2016_07_12_11_45_23-1_009PDF-000.jpg,stone-70015,4,info,,,,"dup axe no, avebury museum"
+extracted-jpgs/stone/70015-2016_07_12_11_45_23-1_010PDF-000.jpg,stone-70015,4,drawing,,,,"dup axe no, avebury museum"
+extracted-jpgs/stone/80006-2016_07_12_11_06_02PDF-000.jpg,stone-80006,4,info,,,,"dup axe no, cardiff"
+extracted-jpgs/stone/80006-2016_07_12_11_06_05PDF-000.jpg,stone-80006,4,drawing,,,,"dup axe no, cardiff"
+extracted-jpgs/stone/80006-2016_07_12_12_43_03-1_009PDF-000.jpg,stone-80006,4,,crossed-out,,,"dup axe no, carmarthen"
+extracted-jpgs/stone/80006-2016_07_12_12_43_03-1_010PDF-000.jpg,stone-80006,4,,crossed-out,,,"dup axe no, carmarthen"
+extracted-jpgs/stone/90021-2016_07_12_12_43_03-1_043PDF-000.jpg,stone-90021,1,drawing,none,,,

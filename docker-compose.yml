@@ -1,0 +1,9 @@
+version: '3'
+services:
+  neolithic-axes:
+    build: .
+    user: "1000"
+    volumes:
+    - .:/neolithic-axes
+    command: ["make", "-j4"]
+
