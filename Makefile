@@ -34,5 +34,6 @@ extracted-jpgs/%-000.jpg : drawings-and-forms/%.pdf
 
 clean :
 	rm -rf extracted-jpgs
-	#rm -rf .venv
+	rm -rf .venv
 	find -iname "*.pyc" -delete
+	rm drawings/*.csv
