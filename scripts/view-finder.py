@@ -48,10 +48,11 @@ for c in contours:
     contour_areas.append(area)
 
 #convert list of boxes to dataframe for export
-boxes_df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
-boxes_df.index.name = 'index'
-boxes_df['drawing'] = image
-boxes_df['contour_area'] = contour_areas
+df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
+df['axe'] = df.index
+df['drawing'] = image
+df['contour_area'] = contour_areas
+df['view'] = df.drawing.str.replace('\.jpg', '').str.cat('-' + df.axe.astype(str) + '.jpg')
 
 #export dataframe to csv with axe number in filename
-boxes_df.to_csv(coords)
+df.to_csv(coords, index=False)
