@@ -52,7 +52,7 @@ df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
 df['axe'] = df.index
 df['drawing'] = image
 df['contour_area'] = contour_areas
-df['view'] = df.drawing.str.replace('\.jpg', '').str.cat('-' + df.axe.astype(str) + '.jpg')
+df['view'] = df.drawing.str.replace('\.jpg', '').str.cat('-'+df.axe.astype(str)+'view'+'.jpg')
 
 #export dataframe to csv with axe number in filename
 df.to_csv(coords, index=False)
