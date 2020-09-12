@@ -3,17 +3,26 @@ SHELL := /usr/bin/env bash
 pdfs := $(sort $(shell find drawings-and-forms/ -type f -name '*.pdf'))
 jpgs := $(subst drawings-and-forms, extracted-jpgs, $(patsubst %.pdf, %-000.jpg, $(pdfs)))
 
-drawings := $(sort $(wildcard drawings/*.jpg))
-coords := $(patsubst %.jpg, %.csv, $(drawings))
+drawings := $(sort $(wildcard drawings/*d.jpg))
+coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
+cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 
 find-jp2 = $(shell find $@/ -type f -name '*.jp2')
 
-all : $(coords)
+all : $(cropped)
 
-print-% : ; @echo $* = $($*) | tr " " "\n"
+print-% : ; @echo $($*) | tr " " "\n"
 
-drawings/%.csv : drawings/%.jpg .venv
+drawings/%-cropped : drawings/%-c.csv
+	awk 'FNR > 1' $< \
+	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$8}' \
+	| ifne xargs -n 4 convert
+	touch $@
+
+drawings/%-c.csv : drawings/%d.jpg .venv
 	source .venv/bin/activate; ./scripts/view-finder.py $< $@
+
+.PRECIOUS : $(coords)
 
 extracted-jpgs : drawings-and-forms $(jpgs)
 	-[ ! -z "$(find-jp2)" ] && convert $(find-jp2) $(patsubst %.jp2, %.jpg, $(find-jp2))
@@ -36,4 +45,4 @@ clean :
 	rm -rf extracted-jpgs
 	rm -rf .venv
 	find -iname "*.pyc" -delete
-	rm drawings/*.csv
+	rm -rf drawings/*-*
