@@ -19,7 +19,7 @@ drawings/%-cropped : drawings/%-c.csv
 	| ifne xargs -n 4 convert
 	touch $@
 
-drawings/%-c.csv : drawings/%d.jpg .venv
+drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 	source .venv/bin/activate; ./scripts/view-finder.py $< $@
 
 .PRECIOUS : $(coords)
