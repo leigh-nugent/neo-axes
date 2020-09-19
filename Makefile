@@ -15,7 +15,7 @@ print-% : ; @echo $($*) | tr " " "\n"
 
 drawings/%-cropped : drawings/%-c.csv
 	awk 'FNR > 1' $< \
-	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$8}' \
+	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$NF}' \
 	| ifne xargs -n 4 convert
 	touch $@
 
