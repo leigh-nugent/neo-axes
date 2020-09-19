@@ -46,13 +46,15 @@ for c in contours:
     area = cv2.contourArea(c)
     contour_areas.append(area)
 
-def nameview(ratio, max_ratio, min_ratio):
-    if max_ratio == ratio:
+def nameview(ca, max_ca, min_ca, ratio, max_r, min_r):
+    if ca == max_ca:
+        return "plan"
+    elif ratio == max_r:
         return "profile"
-    elif min_ratio == ratio:
+    elif ca == min_ca and (min_r > ratio < max_r) :
         return "top"
     else:
-        return "plan"
+        return "tbc"
 
 vectfunc = np.vectorize(nameview, cache=False)
 
@@ -62,7 +64,9 @@ df['axe'] = df.index
 df['drawing'] = image
 df['contour_area'] = contour_areas
 df['aspect_ratio'] = df['h'] / df['w']
-df['view'] = vectfunc(df['aspect_ratio'], max(df['aspect_ratio']), min(df['aspect_ratio']))
+df['view'] = vectfunc(df['contour_area'], max(df['contour_area']), \
+                      min(df['contour_area']), df['aspect_ratio'], \
+                          max(df['aspect_ratio']), min(df['aspect_ratio']))
 df['filename'] = df.drawing.str.replace('d\.jpg', '').str.cat('-'+df.view.astype(str)+'-'+df.axe.astype(str)+'.jpg')
 
 #export dataframe to csv with axe number in filename
