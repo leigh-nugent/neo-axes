@@ -63,7 +63,7 @@ df['drawing'] = image
 df['contour_area'] = contour_areas
 df['aspect_ratio'] = df['h'] / df['w']
 df['view'] = vectfunc(df['aspect_ratio'], max(df['aspect_ratio']), min(df['aspect_ratio']))
-df['filename'] = df.drawing.str.replace('d\.jpg', '').str.cat('-'+df.view.astype(str)+'.jpg')
+df['filename'] = df.drawing.str.replace('d\.jpg', '').str.cat('-'+df.view.astype(str)+'-'+df.axe.astype(str)+'.jpg')
 
 #export dataframe to csv with axe number in filename
 df.to_csv(coords, index=False)
