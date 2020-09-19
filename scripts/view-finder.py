@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import argparse
@@ -47,12 +46,28 @@ for c in contours:
     area = cv2.contourArea(c)
     contour_areas.append(area)
 
+def nameview(ca, max_ca, min_ca, ratio, max_r, min_r):
+    if ca == max_ca:
+        return "plan"
+    elif ratio == max_r:
+        return "profile"
+    elif ca == min_ca and (min_r > ratio < max_r) :
+        return "top"
+    else:
+        return "tbc"
+
+vectfunc = np.vectorize(nameview, cache=False)
+
 #convert list of boxes to dataframe for export
 df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
 df['axe'] = df.index
 df['drawing'] = image
 df['contour_area'] = contour_areas
-df['view'] = df.drawing.str.replace('\.jpg', '').str.cat('-'+df.axe.astype(str)+'.jpg')
+df['aspect_ratio'] = df['h'] / df['w']
+df['view'] = vectfunc(df['contour_area'], max(df['contour_area']), \
+                      min(df['contour_area']), df['aspect_ratio'], \
+                          max(df['aspect_ratio']), min(df['aspect_ratio']))
+df['filename'] = df.drawing.str.replace('d\.jpg', '').str.cat('-'+df.view.astype(str)+'-'+df.axe.astype(str)+'.jpg')
 
 #export dataframe to csv with axe number in filename
 df.to_csv(coords, index=False)

@@ -24,11 +24,11 @@ drawings/%-filled : drawings/%-c.csv drawings/%-cropped .venv
 
 drawings/%-cropped : drawings/%-c.csv
 	awk 'FNR > 1' $< \
-	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$8}' \
+	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$NF}' \
 	| ifne xargs -n 4 convert
 	touch $@
 
-drawings/%-c.csv : drawings/%.jpg .venv
+drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 	source .venv/bin/activate; ./scripts/view-finder.py $< $@
 
 .PRECIOUS : $(coords)
