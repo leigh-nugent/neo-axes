@@ -4,7 +4,7 @@ pdfs := $(sort $(shell find drawings-and-forms/ -type f -name '*.pdf'))
 jpgs := $(subst drawings-and-forms, extracted-jpgs, $(patsubst %.pdf, %-000.jpg, $(pdfs)))
 
 drawings := $(sort $(wildcard drawings/*d.jpg))
-coords := $(patsubst %.jpg, %-c.csv, $(drawings))
+coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
 
@@ -17,18 +17,18 @@ print-% : ; @echo $($*) | tr " " "\n"
 drawings/%-filled : drawings/%-c.csv drawings/%-cropped .venv
 	source .venv/bin/activate; \
 	awk 'FNR > 1' $< \
-	| ifne awk -F , '{print $$8, $$8}' \
+	| ifne awk -F , '{print $$NF, $$NF}' \
 	| ifne awk '{sub(".jpg", "-fill.jpg", $$2)}1' \
 	| ifne xargs -n 2 ./scripts/fill-view.py
 	touch $@
 
-drawings/%-cropped : drawings/%-c.csv
+drawings/%-cropped : drawings/%-c.csv .venv
 	awk 'FNR > 1' $< \
-	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$8}' \
+	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$NF}' \
 	| ifne xargs -n 4 convert
 	touch $@
 
-drawings/%-c.csv : drawings/%.jpg .venv
+drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 	source .venv/bin/activate; ./scripts/view-finder.py $< $@
 
 .PRECIOUS : $(coords)
