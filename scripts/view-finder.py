@@ -62,11 +62,12 @@ vectfunc = np.vectorize(nameview, cache=False)
 df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
 df['axe'] = df.index
 df['drawing'] = image
-df['contour_area'] = contour_areas
+df['area'] = df['h'] * df['w']
 df['aspect_ratio'] = df['h'] / df['w']
-df['view'] = vectfunc(df['contour_area'], max(df['contour_area']), \
-                      min(df['contour_area']), df['aspect_ratio'], \
-                          max(df['aspect_ratio']), min(df['aspect_ratio']))
+
+df['view'] = vectfunc(df['area'],         max(df['area']),         min(df['area']), \
+                      df['aspect_ratio'], max(df['aspect_ratio']), min(df['aspect_ratio']))
+
 df['filename'] = df.drawing.str.replace('d\.jpg', '').str.cat('-'+df.view.astype(str)+'-'+df.axe.astype(str)+'.jpg')
 
 #export dataframe to csv with axe number in filename

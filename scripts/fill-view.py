@@ -55,4 +55,6 @@ thresh, outlines_thresh = cv2.threshold(image_copy, 250, 255, cv2.THRESH_BINARY_
 
 closing = cv2.morphologyEx(outlines_thresh, cv2.MORPH_OPEN, kernel, iterations=10)
 
-cv2.imwrite(args.filled, closing)
+silhouette = cv2.bitwise_not(closing)
+
+cv2.imwrite(args.filled, silhouette)
