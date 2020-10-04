@@ -7,7 +7,7 @@ offsets := $(shell seq 0 100 $(nr-completed) | tr '\n' ' ')
 
 offsets-jsons := $(addprefix micropasts/,$(addsuffix .json,$(offsets)))
 
-all : $(offsets-jsons) tasks.json
+all : $(offsets-jsons) tasks.json micropasts-neoaxes1.csv
 
 print-% : ; @echo $($*) | tr " " "\n"
 
@@ -24,6 +24,10 @@ micropasts/%.json :
 tasks.json :
 	./get_tasks | jq -s . > $@
 
+micropasts-neoaxes1.csv : tasks.json $(offsets-jsons) info-ids.csv
+	./sheets.R
+
 clean :
 	rm -rf micropasts
 	rm -f tasks.json
+	rm -f micropasts-neoaxes1.csv

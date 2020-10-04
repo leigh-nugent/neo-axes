@@ -1,8 +1,14 @@
+#!/usr/bin/env Rscript
+
 library(jsonlite)
 library(tidyverse)
 library(fs)
 library(magrittr)
 library(rebus)
+library(janitor)
+library(rnrfa)
+library(ggmap)
+library(dotenv)
 
 #options(tibble.print_max = Inf)
 
@@ -13,7 +19,9 @@ completed <- read_json("tasks.json") %>%
   mutate(across(where(is.list), as.character)) %>%
   mutate(axe_id = str_extract(info, lookbehind("/") %R% "[0-9ab]+" %R% lookahead("-"))) %>%
   select(url = info, task_id = id, axe_id)
-  
+
+field_types <- read_csv("info-ids.csv")
+
 sheets <- dir_ls("micropasts", glob = "*.json") %>%
   map(read_json) %>%
   flatten() %>%
@@ -25,5 +33,41 @@ sheets <- dir_ls("micropasts", glob = "*.json") %>%
   arrange(task_id, id, info_id) %>%
   group_by(task_id) %>%
   filter(id == max(id)) %>%
-  pivot_wider(names_from = info_id)
-  # select(task_id, info_id, value)
+  ungroup() %>%
+  select(axe_id, task_id, info_id, value) %>%
+  left_join(field_types, by = "info_id") %>%
+  arrange(axe_id, field_type)
+
+info <- sheets %>%
+  filter(field_type == "info") %>%
+  select(-field_type) %>%
+  pivot_wider(names_from = info_id, values_from = value) %>%
+  rename(.condition = condition)
+
+#making new tibble with corrected condition names
+conditions <- info %>% distinct(.condition) %>%
+  mutate(condition = case_when(
+    str_detect(tolower(.condition), "frag") ~ "fragment",
+    str_detect(tolower(.condition), "comp") ~ "complete",
+    str_detect(tolower(.condition), "rough") ~ "roughout",
+    str_detect(.condition, "reworked") ~ "reworked fragment",
+    TRUE ~ tolower(.condition)
+  ))
+
+measurements <- sheets %>%
+  filter(field_type == "measurement") %>%
+  select(-field_type) %>%
+  rename(.measurement = value) %>%
+  mutate(measurement = str_remove(.measurement, "\\[[.a-zA-Z 0]+\\]")
+         %>% str_extract("[\\-0-9,.]+") %>% as.numeric()) %>%
+  mutate(measurement = if_else(task_id == "96456" & info_id == "lefedwid", 20, measurement)) %>%
+  select(-task_id, -.measurement) %>%
+  rename(feature = info_id) %>%
+  pivot_wider(names_from = feature, values_from = measurement)
+
+neo_axes <- info %>%
+  left_join(conditions, by = ".condition") %>%
+  left_join(measurements, by = "axe_id") %>%
+  select(-.condition)
+
+write_csv(neo_axes, "micropasts-neoaxes1.csv", na = "")
