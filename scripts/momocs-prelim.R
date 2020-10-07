@@ -16,6 +16,8 @@ three_plan <- views %>%
   mutate(filled = str_replace(filename, "\\.jpg", "-fill\\.jpg")) %>%
   pull(filled)
 
+ids <- three_plan %>% str_extract("[0-9]{2,}[ab]*")
+
 #import to momocs
 plans <- import_jpg(three_plan)
 
