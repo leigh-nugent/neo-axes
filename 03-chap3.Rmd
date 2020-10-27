@@ -1,3 +1,10 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+
 ```{r include_packages_2, include = FALSE}
 # This chunk ensures that the thesisdown package is
 # installed and loaded. This thesisdown package includes
@@ -24,13 +31,15 @@ my_theme <-
 
 
 ```{r data, echo=FALSE, message=FALSE}
-neo_axes <- read_csv("data/micropasts-neoaxes1.csv")
+neo_axes <- read_csv("data/micropasts-neoaxes1.csv", 
+                     col_types = cols(.default = col_character()))
 
 neo_axes_long <- neo_axes %>%
   pivot_longer(areablad:weight, 
                names_to = "feature",
                values_to = "measurement") %>%
-  filter(!is.na(measurement))
+  filter(!is.na(measurement)) %>%
+  mutate(across("measurement", as.numeric))
 ```
 
 # Exploratory data analysis with Micropasts data
@@ -65,7 +74,7 @@ feature_n <- neo_axes_long %>%
   arrange(desc(n))
 
 most_common_features <- feature_n %>%
-  filter(n > 149)
+  filter(n > 385)
 
 neo_axes_long_mcf <- neo_axes_long %>%
   semi_join(most_common_features, by = "feature") %>%
@@ -116,7 +125,7 @@ neo_axes_long_mcf %>%
 ```
 
 ```{r summary-stats, message=FALSE, echo=FALSE}
-neo_axes_long_mcf2 <- neo_axes_long_mcf %>%
+neo_axes_long_mcf2 <- neo_axes_long_mcf %>% 
   filter(!(feature %in% c("corfroby", "corbapl", "corfropl", "corbaby", "rebaby",
                           "rebapl", "refrobl", "refroby","refropl")))
 
@@ -127,6 +136,8 @@ neo_axes_wide <- neo_axes_long_mcf2 %>%
   column_to_rownames(var = "axe_id")
 
 kable(summary(neo_axes_wide), caption = "Summary statistics", booktabs = TRUE)
+
+summary(neo_axes_wide)
 ```
 
 
@@ -151,7 +162,7 @@ p1 + p2
 ```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.cap="K-means clusters"}
 kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
 kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
-kclust8 <- kmeans(scaled_neo_axes, centers = 8, nstart = 50, algorithm = "Hartigan-Wong")
+kclust6 <- kmeans(scaled_neo_axes, centers = 6, nstart = 50, algorithm = "Hartigan-Wong")
 
 kclust3_lookup <- kclust3$cluster %>%
   enframe() %>%
@@ -162,15 +173,15 @@ k2 <- fviz_cluster(kclust2, data = scaled_neo_axes) +
   my_theme
 k3 <- fviz_cluster(kclust3, data = scaled_neo_axes) +
   my_theme
-k8 <- fviz_cluster(kclust8, data = scaled_neo_axes) +
+k6 <- fviz_cluster(kclust6, data = scaled_neo_axes) +
   my_theme
 
 k2 /
 k3 /
-k8
+k6
 ```
 
-\clearpage
+## Within-cluster densities
 
 ```{r cluster-densities}
 neo_axes_long_mcf2 %>%
@@ -184,49 +195,65 @@ neo_axes_long_mcf2 %>%
   theme(legend.position = "right")
 ```
 
+\clearpage
 
-Next, we will explore the use of the `out.extra` chunk option, which can be used to shrink or expand an image loaded from a file by specifying `"scale= "`. Here we use the mathematical graph stored in the "subdivision.pdf" file.
+##Principal components analysis
 
-```{r subd, results="asis", echo=FALSE, fig.cap="Subdiv. graph", out.extra="scale=0.75"}
-include_graphics("figure/subdivision.pdf")
+```{r screeplots, fig.height = 4, fig.cap = "Screeplots of eigenvalues and percentage variance explained"}
+
+neo_axes_PCA <- drop_na(neo_axes_wide) %>%
+  prcomp(center = TRUE, scale = TRUE)
+
+sc1 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "eigenvalue") +
+  my_theme
+sc2 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "variance") +
+  my_theme
+
+sc1 + sc2
+
 ```
 
-Here is a reference to this image: Figure \@ref(fig:subd).  Note that `echo=FALSE` is specified so that the **R** code is hidden in the document.
 
-**More Figure Stuff**
+```{r variable-loadings}
 
-Lastly, we will explore how to rotate and enlarge figures using the `out.extra` chunk option.  (Currently this only works in the PDF version of the book.)
+map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.])
 
-```{r subd2, results="asis", echo=FALSE, out.extra="angle=180, scale=1.1", fig.cap="A Larger Figure, Flipped Upside Down"}
-include_graphics("figure/subdivision.pdf")
+kable(map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]), caption = "Variable loadings", booktabs = TRUE) %>%
+  kable_styling(latex_options = "scale_down")
 ```
 
-As another example, here is a reference: Figure \@ref(fig:subd2).  
 
-## Footnotes and Endnotes
 
-You might want to footnote something. ^[footnote text] The footnote will be in a smaller font and placed appropriately. Endnotes work in much the same way. More information can be found about both on the CUS site or feel free to reach out to <data@reed.edu>.
+```{r pc1-pc2, fig.height = 5, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
 
-## Bibliographies
+pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 2) + my_theme
+pc2 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
-Of course you will need to cite things, and you will probably accumulate an armful of sources. There are a variety of tools available for creating a bibliography database (stored with the .bib extension).  In addition to BibTeX suggested below, you may want to consider using the free and easy-to-use tool called Zotero.  The Reed librarians have created Zotero documentation at <http://libguides.reed.edu/citation/zotero>.  In addition, a tutorial is available from Middlebury College at <http://sites.middlebury.edu/zoteromiddlebury/>.
+pc1 /
+pc2
 
-_R Markdown_ uses _pandoc_ (<http://pandoc.org/>) to build its bibliographies.  One nice caveat of this is that you won't have to do a second compile to load in references as standard LaTeX requires. To cite references in your thesis (after creating your bibliography database), place the reference name inside square brackets and precede it by the "at" symbol.  For example, here's a reference to a book about worrying:  [@Molina1994].  This `Molina1994` entry appears in a file called `thesis.bib` in the `bib` folder.  This bibliography database file was created by a program called BibTeX.  You can call this file something else if you like (look at the YAML header in the main .Rmd file) and, by default, is to placed in the `bib` folder.  
+```
 
-For more information about BibTeX and bibliographies, see our CUS site (<http://web.reed.edu/cis/help/latex/index.html>)^[@reedweb2007]. There are three pages on this topic:  _bibtex_ (which talks about using BibTeX, at <http://web.reed.edu/cis/help/latex/bibtex.html>), _bibtexstyles_ (about how to find and use the bibliography style that best suits your needs, at <http://web.reed.edu/cis/help/latex/bibtexstyles.html>) and _bibman_ (which covers how to make and maintain a bibliography by hand, without BibTeX, at <http://web.reed.edu/cis/help/latex/bibman.html>). The last page will not be useful unless you have only a few sources.
 
-If you look at the YAML header at the top of the main .Rmd file you can see that we can specify the style of the bibliography by referencing the appropriate csl file.  You can download a variety of different style files at <https://www.zotero.org/styles>.  Make sure to download the file into the csl folder.
 
-**Tips for Bibliographies**
+```{r pc3-pc4, fig.height = 6, fig.cap = "PCA: individuals and variables for PC2 and PC3"}
 
-- Like with thesis formatting, the sooner you start compiling your bibliography for something as large as thesis, the better. Typing in source after source is mind-numbing enough; do you really want to do it for hours on end in late April? Think of it as procrastination.
-- The cite key (a citation's label) needs to be unique from the other entries.
-- When you have more than one author or editor, you need to separate each author's name by the word "and" e.g. `Author = {Noble, Sam and Youngberg, Jessica},`.
-- Bibliographies made using BibTeX (whether manually or using a manager) accept LaTeX markup, so you can italicize and add symbols as necessary.
-- To force capitalization in an article title or where all lowercase is generally used, bracket the capital letter in curly braces.
-- You can add a Reed Thesis citation^[@noble2002] option. The best way to do this is to use the phdthesis type of citation, and use the optional "type" field to enter "Reed thesis" or "Undergraduate thesis." 
+pc3 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 2) +
+  my_theme
+pc4 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
-## Anything else?
+pc3 /
+pc4
 
-If you'd like to see examples of other things in this template, please contact the Data @ Reed team (email <data@reed.edu>) with your suggestions. We love to see people using _R Markdown_ for their theses, and are happy to help.
+```
+
+## Clusters on PCA
+
+```{r pca-cluster, fig.height = 4, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
+pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
+pcl2 <- autoplot(neo_axes_PCA, data = kclust3, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
+
+pcl1 /
+pcl2
+```
 
