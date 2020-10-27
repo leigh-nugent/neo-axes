@@ -1,4 +1,4 @@
-axe_id,task_id,collection,comments,date-rec,find-date,find-place,labels,material,ngr,number,condition,areablad,areablal,areablar,areabody,areapoll,blacon,bladang,blaedwid,blaleng,blasin,blathick,blawid,bothick,corbaby,corbapl,corfroby,corfropl,edcon,edsin,gribabl,gribaby,gribapl,grifrobl,grifroby,grifropl,grinside,gripoled,lefedwid,lefthick,lengmaxt,lengmaxw,longside,lonpoled,maxleng,maxthick,maxwid,polbabl,polbaby,polbapl,poledwid,poleng,polfrobl,polfroby,polfropl,polthick,polwid,rebabl,rebaby,rebapl,refrobl,refroby,refropl,ritedwid,rithick,topthick,weight
+﻿axe_id,task_id,collection,comments,date-rec,find-date,find-place,labels,material,ngr,number,condition,areablad,areablal,areablar,areabody,areapoll,blacon,bladang,blaedwid,blaleng,blasin,blathick,blawid,bothick,corbaby,corbapl,corfroby,corfropl,edcon,edsin,gribabl,gribaby,gribapl,grifrobl,grifroby,grifropl,grinside,gripoled,lefedwid,lefthick,lengmaxt,lengmaxw,longside,lonpoled,maxleng,maxthick,maxwid,polbabl,polbaby,polbapl,poledwid,poleng,polfrobl,polfroby,polfropl,polthick,polwid,rebabl,rebaby,rebapl,refrobl,refroby,refropl,ritedwid,rithick,topthick,weight
 10001,96160,Jewry Wall Mus. Leicester,"This piece could easily be described as having its poll missing: however a piece of grinding seals in the flake scars at the poll end, so that it is undoubtedly complete.",19.12.77,"","North End, Exning, Suffolk","5. North End Exning Suffolk
 Goodacre Collection N.5
 20IL[...] 1964/219",flint,TL 62 65,"10,001",complete,7.5,3.5,4,46.5,1.5,0,85,0,18,2,24,59,16,0,0,2,0,0,3,7.5,18.5,0.25,7.5,19.5,0.25,95,20,1.5,27,58,27,95,35,106,32,60,0.5,6,0.75,1.5,8,0.75,7,0,18,34,,,,,,,2,29,17,280
@@ -8,19 +8,19 @@ GOODACRE COLLECTION N. 4",flint,TL 56,1002,complete,6.5,3.25,3.25,55,150,0,85,0,
 10003,96162,"Jewry Wall Mus.
 Leicester","",19.12.77,1885,"Herringswell, Suffolk","ARTHUR g. WRIGHT LOCALE N. Herringwell Mildenhall Suff DATE 1885 No. 79.
 20 IL 1964/230
-GOODACRE COLLECTION N 11",flint,7169,1003,complete,2,1,1,26.5,1,2,70,0,7,0,8,42,7,2,0,0,0,0,6,2,1.5,0,2,2.5,0,0,0,0.5,11,35,7,70,25,86,16,42,0,0,0,0,6,0,0,0,8,26,,,,,,,0,14,9,60
+GOODACRE COLLECTION N 11",flint,TL 71 69,1003,complete,2,1,1,26.5,1,2,70,0,7,0,8,42,7,2,0,0,0,0,6,2,1.5,0,2,2.5,0,0,0,0.5,11,35,7,70,25,86,16,42,0,0,0,0,6,0,0,0,8,26,,,,,,,0,14,9,60
 10004,96163,Jewry Wall Mus. Leicester,"",19.12.77,1885,"Barton Hill, Suffolk","BARTON HILL. Suffolk 1885
 GOODACRE COLLETION N6
-20 IL 1964/221",flint,TL [...] 9065,10004,complete,2.95,1.5,1.25,32.5,0.75,0,70,0,11,0,12,34,14,0,0,0,0,2,9,2.5,5,0,2.25,4,0,65,5,1.5,20,43,61,90,15,108,25,39,0,2,0,0.5,5,0,2,0,7,20,,,,,,,1.5,20,12,110
+20 IL 1964/221",flint,TL 9065,10004,complete,2.95,1.5,1.25,32.5,0.75,0,70,0,11,0,12,34,14,0,0,0,0,2,9,2.5,5,0,2.25,4,0,65,5,1.5,20,43,61,90,15,108,25,39,0,2,0,0.5,5,0,2,0,7,20,,,,,,,1.5,20,12,110
 10005,96164,"Jewry Wall Mus
 Leicester","",16.12.77,"","Swaff[...] Fen, Norfolk","GOODACRE COLLECTION N16
 Swaff[...] Fen
-20 IL 1964/218",flint,4 TF 8109,10005,complete,0.25,0.25,0.25,31.5,0.5,2,75,0,1,0,2,13,10,0,0,0,0,0,6,0.25,9,0,0.25,7,0.25,90,0,3,15,82,66,120,15,128,20,30,0,0,0,0,5,0,0,0,9,19,,,,,,,2,14,10,85
+20 IL 1964/218",flint,TF 8109,10005,complete,0.25,0.25,0.25,31.5,0.5,2,75,0,1,0,2,13,10,0,0,0,0,0,6,0.25,9,0,0.25,7,0.25,90,0,3,15,82,66,120,15,128,20,30,0,0,0,0,5,0,0,0,9,19,,,,,,,2,14,10,85
 10006,96165,Salisbury Museum,"1. burnt
 2. drilled
 3. Found by labourer moving earth.",8.11.77,1908,Hurdcott House,HURDCOTT 797 1030,flint,"",10006,complete,4,2,2,33,0.5,0,85,0,12,1,13,44,10,0,0,0,0,0,6,4,8,0,4,6.5,0,45,0,0,13,37,12,90,15,111,19,44,0,0,0,0,4,0,0,0,6,17,0,0,0,0,0,0,0.5,13,9,90
 10007,96166,Salisbury Museum,None,10.11.77,"",1/4 mile s of [...] [...] B - C Wilts,"54/60 792
-BROADCHALKE",flint,8U 0325,10007,complete,5,2.5,2.5,67,2,0,70,0,13,0,15,58,19,0,0,0,0,0,0,5,57,0.25,5,99.5,0.5,130,35,5,29,72,13,130,35,155,37,58,0,2,0,0.5,9,5,8.5,0,13,32,0,0,0,0,0,0,5,31,15,375
+BROADCHALKE",flint,SU 0325,10007,complete,5,2.5,2.5,67,2,0,70,0,13,0,15,58,19,0,0,0,0,0,0,5,57,0.25,5,99.5,0.5,130,35,5,29,72,13,130,35,155,37,58,0,2,0,0.5,9,5,8.5,0,13,32,0,0,0,0,0,0,5,31,15,375
 10008,96167,Wells Museum,I.CORBABL: 0.25,11.10.77,"","Thornholme Moor, Yorks","THORNHOLM MOOR
 14 71",flint,"",10008,complete,2.5,1.25,1.25,30.5,0.5,2,90,0,9,0,12,39,7,5,0,1.5,0,0,2,1.5,0,0,1.75,2,0,0,0,1.5,12,32,43,85,15,96,18,43,0,0,0,9,5,0,0,0,11,19,0,0,0,0,0,0,1,16,13,90
 10009,96168,Plymouth Museum,None,5.10.77,"","foot of Cosdon Beacon, Dartmoor [modern spelling = Cawsand]",1074,flint,SX 63 91,10009,complete,3.75,2,1.75,42.5,2.5,0,80,0,10,0,12,53,9,0,0,0,0,2,0,3.75,13.5,0,3.75,13,0,885,0,1.5,16,44,19,900,35,114,19,55,2,0,0,0.5,9,0,0,0,10,38,0,0,0,0,0,0,1,15,11,135
@@ -35,9 +35,9 @@ MIDDLETON
 BOULEVARD",flint,"",10012,complete,4.75,2.5,2.25,53.5,0.25,0,70,0,14,2,14,45,14,0,0,0,0,0,2,4.75,35,0.25,4.75,260,0.25,145,15,1.5,20,60,14,145,15,163,25,45,0,0,0,2.5,3,0,0,0,6,17,,,,,,,1.5,17,12,200
 10013,96172,Nottingham Univ. Mus.,"",9.12.77,"","Collingham, Notts.","Flint Ce[...]
 Collingha[...]
-Purch. fro[...]",flint,8361,10013,complete,13,6.5,6.5,80.5,1.75,0,85,0,26,1,37,74,20,0,0,0,0,0,3,13,64.5,1,13,69,1.75,120,30,3,31,70,48,120,35,149,40,79,0,0,0,2,7,0,0,0,14,37,,,,,,,2,30,20,570
-10014,96173,Nottingham Univ. Mus.,"",9.12.77,"","Broxtowe, Notts admin dist",Broxtowe Notts Aug 1938 4054.,flint,SK (?),10014,complete,7.25,3.75,3.5,55.5,1,0,75,0,15,4,17,68,15,0,0,0,0,0,4,7,41.5,0.5,6.5,45,0.25,90,5,2,23,68,15,90,35,114,29,68,0,3,0,1.5,5,0,6,0,12,36,,,,,,,2,23,15,280
-10015,96174,Derby Museum,"",14.12.77,1976,"Hartshay Hill, Ripley Derbs",L 257-1977,flint,(?) SK 38 50,10015,complete,4.25,2,2,66.5,0.25,0,70,0,13,2,14,47,8,0,0,0,0,0,7,0.25,0,0,0.25,0.5,0,0,0,0,16,55,56,170,5,182,23,50,0,0,0,1,2,0,0,0,6,8,,,,,,,0,14,14,210
+Purch. fro[...]",flint,SK 83 61,10013,complete,13,6.5,6.5,80.5,1.75,0,85,0,26,1,37,74,20,0,0,0,0,0,3,13,64.5,1,13,69,1.75,120,30,3,31,70,48,120,35,149,40,79,0,0,0,2,7,0,0,0,14,37,,,,,,,2,30,20,570
+10014,96173,Nottingham Univ. Mus.,"",9.12.77,"","Broxtowe, Notts admin dist",Broxtowe Notts Aug 1938 4054.,flint,SK,10014,complete,7.25,3.75,3.5,55.5,1,0,75,0,15,4,17,68,15,0,0,0,0,0,4,7,41.5,0.5,6.5,45,0.25,90,5,2,23,68,15,90,35,114,29,68,0,3,0,1.5,5,0,6,0,12,36,,,,,,,2,23,15,280
+10015,96174,Derby Museum,"",14.12.77,1976,"Hartshay Hill, Ripley Derbs",L 257-1977,flint,SK 38 50,10015,complete,4.25,2,2,66.5,0.25,0,70,0,13,2,14,47,8,0,0,0,0,0,7,0.25,0,0,0.25,0.5,0,0,0,0,16,55,56,170,5,182,23,50,0,0,0,1,2,0,0,0,6,8,,,,,,,0,14,14,210
 10016,96175,"Jewry Wall Mus.
 Leicester","UCH 1 175
 Evans 103
@@ -93,21 +93,21 @@ SK 446143
 Leicester","TLAS XLVII 71.2, 63",19.12.77,"","Beaumont Leys, Leicester","BEAUMONT LEYS
 LEICESTER
 SK56950723
-E/1971/9",Flint,570072,10028,complete,9.5,4.75,4.75,52,3.5,0,90,0,22,0,24,61,16,0,0,0,0,0,2,9.25,37,1.5,9.5,30,2.25,90,35,2.5,24,63,36,90,35,131,32,61,2,1,0,2,12,0,0,0,16,41,,,,,,,2,26,16,300
+E/1971/9",Flint,SK 570 072,10028,complete,9.5,4.75,4.75,52,3.5,0,90,0,22,0,24,61,16,0,0,0,0,0,2,9.25,37,1.5,9.5,30,2.25,90,35,2.5,24,63,36,90,35,131,32,61,2,1,0,2,12,0,0,0,16,41,,,,,,,2,26,16,300
 10029,96186,Derby Museum ,"1. Although no polish, grinding is very smooth
-2. Petrology (F. W Shetton): 'Vestigeo of fora minifera of ""sphereo"" are abundant. This is the light grey flint which is generally ascribed to the chalk of Yorkshire or Lincolnshire.'",14.12.77,c.1952,"Rosetand Fm, Scarcliffe, Shivebrook",207-53,Flint,50 67,10029,complete,2.75,1.5,1.5,34.5,1.5,0,75,0,9,0,11,45,12,0,0,0,0,0,0,2.75,33,1.25,2.75,33.5,1.5,85,25,4,19,34,9,85,35,104,23,45,0,0,0,0.5,8,0,0,0,9,27,,,,,,,4,19,12,120
+2. Petrology (F. W Shetton): 'Vestigeo of fora minifera of ""sphereo"" are abundant. This is the light grey flint which is generally ascribed to the chalk of Yorkshire or Lincolnshire.'",14.12.77,c.1952,"Rosetand Fm, Scarcliffe, Shivebrook",207-53,Flint,SK 50 67,10029,complete,2.75,1.5,1.5,34.5,1.5,0,75,0,9,0,11,45,12,0,0,0,0,0,0,2.75,33,1.25,2.75,33.5,1.5,85,25,4,19,34,9,85,35,104,23,45,0,0,0,0.5,8,0,0,0,9,27,,,,,,,4,19,12,120
 10030,96187,"","",4.1.78,"","Barkhale Came, Brignor, West Sussex","BARKHALE 
-CAMP U",Flint,976 126,10030,complete,6,2.75,3.25,37.5,0.5,0,70,0,16,6,11,57,5,0,0,0,0,0,4,0,0,0,1,0,0,65,0,1.5,11,79,16,90,20,106,15,57,0,0,0,9,3,0,0,0,11,23,,,,,,,1.5,11,8,85
+CAMP U",Flint,SU 976 126,10030,complete,6,2.75,3.25,37.5,0.5,0,70,0,16,6,11,57,5,0,0,0,0,0,4,0,0,0,1,0,0,65,0,1.5,11,79,16,90,20,106,15,57,0,0,0,9,3,0,0,0,11,23,,,,,,,1.5,11,8,85
 10031,96188,Devizes Museum,"",17.11.77,"","Pewsey Hill, Pewsey, Wilts.",Pewsey Hill Dixon [Bequest ?] DM.1825,flint,SU 17 57,10031,complete,6,3,3,140.5,2.5,0,80,0,13,0,18,60,26,0,0.75,0,0,0,0,6,137.5,2,6,139,2.25,225,25,12,41,108,84,225,30,245,52,70,6,15,0,1,9,6,13.5,0,13,39,,,,,,,14,42,26,
 10032,96189,Devizes Museum ,"blade edge exceptionally fresh: looks rather as if it has been, loved, never used ",17.11.97,"","East Grafton, Wilts ","Grafton
 Grafton
 74.1967
-870",Flint,250604,10032,complete,5,5,5,54,0.5,0,80,0,21,1,19,66,17,0,0,0,0,0,3,9.75,65.5,0.5,9.75,62,0,165,20,2.5,24,50,31,165,20,191,33,68,9.75,10,0,2,4,8.5,7,0,6,19,,,,,,,3,26,16,420
+870",Flint,SU 250 604,10032,complete,5,5,5,54,0.5,0,80,0,21,1,19,66,17,0,0,0,0,0,3,9.75,65.5,0.5,9.75,62,0,165,20,2.5,24,50,31,165,20,191,33,68,9.75,10,0,2,4,8.5,7,0,6,19,,,,,,,3,26,16,420
 10033,96190,Devizes Museum,"1. Devizes Catalogue II, Cummington & Goddard, 1911: no. 16 (p.6), 
 Plate III. 2        VCH WILTS I, i , gives NGR  283803 (p.37).",17.11.77,1859,"Near Baydon, Botley Wilts ","31 - Flint Celt, cutting edge oblique.
 Found near the Romano-British Station, Baydon, May 1859
 N.         Baydon
-31         Botley                 882",Flint,283803,10035,complete,12.5,5.5,7,62.5,2.5,0,80,0,26,1,24,61,18,0,0,0,0,0,2,12,50,2,12,49.5,1.75,120,0,9,25,71,26,120,50,150,35,61,12,9,0,0.5,11,12,11,0,13,39,,,,,,,5,30,18,380
+31         Botley                 882",Flint,SU 283803,10035,complete,12.5,5.5,7,62.5,2.5,0,80,0,26,1,24,61,18,0,0,0,0,0,2,12,50,2,12,49.5,1.75,120,0,9,25,71,26,120,50,150,35,61,12,9,0,0.5,11,12,11,0,13,39,,,,,,,5,30,18,380
 10034,96191,Devizes Museum ,1. poll edge may be damaged ,5.7.78,"","","Urchfont Devon
 1023
 Urchfont
@@ -234,8 +234,8 @@ A12",flint,SX 804439,10069,complete,8.25,3.75,4.5,28.5,1,0,80,0,22,1,22,51,14,8,
 10073,96228,"","","","",Rougemont House,"",flint,SS 2624,10073,complete,5.5,2.75,2.75,80.5,1.25,0,65,0,13,0,11,50,13,0,0,0,0,0,0,5.5,32,0,5.5,24.5,0,200,0,3,15,80,13,200,30,218,22,50,5.5,8,0,0,6,5.5,8.5,0,8,26,0,0,0,0,0,0,3,20,10,265
 10074,96229,"","","","","","",flint,sp 0251,10074,reworked fragment,,,,,,,70,0,,,,,,,,,,,,,,,,,,,,10,,,,,,,,,,,,1,,,,,,,,,,,,,6.5,,,525
 10075,96230,Hereford Museum,"1. found in excavations for flats
-2. CBA catalogue He 6/cf",19.10.77,"","Hunderton, Hereford",6603,flint,50,10075,complete,2.5,1.25,1.25,31.5,0.25,0,70,0,8,2,9,37,9,0,0,0,0,4,0,2.5,26,0.25,2.5,28,0.25,100,0,3,13,72,8,100,15,110,16,37,2.5,3,0,7,1,2.5,3.5,0,8,16,0,0,0,0,0,0,2.5,13,7,85
-10076,96231,"","","","","","",flint,50 419587,10076,complete,,3.75,,60.5,1.75,4,75,0,16,0,16,64,16,0,0,0,0,0,0,6.75,42,0.5,6.75,35.5,0,,30,5,24,64,16,,30,140,29,64,0.75,2,0,2,8,0,0,0,10,31,0,0,0,0,0,0,6,23,14,280
+2. CBA catalogue He 6/cf",19.10.77,"","Hunderton, Hereford",6603,flint,SO,10075,complete,2.5,1.25,1.25,31.5,0.25,0,70,0,8,2,9,37,9,0,0,0,0,4,0,2.5,26,0.25,2.5,28,0.25,100,0,3,13,72,8,100,15,110,16,37,2.5,3,0,7,1,2.5,3.5,0,8,16,0,0,0,0,0,0,2.5,13,7,85
+10076,96231,"","","","","","",flint,SO 419 587,10076,complete,,3.75,,60.5,1.75,4,75,0,16,0,16,64,16,0,0,0,0,0,0,6.75,42,0.5,6.75,35.5,0,,30,5,24,64,16,,30,140,29,64,0.75,2,0,2,8,0,0,0,10,31,0,0,0,0,0,0,6,23,14,280
 10077,96232,Axbridge Museum,"1. whole celt has a glossy patina, which might be obscuring polish.
 2. patina is similar to that on Early Neolithic pieces from the site. From post-BA context. (A. Everton)",19.10.77,"","Cadbury fort, Congresbury         Avon","CC70
 PO474",flint,ST 442649,10077,reworked fragment,6.75,3.25,3.5,42,8.5,0,85,0,17,0,21,55,17,0,0,0,0,0,1,6.5,33.5,1.5,6.5,39.5,2,80,0,5,30,53,35,80,55,122,35,57,0,0,0,0,29,0,0,0,22,45,0,5.5,7,0,0.5,1.5,10,29,18,270
@@ -261,7 +261,7 @@ MITCHELDEAN
 Wilderness Works 1888
 5 FT.  below surface",flint,SO 658185,10086,complete,4,2,2.5,31.5,0.5,0,80,0,13,2,14,46,11,0,0,0,0,0,1,3.75,23,0.25,4,23,0.5,90,15,5,17,50,15,90,15,101,21,46,1.25,3,0,2.5,4,3.5,2,0,8,17,0,0,0,0,0,0,5,18,11,120
 10087,96241,Gloucester Museum,"",21.10.77,"",Cotswolds,"Cotswolds A. 3423
-19 [67] [Y.]H. PEARCE",flint,[two-digit number scratched out] 50 9 0,10087,complete,9.5,5,4.5,34.5,0.75,0,75,0,20,0,14,55,15,0,0,0,0,0,8,5.75,2.5,0,7.5,5,0.25,0,0,1.5,20,45,20,80,25,106,28,55,0.5,0.5,0,3,3,2.5,2.5,0,7,15,0,0,0,0,0,0,0.5,21,13,145
+19 [67] [Y.]H. PEARCE",flint,SO 9 0,10087,complete,9.5,5,4.5,34.5,0.75,0,75,0,20,0,14,55,15,0,0,0,0,0,8,5.75,2.5,0,7.5,5,0.25,0,0,1.5,20,45,20,80,25,106,28,55,0.5,0.5,0,3,3,2.5,2.5,0,7,15,0,0,0,0,0,0,0.5,21,13,145
 10088,96242,Gloucester Museum,1. right side edge only ground.,21.10.77,1922,"Sandhurst Lane, Gloucester, Glos.","A.3122
 Sandhurst Lane
 GLOUCESTER
@@ -471,12 +471,12 @@ X.89",flint,TG,10165,complete,10.25,5,5.25,142,1.25,2,90,0,16,0,23,52,25,0,0,0,0
 10166,96313,Salisbury Museum,"1. Wainwright & Longworth 1971, Fig. 65 (F1) (drawing shows back face & left side). Associated with plain round-based [...] (p.48), 1 leaf point (F7) & determination of 2450 [...] 150 b.c. (NPL - 191).",24.11.77,"","Durrington Walks, Wiltshire","DW'66
 217/ (97)
 828
-322 [...]",Flint,[...] 150 435,10166,complete,12.5,6.5,6,37,1.5,1,80,0,31,0,27,54,14,0,0,0,0,2,2,10.5,23.5,0.25,9.5,29.5,1,70,5,5,25,56,36,70,30,119,30,54,0,0,0,1,7,0,0,0,10,26,,,,,,,3.5,24,17,200
+322 [...]",Flint,SU 150 435,10166,complete,12.5,6.5,6,37,1.5,1,80,0,31,0,27,54,14,0,0,0,0,2,2,10.5,23.5,0.25,9.5,29.5,1,70,5,5,25,56,36,70,30,119,30,54,0,0,0,1,7,0,0,0,10,26,,,,,,,3.5,24,17,200
 10167,96314,Salisbury Museum,"1. although not much of the sides is ground, they have been flattened by pecking along the whole of both side edges.
 2. Found 'c. 1 1/2' below the surface of soil, over the Drift Gravel'. Brought in by workman with 1040 (unground), from some place - may be a hoard.",24.11.77,1896,Godolphin School,"MILFORD HILL 3.96
 1008",flint,SU 15 29,10167,complete,2.5,1.25,1.25,44.5,1.25,0,75,0,10,0,11,31,15,0,0,0,0,0,4,2.5,5.5,0,2.5,55,0,35,0,8,22,81,56,130,10,154,29,39,0,0,0,0,8,0,0,0,9,22,,,,,,,10,20,14,175
 10168,96315,Salisbury Museum,"1. This piece differs from a Mesolithic tranchet celt, in that (aside from the grinding) the tranchet cutting edge was not the product of the last flake removal.",24.11.77,1872,"Bishopstone, Wilts","BISHOPSTONE F.SIDFORD 1872.
-1063",flint,SU[...]0725,10168,complete,4.75,2.75,2,30.5,1,2,70,0,12,80,14,49,9,,,,,0,6,0,1,0,0,0.5,0,60,0,2,17,26,12,90,15,104,22,49,0,0,0,0,7,0,0,0,8,20,,,,,,,1,18,14,95
+1063",flint,SU 07 25,10168,complete,4.75,2.75,2,30.5,1,2,70,0,12,80,14,49,9,,,,,0,6,0,1,0,0,0.5,0,60,0,2,17,26,12,90,15,104,22,49,0,0,0,0,7,0,0,0,8,20,,,,,,,1,18,14,95
 10169,96316,Salisbury Museum,"1. The curve of this piece is probably not deliberate.
 2. From pothole in ballast gravel at Shirley.",24.11.77,1886,"Shirley, Harts",SHIRLEY 21=4=86 2005,flint,SZ1798,10169,complete,3,1.5,1.75,37.5,1,0,75,0,14,0,13,33,8,0.5,2.75,2.5,0.25,6,6,1,6.5,0.25,2,12,0.75,110,5,4,12,72,53,110,15,128,18,39,0,0,0,1,6,0,0,0,8,22,,,,,,,3,14,11,105
 10170,96317,Salisbury Museum,1. There is a distinct ground facet on the poll edge,23.11.77,"","Church Bottom, Boardchalk  Broad Chalke, Witts","8/1971  
@@ -532,7 +532,7 @@ Elmstead 11.4.96 [SR]
 058
 ",flint,TM 0626,10186,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,115,0,20,,,,130,30,,39,,,,,0,,,,,,,,,,,,,,,,365
 10187,96333,Castle Museum Colchester,"",9.2.78,1908,"Shoeburyness, Essex",SHOEBURYNESS H. W. 10. 6. 08 050,flint,TQ 9384,10187,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,105,15,7,,,,110,20,,28,,,,,1,,,,,,,,,,,,,,,,205
-10188,96334,Castle Museum Colchester,"",9.2.78,"","[Great] Horkesley, Essex",MDCLXXXIX P.C.,flint,c. TL 9730,10188,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,75,0,5.5,,,,85,25,,35,,,,,1,,,,,,,,,,,,,,,,230
+10188,96334,Castle Museum Colchester,"",9.2.78,"","[Great] Horkesley, Essex",MDCLXXXIX P.C.,flint,TL 9730,10188,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,75,0,5.5,,,,85,25,,35,,,,,1,,,,,,,,,,,,,,,,230
 10189,96335,Castle Museum Colchester,"",9.2.78,1888,"Kelvedon, Essex","KELVEDON. 1888.
 KELVEDON. 3343' 15.",flint,TL 8518,10189,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,125,5,8,,,,125,35,,38,,,,,0.5,,,,,,,,,,,,,,,,380
 10190,96336,Castle Museum Colchester,"",9.2.78,1888,"Kelvedon, Essex","KELVEDON 1888. J.W.K.
@@ -556,7 +556,7 @@ w 020.94 J.W.L",flint,TM 25 21,10199,complete,,,,,,,100,,,,,,,0,0,0,0,,,,,,,,,25
 10202,96347,Castle Museum Colchester,1. cortex is smooth & iron-stained.,10.2.78,"","Park Lane Farm, Langham, Essex",LANGHAM 116. 43,flint,TM 0231,10202,complete,,,,,,,65,,,,,,,2,1,1,1.5,,,,,,,,,90,0,2.5,,,,100,30,,22,,,,,2.5,,,,,,,,,,,,,,,,125
 10203,96348,Castle Museum Colchester,"",10.2.78,c. 1885,"Great Bromley, Essex",GT. BROMLEY 5061 25,flint,TM 0826,10203,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,95,15,5.5,,,,95,25,,25,,,,,1,,,,,,,,,,,,,,,,165
 10204,96349,Castle Museum Colchester,"",10.2.78,"","Wethersfield, Essex",WETHERSFIELD 4525.23,flint,TL 7131,10204,complete,,,,,,,85,,,,,,,4,0,20,0,,,,,,,,,110,15,2.5,,,,140,20,,36,,,,,0.5,,,,,,,,,,,,,,,,440
-10205,96350,Castle Museum Colchester,"",10.2.78,"","Mucking Heath, Essex",MUCKING HEATH. 3496'16,flint,c. TQ 68 81,10205,complete,,,,,,,60,,9,,8,40,,0,0,0,0,,,,,,,,,180,0,1.5,,67,9,180,15,194,21,40,,,,0,7,,,,8,18,,,,,,,,,,145
+10205,96350,Castle Museum Colchester,"",10.2.78,"","Mucking Heath, Essex",MUCKING HEATH. 3496'16,flint,TQ 68 81,10205,complete,,,,,,,60,,9,,8,40,,0,0,0,0,,,,,,,,,180,0,1.5,,67,9,180,15,194,21,40,,,,0,7,,,,8,18,,,,,,,,,,145
 10206,96351,"","","",c. 1870,"","",flint,TQ 59 93,10206,complete,,,,,,,75,,14,,15,64,,0,0,0,0,,,,,,,,,150,0,2.5,,74,42,160,30,181,36,70,,,,0,5,,,,7,27,,,,,,,,,,555
 10207,96352,Castle Museum Colchester,"",10.2.78,1913,"Stanford le Hope, Essex","Stanford le Hope [illeg] at 4 [illeg] top of gravel 184'1.3
 STANFORD LE HOPE 3405'16",flint,TQ 68 82,10207,complete,,,,,,,80,,16,,19,61,,0,0,0,0,,,,,,,,,155,15,6,,76,44,155,15,177,42,65,,,,2.5,2,,,,4,17,,,,,,,,,,525
@@ -564,9 +564,9 @@ STANFORD LE HOPE 3405'16",flint,TQ 68 82,10207,complete,,,,,,,80,,16,,19,61,,0,0
 10209,96354,Castle Museum Colchester,"",10.2.78,"","Hatfield Peverel bypass, Essex",62.1964,flint,TL 79 11,10209,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,120,30,1,,,,120,30,,28,,,,,1.5,,,,,,,,,,,,,,,,280
 10210,96355,"Castle Museum
 Colchester","",10.2.78,"","Gosfield, Essex","368
-62",flint,7829,10210,fragment,,,,,,,80,,,,,,,8,0,0,0,,,,,,,,,90,15,6,,,,90,15,,30,,,,,,,,,,,,,,,,,,,,,215
+62",flint,TL 78 29,10210,fragment,,,,,,,80,,,,,,,8,0,0,0,,,,,,,,,90,15,6,,,,90,15,,30,,,,,,,,,,,,,,,,,,,,,215
 10211,96356,"Castle Museum
-Colchester","",10.2.78,"","Greenstead, Essex",123.1965,flint,0225,10211,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,130,0,3.5,,,,150,30,,45,,,,,0,,,,,,,,,,,,,,,,555
+Colchester","",10.2.78,"","Greenstead, Essex",123.1965,flint,TM 0225,10211,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,130,0,3.5,,,,150,30,,45,,,,,0,,,,,,,,,,,,,,,,555
 10212,96357,"Castle Museum
 Colchester","",10.2.78,c. 1955,"Sandy Lane, Chadwell",44.1964,flint,TQ,10212,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,100,0,5.5,,,,100,20,,27,,,,,0,,,,,,,,,,,,,,,,185
 10213,96358,"Norwich
@@ -593,10 +593,10 @@ Southgate, Cawston
 Castle Museum","1. Blade edge rounded. Side edges are also rounded, but the piece doesn't seem to have been rolled. ",14.2.78,"","","793.76.94          793
 Blofield              Blofield
 NA
-VIII 1879 329",flint,T9 3309,10215,complete,,,,,,,90,,,,,,,0,0,17,0,,,,,,,,,180,5,5.5,,,,180,25,,36,,,,,0,,,,,,,,,,,,,,,,470
+VIII 1879 329",flint,TG 33 09,10215,complete,,,,,,,90,,,,,,,0,0,17,0,,,,,,,,,180,5,5.5,,,,180,25,,36,,,,,0,,,,,,,,,,,,,,,,470
 10216,96361,"Norwich
 Castle Museum",!. whole of right edge ground,14.2.78,"","Blickling Park, Norfolk","Blickling Park
-283-951",flint,T9 1728,10216,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,85,0,4,,,,120,20,,35,,,,,0.5,,,,,,,,,,,,,,,,295
+283-951",flint,TG 17 28,10216,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,85,0,4,,,,120,20,,35,,,,,0.5,,,,,,,,,,,,,,,,295
 10217,96362,"Norwich
 Castle Museum",1. blade edge is not very scarred,14.2.78,"","Harcourts Fm, Blakeney, Norfolk","Harcourts          144.937
 Farm
@@ -606,7 +606,7 @@ C.D.B.",flint,"",10217,complete,,,,,,,70,,,,,,,1.5,0,0,0,,,,,,,,,140,0,6,,,,170,
 10218,96363,"Norwich
 Castle Museum","",15.2.78,1962,"Coltishall, Nfk","Coltishall
 c. T9 / 283203
-293-962",flint,T9 281201,10218,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,130,0,2,,,,130,10,,35,,,,,0,,,,,,,,,,,,,,,,335
+293-962",flint,TG 281 201,10218,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,130,0,2,,,,130,10,,35,,,,,0,,,,,,,,,,,,,,,,335
 10219,96364,"Norwich
 Castle Museum",1. may have lost part at poll end?,15.2.78,"","Cranwich, Norfolk","Cranwich
 H.H. Halls
@@ -615,7 +615,7 @@ HHH
 10220,96365,"Norwich
 Castle Museum","1. no grinding.  Side edges may have been pecked somewhat (otherwise, the edges have been damaged)",15.2.78,"","","Costessey
 Water Lane
-313-958",flint,T9 170103,10220,roughout,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,0,0,1.5,,,,195,10,,40,,,,,0,,,,,,,,,,,,,,,,520
+313-958",flint,TG 170 103,10220,roughout,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,0,0,1.5,,,,195,10,,40,,,,,0,,,,,,,,,,,,,,,,520
 10221,96366,"Norwich
 Castle Museum","",15.2.78,"","","Found near Difs
 on the Clant Hills
@@ -625,11 +625,11 @@ DISS",flint,"",10221,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,100,30,3,,,,110,30,
 Castl Museum",1. blade edge looks used.  No grinding on either face.,15.2.78,"","","693.966
 Hellesdon
 T9/21131245 approx.
-R.D. Gadsby",flint,T9 211124,10222,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,125,0,3.5,,,,135,5,,23,,,,,0,,,,,,,,,,,,,,,,190
+R.D. Gadsby",flint,TG 211 124,10222,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,125,0,3.5,,,,135,5,,23,,,,,0,,,,,,,,,,,,,,,,190
 10223,96368,"Norwich
 Castle Museum","",15.2.78,"","Dunston, Stoke Holy Cross, Nfk","Dunston 1962
 24.86
-Dunston",flint,T9 2202,10223,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,110,0,3,,,,110,10,,33,,,,,1,,,,,,,,,,,,,,,,230
+Dunston",flint,TG 22 02,10223,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,110,0,3,,,,110,10,,33,,,,,1,,,,,,,,,,,,,,,,230
 10224,96369,"Norwich
 Castle Museum","",15.2.78,"","[grat] Dunham, Nfk","Dunham
 800.76.94
@@ -648,14 +648,14 @@ T",flint,TF 7302,10226,complete,,,,,,,85,,,,,,,0,0,2.5,0,,,,,,,,,135,0,5,,,,135,
 Castle Museum","1. Although little grinding on side edges, they are pecked smooth.
 2. found in field",15.2.78,1958,"Rose Farm, Acle","63/407097
 Acle 1958
-237.958",flint,T9  407097,10227,complete,,,,,,,90,,,,,,,3.5,0,0,0,,,,,,,,,20,0,4,,,,150,30,,51,,,,,14,,,,,,,,,,,,,,,,635
+237.958",flint,TG 407 097,10227,complete,,,,,,,90,,,,,,,3.5,0,0,0,,,,,,,,,20,0,4,,,,150,30,,51,,,,,14,,,,,,,,,,,,,,,,635
 10228,96373,"Norwich
 Castle Museum","1. blade edge quite fresh
 2. found in ploughing",15.2.78,1959,"","Aylsham, 1959
 (63/165268)
 150.960
 Aylsham 1959 63/165268
-N. side of road",flint,T9 165268,10228,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,100,0,3.5,,,,110,25,,30,,,,,6,,,,,,,,,,,,,,,,285
+N. side of road",flint,TG 165 268,10228,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,100,0,3.5,,,,110,25,,30,,,,,6,,,,,,,,,,,,,,,,285
 10229,96374,"Norwich
 Castle Museum","1. Where effected, measurements are taken from the suggested outline assuming the hollow to be absent (except for weight)",15.2.78,1946,"","Aslacton  1946
 
@@ -664,23 +664,23 @@ Castle Museum","1. Where effected, measurements are taken from the suggested out
 10230,96375,Norwich Castle Museum,"1. Made from a flat, iron-stained nodule, whose surface remains on both faces, extending from poll to top of blade (from where it has been ground away).",15.2.78,"","Carfield, NFK.",CATFIELD 107.937 H. Hall,flint,TG 38 21,10230,complete,,,,,,,85,,,,,,,15,0,15,0,,,,,,,,,85,0,2,,,,95,25,,20,,,,,9,,,,,,,,,,,,,,,,95
 10231,96376,"Norwich
 Castle Museum","",15.2.78,"","Brompton, [Nfk","189.954
-Brompton 1959",flint,T9 2224,10231,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,25,0,2,,,,110,15,,31,,,,,0,,,,,,,,,,,,,,,,170
+Brompton 1959",flint,TG 22 24,10231,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,25,0,2,,,,110,15,,31,,,,,0,,,,,,,,,,,,,,,,170
 10232,96377,"Norwich
 Castle Museum","1. ?Reflaked, but very notable.  Blade edge completely undamaged.",15.2.78,1956,"","63/083328
 Briston, 1956
-18.959",flint,T9 083328,102312,reworked fragment,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,45,0,6,,,,120,25,,38,,,,,2.5,,,,,,,,,,,,,,,,410
+18.959",flint,TG 083 328,102312,reworked fragment,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,45,0,6,,,,120,25,,38,,,,,2.5,,,,,,,,,,,,,,,,410
 10233,96378,"Norwich
 Castle Museum","1. Although little of the side edges is ground, they have been pecked smooth.
 2. This may or may not be 'complete' : the fracture at the poll could have occurred during or after manufacture.",15.2.78,"",Lawston,"Lawston
 Manor
-127.949",flint,T9 155245,10233,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,10,0,2.5,,,,110,25,,23,,,,,14,,,,,,,,,,,,,,,,135
+127.949",flint,TG 155 245,10233,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,10,0,2.5,,,,110,25,,23,,,,,14,,,,,,,,,,,,,,,,135
 10234,96379,"Norwich
 Castle Museum","1. found by, not in, river
 2. back face similar to front.",15.2.78,"","River Yare, Bramerton, Nfk","By River Yare
 Bramerton 951
 32.951
 
-32.951",flint,T9 2906,10234,complete,,,,,,,75,,,,,,,0,0,0.5,0,,,,,,,,,0,0,0.5,,,,130,5,,19,,,,,0.5,,,,,,,,,,,,,,,,100
+32.951",flint,TG 29 06,10234,complete,,,,,,,75,,,,,,,0,0,0.5,0,,,,,,,,,0,0,0.5,,,,130,5,,19,,,,,0.5,,,,,,,,,,,,,,,,100
 10235,96380,"Norwich
 Castle Museum","",15.2.78,1957,"","268.957
 Cley-next-the-sea
@@ -697,27 +697,27 @@ Barningham
 [sic]
 
 N
-Barningham",flint,T9 1433,10237,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,40,0,3.5,,,,90,20,,35,,,,,0,,,,,,,,,,,,,,,,235
+Barningham",flint,TG 14 33,10237,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,40,0,3.5,,,,90,20,,35,,,,,0,,,,,,,,,,,,,,,,235
 10238,96383,"Norwich
 Castle Museum","1. no flake scars definitely post-date grinding while some definitely pre-date it.
 2. see no. 10237 for comment on provenance.
 3. back face similar, grinding toward right side",15.2.78,"","Little Barningham, Nfk [?]","57.935
 N. Barningham
 10/5/87
-near Church",flint,T9 1433,10238,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,80,,4,,,,125,,,35,,,,,0,,,,,,,,,,,,,,,,235
+near Church",flint,TG 14 33,10238,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,80,,4,,,,125,,,35,,,,,0,,,,,,,,,,,,,,,,235
 10239,96384,"Norwich
 Castle Museum",1. this looks like a flake tool (back = ventral face) Flake built originally at blade end.,15.2.78,1957,"","Hempstead
 63/093370
 233.957
 
-195[?7]",flint,T9 093370,10239,complete,,,,,,,75,,,,,,,0,0,7.5,0,,,,,,,,,65,0,2,,,,145,5,,25,,,,,0,,,,,,,,,,,,,,,,235
+195[?7]",flint,TG 093370,10239,complete,,,,,,,75,,,,,,,0,0,7.5,0,,,,,,,,,65,0,2,,,,145,5,,25,,,,,0,,,,,,,,,,,,,,,,235
 10240,96385,"Norwich
 Castle Museum","1. grinding seems to have been clearly carried out to remove a ridge formed by flakes, removed from blade edge, hinging the same occurs, though less obviously, on the back.  This piece may have been rejected because of this problem : note  also the way the black edge is off centre when viewed from the side.  It may have been used, however.",16.2.78,"","Black Park. Horsford, Mfk","48.960
 Horsford
-Nr Black Park",flint,T9 2016,10240,roughout,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,0,0,0,,,,105,5,,20,,,,,0,,,,,,,,,,,,,,,,115
+Nr Black Park",flint,TG 20 16,10240,roughout,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,0,0,0,,,,105,5,,20,,,,,0,,,,,,,,,,,,,,,,115
 10241,96386,"Norwich
 Castle Museum","",16.2.78,"",Felthorpe. Nfk,"120-925.
-Felthorpe",flint,T9 1618,10241,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,95,0,1,,,,105,15,,12,,,,,0,,,,,,,,,,,,,,,,70
+Felthorpe",flint,TG 16 18,10241,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,95,0,1,,,,105,15,,12,,,,,0,,,,,,,,,,,,,,,,70
 10242,96387,"Norwich
 Castle Museum","1. blade edge has a flat ground facet, max. wid. 1mm
 2. '2 polished flint axes found together in deep ploughing'
@@ -726,18 +726,18 @@ Stanninghall Hall FM
 H 46
 66.948
 
-66.948",flint,T9 257173,10242,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,115,0,2.5,,,,185,15,,22,,,,,0,,,,,,,,,,,,,,,,225
+66.948",flint,TG 257 173,10242,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,115,0,2.5,,,,185,15,,22,,,,,0,,,,,,,,,,,,,,,,225
 10243,96388,"Norwich
 Castle Museum",1. found in river,16.2.78,1956,"","Honingham
 139.956
-63/102116",flint,T9 102116,10243,complete,,,,,,,80,,,,,,,0,0.5,0,0.5,,,,,,,,,145,0,1.5,,,,145,15,,26,,,,,3,,,,,,,,,,,,,,,,210
+63/102116",flint,TG 102 116,10243,complete,,,,,,,80,,,,,,,0,0.5,0,0.5,,,,,,,,,145,0,1.5,,,,145,15,,26,,,,,3,,,,,,,,,,,,,,,,210
 10244,96389,"Norwich
 Castle Museum","1. delicate blade edge, no scarring
 2. somewhat more grinding on back face.",16.2.78,"","Hemblington, Nfk","60.936
 Hemblington
 1936
 
-60.936",flint,T9 3411,10244,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,140,0,2,,,,150,15,,19,,,,,0.5,,,,,,,,,,,,,,,,165
+60.936",flint,TG 34 11,10244,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,140,0,2,,,,150,15,,19,,,,,0.5,,,,,,,,,,,,,,,,165
 10245,96390,"Norwich
 Castle Museum","1. both side edges peeled smooth, but not poll edge.  Blade edge heavily scarred and flattened.
 2. flint has many cherty inclusions.",16.2.78,1947,"",Earsham 29.947,flint,TM 306895,10245,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,15,0,5,,,,135,30,,37,,,,,0.5,,,,,,,,,,,,,,,,320
@@ -745,14 +745,14 @@ Castle Museum","1. both side edges peeled smooth, but not poll edge.  Blade edge
 Castle Museum","1. possibly recent damage scars on back of poll + corner of blade on back.  There is an invasive flake scar from this same corner that is possibly also a damage scar.  It is ground in.
 
 Note: entry with no headings after 'Long Side' - 0 - 0 - 67 - 78 - 88",16.2.78,"","","Hempstead nr Holt
-601.969",flint,T9 108388,10246,complete,,,,,,,100,,29,,31,93,,0,0,0,0,,,,,,,,,180,0,5,,111,29,180,50,214,51,93,,,,2,11,,,,18,50,,,,,,,,,,
+601.969",flint,TG 108 388,10246,complete,,,,,,,100,,29,,31,93,,0,0,0,0,,,,,,,,,180,0,5,,111,29,180,50,214,51,93,,,,2,11,,,,18,50,,,,,,,,,,
 10247,96392,"Norwich
 Castle Museum","",16.2.78,1905,"","Mill
 Plantation.
 [Greshham]
 March 1905
 
-102.945",flint,T9 155385,10247,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,145,15,2.5,,,,145,15,,31,,,,,1,,,,,,,,,,,,,,,,520
+102.945",flint,TG 155 385,10247,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,145,15,2.5,,,,145,15,,31,,,,,1,,,,,,,,,,,,,,,,520
 10248,96393,"Norwich
 Castle Museum","",16.2.78,"","Stonepit hill, Gresham, Nfk","Stone Pit Hills
 Gresham
@@ -761,7 +761,7 @@ Gresham
 Gresham
 [flint
 Barningham
-15.24",flint,T9 1538,10248,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,60,0,2,,,,110,15,,34,,,,,1.5,,,,,,,,,,,,,,,,245
+15.24",flint,TG 15 38,10248,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,60,0,2,,,,110,15,,34,,,,,1.5,,,,,,,,,,,,,,,,245
 10249,96394,"Norwich
 Castle Museum","",16.2.78,"","Gresham, Nfk.","57-935
 Gresham
@@ -771,11 +771,11 @@ Cox's 1st find [?]
 
 No 1.
 Gresham
-1883",flint,T9 167387,10249,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,95,0,2.5,,,,100,35,,40,,,,,1,,,,,,,,,,,,,,,,430
+1883",flint,TG 167 387,10249,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,95,0,2.5,,,,100,35,,40,,,,,1,,,,,,,,,,,,,,,,430
 10250,96395,"Norwich
 Castle Museum",1. blade edge heavily crushed.,16.2.78,"","","Heydon 1958
 63/127255
-234.958",flint,T9 127255,10250,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,140,0,4.5,,,,140,10,,43,,,,,4,,,,,,,,,,,,,,,,490
+234.958",flint,TG 127 255,10250,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,140,0,4.5,,,,140,10,,43,,,,,4,,,,,,,,,,,,,,,,490
 10251,96396,"Norwich
 Castle Museum",1. found in gravel pit.,16.2.78,"","Horningtoft, Nfk","Horningtoft
 Gravel Pit 102.925 [barely visible]
@@ -804,11 +804,11 @@ See P.P.EA. Vol 3. p 163.
 Gresham 1919
 J. Cox's
 Collection
-Dug up in hole for Post",flint,T9 1638,10259,roughout,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,0,0,1,,,,200,20,,64,,,,,1,,,,,,,,,,,,,,,,
+Dug up in hole for Post",flint,TG 16 38,10259,roughout,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,0,0,1,,,,200,20,,64,,,,,1,,,,,,,,,,,,,,,,
 10260,96405,"Norwich
 Castle Museum","1. no grinding, so may be roughout.  Blade + side edges are somewhat crushed, tho:
 2. found in trench opposite bungalows.",16.2.78,1967,"","Hethersett
-383.970",flint,T9 171039,10260,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0.5,,,,135,5,,22,,,,,0,,,,,,,,,,,,,,,,1785
+383.970",flint,TG 171 039,10260,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0.5,,,,135,5,,22,,,,,0,,,,,,,,,,,,,,,,1785
 10261,96406,"Norwich
 Castle Museum","",17.2.78,"","","57.935
 Gresham Hills
@@ -835,7 +835,7 @@ Note: extra numbers after ""Longside"" : 2.5; 3.5; 47; 58; 63",17.2.78,1958,"","
 
 Hassingham
 195.958
-63/369055",flint,T9 367053,10263,complete,,,,,,,85,,21,,23,58,,2,,2,0.5,,,,,,,,,120,20,2,,61,42,120,25,147,35,64,,,,1.5,5,,,,8,25,,,,,,,,,,340
+63/369055",flint,TG 367 053,10263,complete,,,,,,,85,,21,,23,58,,2,,2,0.5,,,,,,,,,120,20,2,,61,42,120,25,147,35,64,,,,1.5,5,,,,8,25,,,,,,,,,,340
 10264,96409,Norwich Castle Museum,"",17.2.78,1947,"","HAVERINGLAND 127.949
 127.949",flint,TG 1520,10264,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,75,0,2,,,,130,5,,33,,,,,0.5,,,,,,,,,,,,,,,,300
 10265,96410,Norwich Castle Museum,"1. Poll definitely damaged on back face, but whether more recent-damage has occurred is difficult to tell: if so, line of shorter dashes in drawing is suggested reconstruction. Measure-ments assume no such damage. Blade is badly damaged, but it all looks ancient",17.2.78,1950,"",107.950 HECKINGHAM 1950,flint,TM 381984,10265,complete,,,,,,,75,,,,,,,,,,,,,,,,,,,120,0,3.5,,,,120,25,,,,,,,1.5,,,,,,,,,,,,,,,,390
@@ -1062,7 +1062,7 @@ M",flint,TM 25 47,10322,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,0,0,0.5,,,,135,1
 10325,96465,Weston-Super-Mare museum,"",4.10.77,1962,"Backwell Hill, Avon.",IN A  LOAD OF [ILLEGIBLE: ? TOPSOIL] FROM  - BACKWELL HILL 1962 63/253,flint,ST 4967,10325,complete,,,,,,0,70,0.5,,0,,,,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0.5,,,,,,,,,0,0,0,0.5,,0,0,0,,,0,0,0,0,0,0,0.5,,,100
 10338,96466,Southend,"1. blade edge finely scarred all along. 
 2. poll edge is a cortex facet.",21.2.79,"","",CANEWDON 642 L46/a,flint,TQ 953930,10338,complete,,,,,,,75,,,,,,,,,,,,,,,,,,,105,,1,,,,105,,,,,,,,,,,,,,,,,,,,,,,,85
-10345,96467,"","","","","","","","","","",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+10345,96467,"","","","","","","",TR,"","",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 10346,96468,Royal Museum Canterbury,"1. entered in Accessions Book Sep. 11, 1903.
 2. Piggett 1938, no. 6",2.11.77,"","Canterbury, Kent.","Canterbury [T Parry] 1896
 Property of ROYAL MUSEUM No. 659
@@ -1181,7 +1181,7 @@ Castle Museum","",9.3.78,"","Narborough, Norfolk","Narborough
 810.76.94",flint,TF 74 13,10382,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,220,20,4.5,,,,220,20,,65,,,,,2,,,,,,,,,,,,,,,,
 10383,96500,"Norwich
 Castle Museum","",9.3.78,"","Northrepps, Norfolk","Norhrepps IIII.
-120.963 (38)",flint,T9 24 39,10383,fragment,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,140,5,2,,,,140,15,,25,,,,,0.5,,,,,,,,,,,,,,,,160
+120.963 (38)",flint,TG 24 39,10383,fragment,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,140,5,2,,,,140,15,,25,,,,,0.5,,,,,,,,,,,,,,,,160
 10384,96501,Norwich Castle Museum,1. battered & stained: side edges might originally have been more ground. No grinding on blade edge.,9.3.78,"","Newton Flotman, Norfolk","28.925
 NEWTON FLOTMAN [illeg] 1924",flint,TM 2918,10384,roughout,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,20,0,0.5,,,,185,40,,42,,,,,0,,,,,,,,,,,,,,,,595
 10385,96502,Norwich Castle Museum,"",9.3.78,1952,"Newton St Faith, Norfolk.","NEWTON ST. FAITH
@@ -1220,7 +1220,7 @@ G. [illeg.]
 2. note NGR on celt is reversed.",15.3.78,"","Runham, Norfolk",RUNHAM 87-963 TG / 10524558,flint,TG 456 105,10398,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,180,0,3.5,,,,180,15,,56,,,,,2,,,,,,,,,,,,,,,,925
 10399,96516,Norwich Castle Museum,"1. Stained dark grey brown (? [...]), otherwise in fresh condition.
 2. finely flaked edges appear to have been finished by pressure flaking. ",16.3.78,"","North Walsham, Norfolk","Nr North Walsham R
-28.06 ",flint,T9 28 30,10399,roughout,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0,,,,120,20,,23,,,,,0,,,,,,,,,,,,,,,,270
+28.06 ",flint,TG 28 30,10399,roughout,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0,,,,120,20,,23,,,,,0,,,,,,,,,,,,,,,,270
 10400,96517,Norwich Castle Museum,"1. Stained dark brown, edges somewhat crushed; otherwise fresh.
 2. Large, irregular flake scars.",16.3.78,"","Wests Tofts, Lynford, Norfolk","West Toft
 Norfolk
@@ -1237,7 +1237,7 @@ W Tofts
 Castle Museum","1. poll reconstructed on assumption of regularity: other evidence for damage ambiguous.
 2. was slight roughout feel; not very fresh condition",16.3.78,"","Surlingham, Norfolk","104.953
 Surlingham
-F.J. Fenn",flint,T9 307 053,10402,roughout,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,0,0,1,,,,180,40,,58,,,,,0.5,,,,,,,,,,,,,,,,
+F.J. Fenn",flint,TG 307 053,10402,roughout,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,0,0,1,,,,180,40,,58,,,,,0.5,,,,,,,,,,,,,,,,
 10403,96520,"Norwich
 Castle Museum",1. Has roughout feel.  There appears to be a small amount of grinding on blade edge.,16.3.78,"","Warham St. Mary, Norfolk","R.E Gunton
 Warham St. Mary
@@ -1248,7 +1248,7 @@ Waxham  1954
 63/453247
 
 Waxham
-NE of Walnut Fm",flint,T9 453247,10404,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,135,15,3,,,,135,15,,39,,,,,3,,,,,,,,,,,,,,,,345
+NE of Walnut Fm",flint,TG 453 247,10404,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,135,15,3,,,,135,15,,39,,,,,3,,,,,,,,,,,,,,,,345
 10405,96522,"Norwich
 Castle Museum",1. poll edge formed by single flake scar; point of percussion ? at left side (ground in).,16.3.78,"","Grove Farm, Warham, Norfolk","Grove Farm Warham
 200.955",flint,TF 933416,10405,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,120,0,3.5,,,,140,35,,35,,,,,10.5,,,,,,,,,,,,,,,,505
@@ -1266,7 +1266,7 @@ Castle Museum","1. poll edge formed by intersection of flake scar on back face (
 
 Prsented by Wm Uttling Esq?
 
-131.30 N.A.V. 180  131.30",flint,T9 328007,10408,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,140,0,4,,,,140,35,,36,,,,,0,,,,,,,,,,,,,,,,425
+131.30 N.A.V. 180  131.30",flint,TG 328 007,10408,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,140,0,4,,,,140,35,,36,,,,,0,,,,,,,,,,,,,,,,425
 10409,96526,"Norwich
 Castle Museum",1. records give NGR TF941196,16.3.78,"","Stanfield, Norfolk","Stanfield
 198.958  53/942197
@@ -1274,12 +1274,12 @@ N[e?]o Stanfield
 I.H. Stanley",flint,TF 941196,10409,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,150,20,2,,,,150,20,,41,,,,,0,,,,,,,,,,,,,,,,575
 10410,96527,"Norwich
 Castle Museum",1. said to have been taken from a barrow,16.3.78,1855,"Swannington, Norfolk","915.76.94
-Tumulis, Swannington",flint,T9 127 182,10410,complete,,,,,,,180,,,,,,,0,0,0,0,,,,,,,,,135,10,9,,,,135,40,,31,,,,,0.5,,,,,,,,,,,,,,,,395
+Tumulis, Swannington",flint,TG 127 182,10410,complete,,,,,,,180,,,,,,,0,0,0,0,,,,,,,,,135,10,9,,,,135,40,,31,,,,,0.5,,,,,,,,,,,,,,,,395
 10411,96528,"Norwich
 Castle Museum","1. blade edge sharp
 2. poll edge partly formed by flake scar",16.3.78,"","Bridge Farm, Warham, Norfolk","Waxham
 63/447249 NE. of Bridge Fm.
-195.957",flint,T9 447 249,10411,"",,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,60,0,6.5,,,,95,35,,28,,,,,6,,,,,,,,,,,,,,,,270
+195.957",flint,TG 447 249,10411,"",,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,60,0,6.5,,,,95,35,,28,,,,,6,,,,,,,,,,,,,,,,270
 10412,96529,Norwich Castle Museum,"1. blade edge quite sharp. There is a polishing facet on both faces, extending along whole edge on front & c. 2/3 of edge on back face.
 2. found by farmer",16.3.78,1947,"Thurton, Norfolk","THURTON 1947
 S.E. of HALL
@@ -1415,7 +1415,7 @@ Gentlemen's Society","1. poll edge might be damaged or even missing: measurement
 
 Evans p. 100",10.4.78,1885,"Trimingham Beacon, Norfolk","Trimington
 
-20",flint,T9 28 38,10455,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,150,0,7,,,,150,45,,34,,,,,0.5,,,,,,,,,,,,,,,,480
+20",flint,TG 28 38,10455,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,150,0,7,,,,150,45,,34,,,,,0.5,,,,,,,,,,,,,,,,480
 10456,96572,"Spaulding
 Gentlemen's Society","1. although no obvious grinding on left side edge, right edge has c. 35mm ground; RITEWID - 0.5
 2. blade edge sharp, though with much small scarring.
@@ -1844,9 +1844,9 @@ CATFIELD 1939",flint,TG 38 21,10581,complete,,,,,,,70,,,,,,,0,0,0,0,,,,,,,,,120,
 2. PPSEA 3 (1920), 321 found 'with charcoal' in garden.",7.6.78,c. 1920,"North Walsham, Norfolk","Furze Hill
 N. Walsham
 Mrs Petre    5221
-PPSEA III 4.321",flint,T9 28 30,10582,complete,,,,,,,65,,,,,,,0,0.25,0,0,,,,,,,,,75,15,2,,,,150,20,,22,,,,,2,,,,,,,,,,,,,,,,120
+PPSEA III 4.321",flint,TG 28 30,10582,complete,,,,,,,65,,,,,,,0,0.25,0,0,,,,,,,,,75,15,2,,,,150,20,,22,,,,,2,,,,,,,,,,,,,,,,120
 10583,96694,Norwich C.M.,1. blade edge slightly concave (BEACON=1),7.6.78,1954,"Lakenham, Norfolk","Mr. Lakenham CH. Norwich
-57.454",flint,T9 23 07,10583,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,40,0,2,,,,105,15,,15,,,,,4,,,,,,,,,,,,,,,,45
+57.454",flint,TG 23 07,10583,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,40,0,2,,,,105,15,,15,,,,,4,,,,,,,,,,,,,,,,45
 10584,96695,Norwich C.M.,1. Surface very weathered.,7.6.78,"","","FLD. BARN PCE. WEETINA.
 64-948
 Field Barn piece",flint,TL 77 88,10584,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,45,0,2,,,,95,20,,19,,,,,4.5,,,,,,,,,,,,,,,,60
@@ -1930,7 +1930,7 @@ LOUND RUN",flint,TG 500 011,10610,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,60,0,1
 10620,96730,Norwich C.M.,"1. when surviving recent damage, blade edge is sharp.
 2. found on farm.",9.6.78,c. 1956,"","S of Granamy Lane
 Tunstead c.1956
-308.958",flint,T9 293 215,10620,complete,,,,,,,70,,,,,,,0,0,1,0,,,,,,,,,5,0,0.5,,,,135,50,,20,,,,,0,,,,,,,,,,,,,,,,185
+308.958",flint,TG 293 215,10620,complete,,,,,,,70,,,,,,,0,0,1,0,,,,,,,,,5,0,0.5,,,,135,50,,20,,,,,0,,,,,,,,,,,,,,,,185
 10621,96731,Norwich CM,"1. what looks like older flake scar than rest of scarring, on poll edge
 2. ploughed up",9.6.78,1959,"","                        63/293 308          
                          KNAPTON
@@ -3815,7 +3815,7 @@ Eachwick Northund
 2. blade edge scarred: looks recent.",31.10.78,"","","469
 A 19
 BURRADON NORTHUMBERLD
-",flint,9806,11224,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,190,,0,,,,190,,,,,,,,,,,,,,,,,,,,,,,,350
+",flint,TG 98 06,11224,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,190,,0,,,,190,,,,,,,,,,,,,,,,,,,,,,,,350
 11225,97329,BM,1.,19.10.78,"","","B11 N17
 St. 101.
 St. 101. 
@@ -4071,7 +4071,7 @@ TFL 26186979",XX,TF 262 698,50068,complete,,,,,,,80,,,,,,,0,0,0,0,,,,,,,,,130,30
 2. pecked band across butt is probably result of superficial grinding, rather than roughening of ground surface.
 3. Cummius & Moor 1973, PDS 39, Fig. 12.",24.5.78,1959,Holton Le Moor,"HOLTON-LE MOOR. 42.71 (324)
 42.71 Found near Nobles Wood Holton le Moor 1959 nr dyke by R.Heath
-324",XX,TFL 081 985,50091,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,40,10,5,,,,100,10,122,31,,,,,,,,,,,,,,,,,,,,,345
+324",XX,TF 081 985,50091,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,40,10,5,,,,100,10,122,31,,,,,,,,,,,,,,,,,,,,,345
 20005,97416,Lincoln Museum,1. Li. 101; 102,26.5.78,"",West Rasen,41.62 West Rasen,XX,TF 033 887,50095,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,140,30,1.5,,,,140,30,174,44,,,,,2.5,,,,,,,,,,,,,,,,695
 20006,97417,Norwich C.M.,"1. found in field.
 2. N.56",8.6.78,1954,Scarning,"SCARNING. 195
@@ -4425,7 +4425,7 @@ CW.33.981",VI medium,SK 61 39,60020,complete,8.75,4.25,4.5,108.5,3.75,0,80,0.5,1
 2. 212 ; Not. 36.
 [I don't know to wich fields the following variables belong: 0 0]",8.12.77,-,East Bridgeford,"212
 MARGIDUNUM CASE III",VI medium,SK 70 41,60022,complete,4,2.25,1.75,25,0.5,0,95,1,12,2,18,44,13,0,0,0,0,0,3,4,24.5,0.25,4,24,0,65,0,6,21,33,26,65,15,81,24,45,0,0,0,0.5,5,0,0,0,10,16,,,,,,,6,22,12,120
-60023,97530,"","","","","","",VI Banded,[...]SK 7041,60023,complete,,,,,,0,85,0,,5,,,,0,0,0,0,,,1.75,15,0.75,0.5,15,0.5,,,1,,,,,,,,,0,0,0,0,,0,0,0,,,,,,,,,1.5,,,60
+60023,97530,"","","","","","",VI Banded,SK 70 41,60023,complete,,,,,,0,85,0,,5,,,,0,0,0,0,,,1.75,15,0.75,0.5,15,0.5,,,1,,,,,,,,,0,0,0,0,,0,0,0,,,,,,,,,1.5,,,60
 60024,97531,"Heathcote Museum, Birchover",1. bb.15,13.12.77,"",Elton,13 New Elton,VI Medium,SK 22 60,60024,complete,3.75,1.75,2,35.5,0.75,0,50,0,9,0,12,56,14,0,0,0,0,0,1,3.75,33,0.75,3.75,34,0.5,85,10,5.5,22,44,18,85,20,92,25,56,0,0,0,7,4,0,0,0,11,23,,,,,,,5.5,21,12,155
 60025,97532,Derby Museum,1. Db 52.,14.12.77,-,"Wheston Hall Estate, Tideswell","Derby Museum
 897-2-40.
@@ -4464,7 +4464,7 @@ DONINGTON",VI Coarse,SK 423 267,60032,complete,3.75,2.25,1.5,31,1,0,85,0.5,11,0,
 60035,97542,Jewry Wall Mus. Leicester,1. Le 46.,15.12.77,-,"Western Rd, Leicester",WESTERN ROAD LEICESTER 59.30,VI,SK 578 035,60035,complete,7.75,4,3.75,31.5,0.25,1,80,0,17,1,20,56,12,0,0,0,0,0,0,7.75,31.5,0.25,7.75,31.5,0.25,80,10,9,21,40,17,80,10,101,24,56,0,0,0,1,3,0,0,0,5,13,,,,,,,8,21,12,155
 60036,97543,Jewry Wall Mus. Leicester,"1. Found in clearing out-house of Stathern Vicarage, & assumed to be a local find. Trans. Leics. Arch. Mist. Soc. 47, 74.
 2. Le 8.",15.12.77,-,Stathern (?),"466.1971 STATHERN?
-437",VI banded,(?) SK 77 31,60036,complete,5.5,3,2.5,105,0.25,0,85,0.5,13,3,17,62,20,0,0,0,0,0,7,5.5,100,0.25,5.5,99.5,0.25,190,10,2.5,27,90,53,190,10,207,37,69,0,0,0,0,3,0,0,0,6,12,,,,,,,6.5,30,17,670
+437",VI banded,SK 77 31,60036,complete,5.5,3,2.5,105,0.25,0,85,0.5,13,3,17,62,20,0,0,0,0,0,7,5.5,100,0.25,5.5,99.5,0.25,190,10,2.5,27,90,53,190,10,207,37,69,0,0,0,0,3,0,0,0,6,12,,,,,,,6.5,30,17,670
 60037,97544,Jewry Wall Mus. Leicester,1. Le 25,15.12.77,c. 1881,"Abbey Meadows, Leicester",16'22 ABBEY MEADOW LEICESTER,VI coarse,SK 588 061,60037,complete,6,3.25,2.75,97,0.75,0,90,0,14,2,22,63,26,0,0,0,0,0,6,6,96,0.75,6,95,0.25,140,15,9,39,71,64,140,15,169,47,78,0,0,0,1.5,5,0,0,0,11,23,,,,,,,9,39,21,810
 60038,97545,Jewry Wall Mus. Leicester,1. Le 44,15.12.77,-,Sproxton,"c/69/45
 Le 44",VI,SK 85 24,60038,complete,4,2,2,25.5,1.5,0,90,1,10,2,14,48,10,0,0,0,0,0,0,4,24,1,4,24,0,60,20,6,17,28,10,60,30,77,21,48,0,0,0,0,5,0,0,0,9,32,,,,,,,7,18,11,100
@@ -4569,7 +4569,7 @@ A.2157",VI,ST 7464,60066,complete,,,,,,,90,,17,,20,61,,0,0,0,0,,,,,,,,,95,0,5,,4
 2. Sh 16/c
 3. distinct facet on blade edge towards left side: maxwid. 1mm.
 3. distinct poll edge facet.",27.4.78,1928,"Lower Cockshut Field, Lodge Farm, Lydham",S18/1928 LYDHAM.,VI,SO 340 898,60067,complete,,,,,,,75,,13,,9,44,,0,0,0,0,,,,,,,,,90,10,3,,32,13,90,10,105,20,44,,,,0.5,5,,,,5,16,,,,,,,,,,105
-60068,97573,Shrewsbury Museum,1. Sh 45/c,27.4.78,1963,"Stocktongate, Chirbury",STOCKTON GATE,1963,VI,60068,complete,,,,,,,85,,12,,14,55,,0,0,0,0,,,,,,,,,105,15,6,,51,36,105,20,117,31,60,,,,0.5,4,,,,8,23,,,,,,,,,,285
+60068,97573,Shrewsbury Museum,1. Sh 45/c,27.4.78,1963,"Stocktongate, Chirbury",STOCKTON GATE,VI,"",60068,complete,,,,,,,85,,12,,14,55,,0,0,0,0,,,,,,,,,105,15,6,,51,36,105,20,117,31,60,,,,0.5,4,,,,8,23,,,,,,,,,,285
 60069,97574,Shrewsbury Museum,"1. found deeply embedded in day not far from edge of Cound Brook.
 1. Sh. 14/c",27.4.78,"","Venusbank, Cound","S11/1885 COUND.
 a
@@ -4686,7 +4686,7 @@ X 1969-247",VI medium,SK 278 758,60103,complete,,,,,,,75,,2,,2,5,,0,0,0,0,,,,,,,
 [I don't know to which fields the following variables belong: 0 0]",9.5.78,1852,"Gratton Moor, Middleton",J.93.69,VI banded,SK 19 60,60105,complete,,,,,,,80,,1,,1,6,,0,0,0,0,,,,,,,,,80,35,7,,5,1,80,50,10,30,6,,,,1.5,,,,,2,4,,,,,,,,,,275
 60106,97610,Sheffield Museum,1.D6.102,9.5.78,1831,"in the Holmes, Bradford river, Youlgreave",J.93.78,VI medium,SK 21 63,60106,complete,,,,,,,,,1.1,,1.5,5.6,,0,0,0,0,,,,,,,,,95,20,80,,4.8,1.1,95,20,11,29,5.6,,,,5,6,,,,1.3,2.3,,,,,,,,,,240
 60107,97611,Sheffield Museum,", Db.84.",9.5.78,"",Sterndale by Buxton,J.93.26,VI barded,SK 09 72,60107,complete,,,,,,,90,,2.9,,3.4,8.5,,0,0,0,0,,,,,,,,,185,36,,,9.8,2.9,185,35,23.7,52,8.5,,,,2,2.1,,,,2.7,5.7,,,,,,,,,,1.425
-60108,97612,Preston Museum,I. Y.,10.5.78,"","Danesdale, Driffield",A62,VI,7A 02 61,60108,complete,,,,,,,,,1.9,,2.4,6.1,,0,0,0,0,,,,,,,,,135,20,90,,4.6,1.9,135,20,15.5,33,6.1,,,,0.5,7,,,,1.1,2.5,,,,,,,,,,390
+60108,97612,Preston Museum,I. Y.,10.5.78,"","Danesdale, Driffield",A62,VI,TA 02 61,60108,complete,,,,,,,,,1.9,,2.4,6.1,,0,0,0,0,,,,,,,,,135,20,90,,4.6,1.9,135,20,15.5,33,6.1,,,,0.5,7,,,,1.1,2.5,,,,,,,,,,390
 60109,97613,Preston Museum,"1. La. 22.
 [I don't know to which fields the following variables belong: 0 0]",10.5.78,"",Winmarleigh,A73,VI fine,SD 446 469,60109,complete,,,,,,,90,,1,,1,5,,0,0,0,0,,,,,,,,,170,15,5,,6,69,170,15,17,35,63,,,,1,5,,,,1,2,,,,,,,,,,500
 60110,97614,Preston Museum,"1. La. 17. andesitic. tuff, similar to coarse Group VI.
@@ -4702,9 +4702,9 @@ X 1969-247",VI medium,SK 278 758,60103,complete,,,,,,,75,,2,,2,5,,0,0,0,0,,,,,,,
 2. [""found near surface during draining operation"" scored out] 
 J. Weld 1888 Stone & Bronze implements & weapons (HS): p2 found 'near the surface immediately below the house at Leagram on part of the ancient lawnd, which had never previously been disturbed.' Found while draining.
 3. Surface weathered.",11.5.78,1863,Leagram,"chet found in draining ound at Leagram in 1863
-A67",VI,SD c. 639 445,60113,complete,,,,,,,80,,1.3,,1.5,5.6,,0,0,0,0,,,,,,,,,115,20,6,,4.9,3.2,115,20,13.5,29,58,,,,0.5,9,,,,1.1,2.4,,,,,,,,,,280
+A67",VI,SD 630 445,60113,complete,,,,,,,80,,1.3,,1.5,5.6,,0,0,0,0,,,,,,,,,115,20,6,,4.9,3.2,115,20,13.5,29,58,,,,0.5,9,,,,1.1,2.4,,,,,,,,,,280
 60114,97618,Preston Museum,"1. La 19
-2. distinct poll edge facet. Right side edge widens to an ill-defined facet in upper (butt) half (RITEDWID = 5.0)",11.5.78,1924,"foot of Beacon Fell, Goosnargh, Lancs.",A69,VI,58 55 36,60114,complete,,,,,,,85,,1.5,,1.7,4.7,,0,0,0,0,,,,,,,,,105,15,0,,5.1,1.5,105,15,12.3,24,4.7,,,,1,4,,,,6,1.8,,,,,,,,,,180
+2. distinct poll edge facet. Right side edge widens to an ill-defined facet in upper (butt) half (RITEDWID = 5.0)",11.5.78,1924,"foot of Beacon Fell, Goosnargh, Lancs.",A69,VI,SD 55 36,60114,complete,,,,,,,85,,1.5,,1.7,4.7,,0,0,0,0,,,,,,,,,105,15,0,,5.1,1.5,105,15,12.3,24,4.7,,,,1,4,,,,6,1.8,,,,,,,,,,180
 60115,97619,Huddersfield Museum,"1. Y.177.
 1. poll edge = only partially ground across width",16.5.78,"","Moldgreen, Huddersfield","A.20.58
 Birkhouse",VI,SE 15 16,60115,complete,,,,,,,90,,2,,1.9,4.6,,0,0,0,0,,,,,,,,,75,10,4,,4,2,75,10,8.8,23,4.6,,,,3,2,,,,5,1.5,,,,,,,,,,105
@@ -5359,13 +5359,13 @@ Whitwe Selside (Cowper) Kendal Westmoreland","",SD 549 982,H 62075,complete,,,,,
 3. weight approx.
 4. drawn at Roe's, Oxford.",7.12.78,"","",1441,? VI,SD 74 41,62076 C 50214,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,370
 62077,97819,Preston Museum,"1. La. 23. (No & identification given in list compiled by Fiona Roe, in museum. However the celt is not sliced)
-2. found on bed of river RIbble.",11.5.78,"",Broadgate,A66,? VI,c. SD 528285,62077 b 50086,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,250,20,18.5,,,,250,20,,48,,,,,0.5,,,,,,,,,,,,,,,,
+2. found on bed of river RIbble.",11.5.78,"",Broadgate,A66,? VI,SD 528 285,62077 b 50086,complete,,,,,,,95,,,,,,,0,0,0,0,,,,,,,,,250,20,18.5,,,,250,20,,48,,,,,0.5,,,,,,,,,,,,,,,,
 62078,97820,Lincoln Museum,"1. unsliced
 2. from ploughed field",4.5.78,"","",FILLINGHAM 31.75,II,SK 946864,A 62078,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,75,15,6.5,,,,75,15,,22,,,,,1,,,,,,,,,,,,,,,,120
 62079,97821,Sheffield Museum,"1. poll edge = flake scar, only lightly ground.",9.5.78,1851,"Pike Hall, Elton Moor",J. 93. 84,?,"",F 62079,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,40,15,5,,,,80,15,,24,,,,,6,,,,,,,,,,,,,,,,100
-62080,97822,Sheffield Museum,1. found while constructing Faddington bypass (A6).,8.5.78,1937,"",Z86 TADDINGTON,"",c. SK 145713,Q 62080,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,90,20,9,,,,90,20,,28,,,,,1,,,,,,,,,,,,,,,,195
+62080,97822,Sheffield Museum,1. found while constructing Faddington bypass (A6).,8.5.78,1937,"",Z86 TADDINGTON,"",SK 145 713,Q 62080,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,90,20,9,,,,90,20,,28,,,,,1,,,,,,,,,,,,,,,,195
 62081,97823,Doncaster Museum,"",23.5.78,"",Doncaster,79.14.,VI,SE 57 03,S 62081,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,70,20,7,,,,70,20,,28,,,,,1.5,,,,,,,,,,,,,,,,205
-62082,97824,B.M.,1.,5.10.78,"","",S.324 RISBY WARREN. 339.,"",? T2 79 60,AI 62082,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,75,15,4.5,,,,75,15,,26,,,,,1,,,,,,,,,,,,,,,,155
+62082,97824,B.M.,1.,5.10.78,"","",S.324 RISBY WARREN. 339.,"",TL 79 60,AI 62082,complete,,,,,,,90,,,,,,,0,0,0,0,,,,,,,,,75,15,4.5,,,,75,15,,26,,,,,1,,,,,,,,,,,,,,,,155
 70001,97825,Salisbury Museum,"1. Grinding is less intense around poll, which has a rough surface
 2. Hamp 35, 379",25.11.77,"","North Sway, Hants.","NORTH SWAY HANTS/11/68. 
 379",VII,SZ 2898,70001,complete,19.5,9.75,9.75,89,2.25,0,90,0,32,3,30,81,19,0,0,0,0,0,0,19.5,86.5,2.25,19.5,80.5,2,130,30,4,29,67,32,130,30,172,37,81,0,0,0,3,8,0,0,0,14,37,,,,,,,3.5,30,19,615

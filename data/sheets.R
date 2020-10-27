@@ -22,7 +22,7 @@ completed <- read_json("tasks.json") %>%
 
 field_types <- read_csv("info-ids.csv")
 
-sheets <- dir_ls("micropasts", glob = "*.json") %>%
+sheets_uncorrected <- dir_ls("micropasts", glob = "*.json") %>%
   map(read_json) %>%
   flatten() %>%
   enframe() %>%
@@ -37,6 +37,15 @@ sheets <- dir_ls("micropasts", glob = "*.json") %>%
   select(axe_id, task_id, info_id, value) %>%
   left_join(field_types, by = "info_id") %>%
   arrange(axe_id, field_type)
+
+correction_sheet <- read_csv("correction-sheet.csv",
+                             col_types = cols(.default = "c"),
+                             na = character())
+
+sheets <- sheets_uncorrected %>%
+  left_join(correction_sheet, by = c("axe_id", "info_id")) %>%
+  mutate(value = if_else(is.na(new_value), value, new_value)) %>%
+  select(-new_value)
 
 info <- sheets %>%
   filter(field_type == "info") %>%
@@ -70,4 +79,4 @@ neo_axes <- info %>%
   left_join(measurements, by = "axe_id") %>%
   select(-.condition)
 
-write_csv(neo_axes, "micropasts-neoaxes1.csv", na = "")
+write_excel_csv(neo_axes, "micropasts-neoaxes1.csv", na = "")
