@@ -28,13 +28,15 @@ sheets_uncorrected <- dir_ls("micropasts", glob = "*.json") %>%
   enframe() %>%
   unnest_wider(value) %>%
   left_join(completed, by = "task_id") %>%
-  select(axe_id, task_id, id,  info) %>%
+  unite(user_idip, c(user_id, user_ip), na.rm = TRUE) %>%
+  mutate(across("user_idip", str_remove, "NA_")) %>%
+  select(user_idip, axe_id, task_id, id, info) %>%
   unnest_longer(info, values_to = "value") %>%
   arrange(task_id, id, info_id) %>%
   group_by(task_id) %>%
   filter(id == max(id)) %>%
   ungroup() %>%
-  select(axe_id, task_id, info_id, value) %>%
+  select(user_idip, axe_id, task_id, info_id, value) %>%
   left_join(field_types, by = "info_id") %>%
   arrange(axe_id, field_type)
 
@@ -64,13 +66,18 @@ conditions <- info %>% distinct(.condition) %>%
   ))
 
 measurements <- sheets %>%
+  # filter(axe_id == "60104") %>%
   filter(field_type == "measurement") %>%
   select(-field_type) %>%
   rename(.measurement = value) %>%
-  mutate(measurement = str_remove(.measurement, "\\[[.a-zA-Z 0]+\\]")
-         %>% str_extract("[\\-0-9,.]+") %>% as.numeric()) %>%
+  mutate(measurement = .measurement %>%
+           str_remove("\\[[.a-zA-Z 0]+\\]") %>%
+           str_remove_all(" \\. ") %>%
+           str_extract("[\\-0-9,.]+") %>%
+           str_remove_all("[^[0-9.]]") %>%
+           as.numeric()) %>%
   mutate(measurement = if_else(task_id == "96456" & info_id == "lefedwid", 20, measurement)) %>%
-  select(-task_id, -.measurement) %>%
+  select(-user_idip, -task_id, -.measurement) %>%
   rename(feature = info_id) %>%
   pivot_wider(names_from = feature, values_from = measurement)
 
