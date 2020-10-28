@@ -56,9 +56,9 @@ neo_axes_long %>%
          id = fct_reorder(as.character(axe_id), n)) %>%
   ggplot(aes(colour = condition)) +
   geom_point(aes(x = id, y = feature)) +
-  theme(axis.text.x = element_blank(),
+  theme(axis.text.x = element_blank())
         # axis.text.x = element_text(angle = 90, vjust = 0.5),
-        legend.position = c(.8, .6)) +
+        #legend.position = c(.8, .4)) +
   my_theme
 ```
 
@@ -126,8 +126,7 @@ neo_axes_long_mcf %>%
 
 ```{r summary-stats, message=FALSE, echo=FALSE}
 neo_axes_long_mcf2 <- neo_axes_long_mcf %>% 
-  filter(!(feature %in% c("corfroby", "corbapl", "corfropl", "corbaby", "rebaby",
-                          "rebapl", "refrobl", "refroby","refropl")))
+  filter(!(feature %in% c("corfroby", "corbapl", "corfropl", "corbaby")))
 
 neo_axes_wide <- neo_axes_long_mcf2 %>%
   pivot_wider(id = "axe_id", 
@@ -161,7 +160,7 @@ p1 + p2
 
 ```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.cap="K-means clusters"}
 kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
-kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
+kclust4 <- kmeans(scaled_neo_axes, centers = 4, nstart = 50, algorithm = "Hartigan-Wong")
 kclust6 <- kmeans(scaled_neo_axes, centers = 6, nstart = 50, algorithm = "Hartigan-Wong")
 
 kclust3_lookup <- kclust3$cluster %>%
@@ -171,13 +170,13 @@ kclust3_lookup <- kclust3$cluster %>%
 
 k2 <- fviz_cluster(kclust2, data = scaled_neo_axes) +
   my_theme
-k3 <- fviz_cluster(kclust3, data = scaled_neo_axes) +
+k4 <- fviz_cluster(kclust4, data = scaled_neo_axes) +
   my_theme
 k6 <- fviz_cluster(kclust6, data = scaled_neo_axes) +
   my_theme
 
 k2 /
-k3 /
+k4 /
 k6
 ```
 
@@ -226,7 +225,7 @@ kable(map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]
 
 ```{r pc1-pc2, fig.height = 5, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
 
-pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 2) + my_theme
+pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 1) + my_theme
 pc2 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
 pc1 /
