@@ -46,13 +46,19 @@ no_errors <- axe_lookup[!axe_lookup$id %in% errors, ]
 
 correct_files <- no_errors$file
 
-#preliminary normalization steps
+#aligning
 aligned <- coo_aligncalliper(outlines)
+
+set.seed(123)
+id_random <- sample(x=min(sapply(aligned$coo, nrow)), size=length(aligned),
+                    replace=TRUE)
+stack(coo_slide(aligned, id=id_random))
+homog <- coo_slide(aligned, id=id_random)
 
 #checking harmonic power, how many to use in ef
 ef_first <- efourier(outlines[1], 12, norm=FALSE)
 
-ef_mid <- efourier(aligned[599], 12, norm=FALSE)
+ef_mid <- efourier(outlines[599], 20, norm=FALSE)
 
 plot(cumsum(harm_pow(ef_mid)[-1]), type='o',
      main='Cumulated harmonic power without the first harmonic',
@@ -60,19 +66,18 @@ plot(cumsum(harm_pow(ef_mid)[-1]), type='o',
 
 #analysis
 
-ef <- efourier(outlines, 6)
-ef_aligned <- efourier(aligned, 6, norm=FALSE)
+ef <- efourier(outlines, 20)
+ef_norm <- efourier(homog, 20, norm=FALSE)
 
-hcontrib(ef, harm.r=0:20, col="purple",
+hcontrib(ef, harm.r = 1:20, col="lavender",
          main="lovely axes")
 
 coo_oscillo(aligned[500], "efourier")
 
 pca <- PCA(ef)
-plot_PCA(pca)
+plot(pca)
 
-
-kmeans <- KMEANS(pca, centers = 3,
+kmeans <- KMEANS(pca, centers = 4,
                  algorithm = "Hartigan-Wong")
 
 #plots all outlines with clusters coloured
