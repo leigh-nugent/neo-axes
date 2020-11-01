@@ -78,7 +78,7 @@ most_common_features <- feature_n %>%
 
 neo_axes_long_mcf <- neo_axes_long %>%
   semi_join(most_common_features, by = "feature") %>%
-  filter(condition == "complete")
+  filter(condition %in% c("complete", "cast", "roughout"))
 ```
 
 \clearpage
@@ -160,6 +160,7 @@ p1 + p2
 
 ```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.cap="K-means clusters"}
 kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
+kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
 kclust4 <- kmeans(scaled_neo_axes, centers = 4, nstart = 50, algorithm = "Hartigan-Wong")
 kclust6 <- kmeans(scaled_neo_axes, centers = 6, nstart = 50, algorithm = "Hartigan-Wong")
 
@@ -168,7 +169,14 @@ kclust3_lookup <- kclust3$cluster %>%
   rename(axe_id = name, cluster = value) %>%
   mutate_at("cluster", ~ as_factor(as.character(.)))
 
+kclust4_lookup <- kclust4$cluster %>%
+  enframe() %>%
+  rename(axe_id = name, cluster = value) %>%
+  mutate_at("cluster", ~ as_factor(as.character(.)))
+
 k2 <- fviz_cluster(kclust2, data = scaled_neo_axes) +
+  my_theme
+k3 <- fviz_cluster(kclust3, data = scaled_neo_axes) +
   my_theme
 k4 <- fviz_cluster(kclust4, data = scaled_neo_axes) +
   my_theme
@@ -176,6 +184,7 @@ k6 <- fviz_cluster(kclust6, data = scaled_neo_axes) +
   my_theme
 
 k2 /
+k3 /
 k4 /
 k6
 ```
@@ -184,7 +193,7 @@ k6
 
 ```{r cluster-densities}
 neo_axes_long_mcf2 %>%
-  right_join(kclust3_lookup, by = "axe_id") %>%
+  right_join(kclust4_lookup, by = "axe_id") %>%
   ggplot(aes(x = measurement)) +
   geom_density(aes(colour = cluster, fill = cluster), alpha = 0.3) +
   # geom_density(alpha = 0.2) +
@@ -249,8 +258,8 @@ pc4
 ## Clusters on PCA
 
 ```{r pca-cluster, fig.height = 4, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
-pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
-pcl2 <- autoplot(neo_axes_PCA, data = kclust3, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
+pcl1 <- autoplot(neo_axes_PCA, data = kclust4, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
+pcl2 <- autoplot(neo_axes_PCA, data = kclust4, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
 
 pcl1 /
 pcl2
