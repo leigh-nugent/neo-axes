@@ -51,7 +51,9 @@ sheets <- sheets_uncorrected %>%
 
 info <- sheets %>%
   filter(field_type == "info") %>%
-  select(-field_type) %>%
+  select(-field_type, -user_idip) %>%
+  # group_by(axe_id, task_id, info_id) %>%
+  # add_tally(sort = TRUE) %>%
   pivot_wider(names_from = info_id, values_from = value) %>%
   rename(.condition = condition)
 
@@ -61,14 +63,16 @@ conditions <- info %>% distinct(.condition) %>%
     str_detect(tolower(.condition), "frag") ~ "fragment",
     str_detect(tolower(.condition), "comp") ~ "complete",
     str_detect(tolower(.condition), "rough") ~ "roughout",
-    str_detect(.condition, "reworked") ~ "reworked fragment",
+    str_detect(.condition, "reworked") ~ "reworked",
     TRUE ~ tolower(.condition)
   ))
 
 measurements <- sheets %>%
   # filter(axe_id == "60104") %>%
   filter(field_type == "measurement") %>%
-  select(-field_type) %>%
+  select(-field_type, -user_idip) %>%
+  #group_by(axe_id, task_id, info_id) %>%
+  #add_tally(sort = TRUE) %>%
   rename(.measurement = value) %>%
   mutate(measurement = .measurement %>%
            str_remove("\\[[.a-zA-Z 0]+\\]") %>%
@@ -77,7 +81,7 @@ measurements <- sheets %>%
            str_remove_all("[^[0-9.]]") %>%
            as.numeric()) %>%
   mutate(measurement = if_else(task_id == "96456" & info_id == "lefedwid", 20, measurement)) %>%
-  select(-user_idip, -task_id, -.measurement) %>%
+  select(-.measurement) %>%
   rename(feature = info_id) %>%
   pivot_wider(names_from = feature, values_from = measurement)
 
