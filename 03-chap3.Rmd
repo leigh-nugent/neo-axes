@@ -1,136 +1,267 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+
 ```{r include_packages_2, include = FALSE}
 # This chunk ensures that the thesisdown package is
 # installed and loaded. This thesisdown package includes
 # the template files for the thesis and also two functions
 # used for labeling and referencing
-if(!require(devtools))
-  install.packages("devtools", repos = "http://cran.rstudio.com")
-if(!require(dplyr))
-    install.packages("dplyr", repos = "http://cran.rstudio.com")
-if(!require(ggplot2))
-    install.packages("ggplot2", repos = "http://cran.rstudio.com")
-if(!require(ggplot2))
-    install.packages("bookdown", repos = "http://cran.rstudio.com")
-if(!require(thesisdown)){
-  library(devtools)
-  devtools::install_github("ismayc/thesisdown")
-  }
-library(thesisdown)
-flights <- read.csv("data/flights.csv")
+library(tidyverse)
+library(ggplot2)
+library(ggmap)
+library(factoextra)
+library(ggfortify)
+library(knitr)
+library(kableExtra)
+library(patchwork)
 ```
 
 
-# Tables, Graphics, References, and Labels {#ref-labels}
+```{r}
+my_theme <-
+  theme(panel.grid = element_blank(),
+        panel.background = element_blank(),
+        strip.background = element_blank(),
+        axis.line = element_blank())
+```
 
-## Tables
 
-In addition to the tables that can be automatically generated from a data frame in **R** that you saw in [R Markdown Basics] using the `kable` function, you can also create tables using _pandoc_. (More information is available at <http://pandoc.org/README.html#tables>.)  This might be useful if you don't have values specifically stored in **R**, but you'd like to display them in table form.  Below is an example.  Pay careful attention to the alignment in the table and hyphens to create the rows and columns.
+```{r data, echo=FALSE, message=FALSE}
+neo_axes <- read_csv("data/micropasts-neoaxes1.csv", 
+                     col_types = cols(.default = col_character()))
 
-----------------------------------------------------------------------------------
-  Factors                    Correlation between Parents & Child      Inherited
-------------------------- ----------------------------------------- --------------
-  Education                                -0.49                         Yes
-  
-  Socio-Economic Status                     0.28                        Slight   
-  
-  Income                                    0.08                          No
-  
-  Family Size                               0.18                        Slight
-  
-  Occupational Prestige                     0.21                        Slight
-------------------------- ----------------------------------------- --------------
-Table: (\#tab:inher) Correlation of Inheritance Factors for Parents and Child 
+neo_axes_long <- neo_axes %>%
+  pivot_longer(areablad:weight, 
+               names_to = "feature",
+               values_to = "measurement") %>%
+  filter(!is.na(measurement)) %>%
+  mutate(across("measurement", as.numeric))
+```
 
-We can also create a link to the table by doing the following: Table \@ref(tab:inher).  If you go back to [Loading and exploring data] and look at the `kable` table, we can create a reference to this max delays table too: Table \@ref(tab:maxdelays). The addition of the `(\#tab:inher)` option to the end of the table caption allows us to then make a reference to Table `\@ref(tab:label)`. Note that this reference could appear anywhere throughout the document after the table has appeared.  
+# Exploratory data analysis with Micropasts data
 
-<!-- We will next explore ways to create this label-ref link using figures. -->
+## Sorting varariables
+
+```{r features-dotplot, echo=FALSE, messsage=FALSE}
+neo_axes_long %>%
+  group_by(feature) %>%
+  mutate(n = n()) %>%
+  # filter(n > 50) %>%
+  ungroup() %>%
+  mutate(feature = fct_reorder(feature, n, .desc = FALSE),
+         id = fct_reorder(as.character(axe_id), n)) %>%
+  ggplot(aes(colour = condition)) +
+  geom_point(aes(x = id, y = feature)) +
+  theme(axis.text.x = element_blank())
+        # axis.text.x = element_text(angle = 90, vjust = 0.5),
+        #legend.position = c(.8, .4)) +
+  my_theme
+```
+
+
+
+```{r sorting, echo=FALSE, message=FALSE}
+feature_n <- neo_axes_long %>%
+  group_by(feature, condition) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  group_by(condition) %>%
+  mutate(n_scaled = n / max(n)) %>%
+  arrange(desc(n))
+
+most_common_features <- feature_n %>%
+  filter(n > 385)
+
+neo_axes_long_mcf <- neo_axes_long %>%
+  semi_join(most_common_features, by = "feature") %>%
+  filter(condition %in% c("complete", "cast", "roughout"))
+```
 
 \clearpage
 
 <!-- clearpage ends the page, and also dumps out all floats.
   Floats are things like tables and figures. -->
 
+##Univariate
 
-## Figures
+```{r density-plots, message=FALSE, echo=FALSE, fig.height=10, fig.cap="Density plots"}
+msrmnt_means <- neo_axes_long_mcf %>%
+  group_by(feature) %>%
+  summarise(mean.mm = mean(measurement, na.rm = TRUE))
 
-If your thesis has a lot of figures, _R Markdown_ might behave better for you than that other word processor.  One perk is that it will automatically number the figures accordingly in each chapter.    You'll also be able to create a label for each figure, add a caption, and then reference the figure in a way similar to what we saw with tables earlier.  If you label your figures, you can move the figures around and _R Markdown_ will automatically adjust the numbering for you.  No need for you to remember!  So that you don't have to get too far into LaTeX to do this, a couple **R** functions have been created for you to assist.  You'll see their use below.
+msrmnt_meds <- neo_axes_long_mcf %>%
+  group_by(feature) %>%
+  summarise(med.mm = median(measurement, na.rm = TRUE))
 
-<!--
-One thing that may be annoying is the way _R Markdown_ handles "floats" like tables and figures (it's really \LaTeX's fault). \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies. There are some optional arguments specified in the options parameter of the `label` function.  If you need to shift your figure around, it might be good to look here on tweaking the options argument:  <https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions>
-
-If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in a code chunk.
--->
-
-
-In the **R** chunk below, we will load in a picture stored as `reed.jpg` in our main directory.  We then give it the caption of "Reed logo", the label of "reedlogo", and specify that this is a figure.  Make note of the different **R** chunk options that are given in the R Markdown file (not shown in the knitted document).
-
-```{r reedlogo, fig.cap="Reed logo"}
-include_graphics(path = "figure/reed.jpg")
+neo_axes_long_mcf %>%
+  ggplot(aes(x = measurement)) +
+  geom_density() +
+  geom_vline(data = msrmnt_means, mapping = aes(xintercept = mean.mm),
+             color = "red",
+             linetype = "dashed") +
+  geom_vline(data = msrmnt_meds, mapping = aes(xintercept = med.mm),
+             color = "blue",
+             linetype = "dashed") +
+  geom_rug(alpha = 0.5) +
+  facet_wrap(~ feature, scales = "free") +
+  my_theme +
+  theme(legend.position = "none") +
+  expand_limits(x = 0, y = 0)
 ```
 
-Here is a reference to the Reed logo: Figure \@ref(fig:reedlogo).  Note the use of the `fig:` code here.  By naming the **R** chunk that contains the figure, we can then reference that figure later as done in the first sentence here.  We can also specify the caption for the figure via the R chunk option `fig.cap`.
+
+```{r boxplots, echo=FALSE, message=FALSE, fig.height=10, fig.cap="Boxplots"}
+neo_axes_long_mcf %>%
+  ggplot(aes(x = feature, y = measurement)) +
+  geom_boxplot() + 
+  # geom_histogram(binwidth = 1, origin = 0) +
+  facet_wrap(~ feature, scales = "free") +
+  my_theme +
+  theme(legend.position = "none", strip.text = element_blank())
+```
+
+```{r summary-stats, message=FALSE, echo=FALSE}
+neo_axes_long_mcf2 <- neo_axes_long_mcf %>% 
+  filter(!(feature %in% c("corfroby", "corbapl", "corfropl", "corbaby")))
+
+neo_axes_wide <- neo_axes_long_mcf2 %>%
+  pivot_wider(id = "axe_id", 
+              names_from = "feature",
+              values_from = "measurement") %>%
+  column_to_rownames(var = "axe_id")
+
+kable(summary(neo_axes_wide), caption = "Summary statistics", booktabs = TRUE)
+
+summary(neo_axes_wide)
+```
+
 
 \clearpage 
 
-<!-- starts a new page and stops trying to place floats such as tables and figures -->
+##Cluster analysis
 
-Below we will investigate how to save the output of an **R** plot and label it in a way similar to that done above.  Recall the `flights` dataset from Chapter \@ref(rmd-basics).  (Note that we've shown a different way to reference a section or chapter here.)  We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014.  Note also the use of the `scale` parameter which is discussed on the next page.
+```{r wss-silhouette, echo=FALSE, message=FALSE, fig.height=4, fig.cap="WSS and average silhouette plots"}
+scaled_neo_axes <- neo_axes_wide %>%
+  drop_na() %>%
+  scale()
 
-```{r delaysboxplot, warnings=FALSE, messages=FALSE, fig.cap="Mean Delays by Airline", fig.width=6}
-flights %>% group_by(carrier) %>%
-  summarize(mean_dep_delay = mean(dep_delay)) %>%
-  ggplot(aes(x = carrier, y = mean_dep_delay)) +
-  geom_bar(position = "identity", stat = "identity", fill = "red")
+p1 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "wss") +
+  my_theme
+p2 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "silhouette") +
+  my_theme
+
+p1 + p2
 ```
 
-Here is a reference to this image: Figure \@ref(fig:delaysboxplot).
 
-A table linking these carrier codes to airline names is available at <https://github.com/ismayc/pnwflights14/blob/master/data/airlines.csv>.
+```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.cap="K-means clusters"}
+kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
+kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
+kclust4 <- kmeans(scaled_neo_axes, centers = 4, nstart = 50, algorithm = "Hartigan-Wong")
+kclust6 <- kmeans(scaled_neo_axes, centers = 6, nstart = 50, algorithm = "Hartigan-Wong")
+
+kclust3_lookup <- kclust3$cluster %>%
+  enframe() %>%
+  rename(axe_id = name, cluster = value) %>%
+  mutate_at("cluster", ~ as_factor(as.character(.)))
+
+kclust4_lookup <- kclust4$cluster %>%
+  enframe() %>%
+  rename(axe_id = name, cluster = value) %>%
+  mutate_at("cluster", ~ as_factor(as.character(.)))
+
+k2 <- fviz_cluster(kclust2, data = scaled_neo_axes) +
+  my_theme
+k3 <- fviz_cluster(kclust3, data = scaled_neo_axes) +
+  my_theme
+k4 <- fviz_cluster(kclust4, data = scaled_neo_axes) +
+  my_theme
+k6 <- fviz_cluster(kclust6, data = scaled_neo_axes) +
+  my_theme
+
+k2 /
+k3 /
+k4 /
+k6
+```
+
+## Within-cluster densities
+
+```{r cluster-densities}
+neo_axes_long_mcf2 %>%
+  right_join(kclust4_lookup, by = "axe_id") %>%
+  ggplot(aes(x = measurement)) +
+  geom_density(aes(colour = cluster, fill = cluster), alpha = 0.3) +
+  # geom_density(alpha = 0.2) +
+  # geom_rug(alpha = 0.5) +
+  facet_wrap(~ feature, scales = "free") +
+  my_theme +
+  theme(legend.position = "right")
+```
 
 \clearpage
 
-Next, we will explore the use of the `out.extra` chunk option, which can be used to shrink or expand an image loaded from a file by specifying `"scale= "`. Here we use the mathematical graph stored in the "subdivision.pdf" file.
+##Principal components analysis
 
-```{r subd, results="asis", echo=FALSE, fig.cap="Subdiv. graph", out.extra="scale=0.75"}
-include_graphics("figure/subdivision.pdf")
+```{r screeplots, fig.height = 4, fig.cap = "Screeplots of eigenvalues and percentage variance explained"}
+
+neo_axes_PCA <- drop_na(neo_axes_wide) %>%
+  prcomp(center = TRUE, scale = TRUE)
+
+sc1 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "eigenvalue") +
+  my_theme
+sc2 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "variance") +
+  my_theme
+
+sc1 + sc2
+
 ```
 
-Here is a reference to this image: Figure \@ref(fig:subd).  Note that `echo=FALSE` is specified so that the **R** code is hidden in the document.
 
-**More Figure Stuff**
+```{r variable-loadings}
 
-Lastly, we will explore how to rotate and enlarge figures using the `out.extra` chunk option.  (Currently this only works in the PDF version of the book.)
+map_dfc(1:10, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.])
 
-```{r subd2, results="asis", echo=FALSE, out.extra="angle=180, scale=1.1", fig.cap="A Larger Figure, Flipped Upside Down"}
-include_graphics("figure/subdivision.pdf")
+kable(map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]), caption = "Variable loadings", booktabs = TRUE) %>%
+  kable_styling(latex_options = "scale_down")
 ```
 
-As another example, here is a reference: Figure \@ref(fig:subd2).  
 
-## Footnotes and Endnotes
 
-You might want to footnote something. ^[footnote text] The footnote will be in a smaller font and placed appropriately. Endnotes work in much the same way. More information can be found about both on the CUS site or feel free to reach out to <data@reed.edu>.
+```{r pc1-pc2, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
 
-## Bibliographies
+pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = FALSE, label.repel = TRUE, label.size = 2) + my_theme
+pc2 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
-Of course you will need to cite things, and you will probably accumulate an armful of sources. There are a variety of tools available for creating a bibliography database (stored with the .bib extension).  In addition to BibTeX suggested below, you may want to consider using the free and easy-to-use tool called Zotero.  The Reed librarians have created Zotero documentation at <http://libguides.reed.edu/citation/zotero>.  In addition, a tutorial is available from Middlebury College at <http://sites.middlebury.edu/zoteromiddlebury/>.
+pc1 /
+pc2
 
-_R Markdown_ uses _pandoc_ (<http://pandoc.org/>) to build its bibliographies.  One nice caveat of this is that you won't have to do a second compile to load in references as standard LaTeX requires. To cite references in your thesis (after creating your bibliography database), place the reference name inside square brackets and precede it by the "at" symbol.  For example, here's a reference to a book about worrying:  [@Molina1994].  This `Molina1994` entry appears in a file called `thesis.bib` in the `bib` folder.  This bibliography database file was created by a program called BibTeX.  You can call this file something else if you like (look at the YAML header in the main .Rmd file) and, by default, is to placed in the `bib` folder.  
+```
 
-For more information about BibTeX and bibliographies, see our CUS site (<http://web.reed.edu/cis/help/latex/index.html>)^[@reedweb2007]. There are three pages on this topic:  _bibtex_ (which talks about using BibTeX, at <http://web.reed.edu/cis/help/latex/bibtex.html>), _bibtexstyles_ (about how to find and use the bibliography style that best suits your needs, at <http://web.reed.edu/cis/help/latex/bibtexstyles.html>) and _bibman_ (which covers how to make and maintain a bibliography by hand, without BibTeX, at <http://web.reed.edu/cis/help/latex/bibman.html>). The last page will not be useful unless you have only a few sources.
 
-If you look at the YAML header at the top of the main .Rmd file you can see that we can specify the style of the bibliography by referencing the appropriate csl file.  You can download a variety of different style files at <https://www.zotero.org/styles>.  Make sure to download the file into the csl folder.
 
-**Tips for Bibliographies**
+```{r pc3-pc4, fig.height = 6, fig.cap = "PCA: individuals and variables for PC2 and PC3"}
 
-- Like with thesis formatting, the sooner you start compiling your bibliography for something as large as thesis, the better. Typing in source after source is mind-numbing enough; do you really want to do it for hours on end in late April? Think of it as procrastination.
-- The cite key (a citation's label) needs to be unique from the other entries.
-- When you have more than one author or editor, you need to separate each author's name by the word "and" e.g. `Author = {Noble, Sam and Youngberg, Jessica},`.
-- Bibliographies made using BibTeX (whether manually or using a manager) accept LaTeX markup, so you can italicize and add symbols as necessary.
-- To force capitalization in an article title or where all lowercase is generally used, bracket the capital letter in curly braces.
-- You can add a Reed Thesis citation^[@noble2002] option. The best way to do this is to use the phdthesis type of citation, and use the optional "type" field to enter "Reed thesis" or "Undergraduate thesis." 
+pc3 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 2) +
+  my_theme
+pc4 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
-## Anything else?
+pc3 /
+pc4
 
-If you'd like to see examples of other things in this template, please contact the Data @ Reed team (email <data@reed.edu>) with your suggestions. We love to see people using _R Markdown_ for their theses, and are happy to help.
+```
+
+## Clusters on PCA
+
+```{r pca-cluster, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
+pcl1 <- autoplot(neo_axes_PCA, data = kclust4, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
+pcl2 <- autoplot(neo_axes_PCA, data = kclust4, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
+
+pcl1 /
+pcl2
+```
 

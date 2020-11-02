@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+url="https://crowdsourced.micropasts.org/api/task?project_id=496&limit=100&last_id="
+temp="$(mktemp)"
+last_id=96159
+
+until [ "$last_id" = "null" ]
+do
+  curl -s -X GET \
+  -H "content-type: application/json" \
+  "${url}${last_id}" \
+  > $temp
+
+  last_id=$(jq -r .[-1].id $temp)
+  jq -r .[] $temp
+done
+
+rm $temp

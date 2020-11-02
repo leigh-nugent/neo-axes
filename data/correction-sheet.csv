@@ -1,0 +1,497 @@
+"axe_id","info_id","new_value"
+10003,"ngr","TL 71 69"
+10004,"ngr","TL 9065"
+10005,"ngr","TF 8109"
+10007,"ngr","SU 0325"
+10013,"ngr","SK 83 61"
+10014,"ngr","SK"
+10015,"ngr","SK 38 50"
+10028,"ngr","SK 570 072"
+10029,"ngr","SK 50 67"
+10030,"ngr","SU 976 126"
+10032,"ngr","SU 250 604"
+10033,"ngr","SU 283803"
+10075,"ngr","SO"
+10076,"ngr","SO 419 587"
+10087,"ngr","SO 9 0"
+10136,"condition","reworked"
+10166,"ngr","SU 150 435"
+10168,"ngr","SU 07 25"
+10188,"ngr","TL 9730"
+10205,"ngr","TQ 68 81"
+10210,"ngr","TL 78 29"
+10211,"ngr","TM 0225"
+10215,"ngr","TG 33 09"
+10216,"ngr","TG 17 28"
+10218,"ngr","TG 281 201"
+10220,"ngr","TG 170 103"
+10222,"ngr","TG 211 124"
+10223,"ngr","TG 22 02"
+10227,"ngr","TG 407 097"
+10228,"ngr","TG 165 268"
+10231,"ngr","TG 22 24"
+10232,"ngr","TG 083 328"
+10233,"ngr","TG 155 245"
+10234,"ngr","TG 29 06"
+10237,"ngr","TG 14 33"
+10238,"ngr","TG 14 33"
+10239,"ngr","TG 093370"
+10240,"ngr","TG 20 16"
+10241,"ngr","TG 16 18"
+10242,"ngr","TG 257 173"
+10243,"ngr","TG 102 116"
+10244,"ngr","TG 34 11"
+10246,"ngr","TG 108 388"
+10247,"ngr","TG 155 385"
+10248,"ngr","TG 15 38"
+10249,"ngr","TG 167 387"
+10250,"ngr","TG 127 255"
+10259,"ngr","TG 16 38"
+10260,"ngr","TG 171 039"
+10263,"ngr","TG 367 053"
+10383,"ngr","TG 24 39"
+10399,"ngr","TG 28 30"
+10402,"ngr","TG 307 053"
+10404,"ngr","TG 453 247"
+10408,"ngr","TG 328 007"
+10410,"ngr","TG 127 182"
+10411,"ngr","TG 447 249"
+10455,"ngr","TG 28 38"
+10582,"ngr","TG 28 30"
+10583,"ngr","TG 23 07"
+10620,"ngr","TG 293 215"
+11224,"ngr","TG 98 06"
+20004,"ngr","TF 081 985"
+60023,"ngr","SK 70 41"
+60036,"ngr","SK 77 31"
+60068,"material","VI"
+60068,"ngr",
+60108,"ngr","TA 02 61"
+60113,"ngr","SD 630 445"
+60114,"ngr","SD 55 36"
+62077,"ngr","SD 528 285"
+62080,"ngr","SK 145 713"
+62082,"ngr","TL 79 60"
+11299,"weight","370"
+62062,"maxthick","33"
+60154,"maxthick","31"
+60051,"maxthick","29"
+60051,"polthick","16"
+60051,"blathick","23"
+60051,"maxleng","110"
+81016,"lonpoled","15"
+81016,"gripoled","15"
+81016,"grinside","115"
+81016,"longside","115"
+61017,"lonpoled","20"
+10512,"lonpoled","25"
+11084,"longside","110"
+11084,"number","11084"
+10009,"longside","90"
+10009,"grinside","88"
+10102,"longside","105"
+11132,"corbapl","all"
+11132,"corfropl","all"
+11060,"corfropl","1"
+10168,"blasin","0"
+10128,"weight","1100"
+60107,"weight","1425"
+60107,"gripoled","35"
+10478,"weight","305"
+10478,"poledwid","2"
+10235,"maxleng",
+10235,"poleng",
+82002,"lonpoled","30"
+10848,"lonpoled","10"
+62070,"lonpoled","10"
+10900,"lonpoled","10"
+82004,"longside","120"
+11035,"longside",
+10967,"maxthick","24"
+10967,"grinside","115"
+10967,"longside","115"
+10011,"longside","170"
+81020,"bladang","–"
+60060,"bladang","95"
+10946,"bladang","80"
+10946,"lefedwid","6.5"
+70005,"bladang","75"
+11274,"condition","complete"
+11274,"weight","165"
+50205,"condition","complete"
+50205,"weight","610"
+50130,"lefedwid","20.5"
+50130,"ritedwid","23"
+10037,"collection","Devizes Museum"
+10037,"comments","1. GRINSIDE left = 125; LONGSIDE left = 125.
+2. It looks as if this celt may never have had a ground blade, even if it has been reflaked (which is by no means certain).
+3. Devizes catalogue, Annable & Simpson, 1964, no. 258 (p. 49) & Fig. p. 104 (shows backface & left side). Piggott 1938, PPS 4,"
+10037,"date-rec","complete"
+10037,"find-date","325"
+10037,"find-place","Barrow G. 2a, Upton Lovell Wilts"
+10037,"labels","From [?] Upton 9a Barrow
+DM 1411"
+10037,"material","flint"
+10037,"ngr","SU 959 428"
+10037,"number","10037"
+10037,"condition","complete"
+10037,"areablad","9.75"
+10037,"areablal","5"
+10037,"areablar","4.75"
+10037,"areabody","65.5"
+10037,"areapoll","0.5"
+10037,"blacon","0"
+10037,"bladang","4"
+10037,"blaedwid","0"
+10037,"blaleng","20"
+10037,"blasin","4"
+10037,"blathick","20"
+10037,"blawid","63"
+10037,"bothick","17"
+10037,"corbaby","34"
+10037,"corbapl","0"
+10037,"corfroby","0"
+10037,"corfropl","0"
+10037,"edcon","0"
+10037,"edsin","4"
+10037,"gribabl","0"
+10037,"gribaby","10.5"
+10037,"gribapl","0"
+10037,"grifrobl","1.50"
+10037,"grifroby","(17.0)"
+10037,"grifropl","(0)"
+10037,"grinside","100"
+10037,"gripoled","0"
+10037,"lefedwid","3.0"
+10037,"lefthick","23"
+10037,"lengmaxt","75"
+10037,"lengmaxw","29"
+10037,"longside","120"
+10037,"lonpoled","20"
+10037,"maxleng","155"
+10037,"maxthick","34"
+10037,"maxwid","64"
+10037,"polbabl","0"
+10037,"polbaby","0"
+10037,"polbapl","0"
+10037,"poledwid","0"
+10037,"poleng","4"
+10037,"polfrobl","0"
+10037,"polfroby","0"
+10037,"polfropl","0"
+10037,"polthick","7"
+10037,"polwid","19"
+10037,"ritedwid","3.0"
+10037,"rithick","23"
+10037,"topthick","15"
+10037,"weight","325"
+10038,"number","10038"
+10038,"ngr","SU 1460"
+10038,"material","flint"
+10038,"condition","complete"
+10038,"weight","300"
+10038,"poledwid","3.0"
+10038,"lefedwid","4.0"
+10038,"ritedwid","5.0"
+10038,"blaedwid","0"
+10038,"bladang","80"
+10038,"grifropl","0.25"
+10038,"grifroby","41.0"
+10038,"grifrobl","8.75"
+10038,"gribapl","0.25"
+10038,"gribaby","41.0"
+10038,"gribabl","9.50"
+10038,"polfropl","0"
+10038,"polfroby","0"
+10038,"polfrobl","0"
+10038,"polbapl","0"
+10038,"polbaby","0"
+10038,"polbabl","0"
+10038,"corfropl","0.25"
+10038,"corfroby","4.5"
+10038,"corbapl","0"
+10038,"corbaby","10.0"
+10038,"blacon","2"
+10038,"blasin","3"
+10038,"edcon","0"
+10038,"edsin","1"
+10038,"maxthick","32"
+10038,"polthick","10"
+10038,"blathick","21"
+10038,"lefthick","25"
+10038,"rithick","23"
+10038,"topthick","16"
+10038,"bothick","15"
+10038,"maxleng","130"
+10038,"poleng","2"
+10038,"blaleng","21"
+10038,"maxwid","63"
+10038,"polwid","20"
+10038,"blawid","63"
+10038,"lengmaxt","71"
+10038,"lengmaxw","25"
+10038,"gripoled","15"
+10038,"lonpled","15"
+10038,"areapoll","0.25"
+10038,"areabody","55.0"
+10038,"areablal","5.00"
+10038,"areablar","5.00"
+10038,"areablad","10.00"
+10038,"grinside","110"
+10038,"longside","110"
+10038,"find-place","Wilcot Wilts"
+10038,"collection","Devizes Museum"
+10038,"labels","WILCOT
+DM 1479"
+10038,"date-rec","18.11.77"
+10298,"number","10298"
+10298,"ngr","TM 25 48"
+10298,"material","flint"
+10298,"condition","complete"
+10298,"weight","405"
+10298,"poledwid","0.5"
+10298,"lefedwid","4.5"
+10298,"ritedwid",
+10298,"blaedwid",
+10298,"bladang","90"
+10298,"grifropl",
+10298,"grifroby",
+10298,"grifrobl",
+10298,"gribapl",
+10298,"gribaby",
+10298,"gribabl",
+10298,"polfropl",
+10298,"polfroby",
+10298,"polfrobl",
+10298,"polbapl",
+10298,"polbaby",
+10298,"polbabl",
+10298,"corfropl","0"
+10298,"corfroby","0"
+10298,"corbapl","0"
+10298,"corbaby","0"
+10298,"blacon",
+10298,"blasin",
+10298,"edcon",
+10298,"edsin",
+10298,"maxthick","40"
+10298,"polthick",
+10298,"blathick",
+10298,"lefthick",
+10298,"rithick",
+10298,"topthick",
+10298,"bothick",
+10298,"maxleng",
+10298,"poleng",
+10298,"blaleng",
+10298,"maxwid",
+10298,"polwid",
+10298,"blawid",
+10298,"lengmaxt",
+10298,"lengmaxw",
+10298,"gripoled","0"
+10298,"lonpled","20"
+10298,"areapoll",
+10298,"areabody",
+10298,"areablal",
+10298,"areablar",
+10298,"areablad",
+10298,"grinside","130"
+10298,"longside","130"
+10298,"find-place","Seckford Hall, Woodbridge"
+10298,"collection","Ipswich Museum"
+10298,"labels","Found by Ely. Sold by Barker to D. Keer. 1870 Beckford Hall
+1935.68.32
+ND K.3"
+10298,"date-rec","23.2.78"
+10298,"comments","1. ‘Beckford Hall’ on label presumably my misleading for ‘Seckford Hall’."
+10345,"number","10345"
+10345,"ngr","TR"
+10345,"material","flint"
+10345,"condition","reworked"
+10345,"weight","160"
+10345,"poledwid","(0.5)"
+10345,"lefedwid","6.0"
+10345,"ritedwid","8.0"
+10345,"blaedwid","0"
+10345,"bladang","75"
+10345,"grifropl","(-0.50)"
+10345,"grifroby","32.5"
+10345,"grifrobl","0"
+10345,"gribapl","(-0.50)"
+10345,"gribaby","29.5"
+10345,"gribabl","0.25"
+10345,"polfropl","0"
+10345,"polfroby","2.0"
+10345,"polfrobl","0"
+10345,"polbapl","0"
+10345,"polbaby","2.5"
+10345,"polbabl","0"
+10345,"corfropl","0"
+10345,"corfroby","0"
+10345,"corbapl","0"
+10345,"corbaby","0"
+10345,"blacon","0"
+10345,"blasin","6"
+10345,"edcon","0"
+10345,"edsin","0"
+10345,"maxthick",
+10345,"polthick",
+10345,"blathick",
+10345,"lefthick",
+10345,"rithick",
+10345,"topthick",
+10345,"bothick",
+10345,"maxleng",
+10345,"poleng",
+10345,"blaleng",
+10345,"maxwid",
+10345,"polwid",
+10345,"blawid",
+10345,"lengmaxt",
+10345,"lengmaxw",
+10345,"gripoled","(30)"
+10345,"lonpled","(30)"
+10345,"areapoll",
+10345,"areabody","37.5"
+10345,"areablal",
+10345,"areablar",
+10345,"areablad","2.00"
+10345,"grinside","90"
+10345,"longside","90"
+10345,"find-place","North Holmes Rd., Canterbury"
+10345,"collection","Royal Museum Canterbury"
+10345,"labels","8558"
+10345,"date-rec","2.11.77"
+10345,"comments",
+10345,"refropl","0"
+10345,"refroby","4.0"
+10345,"refrobl","-0.50"
+10345,"rebapl","(0)"
+10345,"rebaby","6.0"
+10345,"rebabl","1.50"
+10991,"number","10991"
+10991,"ngr","ST 86 09"
+10991,"material","flint"
+10991,"condition","NFR (complete)"
+10991,"weight","135"
+10991,"poledwid",
+10991,"lefedwid",
+10991,"ritedwid",
+10991,"blaedwid",
+10991,"bladang",
+10991,"grifropl",
+10991,"grifroby",
+10991,"grifrobl",
+10991,"gribapl",
+10991,"gribaby",
+10991,"gribabl",
+10991,"polfropl",
+10991,"polfroby",
+10991,"polfrobl",
+10991,"polbapl",
+10991,"polbaby",
+10991,"polbabl",
+10991,"corfropl","0"
+10991,"corfroby","0"
+10991,"corbapl","0"
+10991,"corbaby","0"
+10991,"blacon",
+10991,"blasin",
+10991,"edcon",
+10991,"edsin",
+10991,"maxthick",
+10991,"polthick",
+10991,"blathick",
+10991,"lefthick",
+10991,"rithick",
+10991,"topthick",
+10991,"bothick",
+10991,"maxleng",
+10991,"poleng",
+10991,"blaleng",
+10991,"maxwid",
+10991,"polwid",
+10991,"blawid",
+10991,"lengmaxt",
+10991,"lengmaxw",
+10991,"gripoled",
+10991,"lonpled",
+10991,"areapoll",
+10991,"areabody",
+10991,"areablal",
+10991,"areablar",
+10991,"areablad",
+10991,"grinside","30"
+10991,"longside","100"
+10991,"find-place","Sourpaine"
+10991,"collection","BM"
+10991,"labels","391
+36
+92 9 – 1 41.
+May 19 1884"
+10991,"date-rec","23.10.78"
+10991,"comments","1. ground at blade, with scars left. On front along centre ridge up to 5.5. cm from edge, on back along centre to poll. Triangular section."
+20003,"number","50073"
+20003,"ngr","SK 18 63"
+20003,"material","XX"
+20003,"Find-date","1858"
+20003,"condition","complete"
+20003,"weight","445"
+20003,"poledwid","5.0"
+20003,"lefedwid","2.5"
+20003,"ritedwid",
+20003,"blaedwid",
+20003,"bladang","95"
+20003,"grifropl",
+20003,"grifroby",
+20003,"grifrobl",
+20003,"gribapl",
+20003,"gribaby",
+20003,"gribabl",
+20003,"polfropl",
+20003,"polfroby",
+20003,"polfrobl",
+20003,"polbapl",
+20003,"polbaby",
+20003,"polbabl",
+20003,"corfropl","0"
+20003,"corfroby","0"
+20003,"corbapl","0"
+20003,"corbaby","0"
+20003,"blacon",
+20003,"blasin",
+20003,"edcon",
+20003,"edsin",
+20003,"maxthick","32"
+20003,"polthick",
+20003,"blathick",
+20003,"lefthick",
+20003,"rithick",
+20003,"topthick",
+20003,"bothick",
+20003,"maxleng","159"
+20003,"poleng",
+20003,"blaleng",
+20003,"maxwid",
+20003,"polwid",
+20003,"blawid",
+20003,"lengmaxt",
+20003,"lengmaxw",
+20003,"gripoled","35"
+20003,"lonpled","35"
+20003,"areapoll",
+20003,"areabody",
+20003,"areablal",
+20003,"areablar",
+20003,"areablad",
+20003,"grinside","120"
+20003,"longside","120"
+20003,"find-place","Middleton & Smerrill"
+20003,"collection","Sheffield Museum"
+20003,"labels","J. 93. 40"
+20003,"date-rec","8.5.78"
+20003,"comments","1. distinct poll edge facet.
+2. Db. 88.
+3. found on a field"
+10315,"lefedwid","20"
