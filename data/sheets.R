@@ -80,7 +80,6 @@ measurements <- sheets %>%
            str_extract("[\\-0-9,.]+") %>%
            str_remove_all("[^[0-9.]]") %>%
            as.numeric()) %>%
-  mutate(measurement = if_else(task_id == "96456" & info_id == "lefedwid", 20, measurement)) %>%
   select(-.measurement) %>%
   rename(feature = info_id) %>%
   pivot_wider(names_from = feature, values_from = measurement)
