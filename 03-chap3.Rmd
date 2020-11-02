@@ -224,7 +224,7 @@ sc1 + sc2
 
 ```{r variable-loadings}
 
-map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.])
+map_dfc(1:10, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.])
 
 kable(map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]), caption = "Variable loadings", booktabs = TRUE) %>%
   kable_styling(latex_options = "scale_down")
@@ -232,9 +232,9 @@ kable(map_dfc(1:19, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]
 
 
 
-```{r pc1-pc2, fig.height = 5, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
+```{r pc1-pc2, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
 
-pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = TRUE, label.repel = TRUE, label.size = 1) + my_theme
+pc1 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, label = FALSE, label.repel = TRUE, label.size = 2) + my_theme
 pc2 <- autoplot(neo_axes_PCA, x = 1, y = 2, variance_percentage = TRUE, colour = 'grey', loadings.label = TRUE, loadings.colour = 'blue', loadings.label.colour = 'blue', loadings.label.repel = TRUE) + my_theme
 
 pc1 /
@@ -257,7 +257,7 @@ pc4
 
 ## Clusters on PCA
 
-```{r pca-cluster, fig.height = 4, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
+```{r pca-cluster, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
 pcl1 <- autoplot(neo_axes_PCA, data = kclust4, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
 pcl2 <- autoplot(neo_axes_PCA, data = kclust4, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
 
