@@ -48,9 +48,9 @@ neo_axes_long <- neo_axes %>%
 
 ###Image processing of axe drawings
 
-The cropping was mostly successful, and often produced three images: plan, profile and top. Exceptions appear to occur for some where there are notes written near to the drawings, as bounding boxes were drawn around these, mistaking them for shapes, so sometimes these were also cropped, or cropped instead of one or more of the views. Another exception occurs when views are drawn too close together or are overlapping, as these are then all included in the same cropped image. Finally some of the profile views were cropped in half where the edge of the axe drawn does not have any gaps, which splits the profile in two. Another point of concern is that the crops do not leave much room around the outlines, which sometimes led to problems later with the filling.
+The cropping was mostly successful, and often produced three images: plan, profile and top. Exceptions appear to occur for some where the original drawings had been labeled, as bounding boxes were drawn around writing, identifying it as shapes, so sometimes writing was also cropped, or cropped instead of one or more of the views. Another exception occurs when views are drawn too close together or are overlapping, as these are then all included in the same cropped image. Finally some of the profile views were cropped in half as many of these have the edge drawn through the centre, which tends to be bolder than the outline. Another point of concern is that the crops do not leave much room around the outlines, which sometimes led to problems later with the filling.
 
-The filling method was overall successful, and the shape of many axes was retained, but some data was lost on the outlines, causing them to become jagged, or some pointed parts were flattened or cut off. Of the 1825 axe drawings, 1137 were acceptable to use, as some of the filled in silhouettes were completely different to their original drawings. These were usually caused by more than one shape being included in the crop, which caused them all to be joined into one filled shape. Another issue was that the notes near to the outlines sometimes were joined to the rest of the silhouette, producing a non-existent shape. Although many of the 1137 usable silhouettes have had slight data loss on their outlines, they still mostly retain their original shapes.  Despite mostly succeeding in cropping three views from each drawing, I decided to only focus on the plans as that is where most of the variation seems to occur between each axe. Only the plans which had two other associated images were chosen, as if there were less or more than three, the wrong view may have ‘plan’ in the filename and would be included in error.
+The filling method was overall successful, and the shape of many axes was retained, but some data was lost on the outlines, causing them to become jagged. Despite mostly succeeding in cropping three views from each drawing, I decided to only focus on the plans as that is where most of the variation seems to occur between each axe. Only the plans which had two other associated images were chosen, as if there were less or more than three, the wrong view may have ‘plan’ in the filename and would be included in error. Of the 1825 axe drawings, this brought the number to import into Momocs down to 1198.
 
 ###Crowdsourcing with MicroPasts
 
@@ -58,7 +58,7 @@ All 1825 record sheets were transcribed, so the project is now listed as ‘comp
 
 ###Representativeness of data collected
 
-Flaws in the filling-in and cropping process to produce the silhouettes entailed that only 1137 axes could be used in the final analysis. Of these 1137 axes, a number of them do look slightly different to their original drawings due to the dilation and eroding process needed to fill in each outline, but not enough really to affect the overall shape. A further few of these were removed later when inspecting the outlines after importing into Momocs. For the record sheets, however, as much data will be retained as possible, as all sheets were transcribed. This will help to account for the axe drawings which cannot be included in the morphometric analysis with momocs, as some educated guesses can be made about their shapes based upon analysis of their measurements and comparison with other similar axes which had usable silhouettes.
+Flaws in the filling-in and cropping process to produce the silhouettes entailed that only `r length(outlines)` axes could be used in the final analysis. Of these `r length(outlines)` axes, a number of them do look slightly different to their original drawings due to the dilation and eroding process needed to fill in each outline, but not enough really to affect the overall shape. A further few of these were removed later when inspecting the outlines after importing into Momocs. For the record sheets, however, as much data will be retained as possible, as all sheets were transcribed. This will help to account for the axe drawings which cannot be included in the morphometric analysis with momocs, as some educated guesses can be made about their shapes based upon analysis of their measurements and comparison with other similar axes which had usable silhouettes.
 
 \pagebreak
 
@@ -265,8 +265,14 @@ If we imagine that the variables are in alphabetical order, the rows in the vari
 
 ```{r variable-loadings}
 
-kable(map_dfc(1:4, ~neo_axes_PCA$rotation[, .] * sqrt(neo_axes_PCA$sdev ^ 2)[.]), 
-      row.names=TRUE, col.names = c("PC1", "PC2", "PC3", "PC4"), 
+library(magrittr)
+
+map_dfc(1:4, ~neo_axes_PCA$rotation[, .] * abs(neo_axes_PCA$sdev)[.]) %>%
+  mutate(across(everything(), round, digits = 2)) %>%
+  set_rownames(rownames(neo_axes_PCA$rotation)) %>%
+  set_colnames(c("PC1", "PC2", "PC3", "PC4")) %>%
+  arrange(desc(abs(PC1))) %>%
+  kable(row.names=TRUE, 
       caption = "Variable loadings", booktabs = TRUE) %>%
   kable_styling(font_size = 10)
 ```
@@ -300,6 +306,8 @@ pc4
 
 ### Clusters on PCA
 
+blbalballa
+
 ```{r pca-cluster, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
 pcl1 <- autoplot(neo_axes_PCA, data = kclust4, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
 pcl2 <- autoplot(neo_axes_PCA, data = kclust4, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
@@ -308,11 +316,13 @@ pcl1 /
 pcl2
 ```
 
+\pagebreak
+
 ##Outline morphometric analysis with Momocs
 
 ###Data cleaning
 
-Before perfoming any analyses on the shapes, I first needed to check whether all of the outlines were successful. This was done by using the Momocs function `panel` and displaying the names as just the ID numbers from each filename over each shape, which I selected from the character vector of filenames using a regular expression (Figure \@ref(fig:image-sorting)). Otherwise the filenames were too long and illegible, overlapping on top of the shapes. I then identified all of the erroneous shapes and removed them from the list of filenames to import into Momocs. This resulted in the removal of a further 55 axes from the 1137 that were usable.
+Before perfoming any analyses on the shapes, I first needed to check whether all of the outlines were successful. This was done by using the Momocs function `panel` and displaying the names as just the ID numbers from each filename over each shape, which I selected from the character vector of filenames using a regular expression (Figure \@ref(fig:image-sorting)). Otherwise the filenames were too long and illegible, overlapping on top of the shapes. I then identified all of the erroneous shapes and removed them from the list of filenames to import into Momocs. `r length(outlines)` were acceptable to use, as some of the outlines were completely unrecognizable from their original drawings. 
 
 ```{r image-sorting, results='hide', warning=FALSE, message=FALSE, fig.cap="All outlines imported into Momocs before inspection"}
 #getting image ids
@@ -360,7 +370,7 @@ panel(outlines)
 
 Next was to determine how many harmonics should be used when performing elliptical fourier analysis on the outlines. To do this I used two methods: firstly plotting `harm_pow` of individual axes, and secondly `hcontrib` on the overall dataset, showing how many harmonics it would take to adequately reconstruct the mean axe shape. The former function shows a line plot of how much of the shape has been reconstructed by each harmonic, and also shows at which point this stops improving, which is where the line plateaus. I did this for the first, middle and last axes in the data-set, all of which appeared to show the 12th harmonic as the point at which the shape stops improving noticeably (Figure \@ref(fig:harmonic-power)).
 
-```{r harmonic-power, results='hide', message=FALSE, warning=FALSE, fig.cap="Plotting harmonic power of first and middle axe outlines in the dataset"}
+```{r harmonic-power, results='hide', message=FALSE, warning=FALSE, fig.cap="Plotting harmonic power of first and middle axe outlines in the dataset."}
 #checking harmonic power, how many to use in ef
 ef_first <- efourier(outlines[1], 12, norm=FALSE)
 
@@ -373,17 +383,16 @@ plot(cumsum(harm_pow(ef_mid)[-1]), type='o',
 
 This was also the case when running the `hcontrib` function on the entire dataset passed to efourier with 20 harmonics (Figure \@ref(fig:hcontrib)). As a result of these checks, 12 harmonics was settled on for the elliptical fourier transformation.
 
-```{r hcontrib, results='hide', message=FALSE, warning=FALSE, fig.cap="Harmonic contribution plot to show how many harmonics can reconstruct a typical axe outline"}
+```{r hcontrib, results='hide', message=FALSE, warning=FALSE, fig.cap="Harmonic contribution plot to show how many harmonics can reconstruct a typical axe outline."}
 #elliptical fourier transform
 ef <- efourier(outlines, 20)
 
-hcontrib(ef, harm.r = 1:20, col="lavender",
-         main="lovely axes")
+hcontrib(ef, harm.r = 1:20, col="lavender")
 ```
 
 Before running PCA on the efourier-transformed outlines, `Pccontrib` was used to determine the variation in the outlines accounted for by each PC up to 10 (Figure \@ref(fig:pccontrib)). Here, we can see that the first PC accounts for width, and PC2 accounts for how wide the blade is compared to the rest of the axe. PC3 appears to distinguish rounder blades and edges from more straight blades and edges, but seems to contain shapes which do not exist. The rest of the PCs do not appear to show much variation at all.
 
-```{r pccontrib, results='hide', message=FALSE, warning=FALSE, fig.cap="Variation in outlines explained by each principal component"}
+```{r pccontrib, results='hide', message=FALSE, warning=FALSE, fig.cap="Variation in outlines explained by each principal component."}
 pca <- PCA(ef)
 PCcontrib(pca, nax=1:10)
 ```
@@ -422,15 +431,16 @@ kmeans6 <- KMEANS(pca, centers = 6,
 
 In order to see the cluster membership in the 4-cluster solution more clearly, Momocs’ `panel` function was used with colours set to display the clusters, and the axe_ids as the names (Figure \@ref(fig:panel-clusters)). Here we can see that the 4 clusters have been partitioned in a way that makes sense: all of the axes in the thickest group are in fact the thickest, and those in the thin group are the thinnest of all. The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently slightly less wide than those in the green. Despite PC2 accounting for how trapezoidal or straight the axe shapes were, this does not appear to have been a deciding factor in the k-means clustering. There are both straighter and more trapezoidal axes in most of the groups, apart from the thinnest group, which by chance is also the straightest. 
 
-```{r panel-clusters, fig.cap="The 4 Momocs clusters colour coded onto a panel plot of axe outlines"}
+```{r panel-clusters, fig.size=16, fig.fullwidth=TRUE, fig.cap="The 4 Momocs clusters colour coded onto a panel plot of axe outlines"}
 
 panel(outlines, palette=col_spring, 
-      fac=as.factor(kmeans4$cluster), names=as.factor(no_errors$axe_id))
+      fac=as.factor(kmeans4$cluster), names=as.factor(no_errors$axe_id), 
+      cex.names=0.5, fromtop=TRUE)
 ```
 
-Finally, to get a feel for the appearance of a typical axe in each cluster, mean shapes were plotted (Figure \@ref(fig:meanshapes)). 
+Here we can see that the 4 clusters have been partitioned in a way that makes sense: all of the axes in the thickest group are in fact the thickest, and those in the thin group are the thinnest of all. The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently slightly less wide than those in the green. Despite PC2 accounting for how trapezoidal or straight the axe shapes were, this does not appear to have been a deciding factor in the k-means clustering. There are both straighter and more trapezoidal axes in most of the groups, apart from the thinnest group, which by chance is also the straightest. Finally, to get a feel for the appearance of a typical axe in each cluster, mean shapes were plotted (Figure \@ref(fig:meanshapes)). 
 
-```{r meanshapes, fig.cap="Mean shapes for each of the 4 clusters"}
+```{r meanshapes, fig.height=4, fig.cap="Mean shapes for each of the 4 clusters"}
 
 axe_means <- MSHAPES(ef, fac = as.factor(kmeans4$cluster))
 Out(axe_means$shp) %>% panel(names=TRUE)
