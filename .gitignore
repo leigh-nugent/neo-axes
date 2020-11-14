@@ -44,3 +44,7 @@ extracted-jpgs
 
 # Python
 .venv
+
+# bookdown/thesisdown
+*.log
+dissertation_files/
