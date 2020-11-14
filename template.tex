@@ -92,12 +92,12 @@
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{$date$}
 %\division{$division$}
-%\advisor{$advisor$}
+% \advisor{$advisor$}
 %If you have two advisors for some reason, you can use the following
 % Uncommented out by CII
-$if(altadvisor)$
-\altadvisor{$altadvisor$}
-$endif$
+% $if(altadvisor)$
+% \altadvisor{$altadvisor$}
+% $endif$
 % End of CII addition
 
 %%% Remember to use the correct department!
@@ -123,6 +123,15 @@ $endif$
   \fi
 }
 \makeatother
+
+% Added by @leigh-nugent, code by @Nicktz
+% (https://github.com/rstudio/rmarkdown/issues/1649#issuecomment-717176839)
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+{\setlength{\parindent}{0pt}%
+\everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+{\par}
 
 \renewcommand{\contentsname}{Table of Contents}
 % End of CII addition
