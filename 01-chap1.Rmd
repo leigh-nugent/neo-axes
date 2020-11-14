@@ -135,6 +135,7 @@ The example we show here does the following:
 - Using `flights2`, we determine the largest arrival delay for each of the carriers.
 
 ```{r max_delays}
+library(tidyverse)
 flights2 <- flights %>% 
   select(carrier_name, arr_delay)
 max_delays <- flights2 %>% 
@@ -145,6 +146,7 @@ max_delays <- flights2 %>%
 A useful function in the `knitr` package for making nice tables in _R Markdown_ is called `kable`.  It is much easier to use than manually entering values into a table by copying and pasting values into Excel or LaTeX.  This again goes to show how nice reproducible documents can be! (Note the use of `results="asis"`, which will produce the table instead of the code to create the table.)  The `caption.short` argument is used to include a shorter title to appear in the List of Tables.
 
 ```{r maxdelays, results="asis"}
+library(knitr)
 kable(max_delays, 
       col.names = c("Airline", "Max Arrival Delay"),
       caption = "Maximum Delays by Airline",
