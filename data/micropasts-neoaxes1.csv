@@ -126,7 +126,7 @@ DM 1869
 10037,96194,Devizes Museum,"1. GRINSIDE left = 125; LONGSIDE left = 125.
 2. It looks as if this celt may never have had a ground blade, even if it has been reflaked (which is by no means certain).
 3. Devizes catalogue, Annable & Simpson, 1964, no. 258 (p. 49) & Fig. p. 104 (shows backface & left side). Piggott 1938, PPS 4,",complete,325,"Barrow G. 2a, Upton Lovell Wilts","From [?] Upton 9a Barrow
-DM 1411",flint,SU 959 428,10037,complete,9.75,5,4.75,65.5,0.5,0,4,0,20,4,20,63,17,34,0,0,0,0,4,0,10.5,0,1.5,17,0,100,0,3,23,75,29,120,20,155,34,64,0,0,0,0,4,0,0,0,7,19,,,,,,,3,23,15,325
+DM 1411",flint,SU 959 428,10037,complete,9.75,5,4.75,65.5,0.5,0,70,0,20,4,20,63,17,34,0,0,0,0,4,0,10.5,0,1.5,17,0,100,0,3,23,75,29,120,20,155,34,64,0,0,0,0,4,0,0,0,7,19,,,,,,,3,23,15,325
 10038,96195,Devizes Museum,"",18.11.77,Flint,Wilcot Wilts,"WILCOT
 DM 1479",flint,SU 1460,10038,complete,10,5,5,55,0.25,2,80,0,21,3,21,63,15,10,0,4.5,0.25,0,1,9.5,41,0.25,8.75,41,0.25,110,15,4,25,71,25,110,15,130,32,63,0,0,0,3,2,0,0,0,10,20,,,,,,,5,23,16,300
 10039,96196,Sailsbury Museum,1. drilled,8.11.77,1906,"Grovely Wood, Barford, St. Martin, Wilts ","GROVELY
@@ -423,7 +423,7 @@ B
 10143,96293,Plymouth museum,"",5.10.77,19C,near Reading,"A Fine Celt       73.24.24
 Fo Nr Reading
 15. Berkshire
-Mesolith",flint,SU 7173,10143,complete,6,3,3,58.5,1.25,0,90,0,16,0,17,58,19,0,0,0,0,0,2,4,1,0,3,1,0,95,0,2,26,85,43,150,2.5,178,36,68,0,0,0,0.5,7,0,0,0,9,28,0,0,0,0,0,0,1.5,27,17,435
+Mesolith",flint,SU 7173,10143,complete,6,3,3,58.5,1.25,0,90,0,16,0,17,58,19,0,0,0,0,0,2,4,1,0,3,1,0,95,0,2,26,85,43,150,25,178,36,68,0,0,0,0.5,7,0,0,0,9,28,0,0,0,0,0,0,1.5,27,17,435
 10144,96294,Plymouth museum,"1. black flint , ground cortex on both faces indicates use of thin, hot block of raw material.  There is a small amount of ground cortex on the blade edge.",5.10.77,19c,"Wallingford, Berks  oxon","Neolith     73.24.20
 Thames Valley
 Wallingford
@@ -811,7 +811,7 @@ Dug up in hole for Post",flint,TG 16 38,10259,roughout,,,,,,,85,,,,,,,0,0,0,0,,,
 10260,96405,"Norwich
 Castle Museum","1. no grinding, so may be roughout.  Blade + side edges are somewhat crushed, tho:
 2. found in trench opposite bungalows.",16.2.78,1967,"","Hethersett
-383.970",flint,TG 171 039,10260,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0.5,,,,135,5,,22,,,,,0,,,,,,,,,,,,,,,,1785
+383.970",flint,TG 171 039,10260,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,0,0,0.5,,,,135,5,,22,,,,,0,,,,,,,,,,,,,,,,175
 10261,96406,"Norwich
 Castle Museum","",17.2.78,"","","57.935
 Gresham Hills
@@ -3180,7 +3180,7 @@ Dartford Kent
 Chilham Kent",flint,TR 0653,11026,complete,,,,,,,,,,,,,,0,0,0,0,,,,,,,,,190,,5,,,,190,,,39,,,,,,,,,,,,,,,,,,,,,640
 11027,97134,BM,"1. BM.386
 2. the taxonomic groups of this association are reflected in the colour of the flint. 10-22 1 & 2 are stained & greeny beige on the ground surface, while 3-5 are all including the ground surface of 5) bluey-grey. The distinction is difficult to interpret, however as the colour of the scars on 2 are the same as celts 3-5, & all seem to be made out of flint, with large mottles. 1 & 2 have fresh apparently unused blade edges.",31.10.78,"","","1921 10-22 1
-386",flint,TQ 482797,11027,complete,,,,,,,35,,,,,,,0,0,0,0,,,,,,,,,220,50,13,,,,220,50,,57,,,,,2.5,,,,,,,,,,,,,,,,1475
+386",flint,TQ 482797,11027,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,220,50,13,,,,220,50,,57,,,,,2.5,,,,,,,,,,,,,,,,1475
 11028,97135,BM,1. BM. 387.,1.11.78,"","","387
 1921 10-22 2",flint,TQ 482 747,11028,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,175,40,12.5,,,,175,40,,17,,,,,1,,,,,,,,,,,,,,,,845
 11029,97136,BM,1. fresh condition.,3.10.78,"","","1921 10.22 3
@@ -4201,7 +4201,7 @@ BELGRAVE PIT",microdionite,SK 5906,50016,complete,14.75,7.5,7.25,68.5,1.25,0,90,
 2. apparently ground (or? pecked) all over, except for large hollows, which may represent decay of stone - like the Clegyr Boia celt.",4.10.77,(1977),"Monks Rest, Kewstoke",77/7,Stone,"",50040,cast,,,,,,0,80,0,,0,,,,0,0,0,0,3,0,,,,,,,,,8,,,,,,,,,,,,4,,,,,,,,,,,,,7.5,,,
 50041,97455,Plymouth Museum,"1. ground surface is like a polish
 2. looks ethnographic",5.10.77,19C,"Didsbury, Manchester","Found in a Field at Didsbury Manchester
-916",stone,"",50041,complete,,,,,0.5,0,25,0,,0,,,,0,0,0,0,0,0,,1.5,25,,6,25,105,5,27,,,,105,25,,,,0,0,0,10,,0,0,0,,,0,0,0,0,0,0,27,,,355
+916",stone,"",50041,complete,,,,,0.5,0,85,0,,0,,,,0,0,0,0,0,0,,1.5,25,,6,25,105,5,27,,,,105,25,,,,0,0,0,10,,0,0,0,,,0,0,0,0,0,0,27,,,355
 50042,97456,Plymouth Museum,"1. from A.L. Lewis collection, May 1921
 2. pecked smooth all over.
 3. not sliced; but red 'III' looks like a petrology mark.",5.10.77,"","Aylesford, Kent","118.21.44
@@ -4400,7 +4400,7 @@ E47",VI,TM 2521,60009,complete,,,,,,,85,,,,,,,0,0,0,0,,,,,,,,,85,0,6.5,,,,85,25,
 60010,97517,Bedford Museum,"1. Drawn at Nottingham University
 2. 905; Bed 16.",6.12.78,"","Biggleswade, Beds",71/13/16 905,VI,TL 2044,60010,complete,2.5,1.25,1.25,27.5,0.5,0,75,0,8,1,11,46,12,0,0,0,0,0,0,2.5,20.5,0,2.5,22,0,60,0,6,17,47,16,65,20,79,25,49,0,0,0,9.5,3,0,0,0,15,19,,,,,,,6,20,13,115
 60011,97518,Ilkeston Library,"1. Drawn in Nottingham University.
-2. D",6.12.78,"","Ilkeston, Derbs",685,VI,SK 4692,60011,complete,7.5,3.75,3.75,42.5,0.5,4,8.5,0,16,2,20,66,14,0,0,0,0,0,0,7.5,41.5,0.25,7.5,41.5,0.5,85,10,12.5,25,43,21,85,15,102,29,66,0,0,0,2.5,4,0,0,0,6,21,,,,,,,12.5,25,15,240
+2. D",6.12.78,"","Ilkeston, Derbs",685,VI,SK 4692,60011,complete,7.5,3.75,3.75,42.5,0.5,4,85,0,16,2,20,66,14,0,0,0,0,0,0,7.5,41.5,0.25,7.5,41.5,0.5,85,10,12.5,25,43,21,85,15,102,29,66,0,0,0,2.5,4,0,0,0,6,21,,,,,,,12.5,25,15,240
 60012,97519,Luton Museum,1. Drawn at Nottingham University.,6.12.77,"","Warren Hill, Suffolk","108/47/64 W. Hill 4.8.36 B.W.
 909",VI,TL 7474,60012,complete,8,4,4,50.5,2,1,80,0,20,1,18,59,11,0,0,0,,0,6,8,36.5,0.5,8,40.5,1,100,20,4,20,67,20,100,40,130,24,59,0,0,0,10,7,0,0,0,15,39,,,,,,,4.5,19,14,245
 60013,97520,Bedford Museum,"1. 904; Bed 15: VI 
@@ -4436,7 +4436,7 @@ CW.33.981",VI medium,SK 61 39,60020,complete,8.75,4.25,4.5,108.5,3.75,0,80,0.5,1
 [I don't know to wich fields the following variables belong: 0 0]",8.12.77,-,East Bridgeford,"212
 MARGIDUNUM CASE III",VI medium,SK 70 41,60022,complete,4,2.25,1.75,25,0.5,0,95,1,12,2,18,44,13,0,0,0,0,0,3,4,24.5,0.25,4,24,0,65,0,6,21,33,26,65,15,81,24,45,0,0,0,0.5,5,0,0,0,10,16,,,,,,,6,22,12,120
 60023,97530,"","","","","","",VI Banded,SK 70 41,60023,complete,,,,,,0,85,0,,5,,,,0,0,0,0,,,1.75,15,0.75,0.5,15,0.5,,,1,,,,,,,,,0,0,0,0,,0,0,0,,,,,,,,,1.5,,,60
-60024,97531,"Heathcote Museum, Birchover",1. bb.15,13.12.77,"",Elton,13 New Elton,VI Medium,SK 22 60,60024,complete,3.75,1.75,2,35.5,0.75,0,50,0,9,0,12,56,14,0,0,0,0,0,1,3.75,33,0.75,3.75,34,0.5,85,10,5.5,22,44,18,85,20,92,25,56,0,0,0,7,4,0,0,0,11,23,,,,,,,5.5,21,12,155
+60024,97531,"Heathcote Museum, Birchover",1. bb.15,13.12.77,"",Elton,13 New Elton,VI Medium,SK 22 60,60024,complete,3.75,1.75,2,35.5,0.75,0,80,0,9,0,12,56,14,0,0,0,0,0,1,3.75,33,0.75,3.75,34,0.5,85,10,5.5,22,44,18,85,20,92,25,56,0,0,0,7,4,0,0,0,11,23,,,,,,,5.5,21,12,155
 60025,97532,Derby Museum,1. Db 52.,14.12.77,-,"Wheston Hall Estate, Tideswell","Derby Museum
 897-2-40.
 897-2-40
@@ -4672,7 +4672,7 @@ LI 416",VI,TF 1 5,60097,complete,,,,,,,80,,16,,17,56,,0,0,0,0,,,,,,,,,95,15,7,,4
 3. found in planting.
 [I don't know to which fields the following variables belong: 0 0]",8.5.78,1827,Hartington Nether Quarter,J.93.75.,VI banded,SK 1660,60098,reworked,,,,,,,80,,13,,14,44,,0,0,0,0,,,,,,,,,65,20,6,,44,13,65,20,91,21,44,,,,7,5,,,,12,24,,,,,,,,,,100
 60099,97603,Sheffield Museum,"1. Y.290
-[I don't know to which fields the following variables belong: 0 0]",8.5.78,1855,Yarm,J.93.39,VI,NZ 42 12,60099,complete,,,,,,,80,,12,,14,47,,0,0,0,0,,,,,,,,,100,10,6,,21,,100,10,120,28,49,,,,0.5,4,,,,7,16,,,,,,,,,,210
+[I don't know to which fields the following variables belong: 0 0]",8.5.78,1855,Yarm,J.93.39,VI,NZ 42 12,60099,complete,,,,,,,80,,12,,14,47,,0,0,0,0,,,,,,,,,100,10,6,,53,21,100,10,120,28,49,,,,0.5,4,,,,7,16,,,,,,,,,,210
 60100,97604,Sheffield Museum,"1. Y.298.
 2. found in a field.
 [I don't know to which fields the following variables belong: 0 0]",8.5.78,1898,Atwick,J.98.21 Atwick (298) ER,VI,TA 19 50,60100,complete,,,,,,,80,,16,,17,45,,0,0,0,0,,,,,,,,,80,20,8.5,,41,16,80,20,96,24,45,,,,0.5,3,,,,6,22,,,,,,,,,,130
@@ -4694,14 +4694,14 @@ X 1969-247",VI medium,SK 278 758,60103,complete,,,,,,,75,,24,,24,51,,0,0,0,0,,,,
 [I don't know to which fields the following variables belong: 0 0]",9.5.78,1853,Youlgreave Moor,J.93.82,VI medium,SK 20 64,60104,complete,,,,,,,90,,12,,14,42,,0,0,0,0,,,,,,,,,60,10,5,,28,24,60,30,75,17,44,,,,15,11,,,,11,34,,,,,,,,,,80
 60105,97609,Sheffield Museum,"1. Db. 66
 [I don't know to which fields the following variables belong: 0 0]",9.5.78,1852,"Gratton Moor, Middleton",J.93.69,VI banded,SK 19 60,60105,complete,,,,,,,80,,17,,19,65,,0,0,0,0,,,,,,,,,80,35,7,,51,17,80,50,100,30,65,,,,1.5,,,,,21,48,,,,,,,,,,275
-60106,97610,Sheffield Museum,1.D6.102,9.5.78,1831,"in the Holmes, Bradford river, Youlgreave",J.93.78,VI medium,SK 21 63,60106,complete,,,,,,,80,,1.1,,1.5,5.6,,0,0,0,0,,,,,,,,,95,20,7.5,,4.8,1.1,95,20,11,29,5.6,,,,5,6,,,,1.3,2.3,,,,,,,,,,240
-60107,97611,Sheffield Museum,", Db.84.",9.5.78,"",Sterndale by Buxton,J.93.26,VI barded,SK 09 72,60107,complete,,,,,,,90,,2.9,,3.4,8.5,,0,0,0,0,,,,,,,,,185,35,,,9.8,2.9,185,35,23.7,52,8.5,,,,2,2.1,,,,2.7,5.7,,,,,,,,,,1425
-60108,97612,Preston Museum,I. Y.,10.5.78,"","Danesdale, Driffield",A62,VI,TA 02 61,60108,complete,,,,,,,90,,1.9,,2.4,6.1,,0,0,0,0,,,,,,,,,135,20,7,,4.6,1.9,135,20,15.5,33,6.1,,,,0.5,7,,,,1.1,2.5,,,,,,,,,,390
+60106,97610,Sheffield Museum,1.D6.102,9.5.78,1831,"in the Holmes, Bradford river, Youlgreave",J.93.78,VI medium,SK 21 63,60106,complete,,,,,,,80,,11,,15,56,,0,0,0,0,,,,,,,,,95,20,7.5,,48,11,95,20,110,29,56,,,,5,6,,,,1.3,23,,,,,,,,,,240
+60107,97611,Sheffield Museum,", Db.84.",9.5.78,"",Sterndale by Buxton,J.93.26,VI barded,SK 09 72,60107,complete,,,,,,,90,,29,,34,85,,0,0,0,0,,,,,,,,,185,35,,,98,29,185,35,237,52,85,,,,2,2.1,,,,2.7,57,,,,,,,,,,1425
+60108,97612,Preston Museum,I. Y.,10.5.78,"","Danesdale, Driffield",A62,VI,TA 02 61,60108,complete,,,,,,,90,,19,,24,61,,0,0,0,0,,,,,,,,,135,20,7,,46,19,135,20,155,33,61,,,,0.5,7,,,,1.1,25,,,,,,,,,,390
 60109,97613,Preston Museum,"1. La. 22.
-[I don't know to which fields the following variables belong: 0 0]",10.5.78,"",Winmarleigh,A73,VI fine,SD 446 469,60109,complete,,,,,,,90,,15,,19,53,,0,0,0,0,,,,,,,,,170,15,5,,6,69,170,15,178,35,63,,,,1,5,,,,11,25,,,,,,,,,,500
+[I don't know to which fields the following variables belong: 0 0]",10.5.78,"",Winmarleigh,A73,VI fine,SD 446 469,60109,complete,,,,,,,90,,15,,19,53,,0,0,0,0,,,,,,,,,170,15,5,,66,69,170,15,178,35,63,,,,1,5,,,,11,25,,,,,,,,,,500
 60110,97614,Preston Museum,"1. La. 17. andesitic. tuff, similar to coarse Group VI.
 2. found while ploughing
-[I don't know to which fields the following variables belong: 0 0]",10.5.78,1922,Staynall over Wyre,A70,cf. [?] VI coarse,SD 36 43,60110,complete,,,,,,,90,,27,,29,81,,0,0,0,0,,,,,,,,,290,30,11.5,,10,69,290,30,315,53,85,,,,3,7,,,,12,36,,,,,,,,,,1910
+[I don't know to which fields the following variables belong: 0 0]",10.5.78,1922,Staynall over Wyre,A70,cf. [?] VI coarse,SD 36 43,60110,complete,,,,,,,90,,27,,29,81,,0,0,0,0,,,,,,,,,290,30,11.5,,102,69,290,30,315,53,85,,,,3,7,,,,12,36,,,,,,,,,,1910
 60111,97615,Preston Museum,"1. La. 18.
 2. found built into the wall of a farm building. Apparently also used as a hone : smooth wear on back face.
 3. surface weathered.
@@ -4712,60 +4712,60 @@ X 1969-247",VI medium,SK 278 758,60103,complete,,,,,,,75,,24,,24,51,,0,0,0,0,,,,
 2. [""found near surface during draining operation"" scored out] 
 J. Weld 1888 Stone & Bronze implements & weapons (HS): p2 found 'near the surface immediately below the house at Leagram on part of the ancient lawnd, which had never previously been disturbed.' Found while draining.
 3. Surface weathered.",11.5.78,1863,Leagram,"chet found in draining ound at Leagram in 1863
-A67",VI,SD 630 445,60113,complete,,,,,,,80,,1.3,,1.5,5.6,,0,0,0,0,,,,,,,,,115,20,6,,4.9,3.2,115,20,13.5,29,58,,,,0.5,9,,,,1.1,2.4,,,,,,,,,,280
+A67",VI,SD 630 445,60113,complete,,,,,,,80,,13,,15,56,,0,0,0,0,,,,,,,,,115,20,6,,49,32,115,20,135,29,58,,,,0.5,9,,,,1.1,24,,,,,,,,,,280
 60114,97618,Preston Museum,"1. La 19
-2. distinct poll edge facet. Right side edge widens to an ill-defined facet in upper (butt) half (RITEDWID = 5.0)",11.5.78,1924,"foot of Beacon Fell, Goosnargh, Lancs.",A69,VI,SD 55 36,60114,complete,,,,,,,85,,1.5,,1.7,4.7,,0,0,0,0,,,,,,,,,105,15,0,,5.1,1.5,105,15,12.3,24,4.7,,,,1,4,,,,6,1.8,,,,,,,,,,180
+2. distinct poll edge facet. Right side edge widens to an ill-defined facet in upper (butt) half (RITEDWID = 5.0)",11.5.78,1924,"foot of Beacon Fell, Goosnargh, Lancs.",A69,VI,SD 55 36,60114,complete,,,,,,,85,,15,,17,47,,0,0,0,0,,,,,,,,,105,15,0,,51,15,105,15,123,24,47,,,,1,4,,,,6,18,,,,,,,,,,180
 60115,97619,Huddersfield Museum,"1. Y.177.
 1. poll edge = only partially ground across width",16.5.78,"","Moldgreen, Huddersfield","A.20.58
-Birkhouse",VI,SE 15 16,60115,complete,,,,,,,90,,2,,1.9,4.6,,0,0,0,0,,,,,,,,,75,10,4,,4,2,75,10,8.8,23,4.6,,,,3,2,,,,5,1.5,,,,,,,,,,105
+Birkhouse",VI,SE 15 16,60115,complete,,,,,,,90,,20,,19,46,,0,0,0,0,,,,,,,,,75,10,4,,40,20,75,10,88,23,46,,,,3,2,,,,5,15,,,,,,,,,,105
 60116,97620,Bangor Museum,"",22.5.78,1907,"Llanielian, Anglesey","LLANEILIAN 
 8.07
 2841
-AN 35",VI,"",60116,complete,,,,,,,85,,1.4,,1.3,5.7,,0,0,0,0,,,,,,,,,95,20,6,,4.9,1.4,95,20,11.9,27,5.7,,,,1.5,7,,,,1.1,2.3,,,,,,,,,,225
+AN 35",VI,"",60116,complete,,,,,,,85,,14,,13,57,,0,0,0,0,,,,,,,,,95,20,6,,49,14,95,20,119,27,57,,,,1.5,7,,,,1.1,23,,,,,,,,,,225
 60117,97621,Bangor Museum,1. blade edge notably sinuous,22.5.78,"",Anglesey,"AN 41
 39-57914
-P10",VI,SH 43 79,60117,complete,,,,,,,85,,1.9,,2.2,6.6,,0,0,0,0,,,,,,,,,190,50,8.5,,10.6,94,190,50,21.3,45,72,,,,0.5,7,,,,1.4,4.7,,,,,,,,,,955
+P10",VI,SH 43 79,60117,complete,,,,,,,85,,19,,22,66,,0,0,0,0,,,,,,,,,190,50,8.5,,106,94,190,50,213,45,72,,,,0.5,7,,,,1.4,47,,,,,,,,,,955
 60118,97622,"Leeds Museum
 (D.134.1964)","1. Y.366.
 2. Alcock 1968, YAJ, p.393, Fig. 1.3.
-3. distinct poll edge facet, rounded corners",19.5.78,1953,"Seacroft, Leeds",109.1953,VI,SE 345 365,60118,complete,,,,,,,80,,1.4,,1.5,6.3,,0,0,0,0,,,,,,,,,195,20,9,,7.8,1.4,195,20,20.8,36,6.3,,,,2,6,,,,7,2.7,,,,,,,,,,565
+3. distinct poll edge facet, rounded corners",19.5.78,1953,"Seacroft, Leeds",109.1953,VI,SE 345 365,60118,complete,,,,,,,80,,14,,15,63,,0,0,0,0,,,,,,,,,195,20,9,,78,14,195,20,208,36,63,,,,2,6,,,,7,27,,,,,,,,,,565
 60119,97623,Leeds Museum,"1. Y.522
 2. poll edge = flake scar; struck from centre front face.",19.5.78,1948,Appleton le Moors,"L.C.M. D.93.1971
 D.93.1971
 Appleton-le-Mero
 17/8/48
-Y.522",VI Medium,SE 74 87,60119,complete,,,,,,,90,,1.2,,1.5,5,,0,0,0,0,,,,,,,,,75,0,5,,3.8,1.2,75,15,8.8,25,5,,,,8,2,,,,8,2,,,,,,,,,,135
+Y.522",VI Medium,SE 74 87,60119,complete,,,,,,,90,,12,,15,50,,0,0,0,0,,,,,,,,,75,0,5,,38,12,75,15,88,25,50,,,,8,2,,,,8,20,,,,,,,,,,135
 60120,97624,Leeds Museum,1. Y.384,19.5.78,"","Pickering, N. Yorks","L.C.M. D. 504.1964
 Pickering
-D.504.1964",VI,SE 79 84,60120,complete,,,,,,,85,,9,,1.1,5,,0,0,0,0,,,,,,,,,150,20,6,,5.8,47,150,20,15.9,30,58,,,,2,3,,,,9,2.2,,,,,,,,,,410
+D.504.1964",VI,SE 79 84,60120,complete,,,,,,,85,,9,,11,50,,0,0,0,0,,,,,,,,,150,20,6,,58,47,150,20,159,30,58,,,,2,3,,,,9,22,,,,,,,,,,410
 60121,97625,Leeds Museum,"1. Y. 520
 2. poll edge rounded.",19.5.78,"",Knaresborough,"L. C. M. D. I. 1974
 D. I. 1974
-Y. 520",VI banded,SE 3557,60121,complete,,,,,,,85,,2.8,,2.6,7.1,,0,0,0,0,,,,,,,,,200,25,8.5,,13.8,75,200,25,23.4,37,74,,,,2,2.8,,,,19,4.7,,,,,,,,,,910
+Y. 520",VI banded,SE 3557,60121,complete,,,,,,,85,,28,,26,71,,0,0,0,0,,,,,,,,,200,25,8.5,,138,75,200,25,234,37,74,,,,2,2.8,,,,19,47,,,,,,,,,,910
 60122,97626,Leeds Museum (LCM/ D.132. 1964),"1. Y. 364.
 2. Alcock 1958, YAJ, p.393, Fig. 1.1 (back face shown)
-3. 'found beneath 4 feet of soil at ""The View"", Roundhay.'",19.5.78,1949,"Roundhay, Leeds","THE VIEW, ROUNDWAY 321379",VI,SE 320 380,60122,complete,,,,,,,85,,1.8,,2.1,7.5,,0,0,0,0,,,,,,,,,190,20,8.5,,9.2,6.4,190,20,21.8,41,78,,,,2,8,,,,1.2,3.6,,,,,,,,,,940
+3. 'found beneath 4 feet of soil at ""The View"", Roundhay.'",19.5.78,1949,"Roundhay, Leeds","THE VIEW, ROUNDWAY 321379",VI,SE 320 380,60122,complete,,,,,,,85,,18,,21,75,,0,0,0,0,,,,,,,,,190,20,8.5,,92,64,190,20,218,41,78,,,,2,8,,,,1.2,36,,,,,,,,,,940
 60123,97627,Leeds Museum,"1. Y.375
 2. Alcock 1958, YAJ p.393, Fig 1.6",19.5.78,1947,"","L.C.M. D.190.1964
-19-1947. Alwoodley Leeds, Long 1°38' 24"" W, Lat 33° 51' 20"" N",VI,SE 314 400,60123,complete,,,,,,,90,,1.4,,1.8,5.8,,0,0,0,0,,,,,,,,,90,15,8,,4.6,1.4,90,15,10.4,28,5.8,,,,2,3,,,,9,1.9,,,,,,,,,,225
+19-1947. Alwoodley Leeds, Long 1°38' 24"" W, Lat 33° 51' 20"" N",VI,SE 314 400,60123,complete,,,,,,,90,,14,,18,58,,0,0,0,0,,,,,,,,,90,15,8,,46,14,90,15,104,28,58,,,,2,3,,,,9,19,,,,,,,,,,225
 60124,97628,Leeds Museum,1. Y. 368,19.5.78,"","Raskelf Moor, N. Yorks","L.C.M. 
 D.136.1964
 
-D.136",VI,SE 47 71,60124,complete,,,,,,,90,,2.1,,2,5.8,,0,0,0,,,,,,,,,,95,10,1.5,,4.9,2.1,95,10,12.7,27,5.8,,,,1.5,6,,,,9,2.5,,,,,,,,,,255
+D.136",VI,SE 47 71,60124,complete,,,,,,,90,,21,,20,58,,0,0,0,,,,,,,,,,95,10,1.5,,49,21,95,10,127,27,58,,,,1.5,6,,,,9,25,,,,,,,,,,255
 60125,97629,Leeds Museum,"1. Y.362
 2. ground very smooth all over
 3. ?Alcock 1958, YAJ, p 393 Fig. 1.2.",19.5.78,"","Stonegate Rd., Leeds","297383
-D.130.1964",VI,SE 297 383,60125,complete,,,,,,,80,,3.2,,29,7.7,,0,0,0,0,,,,,,,,,180,20,10,,9.8,42,180,20,22,44,78,,,,2.5,7,,,,1,2.8,,,,,,,,,,955
+D.130.1964",VI,SE 297 383,60125,complete,,,,,,,80,,32,,29,77,,0,0,0,0,,,,,,,,,180,20,10,,98,42,180,20,220,44,78,,,,2.5,7,,,,1,28,,,,,,,,,,955
 60126,97630,Doncaster Museum,"1. blade edge = rounded facet, c. 1.5 mm. wide. There are smooth hollows ground or worn into both faces adjacent to left side edge. No differential patina. 
 2. Not. 75; 450",23.5.78,"","Scaftworth, Notts.","SCAFTWORTH 2/3/1969
-SK 65899275",VI fine,SK 659928,60126,complete,,,,,,,180,,2.3,,2.2,6,,0,0,0,0,,,,,,,,,110,50,4,,7.5,40,110,50,13.4,30,61,,,,1,1.5,,,,2,4.8,,,,,,,,,,365
-60127,97631,Lincoln Museum,1. Li. 25; 24.,24.5.78,1910,Haxey,HAXEY 95.11 (24),VI medium,SK 7699,60127,complete,,,,,,,90,,1.1,,1.6,5.2,,0,0,0,0,,,,,,,,,95,15,10.5,,3.9,1.1,95,15,10.4,28,5.2,,,,4,3,,,,7,1.9,,,,,,,,,,200
+SK 65899275",VI fine,SK 659928,60126,complete,,,,,,,180,,23,,22,60,,0,0,0,0,,,,,,,,,110,50,4,,75,40,110,50,134,30,61,,,,1,1.5,,,,2,48,,,,,,,,,,365
+60127,97631,Lincoln Museum,1. Li. 25; 24.,24.5.78,1910,Haxey,HAXEY 95.11 (24),VI medium,SK 7699,60127,complete,,,,,,,90,,11,,16,52,,0,0,0,0,,,,,,,,,95,15,10.5,,39,11,95,15,104,28,52,,,,4,3,,,,7,19,,,,,,,,,,200
 60128,97632,Lincoln Museum,"1. Li 57; 56.
-2. found in field.",24.5.78,1953,Legsby,110.53 LEGSBY LIV N.W (56) (Mr. J. V. Dring),VI medium,TF 123838,10128,complete,,,,,,,75,,1.2,,1.2,5.1,,0,0,0,0,,,,,,,,,100,10,4.5,,5,1.2,100,10,11,22,5.1,,,,1,3,,,,4,1.5,,,,,,,,,,140
+2. found in field.",24.5.78,1953,Legsby,110.53 LEGSBY LIV N.W (56) (Mr. J. V. Dring),VI medium,TF 123838,10128,complete,,,,,,,75,,12,,12,51,,0,0,0,0,,,,,,,,,100,10,4.5,,50,12,100,10,110,22,51,,,,1,3,,,,4,15,,,,,,,,,,140
 60129,97633,Lincoln Museum,"1. Li 10;9
 2. poll edge mostly of negligible width; no facet",24.15.78,"",North Willingham,"N. Willingham
 352.37
-(9)",VI medium,TF 163 884,60129,complete,,,,,,,80,,1.4,,1.9,6.2,,0,0,0,0,,,,,,,,,110,30,8,,4.6,1.4,110,30,13.2,34,6.2,,,,1,6,,,,1,2.9,,,,,,,,,,335
+(9)",VI medium,TF 163 884,60129,complete,,,,,,,80,,14,,19,62,,0,0,0,0,,,,,,,,,110,30,8,,46,14,110,30,132,34,62,,,,1,6,,,,1,29,,,,,,,,,,335
 60130,97634,Lincoln Museum,"1. Li 9; 8.
 2. found on farm.",24.5.78,1951,North Kelsey,"N. KELSEY [XXVIII S.W.] 9.52
 N. KELSEY XXVIII S.W. 9.52",VI medium,TA 033012,60130,complete,,,,,,,90,,10,,13,54,,0,0,0,0,,,,,,,,,95,15,6,,40,10,95,15,105,28,54,,,,1,4,,,,6,23,,,,,,,,,,180
@@ -4797,14 +4797,14 @@ LANGTON 52.30",VI medium,TF 1577,60137,complete,,,,,,,,85,24,,27,64,,0,0,0,0,,,,
 325",VI banded,TF 042990,60139,complete,,,,,,,85,,13,,17,50,,0,0,0,0,,,,,,,,,65,20,8,,43,19,65,20,83,28,52,,,,0,3,,,,8,22,,,,,,,,,,165
 60140,97644,Lincoln Museum,1. Li. 32; 31.,25.5.78,"",Saxilby,"SAXILBY 6"" 0.5. 60SE D.W. GARRARD 1914
 5.44",VI banded,SK 897743,60140,complete,,,,,,,80,,17,,20,67,,0,0,0,0,,,,,,,,,120,10,8,,55,17,120,10,133,30,67,,,,0,3,,,,5,14,,,,,,,,,,285
-60141,97645,Lincoln Museum,1. Li. 167; 178.,25.5.78,"",Skellingthorpe,SKELLINGTH'PE 357.27 A (178),VI medium,SK 920720,60141,complete,,,,,,,95,,16,,22,66,,0,0,0,0,,,,,,,,,115,30,8.5,,54,16,115,30,13.5,34,66,,,,1.5,4,,,,11,32,,,,,,,,,,405
+60141,97645,Lincoln Museum,1. Li. 167; 178.,25.5.78,"",Skellingthorpe,SKELLINGTH'PE 357.27 A (178),VI medium,SK 920720,60141,complete,,,,,,,95,,16,,22,66,,0,0,0,0,,,,,,,,,115,30,8.5,,54,160,115,30,135,34,66,,,,1.5,4,,,,11,32,,,,,,,,,,405
 60142,97646,Lincoln Museum,1. Li. 15; 14.,25.5.78,"",South Kyme,63.37 SOUTH KYME 14,VI medium,TF 1749,60142,complete,,,,,,,90,,40,,29,70,,0,0,0,0,,,,,,,,,150,30,6,,68,40,150,30,182,32,70,,,,1.5,7,,,,10,36,,,,,,,,,,550
 60143,97647,Lincoln Museum,1. Li. 85; 86.,25.5.78,"",Scunthorpe,"PI 86 VI 
 669 SCUNTHORPE NR SCUNTHORPE per GAINSBOROUGH OLD HALL",VI medium,SE 89 11,60143,complete,,,,,,,85,,14,,,53,,0,0,0,0,,,,,,,,,85,0,6,,39,14,85,20,97,27,53,,,,0,7,,,,,24,,,,,,,,,,175
 60144,97648,Lincoln Museum,1. Li. 44; 43.,25.5.78,"",Worlaby,(41) Worlaby near Louth 79.54,VI medium,TF 34 76,60144,complete,,,,,,,85,,14,,14,55,,0,0,0,0,,,,,,,,,90,25,4.5,,39,14,90,25,110,26,55,,,,0.5,7,,,,9,29,,,,,,,,,,200
 60145,97649,Lincoln Museum,1. Li. 17; 16.,26.5.78,"",Woodhall Spa,"WOODHALL SPA [LXXX S.E.] 64.37
 oodhall...[illeg.]
-",VI medium,TF 19 63,60145,complete,,,,,,,95,,18,,25,78,,0,0,0,0,,,,,,,,,250,2.5,8.5,,101,37,250,2.5,268,49,82,,,,3.5,7,,,,10,30,,,,,,,,,,1445
+",VI medium,TF 19 63,60145,complete,,,,,,,95,,18,,25,78,,0,0,0,0,,,,,,,,,250,2.5,8.5,,101,37,250,25,268,49,82,,,,3.5,7,,,,10,30,,,,,,,,,,1445
 60146,97650,Lincoln Museum,1. Li. 100; 101.,26.5.78,"",Tetford,"TETFORD (found by J. Walker). 100 - 70 
 P.1. 101 VI",VI fine,TF 33 74,60146,complete,,,,,,,85,,29,,28,65,,0,0,0,0,,,,,,,,,100,20,6.5,,44,29,100,20,123,32,65,,,,1.5,9,,,,15,33,,,,,,,,,,310
 60147,97651,Lincoln Museum,"1. Li. 233; 289.
@@ -4828,7 +4828,7 @@ L.1970.2",VI,TM 154 995,60150,complete,,,,,,,95,,22,,23,71,,0,0,0,0,,,,,,,,,135,
 2. poll edge = flake facet, partially ground in.
 [I don't know to which fields the following variables belong: 0 0]",8.6.78,"","Blackdyke Fen, Hockwold-cum-Wilton","2.L
 142-961
-N.123 142-961",VI,TL 68 88,60152,complete,,,,,,,85,,16,,21,59,,0,0,0,0,,,,,,,,,85,5,6,,44,23,85,20,100,31,6,,,,7,1,,,,8,22,,,,,,,,,,250
+N.123 142-961",VI,TL 68 88,60152,complete,,,,,,,85,,16,,21,59,,0,0,0,0,,,,,,,,,85,5,6,,44,23,85,20,100,31,60,,,,7,1,,,,8,22,,,,,,,,,,250
 60153,97657,Norwich C.M.,"1. N.60
 2. blade edge rounded (though not faceted). Area of blade apparently pecked, especially on back face, extending up body.
 3. found in field
@@ -5391,7 +5391,7 @@ Whitwe Selside (Cowper) Kendal Westmoreland","",SD 549 982,H 62075,complete,,,,,
 3. found at depth of c. 1ft in top soil in field.",10.8.78,"",Llanfihangel-tor-y-mynydd,64.122,VII,SO 466020,AV 70005,complete,,,,,,,75,,,,,,,0,0,0,0,,,,,,,,,110,45,3.5,,,,110,45,,35,,,,,2.5,,,,,,,,,,,,,,,,425
 70006,97830,NMW Cardiff,"1. sliced GL93 
 75.37H/39 10.5gm - left side flake 
-75.37H/38 2.5gm - right side flake",31.8.77,"",Ogmore Mid Glam,75.37H/37,VII,SS 863756,70006,complete,1.5,0.5,0.75,19,0.5,2,7.5,0,7,0,10,29,12,0,0,0,,3,0,1,1.5,0,1.5,10.5,2.5,0,0,9.5,15,35,9,65,25,81,20,30,0,0,0,0,4,0,0,0,6,19,,,,,,,3,17,8,56
+75.37H/38 2.5gm - right side flake",31.8.77,"",Ogmore Mid Glam,75.37H/37,VII,SS 863756,70006,complete,1.5,0.5,0.75,19,0.5,2,75,0,7,0,10,29,12,0,0,0,,3,0,1,1.5,0,1.5,10.5,2.5,0,0,9.5,15,35,9,65,25,81,20,30,0,0,0,0,4,0,0,0,6,19,,,,,,,3,17,8,56
 70007,97831,NMW Cardiff,"1. grinding is light away from blade & poll, revealing the original pecked surface; however, it appears to have been flaked initially.
 2. sliced. GL52
 3. found at depth 3'6"" in an allotment",31.8.77,(1952),"Cefn-yr-aut, Aberdulais W. Glam",52.296,VII,SS 774998,70007,complete,13.25,6,7.25,78,1.75,0,100,0.5,24,3,33,75,24,0,0,0,0,2,0,13.25,68.5,0.75,13.25,74.5,0.5,135,45,15,41,70,24,135,45,156,47,75,0,0,0,1.5,6,0,0,0,16,43,,,,,,,12.5,42,25,705
@@ -5399,7 +5399,7 @@ Whitwe Selside (Cowper) Kendal Westmoreland","",SD 549 982,H 62075,complete,,,,,
 2. Found in garden.
 3. Le II.",16.12.77,–,"Tournament Rd, Glenfield",TOURNAMENT RD. GLENFIELD 77 31,VII,SK 546055,70008,complete,10.5,5,5.5,72.5,1.25,0,85,0,23,1,29,67,23,0,0,0,0,0,1,10.5,63.5,0.5,10.5,62.5,0.5,120,10,5,33,56,23,120,30,153,40,67,0,0,0,1,4,0,0,0,8,36,,,,,,,3.5,33,18,515
 70009,97833,Derby Museum,1. Db 9.,14.12.77,–,Parwich,"PARWICH LOMAS 
-444",VII,SK 18 54,70009,complete,4.5,2.25,2.25,68,2,0,8.5,0,13,2,19,53,16,0,0,0,0,0,4,4.5,60.5,1.25,4.5,60,1.25,140,10,2.5,26,71,29,140,30,163,34,57,0,0,0,1,10,0,0,0,15,29,,,,,,,2.5,27,17,385
+444",VII,SK 18 54,70009,complete,4.5,2.25,2.25,68,2,0,85,0,13,2,19,53,16,0,0,0,0,0,4,4.5,60.5,1.25,4.5,60,1.25,140,10,2.5,26,71,29,140,30,163,34,57,0,0,0,1,10,0,0,0,15,29,,,,,,,2.5,27,17,385
 70010,97834,Derby Museum,1. Db 47.,14.12.77,1951,"Lodge Fm., Cubley","Derby Museum. 140–51. 
 140–1951",VII,SK 158364,70010,complete,12,6,6,95.5,2,4,90,1,21,1,24,71,22,0,0,0,0,0,0,12,93.5,2,7,82.5,2,145,30,4,33,89,47,145,30,177,42,75,0,0,0,1.5,8,0,0,0,14,36,,,,,,,4,35,21,705
 70011,97835,Nottingham Univ. Mus. (SF. 0. 109),"1. GRINSIDE left = 70; LONGSIDE left = 70.
