@@ -5,12 +5,8 @@ suppressPackageStartupMessages(
     library(jsonlite)
     library(tidyverse)
     library(fs)
-    library(magrittr)
-    library(rebus)
     library(janitor)
-    library(rnrfa)
-    library(ggmap)
-    library(dotenv)
+    library(rebus)
   }
 )
 

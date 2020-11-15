@@ -20,5 +20,5 @@ data/micropasts/%.json :
 data/tasks.json :
 	./scripts/get_tasks | jq -s . > $@
 
-data/micropasts-neoaxes1.csv : data/tasks.json $(offsets-jsons) data/info-ids.csv
+data/micropasts-neoaxes1.csv : data/tasks.json $(offsets-jsons) data/info-ids.csv data/correction-sheet.csv
 	./scripts/sheets.R
