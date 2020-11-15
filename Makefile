@@ -36,7 +36,7 @@ drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 
 .venv/bin/activate : requirements.txt
 	test -d .venv || python3 -m venv .venv
-	source .venv/bin/activate; pip install --upgrade pip==20.2.4; pip install -Ur requirements.txt
+	source .venv/bin/activate; pip install -Ur requirements.txt
 	touch .venv/bin/activate
 
 clean :
