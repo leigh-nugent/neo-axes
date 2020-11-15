@@ -70,16 +70,18 @@ conditions <- info %>% distinct(.condition) %>%
 measurements <- sheets %>%
   # filter(axe_id == "60104") %>%
   filter(field_type == "measurement") %>%
-  select(-field_type, -user_idip) %>%
+  select(-field_type, -user_idip, -task_id) %>%
   #group_by(axe_id, task_id, info_id) %>%
   #add_tally(sort = TRUE) %>%
   rename(.measurement = value) %>%
-  mutate(measurement = .measurement %>%
+  mutate(measurement = suppressWarnings(
+    .measurement %>%
            str_remove("\\[[.a-zA-Z 0]+\\]") %>%
            str_remove_all(" \\. ") %>%
            str_extract("[\\-0-9,.]+") %>%
            str_remove_all("[^[0-9.]]") %>%
-           as.numeric()) %>%
+           as.numeric())
+    ) %>%
   select(-.measurement) %>%
   rename(feature = info_id) %>%
   pivot_wider(names_from = feature, values_from = measurement)
