@@ -1,3 +1,4 @@
+# https://jtreminio.com/blog/running-docker-containers-as-current-host-user/
 FROM rocker/geospatial:3.6.3
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
