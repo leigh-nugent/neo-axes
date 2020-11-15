@@ -1,1 +1,1 @@
-renv::load()
+source("renv/activate.R")

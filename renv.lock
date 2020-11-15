@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "3.6.3",
+    "Version": "4.0.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -179,16 +179,10 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.21.4",
-      "Source": "GitHub",
-      "Remotes": "rstudio/bslib, rstudio/rmarkdown, r-lib/downlit",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "bookdown",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "be72ac4c7a963a3254da6a05db04e5608ef72a27",
-      "Hash": "d03aebe0e5d3b5ed2bcb084a2b5597bb"
+      "Version": "0.21",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "1bf627f1f77313e345f71e779b658578"
     },
     "boot": {
       "Package": "boot",
@@ -451,10 +445,10 @@
     },
     "foreign": {
       "Package": "foreign",
-      "Version": "0.8-75",
+      "Version": "0.8-80",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "9a7efaa7320b9f327a904d1e615b0b46"
+      "Hash": "ae1b1e15cc6ccb2bc61c0ac33e86d35f"
     },
     "fs": {
       "Package": "fs",
@@ -722,13 +716,6 @@
       "Repository": "CRAN",
       "Hash": "b3b401eba1d6435bcf009576e811f9bf"
     },
-    "lpSolve": {
-      "Package": "lpSolve",
-      "Version": "5.6.15",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "90c3bc497e7d5ec9dbb863621be15abb"
-    },
     "lubridate": {
       "Package": "lubridate",
       "Version": "1.7.9.2",
@@ -904,13 +891,6 @@
       "Repository": "CRAN",
       "Hash": "b6b150cd4709e0c0c9b5d51ac4376282"
     },
-    "plyr": {
-      "Package": "plyr",
-      "Version": "1.8.6",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "ec0e5ab4e5f851f6ef32cd1d1984957f"
-    },
     "png": {
       "Package": "png",
       "Version": "0.1-7",
@@ -1072,13 +1052,6 @@
       "Repository": "CRAN",
       "Hash": "b06bfb3504cc8a4579fd5567646f745b"
     },
-    "reshape2": {
-      "Package": "reshape2",
-      "Version": "1.4.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "bb5996d0bd962d214a11140d77589917"
-    },
     "rgdal": {
       "Package": "rgdal",
       "Version": "1.5-18",
@@ -1123,15 +1096,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.5.3",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "rmarkdown",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "bb7d9525a6939d98d344268801ab1eccbd583a41",
-      "Hash": "1de5e032fc4505c1130e3bea197c641c"
+      "Version": "2.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "20a0a94af9e8f7040510447763aab3e9"
     },
     "rnrfa": {
       "Package": "rnrfa",
@@ -1258,11 +1226,11 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "thesisdown",
       "RemoteUsername": "ismayc",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "thesisdown",
+      "RemoteRef": "master",
       "RemoteSha": "21fb3040a02f5ca9ac3a233aeb2d11d46ca1097f",
-      "Hash": "992bfd5744799ee01b6031197f65f32a"
+      "Hash": "20762b691d029f09457af76439a1f39e"
     },
     "tibble": {
       "Package": "tibble",
