@@ -1,18 +1,22 @@
 #!/usr/bin/env Rscript
 
-library(jsonlite)
-library(tidyverse)
-library(fs)
-library(magrittr)
-library(rebus)
-library(janitor)
-library(rnrfa)
-library(ggmap)
-library(dotenv)
+suppressPackageStartupMessages(
+  {
+    library(jsonlite)
+    library(tidyverse)
+    library(fs)
+    library(magrittr)
+    library(rebus)
+    library(janitor)
+    library(rnrfa)
+    library(ggmap)
+    library(dotenv)
+  }
+)
 
 #options(tibble.print_max = Inf)
 
-completed <- read_json("tasks.json") %>%
+completed <- read_json("data/tasks.json") %>%
   enframe(name = NULL) %>%
   unnest_wider(value) %>%
   unnest(cols = c(info, links)) %>%
@@ -20,9 +24,9 @@ completed <- read_json("tasks.json") %>%
   mutate(axe_id = str_extract(info, lookbehind("/") %R% "[0-9ab]+" %R% lookahead("-"))) %>%
   select(url = info, task_id = id, axe_id)
 
-field_types <- read_csv("info-ids.csv")
+field_types <- read_csv("data/info-ids.csv", col_types = cols(.default = "c"))
 
-sheets_uncorrected <- dir_ls("micropasts", glob = "*.json") %>%
+sheets_uncorrected <- dir_ls("data/micropasts", glob = "*.json") %>%
   map(read_json) %>%
   flatten() %>%
   enframe() %>%
@@ -40,7 +44,7 @@ sheets_uncorrected <- dir_ls("micropasts", glob = "*.json") %>%
   left_join(field_types, by = "info_id") %>%
   arrange(axe_id, field_type)
 
-correction_sheet <- read_csv("correction-sheet.csv",
+correction_sheet <- read_csv("data/correction-sheet.csv",
                              col_types = cols(.default = "c"),
                              na = character())
 
@@ -91,4 +95,4 @@ neo_axes <- info %>%
   left_join(measurements, by = "axe_id") %>%
   select(-.condition)
 
-write_excel_csv(neo_axes, "micropasts-neoaxes1.csv", na = "")
+write_excel_csv(neo_axes, "data/micropasts-neoaxes1.csv", na = "")
