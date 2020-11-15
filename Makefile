@@ -5,7 +5,8 @@ coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
 
-all : $(filled) data/micropasts-neoaxes1.csv
+_book/dissertation.pdf : $(filled) data/micropasts-neoaxes1.csv
+	Rscript -e 'bookdown::render_book("index.Rmd")'
 
 print-% : ; @echo $($*) | tr " " "\n"
 
@@ -44,3 +45,4 @@ clean :
 	rm -rf data/micropasts
 	rm -f data/tasks.json
 	rm -f data/micropasts-neoaxes1.csv
+	rm -rf _book _bookdown_files
