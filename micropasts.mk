@@ -5,13 +5,9 @@ nr-completed := $(shell curl -s -X GET -H \
 
 offsets := $(shell seq 0 100 $(nr-completed) | tr '\n' ' ')
 
-offsets-jsons := $(addprefix micropasts/,$(addsuffix .json,$(offsets)))
+offsets-jsons := $(addprefix data/micropasts/,$(addsuffix .json,$(offsets)))
 
-all : $(offsets-jsons) tasks.json micropasts-neoaxes1.csv
-
-print-% : ; @echo $($*) | tr " " "\n"
-
-micropasts/%.json :
+data/micropasts/%.json :
 	@ mkdir -p micropasts
 	curl -s -X GET \
 	-H "content-type: application/json" \
@@ -21,13 +17,8 @@ micropasts/%.json :
 	&offset=$*" \
 	> $@
 
-tasks.json :
-	./get_tasks | jq -s . > $@
+data/tasks.json :
+	./scripts/get_tasks | jq -s . > $@
 
-micropasts-neoaxes1.csv : tasks.json $(offsets-jsons) info-ids.csv
-	./sheets.R
-
-clean :
-	rm -rf micropasts
-	rm -f tasks.json
-	rm -f micropasts-neoaxes1.csv
+data/micropasts-neoaxes1.csv : data/tasks.json $(offsets-jsons) data/info-ids.csv
+	./scripts/sheets.R

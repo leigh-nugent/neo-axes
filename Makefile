@@ -1,11 +1,13 @@
 SHELL := /usr/bin/env bash
 
+include micropasts.mk
+
 drawings := $(sort $(wildcard drawings/*d.jpg))
 coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
 
-all : $(filled)
+all : $(filled) data/micropasts-neoaxes1.csv
 
 print-% : ; @echo $($*) | tr " " "\n"
 
@@ -37,7 +39,8 @@ drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 	touch .venv/bin/activate
 
 clean :
-	rm -rf extracted-jpgs
 	rm -rf .venv
-	find -iname "*.pyc" -delete
 	rm -rf drawings/*-*
+	rm -rf data/micropasts
+	rm -f data/tasks.json
+	rm -f data/micropasts-neoaxes1.csv
