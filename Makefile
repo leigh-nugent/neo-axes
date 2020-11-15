@@ -1,14 +1,9 @@
 SHELL := /usr/bin/env bash
 
-pdfs := $(sort $(shell find drawings-and-forms/ -type f -name '*.pdf'))
-jpgs := $(subst drawings-and-forms, extracted-jpgs, $(patsubst %.pdf, %-000.jpg, $(pdfs)))
-
 drawings := $(sort $(wildcard drawings/*d.jpg))
 coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
-
-find-jp2 = $(shell find $@/ -type f -name '*.jp2')
 
 all : $(filled)
 
@@ -33,16 +28,7 @@ drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 
 .PRECIOUS : $(coords)
 
-extracted-jpgs : drawings-and-forms $(jpgs)
-	-[ ! -z "$(find-jp2)" ] && convert $(find-jp2) $(patsubst %.jp2, %.jpg, $(find-jp2))
-	-[ ! -z "$(find-jp2)" ] && rm $(find-jp2)
-
-extracted-jpgs/%-000.jpg : drawings-and-forms/%.pdf
-	@ mkdir -p extracted-jpgs/{flint,stone}
-	pdfimages -all $< $(subst drawings-and-forms, extracted-jpgs, $(basename $<))
-
 # venv inspired by https://stackoverflow.com/a/46188210
-
 .venv : .venv/bin/activate
 
 .venv/bin/activate : requirements.txt
