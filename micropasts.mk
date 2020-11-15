@@ -8,7 +8,7 @@ offsets := $(shell seq 0 100 $(nr-completed) | tr '\n' ' ')
 offsets-jsons := $(addprefix data/micropasts/,$(addsuffix .json,$(offsets)))
 
 data/micropasts/%.json :
-	@ mkdir -p micropasts
+	@ mkdir -p data/micropasts
 	curl -s -X GET \
 	-H "content-type: application/json" \
 	"https://crowdsourced.micropasts.org/api/taskrun\

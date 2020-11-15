@@ -1,7 +1,5 @@
 SHELL := /usr/bin/env bash
 
-include micropasts.mk
-
 drawings := $(sort $(wildcard drawings/*d.jpg))
 coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
@@ -10,6 +8,8 @@ filled := $(patsubst %cropped, %filled, $(cropped))
 all : $(filled) data/micropasts-neoaxes1.csv
 
 print-% : ; @echo $($*) | tr " " "\n"
+
+include micropasts.mk
 
 drawings/%-filled : drawings/%-c.csv drawings/%-cropped .venv
 	source .venv/bin/activate; \
