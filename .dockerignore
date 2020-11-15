@@ -1,0 +1,9 @@
+Dockerfile
+_book
+_bookdown_files
+*.log
+docker-compose.yml
+renv/library
+renv/staging
+renv/settings.dcf
+.venv
