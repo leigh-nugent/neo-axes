@@ -27,8 +27,8 @@ csl: csl/harvard-institute-of-education-2.csl
 
 lot: true
 lof: true
-#header-includes:
-#- \usepackage{tikz}
+header-includes:
+- \usepackage[all]{nowidow}
 ---
 <!--
 Above is the YAML (YAML Ain't Markup Language) header that includes a lot of 

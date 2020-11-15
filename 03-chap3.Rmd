@@ -4,11 +4,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE)
 ```
 
-```{r include_packages_2, include = FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
-# the template files for the thesis and also two functions
-# used for labeling and referencing
+```{r packages, include = FALSE}
 library(tidyverse)
 library(ggplot2)
 library(ggmap)
@@ -41,6 +37,21 @@ neo_axes_long <- neo_axes %>%
                values_to = "measurement") %>%
   filter(!is.na(measurement)) %>%
   mutate(across("measurement", as.numeric))
+
+feature_n <- neo_axes_long %>%
+  group_by(feature, condition) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  group_by(condition) %>%
+  mutate(n_scaled = n / max(n)) %>%
+  arrange(desc(n))
+
+most_common_features <- feature_n %>%
+  filter(n > 385)
+
+neo_axes_long_mcf <- neo_axes_long %>%
+  semi_join(most_common_features, by = "feature") %>%
+  filter(condition %in% c("complete", "cast", "roughout"))
 ```
 # Results
 
@@ -60,7 +71,7 @@ All 1825 record sheets were transcribed, so the project is now listed as complet
 
 Flaws in the cropping and filling processes to produce the silhouettes entailed that of the 1198 `r #length(outlines_uncorrected)` outlines imported into Momocs, only 1137`r #length(outlines)` could be used in the final analysis. The 61 outlines which were dropped were unrecognizable from their original drawings. The 1137`r #length(outlines)` usable outlines have had some slight data loss, for example their edges have become slightly more jagged, however not enough to truly affect the overall shape. For the record sheets, however, as much data will be retained as possible, as all 1825 sheets were transcribed. This will help to account for the axe drawings which cannot be included in the morphometric analysis with Momocs, as some educated guesses can be made about their shapes based upon analysis of their measurements and comparison with other similar axes which had usable silhouettes.
 
-\pagebreak
+\newpage
 
 ## Exploratory morphometric analysis with record sheet data
 
@@ -78,36 +89,19 @@ neo_axes_long %>%
          id = fct_reorder(as.character(axe_id), n)) %>%
   ggplot(aes(colour = condition)) +
   geom_point(aes(x = id, y = feature), size=0.5) +
-  theme(axis.text.x = element_blank()) +
+  theme(axis.text.x = element_blank())
         # axis.text.x = element_text(angle = 90, vjust = 0.5),
         #legend.position = c(.8, .4)) +
-  my_theme
+
 ```
 
 The data cleaning step after downloading the data from MicroPasts revealed that many axes did not have measurements for all 56 features. The dotplot shows a significant decrease in frequency of measurements for features below bladang (Figure \@ref(fig:features-dotplot)). Looking at the `features_n` dataframe, bladang is recorded 1202 times, whereas the next feature below it, maxleng, is recorded just 408 times. Using 1202 occurrences as the cut-off left 19 features, which helped to reduce dimensions considerably even before PCA. Next, the conditions of the axes were considered. By far, the vast majority of axes were in complete condition.  After these exclusions, 125 axes were omitted, leaving 1700 axes in the analysis.
-
-```{r sorting, echo=FALSE, message=FALSE}
-feature_n <- neo_axes_long %>%
-  group_by(feature, condition) %>%
-  summarise(n = n()) %>%
-  ungroup() %>%
-  group_by(condition) %>%
-  mutate(n_scaled = n / max(n)) %>%
-  arrange(desc(n))
-
-most_common_features <- feature_n %>%
-  filter(n > 385)
-
-neo_axes_long_mcf <- neo_axes_long %>%
-  semi_join(most_common_features, by = "feature") %>%
-  filter(condition %in% c("complete", "cast", "roughout"))
-```
 
 ### Univariate
 
 At first glance, it is evident that many of the variables’ densities show a fair amount of variation either side of the mean/median, they are mostly skewed, and mostly unimodal (Figure \@ref(fig:density-plots)). Because some of these distributions are skewed due to outliers, I have provided red and blue lines for the mean and median, respectively, for each variable. Distance between the mean and median lines grows depending on the leptokursis of the variable. This is evident in blaleng, gripoled, lefedwid, lengmaxt, lengmaxw, maxleng, polthick and weight. The two grinding measurements and potentially blathick are bimodal, whilst bladang and lonpoled appear to be trimodal. Bladang appears to have three modes very close together at more acute angles, with a rise in its tail at reflex angles. The mean and median are unhelpful measures of central tendency for these multimodal distributions, and instead we must look at the peaks (Shennan 1997, p39). Another noticeable outcome is that the cortex measurements appear to mostly be 0, with very little variation around the central values. Weight has the most skewed distribution of all, with values reaching more than 2000g, and the rug beneath the density showing that most of the weights fall below 1000g. Polwid appears the closest to a normal distribution.
 
-```{r density-plots, message=FALSE, echo=FALSE, fig.width=6, fig.cap="Density plots. Red line: mean; blue line: median."}
+```{r density-plots, message=FALSE, echo=FALSE, fig.cap="Density plots. Red line: mean; blue line: median."}
 msrmnt_means <- neo_axes_long_mcf %>%
   group_by(feature) %>%
   summarise(mean.mm = mean(measurement, na.rm = TRUE))
@@ -118,33 +112,40 @@ msrmnt_meds <- neo_axes_long_mcf %>%
 
 neo_axes_long_mcf %>%
   ggplot(aes(x = measurement)) +
-  geom_density(lwd = 0.5) +
-  geom_vline(data = msrmnt_means, mapping = aes(xintercept = mean.mm),
-             color = "red",
-             linetype = "dashed") +
-  geom_vline(data = msrmnt_meds, mapping = aes(xintercept = med.mm),
-             color = "blue",
-             linetype = "dashed") +
+  geom_density(lwd = 0.5, alpha = 0.3, fill="skyblue1", color = "skyblue1") +
+  geom_vline(data = msrmnt_means,
+             mapping = aes(xintercept = mean.mm,
+                           color = "mean")) +
+  geom_vline(data = msrmnt_meds,
+             mapping = aes(xintercept = med.mm,
+                           color = "median")) +
   geom_rug(alpha = 0.5) +
-  facet_wrap(~ feature, scales = "free") +
+  facet_wrap(~ feature, scales = "free", strip.position="bottom") +
   my_theme +
-  theme(legend.position = "none",
+  theme(legend.position = "right",
         axis.text.y= element_blank(),
-        axis.ticks.y= element_blank(),
-        axis.text.x= element_text(size = 6)) +
-  expand_limits(x = 0, y = 0)
+        axis.ticks.y = element_blank(),
+        # axis.text.x = element_text(size = 6),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank()) +
+  expand_limits(x = 0, y = 0) +
+  scale_color_manual(name = "statistics",
+                     values = c(median = "blue", mean = "red"))
 ```
-
 The boxplots show that all features have at least some outlier measurements (Figure \@ref(fig:boxplots)). As many of the distributions are skewed, their interquartile ranges (IQRs) appear misleadingly tiny. For example, poledwid, whose IQR is a thin line just above 0, has outliers up to around 80mm. Poleng is similarly truncated. However, corbaby and corbapl do appear to be mostly 0 as their outliers are not as extreme, so do not skew the axis. The median is again misleading for multimodal distributions, plus the IQR tends to spread around the most numerous mode and obscure others. As expected, the variation in bladang appears to fall just before 100, which is where the three peaks fell in the density plot, however there are outliers at lower and higher values. We can also see that the most common values for weight are actually lower than 500, and that there are many outliers. Atypically low measurements are present in blawid and bladang. Gripoled shows the most variation in most common values. 
 
 ```{r boxplots, echo=FALSE, message=FALSE, fig.cap="Boxplots"}
 neo_axes_long_mcf %>%
   ggplot(aes(x = feature, y = measurement)) +
-  geom_boxplot(lwd = 0.25, outlier.size=0.25) + 
+  # geom_boxplot(lwd = 0.25, outlier.size=0.25) +
+  geom_violin(alpha = 0.3, fill="skyblue1", color = "skyblue1") +
+  geom_boxplot(width=0.2, lwd = 0.25, outlier.size=0.25) +
   # geom_histogram(binwidth = 1, origin = 0) +
-  facet_wrap(~ feature, scales = "free") +
+  facet_wrap(~ feature, scales = "free", strip.position="bottom") +
   my_theme +
-  theme(legend.position = "none", strip.text = element_blank())
+  theme(legend.position = "none", strip.text = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank())
 ```
 
 The summary statistics further indicate skewed variables, such as poledwid, whose typical values fall between 0 and 3mm, whilst the maximum value is 85. Lefedwid is also similar with most values falling between 1 and 6mm, and a maximum value of 185. As expected, the variable with the largest range is weight, with an interquartile range of 300, its lowest value being 20g, with its maximum at 2165g.   In addition, a typical blade angle lies between 80 and 90 degrees, and the largest is 180. The 1st and 3rd quartiles for the cortex measurements are both 0. After these univariate results, I decided to omit the cortex measurements as they were mostly 0 and only refer to the area of unpolished surface on the axe.
@@ -159,11 +160,14 @@ neo_axes_wide <- neo_axes_long_mcf2 %>%
               values_from = "measurement") %>%
   column_to_rownames(var = "axe_id")
 
+# library(skimr)
+# skim_without_charts(neo_axes_wide)
+
 summary(neo_axes_wide)
 
-#kable(summary(neo_axes_wide), booktabs = TRUE,
- #     caption = "Summary statistics") %>%
-  #kable_styling(latex_options = "basic", font_size = 5)
+# kable(summary(neo_axes_wide), booktabs = TRUE,
+#     caption = "Summary statistics") %>%
+# kable_styling(latex_options = "basic", font_size = 5)
 ```
 
 ### K-means cluster analysis
@@ -217,7 +221,7 @@ The 4-cluster plot appears to have kept the majority of the longer axes that wer
 
 Finally, the 6-cluster solution interestingly shows that clusters 2 and 6 have mostly the same membership as clusters 1 and 3 in the 4-cluster plot with little if any change. There are now four overlapping clusters in the centre of the plot, which contain the majority of the axes in the dataset. These overlap so considerably that it is difficult to see their borders. As the 4-cluster k-means was able to separate the two groups on the left and right of the plot which are retained when more clusters are introduced, it was decided that 4 clusters was the best choice from these options.
 
-\pagebreak
+\newpage
 
 ### Within-cluster densities
 
@@ -343,7 +347,7 @@ pcl1 /
 pcl2
 ```
 
-\pagebreak
+\newpage
 
 ## Outline morphometric analysis with Momocs
 
@@ -352,26 +356,8 @@ pcl2
 Before perfoming any analyses on the shapes, I first needed to check whether all of the outlines were successful. This was done by using the Momocs function `panel` and displaying the names as just the ID numbers from each filename over each shape, which I selected from the character vector of filenames using a regular expression (Figure \@ref(fig:image-sorting)). Otherwise the filenames were too long and illegible, overlapping on top of the shapes. I then identified all of the erroneous shapes and removed them from the list of filenames to import into Momocs. 1137`r #length(outlines)` were acceptable to use, as some of the outlines were completely unrecognizable from their original drawings. 
 
 ```{r image-sorting, results='hide', warning=FALSE, message=FALSE, fig.cap="All outlines imported into Momocs before inspection"}
-#getting image ids
-views <- dir_ls("drawings", glob = "*-c.csv") %>%
-  map_dfr(read_csv, col_types = cols(.default = "c")) %>%
-  group_by(drawing) %>%
-  add_tally()
 
-#finding only the plans from axes which have 3 views
-three_plan <- views %>%
-  filter(n == 3, view == "plan") %>%
-  ungroup() %>%
-  select(filename) %>%
-  mutate(filled = str_replace(filename, "\\.jpg", "-fill\\.jpg")) %>%
-  pull(filled)
-
-ids <- three_plan %>% str_extract("[0-9]{2,}[ab]*")
-
-#converting to outlines to examine
-plans_uncorrected <- import_jpg(three_plan)
-
-outlines_uncorrected <- Out(plans_uncorrected)
+outlines_uncorrected <- read_rds("data/outlines.Rds")
 
 panel(outlines_uncorrected)
 ```
@@ -379,18 +365,17 @@ panel(outlines_uncorrected)
 The final dataset is below (Figure \@ref(fig:outline-corrections)). After cleansing the dataset of any erroneous outlines, I then used `efourier` with its default normalize setting. All axes were aligned the same way before importing into Momocs, with their blades at the bottom and their polls at the top.
 
 ```{r outline-corrections, results='hide', message=FALSE, warning=FALSE, fig.cap="Final outlines for analysis after incorrect shapes removed"}
-axe_lookup <- three_plan %>% 
-  enframe(name = NULL) %>%
-  mutate(axe_id = ids) %>%
-  rename(file = value)
 
-error_fills <- read.csv("data/error-fills.csv", header=F)$V1 %>% as.character()
+outline_errors <- read_csv("data/error-fills.csv") %>% pull()
 
-no_errors <- axe_lookup[!axe_lookup$axe_id %in% error_fills, ]
+errors <-
+  tibble(stem = names(outlines_uncorrected)) %>%
+  mutate(axe_id = str_extract(stem, "[0-9]{2,}[ab]*")) %>%
+  filter(axe_id %in% outline_errors) %>%
+  pull(stem)
 
-correct_files <- no_errors$file
-
-outlines <- import_jpg(correct_files) %>% Out()
+outlines <- Out(
+  outlines_uncorrected[which(!names(outlines_uncorrected) %in% errors)])
 
 panel(outlines)
 ```
@@ -459,9 +444,10 @@ kmeans5 <- KMEANS(pca, centers = 5,
 In order to see the cluster membership in the 4-cluster solution more clearly, Momocs’ `panel` function was used with colours set to display the clusters, and the axe_ids as the names (Figure \@ref(fig:panel-clusters)). Here we can see that the 4 clusters have been partitioned in a way that makes sense: all of the axes in the thickest group are in fact the thickest, and those in the thin group are the thinnest of all. The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently slightly less wide than those in the green. Despite PC2 accounting for how trapezoidal or straight the axe shapes were, this does not appear to have been a deciding factor in the k-means clustering. There are both straighter and more trapezoidal axes in most of the groups, apart from the thinnest group, which by chance is also the straightest. 
 
 ```{r panel-clusters, fig.cap='The 4 Momocs clusters colour coded onto a panel plot of axe outlines'}
+outline_names <- names(outlines) %>% str_extract("[0-9]{2,}[ab]*")
 
 panel(outlines, palette=col_spring, 
-      fac=as.factor(kmeans3$cluster), names=as.factor(no_errors$axe_id), 
+      fac=as.factor(kmeans3$cluster), names=as.factor(outline_names), 
       cex.names=0.5, fromtop=TRUE) # dim = c(47, 25))
 ```
 
