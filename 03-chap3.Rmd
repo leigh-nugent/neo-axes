@@ -446,9 +446,11 @@ In order to see the cluster membership in the 4-cluster solution more clearly, M
 ```{r panel-clusters, fig.cap='The 4 Momocs clusters colour coded onto a panel plot of axe outlines'}
 outline_names <- names(outlines) %>% str_extract("[0-9]{2,}[ab]*")
 
-panel(outlines, palette=col_spring, 
-      fac=as.factor(kmeans3$cluster), names=as.factor(outline_names), 
-      cex.names=0.5, fromtop=TRUE) # dim = c(47, 25))
+panel(outlines,
+      palette = col_spring,
+      fac = as.factor(kmeans3$cluster),
+      names = as.factor(outline_names),
+      cex.names=0.5) # dim = c(47, 25))
 ```
 
 Here we can see that the 4 clusters have been partitioned in a way that makes sense: all of the axes in the thickest group are in fact the thickest, and those in the thin group are the thinnest of all. The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently slightly less wide than those in the green. Despite PC2 accounting for how trapezoidal or straight the axe shapes were, this does not appear to have been a deciding factor in the k-means clustering. There are both straighter and more trapezoidal axes in most of the groups, apart from the thinnest group, which by chance is also the straightest. Finally, to get a feel for the appearance of a typical axe in each cluster, mean shapes were plotted (Figure \@ref(fig:meanshapes)).
