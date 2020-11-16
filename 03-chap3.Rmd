@@ -172,7 +172,7 @@ summary(neo_axes_wide)
 
 ### K-means cluster analysis
 
-The WSS plot displayed an ‘elbow’ or sudden change at 2 and 3, whilst the average silhouette clearly indicated 2 was the optimal number of clusters (Figure \@ref(fig:wss-silhouette)). In light of these results, k-means analyses were performed with clusters set to 2 and 3 (Figure \@ref(fig:k-means)). 
+The WSS plot displayed an ‘elbow’ or sudden change at 2 and 3, whilst the average silhouette overwhelmingly indicated 2 as the optimal number of clusters (Figure \@ref(fig:wss-silhouette)). Both plots also show a slight suggestion that there may be 9 clusters. In light of these results, k-means analyses were performed with clusters set to 2 and 3 (Figure \@ref(fig:k-means)). 
 
 ```{r wss-silhouette, echo=FALSE, message=FALSE, fig.height=3, fig.cap="WSS and average silhouette plots"}
 scaled_neo_axes <- neo_axes_wide %>%
@@ -186,15 +186,15 @@ p2 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "silhouette") +
 
 p1 + p2
 ```
-Judging by the measurements of some axes on either side of the 2-cluster k-means plot, heavier, thicker, longer axes were on the far right, and lighter, thinner and shorter ones were on the far left. For example, 60119, 60115 and 60128 all have maxlengs between 8 and 11mm and weigh 105, 135 and 140g respectively, whereas 60001, 60110 and 70002 have maxlengs of 299, 315, and 226, and weigh 1860, 1910 and 1565g. Interestingly, 60001 and 60110 have the longest maxlengs in the dataset, whilst 60119 and 60115 have the shortest,with 60128 having the 5th shortest. The clusters are partitioned through the part of the plot where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting (Rhys 2019, p403).
+The axes visible on the far right of the plot in cluster 1 of the 2-cluster arrangement are the same as those which were on the far right of PC1 in the PCA, which have the largest measurements for maxwid, weight, maxleng, and other variables which correlate strongly with PC1. These appear to be lumped in with smaller axes, such as 60049, weighing 310g with a maxleng of 96. Cluster 2 contains the most individuals, and has the same axes on its far left which were on the far left of PC1.
 
-Moving onto the 3 cluster plot, the axes on the extremeties of the plot are still in the same places, however many of the axes which fell towards the centre of the plot in either cluster have now been relocated into cluster 2. Most of the axes tend to fall into either cluster 2 or very near the edge of cluster 3. Here we can see better separation between the cluster with the longer/larger axes in and the other clusters, however there is overlap between clusters 1 and 2, which also are similar sizes, containing 166 and 143 points respectively. 
+Moving onto the 3 cluster plot, the axes on the extremeties of the plot are still in the same places, however many of the axes which were on the borders between clusters 1 and 2 previously have now been relocated to cluster 1. Most of the axes tend to fall into clusters 1 and 2, and cluster 3, which still contains the largest axes, has decreased in size. Here we can see better separation between the cluster containing the longer/larger axes and the other clusters, however there is overlap between clusters 1 and 2, which also are similar sizes. Clusters 1 and 2 are partitioned through where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting (Rhys 2019, p403).
 
 ```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.width=6, fig.cap="K-means clusters"}
 kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
 kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
 kclust5 <- kmeans(scaled_neo_axes, centers = 5, nstart = 50, algorithm = "Hartigan-Wong")
-kclust6 <- kmeans(scaled_neo_axes, centers = 6, nstart = 50, algorithm = "Hartigan-Wong")
+kclust9 <- kmeans(scaled_neo_axes, centers = 9, nstart = 50, algorithm = "Hartigan-Wong")
 
 kclust3_lookup <- kclust3$cluster %>%
   enframe() %>%
@@ -217,15 +217,13 @@ k2 /
 k3 /
 k5
 ```
-The 4-cluster plot appears to have kept the majority of the longer axes that were in cluster 1 in the same cluster, however some of the bordering axes moved into cluster 4. There is still overlap between two of the clusters, 3 and 4, where the majority of the axes fall, however some of what appears to be the shortest axes have been partitioned into a separate group which contains the least axes. Clusters 3 and 4 are similar sizes.
-
-Finally, the 6-cluster solution interestingly shows that clusters 2 and 6 have mostly the same membership as clusters 1 and 3 in the 4-cluster plot with little if any change. There are now four overlapping clusters in the centre of the plot, which contain the majority of the axes in the dataset. These overlap so considerably that it is difficult to see their borders. As the 4-cluster k-means was able to separate the two groups on the left and right of the plot which are retained when more clusters are introduced, it was decided that 4 clusters was the best choice from these options.
+The 5-cluster plot has reassuringly made very little changes to the previous cluster 3 membership, which has now become cluster 5, however some of the bordering axes moved into cluster 4. There is still overlap, this time between the 4 other clusters, which seem to overfit.
 
 \newpage
 
 ### Within-cluster densities
 
-It is clear that cluster 3 mostly contains the axes with the smallest values for blaleng, blathick, blawid, lengmaxt, maxleng, and polwid (Figure \@ref(fig:cluster-densities)). 
+It is clear that cluster 1 mostly contains the axes with the largest values for blaleng, blathick, blawid, lengmaxt, longside, maxleng, maxthick, maxwid and weight (Figure \@ref(fig:cluster-densities)). 
 
 ```{r cluster-densities, fig.width=6, fig.cap="Cluster densities"}
 neo_axes_long_mcf2 %>%
@@ -242,20 +240,20 @@ neo_axes_long_mcf2 %>%
         axis.text.x = element_text(size=6))
 ```
 
-It is clear that cluster 1 is dominated by axes with the smallest values for blaleng, blathick, blawid, lengmaxt, maxleng, and polwid, however has outliers for all of these. Cluster 1 also has a bimodal distribution for grinside, longside, gripoled, lonpoled, maxthick, weight and slightly for maxwid, and its subsidiary modes in grinside and longside are where cluster 4’s modes are. Cluster 2 appears to mostly contain the lightest axes with the smallest maxthick and longside measurements, and more of the lower values for grinside. It also has bimodal distributions for grinside, gripoled and lefedwid. Cluster 4’s distribution overlaps with cluster 2’s on a number of the variables, however generally tends to peak at slightly higher numbers than cluster 2. Finally, cluster 1 generally appears to have the highest values within it for most variables, however its distribution is not always dominated by these, for example for lengmaxw and weight where it has a wide spread. In addition, whilst cluster 4 contains axes with the highest values for weight, its peak is at lower values than cluster 3’s. Cluster 1 axes tend to have larger measurements for maxwid, maxleng, longside, maxthick, grinside, lengmaxt and lengmaxw more than the other clusters. Clusters 1, 2 and 3 appear to be widely spread for blaleng, blathick, blawid, lengmaxt, and polwid. Interestingly, all clusters show multiple modes for grinside and gripoled. Poleng, poledwid and bladang measurements have similar distributions in all clusters.
+Clusters 1 and 2 tend to overlap on most variables, but cluster 2 generally is dominated by axes with the smallest measurements for many of the variables relating to size.
 
 ### Principal components analysis
 
-The first PC explains the most variance, however this is still just 38.2% of the overall variance; the second PC accounts for 14.8%, and the rest of the variance is split over many subsequent PCs (Figure \@ref(fig:screeplots)). The first two PCs account for 53% of the variance. PC3 and PC4 account for 8.9 and 7.2% respectively, in total 16.1%, so these were also kept for analysis. The first 4 PCs account for 69.1% of the variance. 
+The first PC explains the most variance, however this is still just 38.2% of the overall variance; the second PC accounts for 14.8%, and the rest of the variance is split over many subsequent PCs (Figure \@ref(fig:screeplots)). The first two PCs account for 53% of the variance. PC3 and PC4 account for 8.9 and 7.2% respectively, in total 16.1%, so these were also kept for analysis. The first 4 PCs account for 69.1% of the variance. Likewise, the eigenvalues for PC1 and PC2 are 7.8 and 2.8 out of the sum total of the eigenvalues, which is 19.
 
 ```{r screeplots, fig.size=3, fig.cap = "Screeplots of eigenvalues and percentage variance explained."}
 
 neo_axes_PCA <- drop_na(neo_axes_wide) %>%
   prcomp(center = TRUE, scale = TRUE)
 
-sc1 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "eigenvalue") +
+sc1 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "eigenvalue", geom="bar", barfill="thistle") +
   my_theme
-sc2 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "variance") +
+sc2 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "variance", geom="bar", barfill="lavender") +
   my_theme
 
 sc1 + sc2
@@ -278,7 +276,7 @@ map_dfc(1:4, ~neo_axes_PCA$rotation[, .] * abs(neo_axes_PCA$sdev)[.]) %>%
   kable_styling(font_size = 10)
 ```
 
-The variable biplot for PC1 and PC2 shows that most of the variables corrleate with one another, with the exception of polwid, polthick, poleng, bladang, and lonpoled, which correlate with one another but less so with the rest. Polthick correlates the least with any variables. Longside, grinside and lefedwid are almost perfectly correlated, as are blawid and blaleng (Figure \@ref(fig:pc1-pc2)). The biplot of the individuals for PC1 and PC2 shows long, heavy, thick axes with thick blades on the far left side, and the shortest, lightest, thinnest axes with the thinnest blades on the far right. In the centre of the plot we see the majority of the axes, however there are some outliers toward the top of the plot which score highly on the poll measurements represented by PC2, such as 10040 and 81004. Some axes toward the centre score highly on only some of the negatively correlated variables in PC1. For example, 60072 is fairly long with a maxleng of 113mm, but weighs just 160g. Meanwhile, 60117 weighs 955g but is only 21.3mm long, and is positioned at the bottom of the plot since it has small polthick and polwid measurements.
+The biplot for PC1 and PC2 shows that most of the variables correlate with one another, with the exception of polwid, polthick, poleng, bladang, and lonpoled, which correlate with one another but less so with the rest (Figure \@ref(fig:pc1-pc2)). Poledwid correlates the least with any other variable. Interestingly, grinside and maxleng are perfectly correlated, as are blaleng and blathick, and bladang and lonpoled. Lengmaxt and lengmaxw are almost perfectly correlated. The arrangement of the individuals on PC1 and PC2 shows long, heavy, wide axes with thick blades on the far left side, and the shortest, lightest, most narrow axes with the thinnest blades on the far right. For example, 70002 on the far right weighs 1565g, has a maxleng of 226mm, a maxwid of 59mm and blathick of 36mm. Similarly 60001 weighs 1860g with a maxleng of 299mm, blathick of 29mm and maxwid 79mm. Meanwhile on the far left examples include 10003 which weighs just 60g with a maxleng of 86 and 70006 weighing 56g with a maxleng of 81. To the left of the origin we see the majority of the axes. There are some outliers toward the bottom of PC2 which score highly on the poll measurements such as 60049 which has the largest polthick in the dataset at 31mm, with a 58mm polwid and 18mm poleng.
 
 ```{r pc1-pc2, fig.height=10, fig.cap = "PCA: individuals and variables for PC1 and PC2"}
 
@@ -299,10 +297,9 @@ The variable biplot for PC1 and PC2 shows that most of the variables corrleate w
 #   pivot_wider(names_from = PC,
 #               names_prefix = "PC")
 
-biplot(neo_axes_PCA, pc.biplot = TRUE)
+#biplot(neo_axes_PCA, pc.biplot = TRUE)
 
-# fviz_pca_biplot(neo_axes_PCA) +
-#   coord_fixed()
+fviz_pca_biplot(neo_axes_PCA) +   coord_fixed()
 
 # neo_axes_pca_tidy %>%
 #   ggplot() +
@@ -320,31 +317,37 @@ biplot(neo_axes_PCA, pc.biplot = TRUE)
 
 ```
 
-For PC3 and PC4, the variable biplot shows bladang and lefedwid, the positively correlated variables with PC3, correlating with one another (Figure \@ref(fig:pc3-pc4)). The individuals biplot shows that there are a few axes which score highly on these extending to the right of the plot, however the vast majority fall around the centre. We can also see lengmaxt and maxleng correlating with one another, which are negatively correlated with PC3, and some long axes extending to the left of the plot. Finally we can see poleng, strongly positively correlated with PC4, extending vertically to the top of the plot, however there is just one outlier scoring highly on this variable. Examining PCs other than 1 and 2 can reveal outliers which were not visible on the first two PCs, such as 81004 which has the largest poleng measurement at 52mm, and 60126 which has a bladang of 180 degrees. As the variable loadings are not as strong for these PCs, in addition to how little variance they explain, it is difficult to discern the relations between axes on either side of PCs 3 and 4 (Shennan 1980, p267).
+For PC3 and PC4, the biplot shows many variables negatively correlating with one another, with strong positive correlations between polwid and lonpoled, and longside and maxleng (Figure \@ref(fig:pc3-pc4)). Examining PCs other than 1 and 2 can reveal outliers which were not visible on the first two PCs, such as 81004 which has the largest poleng measurement at 52mm, and 60126 which has a bladang of 180 degrees. It appears as though axes with larger bladangs and blawids are to the right of PC3. As the variable loadings are relatively weak for these PCs, in addition to how little variance they explain, it is difficult to discern the relations between axes on either side of PCs 3 or 4 (Shennan 1980, p267).
 
 ```{r pc3-pc4, fig.height = 10, fig.cap = "PCA: individuals and variables for PC2 and PC3"}
 
-pc3 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
-                label = FALSE) + my_theme
-pc4 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
-                colour = 'grey', loadings.label = TRUE, loadings.label.repel=TRUE,
-                loadings.colour = 'blue',loadings.label.colour = 'blue') + my_theme
+#pc3 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
+                #label = FALSE) + my_theme
+#pc4 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
+                #colour = 'grey', loadings.label = TRUE, loadings.label.repel=TRUE,
+                #loadings.colour = 'blue',loadings.label.colour = 'blue') + my_theme
 
-pc3 /
-pc4
+#pc3 /
+#pc4
+
+fviz_pca_biplot(neo_axes_PCA, axes=c(3,4), col.ind="skyblue", col.var="black") +   coord_fixed()
 
 ```
 
 ### Clusters on PCA
 
-blbalballa
+The clusters are very clearly visible on PC1 and PC2, but are amalgamated on PC3 and PC4 (\@ref(fig:pca-cluster)). Clusters 1 and 2 almost overlap, and cluster 3 is shown trailing off to the right, containing the axes with larger measurements for the variables correlated with PC1. Cluster 2 contains the majority of axes. Overall the arrangement of the clusters suggests that membership depends on the size of the measurements an axe has for the variables correlated with PC1. Interestingly, cluster 1 contains the three extreme outliers on PC3 and PC4.
 
-```{r pca-cluster, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes"}
-pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
-pcl2 <- autoplot(neo_axes_PCA, data = kclust3, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
+```{r pca-cluster, fig.height=10, fig.width=10, fig.cap = "Clusters colour-coded onto plots of the two pairs of axes."}
+#pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
+#pcl2 <- autoplot(neo_axes_PCA, data = kclust3, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
+
+pcl1 <- fviz_pca_ind(neo_axes_PCA, habillage=kclust3$cluster) +   coord_fixed()
+pcl2 <- fviz_pca_ind(neo_axes_PCA, axes=c(3,4), habillage=kclust3$cluster) +   coord_fixed()
 
 pcl1 /
 pcl2
+
 ```
 
 \newpage
