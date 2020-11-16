@@ -8,7 +8,7 @@ filled := $(patsubst %cropped, %filled, $(cropped))
 chapters := $(wildcard *.Rmd)
 datasets := data/micropasts-neoaxes1.csv data/outlines.Rds
 
-_book/dissertation.pdf : $(chapters)
+_book/dissertation.pdf : $(chapters) $(datasets)
 	Rscript -e 'bookdown::render_book("index.Rmd")'
 
 print-% : ; @echo $($*) | tr " " "\n"
