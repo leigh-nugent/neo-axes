@@ -5,10 +5,16 @@ coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
 
-_book/dissertation.pdf : $(filled) data/micropasts-neoaxes1.csv
+chapters := $(wildcard *.Rmd)
+datasets := data/micropasts-neoaxes1.csv data/outlines.Rds
+
+_book/dissertation.pdf : $(chapters)
 	Rscript -e 'bookdown::render_book("index.Rmd")'
 
 print-% : ; @echo $($*) | tr " " "\n"
+
+data/outlines.Rds : $(filled)
+	./scripts/momocs-outlines.R
 
 include micropasts.mk
 

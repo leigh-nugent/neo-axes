@@ -48,3 +48,4 @@ extracted-jpgs
 # bookdown/thesisdown
 *.log
 dissertation_files/
+dissertation.Rmd
