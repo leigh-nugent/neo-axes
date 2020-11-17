@@ -60,7 +60,7 @@ neo_axes_long_mcf <- neo_axes_long %>%
 
 ### Image processing of axe drawings
 
-The cropping was mostly successful, and often produced three images: plan, profile and top. Exceptions appear to occur for some where the original drawings had been labeled, as bounding boxes were drawn around writing, identifying it as shapes, so sometimes writing was also cropped, or cropped instead of one or more of the views. Another exception occurs when views are drawn too close together or are overlapping, as these are then all included in the same cropped image. Finally some of the profile views were cropped in half as many of these have the edge drawn through the centre, which tends to be bolder than the outline. Another point of concern is that the crops do not leave much room around the outlines, which sometimes led to problems later with the filling.
+The cropping was mostly successful, and often produced three intended images: plan, profile and top. Exceptions appear to occur for some where the original drawings had been labeled, as bounding boxes were drawn around writing, identifying it as shapes, so sometimes writing was also cropped, or cropped instead of one or more of the views. Another exception occurs when views are drawn too close together or are overlapping, as these are then all included in the same cropped image. Finally some of the profile views were cropped in half as many of these have the edge drawn through the centre, which tends to be bolder than the outline. Another point of concern is that the crops do not leave much room around the outlines, which sometimes led to problems later with the filling.
 
 The filling method was overall successful, and the shape of many axes was retained, but some data was lost on the outlines, causing them to become jagged. Despite mostly succeeding in cropping three views from each drawing, I decided to only focus on the plans as that is where most of the variation seems to occur between each axe. Only the plans which had two other associated images were chosen, as if there were less or more than three, the wrong view may have ‘plan’ in the filename and would be included in error. Of the 1825 axe drawings, this brought the number to import into Momocs down to 1198.
 
@@ -94,11 +94,11 @@ neo_axes_long %>%
 
 ```
 
-The data cleaning step after downloading the data from MicroPasts revealed that many axes did not have measurements for all 56 features. The dotplot shows a significant decrease in frequency of measurements for features below bladang (Figure \@ref(fig:features-dotplot)). Looking at the `features_n` dataframe, bladang is recorded 1202 times, whereas the next feature below it, maxleng, is recorded just 408 times. Using 1202 occurrences as the cut-off left 19 features, which helped to reduce dimensions considerably even before PCA. Next, the conditions of the axes were considered. By far, the vast majority of axes were in complete condition.  After these exclusions, 125 axes were omitted, leaving 1700 axes in the analysis.
+The data cleaning step after downloading the data from MicroPasts revealed that many axes did not have measurements for all 56 features. The dotplot shows a significant decrease in frequency of measurements for features below bladang (Figure \@ref(fig:features-dotplot)). A tally was created in order to choose a cut-off amount for the most frequently measured features, which showed that bladang was recorded 1202 times, whereas the next feature below it, maxleng, is recorded just 408 times. Using 1202 occurrences as the cut-off left 19 features, which helped to reduce dimensions considerably even before PCA. Next, the conditions of the axes were considered. By far, the vast majority of axes were in complete condition. Roughout and cast condition axes were also kept as these retain the original or intended shape. Axes in other conditions were excluded. After these exclusions, 125 axes were omitted, leaving 1700 axes in the analysis.
 
 ### Univariate
 
-At first glance, it is evident that many of the variables’ densities show a fair amount of variation either side of the mean/median, they are mostly skewed, and mostly unimodal (Figure \@ref(fig:violin-plots)). Because some of these distributions are skewed due to outliers, I have provided red and blue lines for the mean and median, respectively, for each variable. Distance between the mean and median lines grows depending on the leptokursis of the variable. This is evident in blaleng, gripoled, lefedwid, lengmaxt, lengmaxw, maxleng, polthick and weight. The two grinding measurements and potentially blathick are bimodal, whilst bladang and lonpoled appear to be trimodal. Bladang appears to have three modes very close together at more acute angles, with a rise in its tail at reflex angles. The mean and median are unhelpful measures of central tendency for these multimodal distributions, and instead we must look at the peaks (Shennan 1997, p39). Another noticeable outcome is that the cortex measurements appear to mostly be 0, with very little variation around the central values. Weight has the most skewed distribution of all, with values reaching more than 2000g, and the rug beneath the density showing that most of the weights fall below 1000g. Polwid appears the closest to a normal distribution.
+At first glance, it is evident that many of the variables’ densities show a fair amount of variation either side of the mean/median, they are mostly skewed, and mostly unimodal (Figure \@ref(fig:violin-plots)). Because some of these distributions are skewed due to outliers, I have provided red and blue lines for the mean and median, respectively, for each variable. Distance between the mean and median lines grows depending on the leptokursis of the variable. This is evident in blaleng, gripoled, lefedwid, lengmaxt, lengmaxw, maxleng, polthick and weight. The two grinding measurements and potentially blathick are bimodal, whilst bladang and lonpoled appear to be trimodal. Bladang appears to have three modes very close together at more acute angles, with a rise in its tail at reflex angles. The mean and median are unhelpful measures of central tendency for these multimodal distributions, and instead we must look at the peaks (Shennan 1997, p39). Another noticeable outcome is that the cortex measurements seem to mostly be 0, with very little variation around the central values. Weight has the most skewed distribution of all, with values reaching more than 2000g, and the rug beneath the density showing that most of the weights fall below 1000g. Polwid appears the closest to a normal distribution.
 
 
 ```{r density-plots, fig.cap="Density plots of the distribution of measurements for each feature."}
@@ -174,7 +174,7 @@ summary(neo_axes_wide)
 
 ### Principal components analysis
 
-The first PC explains the most variance, however this is still just 38.2% of the overall variance; the second PC accounts for 14.8%, and the rest of the variance is split over many subsequent PCs (Figure \@ref(fig:screeplots)). The first two PCs account for 53% of the variance. PC3 and PC4 account for 8.9 and 7.2% respectively, in total 16.1%, so these were also kept for analysis. The first 4 PCs account for 69.1% of the variance. Likewise, the eigenvalues for PC1 and PC2 are 7.8 and 2.8 out of the sum total of the eigenvalues, which is 19.
+The first PC explains the most variance, however this is still just 41.2% of the overall variance; the second PC accounts for 14.9%, and the rest of the variance is split over many subsequent PCs (Figure \@ref(fig:screeplots)).The first two PCs account for 56.18% of the variance. PC3 and PC4 account for 8.6 and 6.6% respectively, in total explaining 15.2%, so these were also kept for analysis. The first 4 PCs account for 70.56% of the variance. Likewise, the eigenvalues for PC1 and PC2 are 7.8 and 2.8, which equates to 41.2% and 14.9% of the sum total of eigenvalues, which is 19.
 
 ```{r screeplots, fig.height=3, fig.width=6, fig.cap = "Screeplots of eigenvalues and percentage variance explained for PCA."}
 
@@ -192,7 +192,7 @@ sc1 + sc2
 
 ```
 
-Looking at the variable loadings, are 9 variables which are strongly negatively correlated with PC1, with maxwid and weight being the strongest at -0.85 and -0.84 respectively (Table \@ref(tab:variable-loadings)). 
+Looking at the variable loadings, are there 9 variables which are strongly negatively correlated with PC1, with maxwid and weight being the strongest at 0.92 and 0.89 respectively (Table \@ref(tab:variable-loadings)). 
 
 \clearpage
 
@@ -211,7 +211,7 @@ map_dfc(1:4, ~neo_axes_PCA$rotation[, .] * abs(neo_axes_PCA$sdev)[.]) %>%
   kable_styling(font_size = 10)
 ```
 
-Maxthick, maxleng, blawid, blathick, blaleng, lengmaxt and longside are the other 7 correlated variables. For PC2, polthick, polwid, poledwid and lonpoled are strongly positively correlated, and longside and grinside are strongly negatively correlated. Finally, for PC3, bladang, gripoled, lefedwid have strong positive correlations and lengmaxt is strongly negative, and PC4’s strongest correlation is positive with poleng, followed by negatives with blathick and blaleng.
+Maxthick, blawid, maxleng, blathick, longside, grinside and blaleng are the other 7 correlated variables. For PC2, its strongest correlations are with polthick and polwid at -0.77 and -0.71 respectively, followed by lonpoled, longside and poleng. PC3 has no particularly strong correlations however it is moderately negatively correlated with poleng and lengmaxt at -0.52 and -0.42, and positively with bladang and blathick at 0.44 and 0.42. Finally, PC4’s correlations are weaker still, with its strongest being poledwid at -0.51, gripoled at 0.51 and lefedwid at 0.44.
 
 The biplot for PC1 and PC2 shows that most of the variables correlate with one another, with the exception of polwid, polthick, poleng, bladang, and lonpoled, which correlate with one another but less so with the rest (Figure \@ref(fig:pc1-pc2)). 
 
@@ -277,7 +277,7 @@ fviz_pca_biplot(neo_axes_PCA, axes=c(3,4), title=element_blank(),
 
 ```
 
-Examining PCs other than 1 and 2 can reveal outliers which were not visible on the first two PCs, such as 81004 which has the largest poleng measurement at 52mm, and 60126 which has a bladang of 180 degrees. It appears as though axes with larger bladangs and blawids are to the right of PC3. As the variable loadings are relatively weak for these PCs, in addition to how little variance they explain, it is difficult to discern the relations between axes on either side of PCs 3 or 4 (Shennan 1980, p267).
+Examining PCs other than 1 and 2 can reveal outliers which were not visible on the first two PCs, such as 81004 which has the largest poleng measurement at 52mm, and 60126 which has an abnormally small poleng at 1.5mm but a bladang of 180 degrees. The arrangement of the variables suggests that axes with larger bladangs and blawids are to the right of PC3. As the variable loadings are relatively weak for these PCs, in addition to how little variance they account for, it is difficult to discern the relations between axes on either side of PCs 3 or 4 (Shennan 1980, p267).
 
 \pagebreak
 
@@ -299,13 +299,13 @@ p2 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "silhouette") +
 p1 + p2
 ```
 
-In light of these results, k-means analyses were performed with clusters set to 2 and 3 (Figure \@ref(fig:k-means)). The axes visible on the far right of the plot in cluster 1 of the 2-cluster arrangement are the same as those which were on the far right of PC1 in the PCA, which have the largest measurements for maxwid, weight, maxleng, and other variables which correlate strongly with PC1. These appear to be lumped in with smaller axes, such as 60049, weighing 310g with a maxleng of 96. Cluster 2 contains the most individuals, and has the same axes on its far left which were on the far left of PC1.
+In light of these results, k-means analyses were performed with clusters set to 2 and 3 (Figure \@ref(fig:k-means)). A 4-cluster solution was also trialed to see if any of the groups would retain their membership if more clusters were imposed. The axes visible on the far right of the plot in cluster 1 of the 2-cluster arrangement are the same as those which were on the far right of PC1 in the PCA, which have the largest measurements for maxwid, weight, maxleng, and other variables which correlate strongly with PC1. These appear to be lumped in with smaller axes, such as 60049, weighing 310g with a maxleng of 96mm. Cluster 2 contains the most individuals, and has the same axes on its far left which were on the far left of PC1.
 
 
 ```{r k-means, echo=FALSE, message=FALSE, fig.height=10, fig.cap="K-means analyses with 2, 3 and 5 clusters."}
 kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
 kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
-kclust5 <- kmeans(scaled_neo_axes, centers = 5, nstart = 50, algorithm = "Hartigan-Wong")
+kclust4 <- kmeans(scaled_neo_axes, centers = 4, nstart = 50, algorithm = "Hartigan-Wong")
 kclust9 <- kmeans(scaled_neo_axes, centers = 9, nstart = 50, algorithm = "Hartigan-Wong")
 
 kclust3_lookup <- kclust3$cluster %>%
@@ -322,21 +322,21 @@ k2 <- fviz_cluster(kclust2, data = scaled_neo_axes, labelsize=6) +
   my_theme
 k3 <- fviz_cluster(kclust3, data = scaled_neo_axes, labelsize=6) +
   my_theme
-k5 <- fviz_cluster(kclust5, data = scaled_neo_axes, labelsize=6) +
+k4 <- fviz_cluster(kclust4, data = scaled_neo_axes, labelsize=6) +
   my_theme
 
 k2 /
 k3 /
-k5
+k4
 ```
 
-Moving onto the 3 cluster plot, the axes on the extremeties of the plot are still in the same places, however many of the axes which were on the borders between clusters 1 and 2 previously have now been relocated to cluster 1. Most of the axes tend to fall into clusters 1 and 2, and cluster 3, which still contains the largest axes, has decreased in size. Here we can see better separation between the cluster containing the longer/larger axes and the other clusters, however there is overlap between clusters 1 and 2, which also are similar sizes. Clusters 1 and 2 are partitioned through where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting (Rhys 2019, p403).
+Moving onto the 3 cluster plot, the axes on the extremities of the plot are still in the same places, however many of the axes which were on the borders between clusters 1 and 2 previously have now been relocated to cluster 1. Most of the axes tend to fall into clusters 1 and 2, and cluster 3, which still contains the largest axes, has decreased in size. Here we can see better separation between the cluster containing the longer/wider axes and the other clusters, however there is overlap between clusters 1 and 2, which also are similar sizes. Clusters 1 and 2 are partitioned through where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting (Rhys 2019, p403).
 
-The 5-cluster plot has reassuringly made very little changes to the previous cluster 3 membership, which has now become cluster 5, however some of the bordering axes moved into cluster 4. There is still overlap, this time between the 4 other clusters, which seem to overfit.
+The 4-cluster plot has reassuringly made very little changes to the previous cluster 1 membership from the 3-cluster analysis, which has now become cluster 4, however some of the bordering axes were moved into cluster 3. There overlapping is now worse, and involves the three other clusters, which appear to be splitting closely clustered individuals into separate groups arbitrarily. Because the 4-cluster k-means analysis confirmed that cluster 1 in the 3-cluster solution does not change with more clusters imposed, the solution with 3 groups was considered the best of these options.
 
 ### Within-cluster densities
 
-It is clear that cluster 1 mostly contains the axes with the largest values for blaleng, blathick, blawid, lengmaxt, longside, maxleng, maxthick, maxwid and weight (Figure \@ref(fig:cluster-densities)). Interestingly, cluster 1 also has the widest distribution for weight, polwid, maxthick, lengmaxw and blaleng. Clusters 1 and 2 tend to overlap on most variables, but cluster 2 generally is dominated by axes with the smallest measurements for most variables. The bimodal distributions of grinside and gripoled are still evident here and it is clear which clusters cause these. Clusters 1 and 2 cause the mode at lower values for grinside and cluster 3 causes the mode at higher values, whilst cluster 2 and clusters 1 and 3 combined create the two modes for gripoled.
+It is clear that cluster 1 mostly contains the axes with the largest values for blaleng, blathick, blawid, lengmaxt, longside, maxleng, maxthick, maxwid and weight (Figure \@ref(fig:cluster-densities)). Interestingly, cluster 1 also has the widest distribution for weight, polwid, maxthick, lengmaxw and blaleng. Cluster 1 tends to have a mode close to cluster 2’s on many variables, but cluster 2 generally is dominated by axes with the smallest measurements for most variables. Cluster 1 also seems to have similar distributions to cluster 3 of polwid, polthick, lonpoled and perhaps bladang. The bimodal distributions of grinside and gripoled are still evident here and it is clear which clusters cause these. Clusters 1 and 2 cause the mode at lower values for grinside and cluster 3 causes the mode at higher values, whilst cluster 2 and clusters 1 and 3 combined create the two modes for gripoled. Bladang, poledwid and poleng do not show much difference in distributions between the clusters.
 
 ```{r cluster-densities, fig.height=3.5, fig.width=6, fig.cap="Density plots to show distribution of variables within 3 k-means clusters."}
 neo_axes_long_mcf2 %>%
@@ -356,7 +356,7 @@ neo_axes_long_mcf2 %>%
 
 ### Clusters on PCA
 
-The clusters are very clearly visible on PC1 and PC2, but are amalgamated on PC3 and PC4 (\@ref(fig:pca-cluster)). Clusters 1 and 2 almost overlap, and cluster 3 is shown trailing off to the right, containing the axes with larger measurements for the variables correlated with PC1. Cluster 2 contains the majority of axes. Overall the arrangement of the clusters suggests that membership depends on the size of the measurements an axe has for the variables correlated with PC1. Interestingly, cluster 1 contains the three extreme outliers on PC3 and PC4.
+The clusters are very clearly visible on PC1 and PC2, but are amalgamated on PC3 and PC4 (\@ref(fig:pca-cluster)). Clusters 1 and 2 overlap, appearing to split an already existing cluster in two, and cluster 3 is shown trailing off to the right, containing the axes with larger measurements for the variables correlated with PC1. Cluster 2 contains the majority of axes. Overall the arrangement of the clusters suggests that membership depends on the size of the measurements an axe has for the variables correlated with PC1. Interestingly, cluster 1 contains the three extreme outliers on PC3 and PC4.
 
 ```{r pca-cluster, fig.height=10, fig.cap = "PCA of the first and second pairs of PCs with individuals coloured by k-means cluster."}
 #pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
@@ -376,7 +376,7 @@ pcl2
 
 ### Data sorting
 
-The panel plot of the 1198 outlines imported into Momocs revealed a number of incorrect shapes resulting from the cropping and filling process  (Figure \@ref(fig:image-sorting)). In total, 61 outlines were removed.  
+The panel plot of the 1198 outlines imported into Momocs revealed a number of incorrect shapes resulting from the cropping and filling process  (Figure \@ref(fig:image-sorting)).  
 
 ```{r image-sorting, results='hide', warning=FALSE, message=FALSE, fig.height=6,  fig.cap="All outlines imported into Momocs before inspection"}
 
@@ -385,7 +385,7 @@ outlines_uncorrected <- read_rds("data/outlines.Rds")
 panel(outlines_uncorrected)
 ```
 
-The final dataset is below (Figure \@ref(fig:outline-corrections)). Some of the wider, more square outlines are peculiar, however these do exist in the original drawings.
+The final dataset is below (Figure \@ref(fig:outline-corrections)). Some of the wider, more square outlines are peculiar, however these do exist in the original drawings. In total, 61 outlines were removed. 
 
 ```{r outline-corrections, fig.height=6, results='hide', message=FALSE, warning=FALSE, fig.cap="Final outlines for analysis after incorrect shapes removed"}
 
@@ -435,7 +435,7 @@ plot(cumsum(harm_pow(ef_last)[-1]), type='o',
 #elliptical fourier transform
 ef <- efourier(outlines, 20)
 
-hcontrib(ef, harm.r = 1:20, col="thistle", main=element_blank())
+hcontrib(ef, harm.r = 1:20, main=element_blank())
 ```
 
 \clearpage
@@ -466,11 +466,11 @@ The mean shapes drawn onto the morphospace are wider toward the left of PC1 and 
 plot(pca)
 ```
 
-### K-means analysis on the PCA results
+### K-means analysis on the Momocs PCA results
 
 The k-means function in Momocs very helpfully plots the clusters onto the PCA results, drawing the mean axe shape of each cluster onto the morphospace. K-means objects for up to 10 clusters were created and their total within sum of squares were inspected, which showed that the greatest change was at 2 and 3 clusters, so these were chosen for analysis. A 4-cluster plot was also trialed to see if any of the clusters would retain their membership when a larger number of clusters was imposed. 
 
-Firstly, the 2-cluster solution shows more narrow, straighter axes in the right cluster, and wider, slightly more trapezoidal axes in the left. Both clusters appear about the same size. There is potential overfitting here as the groups split the densely populated area of the plot in two, and include outliers in with these more typical axe shapes (Figure \@ref(fig:momocs-2kmeans)).
+Firstly, the 2-cluster solution shows more narrow, straighter axes in the blue cluster, and wider, slightly more trapezoidal axes in the purple. Both clusters appear about the same size. There is potential overfitting here as the groups split the densely populated area of the plot in two, and include outliers in with these more typical axe shapes (Figure \@ref(fig:momocs-2kmeans)).
 
 ```{r momocs-2kmeans, results='hide', fig.cap="Momocs k-means with 2 clusters"}
 
@@ -478,22 +478,22 @@ kmeans2 <- KMEANS(pca, centers = 2,
                  algorithm = "Hartigan-Wong") 
 ```
 
-For 3 clusters, there is now a wider, more trapezoidal mean shape cluster on the right, a narrower, straighter shape cluster on the left, and a shape which appears to be between these two extremes in the centre. The clustering of individuals around the origin has mostly been contained in the central cluster, however some is still being split into the neighbouring cluster with the most narrow shapes. The widest shape cluster now contains the most extreme outliers (Figure \@ref(fig:momocs-3kmeans)). 
+For 3 clusters, there is now a wider, more trapezoidal mean shape cluster in purple, a narrower, straighter shape cluster in red, and a shape which appears to be between these two extremes in the central blue cluster. The clustering of individuals around the origin has mostly been contained in the blue cluster, however some are still being split into the neighbouring red cluster with the most narrow shapes. The purple cluster contains the most extreme outliers (Figure \@ref(fig:momocs-3kmeans)). 
 
 ```{r momocs-3kmeans, fig.cap="Momocs k-means with 3 clusters"}
 kmeans3 <- KMEANS(pca, centers = 3,
                  algorithm = "Hartigan-Wong")
 ```
 
-When attempting to separate the shapes into 4 clusters, the plot shows two very similar looking mean axe shapes for the two central clusters which partition the majority of axes, however the thinnest group and the widest group now have more exaggerated mean shapes and smaller cluster membership (Figure \@ref(fig:momocs-5kmeans)). The wider axe group’s mean shape now looks more squat, and the narrower axe group’s mean shape is now even more narrow and straight. These probably account better for the axe shapes at both extremes. The two clusters in the centre show broadly similar trapezoidal shapes, however the blue cluster’s axes will typically be thinner than those in the yellow cluster. Despite the total within cluster sum of squares not indicating much change at 4 clusters, this option does seem to be the most appealing, as although there may be overfitting of the two central clusters, the most narrow and most wide axes are best represented here. In addition, whilst the mean shapes of the blue and yellow clusters are similar, they do differ in width and straightness.
+When attempting to separate the shapes into 4 clusters, the plot shows two very similar looking mean axe shapes for the central clusters which partition the majority of axes, however the thinnest group and the widest group now have more exaggerated mean shapes and smaller cluster membership (Figure \@ref(fig:momocs-4kmeans)). The wider axe group’s mean shape now looks more squat, and the narrower axe group’s mean shape is now even more narrow and straight. These probably account better for the axe shapes at both extremes. The two clusters in the centre show broadly similar shapes, however the blue cluster’s axes will typically be thinner than those in the yellow cluster. Despite the total within cluster sum of squares not indicating much change at 4 clusters, this option does seem to be the most appealing, as although there may be overfitting of the two central clusters, the most narrow and most wide axes are best represented here. In addition, whilst the mean shapes of the blue and yellow clusters are similar, they do differ in width and straightness.
 
 ```{r momocs-4kmeans, fig.cap="Momocs k-means with 4 clusters"}
 kmeans4 <- KMEANS(pca, centers = 4,
                  algorithm = "Hartigan-Wong")
 ```
-### Cluster membership
+### Outline cluster membership
 
-In the panel plot with the clusters colour-coded, we can see that the widest axes are in the green cluster, and the most narrow, straightest axes are in the red  (Figure \@ref(fig:panel-clusters)). Here we can see that the 4 clusters have been partitioned in a way that makes sense: all of the axes in the thickest group are in fact the thickest, and those in the thin group are the thinnest of all. The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently slightly wider than those in the yellow. Axes in the blue group also appear to be more trapezoidal than those in the yellow group. In addition, many of the axes in the green group appear to be almost square, perhaps indicating similar poll and blade widths.
+In the panel plot with the clusters colour-coded, we can see that the widest axes are in the red cluster, and the most narrow, straightest axes are in the green (Figure \@ref(fig:panel-clusters)). The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently thinner than those in the yellow. Axes in the blue group also appear to have wider blades than polls compared to the yellow group. Overall it seems that the aspect ratio of the outlines is the deciding factor in the groupings here, however the two wider groups tend to have more axes with wider blades than polls compared to the two narrower groups. The red group also contains all of the most square axes in the dataset, further suggesting that width of shapes is the cause for this partitioning.
 
 
 ```{r panel-clusters, message="hide", fig.height=6, fig.cap='The 4 Momocs clusters colour coded onto a panel plot of axe outlines'}
@@ -510,7 +510,7 @@ panel(outlines,
 #include_graphics("panel-clusters.ps", dpi=600)
 ```
 
-The meanshapes plot enables us to see a typical axe for each cluster more clearly (Figure \@ref(fig:meanshapes)). A typical axe in clusters 1 and 2 tends to be wider at the bottom than they are at the top, and is wider overall than those in clusters 3 and 4. Cluster 4 axes are almost entirely straight.
+The meanshapes plot enables us to see a typical axe for each cluster more clearly (Figure \@ref(fig:meanshapes)). A typical axe from clusters 1 and 2 tends to be wider at the bottom than they are at the top, and is wider overall than those in clusters 3 and 4. Cluster 4 axes are almost entirely straight, and cluster 4 axes appear very squat.
 
 ```{r meanshapes, fig.height=4, fig.cap="Mean shapes for each of the 4 clusters"}
 
