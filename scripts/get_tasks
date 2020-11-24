@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#iterates calls to API to get task info to stdout
 url="https://crowdsourced.micropasts.org/api/task?project_id=496&limit=100&last_id="
 temp="$(mktemp)"
 last_id=96159

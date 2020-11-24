@@ -1,7 +1,9 @@
+#because I've developed this using bash, have set shell to bash for simplicity, might work with /bin/sh
 SHELL := /usr/bin/env bash
-
+#variable assignments
 drawings := $(sort $(wildcard drawings/*d.jpg))
 coords := $(patsubst %d.jpg, %-c.csv, $(drawings))
+#dummy files as rules that generate these produce multiple files
 cropped := $(patsubst %-c.csv, %-cropped, $(coords))
 filled := $(patsubst %cropped, %filled, $(cropped))
 
@@ -11,14 +13,20 @@ datasets := data/micropasts-neoaxes1.csv data/outlines.Rds
 _book/dissertation.pdf : $(chapters) $(datasets)
 	Rscript -e 'bookdown::render_book("index.Rmd")'
 
+#helper target to print contents of variable
 print-% : ; @echo $($*) | tr " " "\n"
 
 data/outlines.Rds : $(filled)
 	./scripts/momocs-outlines.R
 
+#separated makefile for getting micropasts data for readability
 include micropasts.mk
 
+#implicit rule to create silhouettes 
 drawings/%-filled : drawings/%-c.csv drawings/%-cropped .venv
+	#activate venv
+	#construct arguments to be passed to scripts/fill-view.py via `xargs`
+	#arguments are made from csv using `awk`
 	source .venv/bin/activate; \
 	awk 'FNR > 1' $< \
 	| ifne awk -F , '{print $$NF, $$NF}' \
@@ -26,23 +34,30 @@ drawings/%-filled : drawings/%-c.csv drawings/%-cropped .venv
 	| ifne xargs -n 2 ./scripts/fill-view.py
 	touch $@
 
-drawings/%-cropped : drawings/%-c.csv .venv
+#implicit rule to crop drawings with imagemagick's `convert` program using coordinates from each csv 
+drawings/%-cropped : drawings/%-c.csv
+	#remove header row of csv using `awk`
+	#pipe through `ifne` ('if not empty' tool from GNU moreutils) for safety
+	#construct arguments to be passed to `convert` via `xargs`
+	#`awk` fields - $6: input drawing, $3: width, $4: height, $1: x, $2: y, $NF: output filename
 	awk 'FNR > 1' $< \
 	| ifne awk -F , '{print $$6 " -crop " $$3 "x" $$4 "+" $$1 "+" $$2 " " $$NF}' \
 	| ifne xargs -n 4 convert
 	touch $@
 
+#making one csv per drawing which contains coordinates for cropping
 drawings/%-c.csv : drawings/%d.jpg .venv scripts/view-finder.py
 	source .venv/bin/activate; ./scripts/view-finder.py $< $@
 
 .PRECIOUS : $(coords)
 
-# venv inspired by https://stackoverflow.com/a/46188210
+#venv with Makefile inspired by https://stackoverflow.com/a/46188210
 .venv : .venv/bin/activate
 
+#making venv that depends on requirements.txt
 .venv/bin/activate : requirements.txt
 	test -d .venv || python3 -m venv .venv
-	source .venv/bin/activate; pip install -Ur requirements.txt
+	source .venv/bin/activate; pip install -r requirements.txt
 	touch .venv/bin/activate
 
 clean :
