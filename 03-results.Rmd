@@ -31,7 +31,8 @@ my_theme <-
 
 ```{r data, echo=FALSE, message=FALSE}
 neo_axes <- read_csv("data/micropasts-neoaxes1.csv", 
-                     col_types = cols(.default = col_character()))
+                     col_types = cols(.default = col_character())) %>%
+  mutate(across(c("lat", "lon"), as.numeric))
 
 neo_axes_long <- neo_axes %>%
   pivot_longer(areablad:weight, 
@@ -195,22 +196,19 @@ The first PC explains the most variance, however this is still just 38.8% of the
 ```{r screeplots, fig.height=4, fig.width=6, fig.cap = "Screeplots of eigenvalues and percentage variance explained for PCA."}
 
 neo_axes_wide_imputed <- 
-  missMDA::imputePCA(neo_axes_wide,
+  missMDA:::imputePCA(neo_axes_wide,
             method = "Regularized",
             ncp = 2)
 
-#neo_axes_PCA_nona <- prcomp(scaled_neo_axes)
-
-neo_axes_PCA <- 
+mp_pca <- 
   prcomp(neo_axes_wide_imputed$completeObs,
-         data = neo_axes_wide,
          center = TRUE,
          scale = TRUE)
 
-sc1 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "eigenvalue", 
+sc1 <- fviz_screeplot(mp_pca, addlabels = TRUE, choice = "eigenvalue", 
                       geom="bar", barcolor="skyblue1", barfill="skyblue1") +
   my_theme
-sc2 <- fviz_screeplot(neo_axes_PCA, addlabels = TRUE, choice = "variance", 
+sc2 <- fviz_screeplot(mp_pca, addlabels = TRUE, choice = "variance", 
                       geom="bar", barcolor="skyblue1", barfill="skyblue1") +
   my_theme
 
@@ -224,9 +222,9 @@ Looking at the variable loadings, there are 4 variables which are strongly corre
 
 ```{r variable-loadings}
 
-map_dfc(1:4, ~neo_axes_PCA$rotation[, .] * abs(neo_axes_PCA$sdev)[.]) %>%
+map_dfc(1:4, ~mp_pca$rotation[, .] * abs(mp_pca$sdev)[.]) %>%
   mutate(across(everything(), round, digits = 2)) %>%
-  set_rownames(rownames(neo_axes_PCA$rotation)) %>%
+  set_rownames(rownames(mp_pca$rotation)) %>%
   set_colnames(c("PC1", "PC2", "PC3", "PC4")) %>%
   arrange(desc(abs(PC1))) %>%
   kable(row.names=TRUE, 
@@ -241,7 +239,7 @@ The biplot for PC1 and PC2 shows the 4 variables which are strongly correlated w
 
 ```{r pc1-pc2, out.width="100%", fig.cap = "PCA: individuals and variables for PC1 and PC2."}
 
-fviz_pca_biplot(neo_axes_PCA, title=element_blank(), col.var="black", 
+fviz_pca_biplot(mp_pca, title=element_blank(), col.var="black", 
                 col.ind="skyblue1") +   coord_fixed()
 
 ```
@@ -254,31 +252,22 @@ For PC3 and PC4, the biplot reveals some interesting inverse relationships betwe
 
 ```{r pc3-pc4, out.width="100%", fig.cap = "PCA: individuals and variables for PC3 and PC4."}
 
-#pc3 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
-                #label = FALSE) + my_theme
-#pc4 <- autoplot(neo_axes_PCA, x = 3, y = 4, variance_percentage = TRUE, 
-                #colour = 'grey', loadings.label = TRUE, loadings.label.repel=TRUE,
-                #loadings.colour = 'blue',loadings.label.colour = 'blue') + my_theme
-
-#pc3 /
-#pc4
-
-fviz_pca_biplot(neo_axes_PCA, axes=c(3,4), title=element_blank(),
+fviz_pca_biplot(mp_pca, axes=c(3,4), title=element_blank(),
                 col.ind="skyblue", col.var="black") +   coord_fixed()
 
 ```
 
 Axes with larger lefedwid measurements tend to have smaller measurements for lonpoled, and vice versa; the same is happening with poledwid and gripoled, and potentially with grinside and maxthick. Axes further to the left of PC3 tend to have longer poll edges with more grinding, and to the right smaller measurements for both. For example, 70002 is 75mm for both, whereas on the opposite end, 50202 is 5mm for both. 50027 appears out of place on the far right of PC3 as it has 45mm for lonpoled and gripoled, however it has an outlier measurement for the more weakly correlated variable poledwid at 80mm, so this is deciding its placement. As the variable loadings are relatively weak for these PCs, in addition to how little variance they account for, it is difficult to discern the relations between axes on either side of PCs 3 or 4 (Shennan 1980, p267). PC4 appears to mainly be characterised by lefedwid and grinside. Axes at the top of this component tend to have larger measurements for both, for example 10953 has a grinside of 165cm<sup>2</sup> and lefedwid of 31mm, whilst on the other end, 10400 has a grinside of 0cm<sup>2</sup> and a lefedwid of 0mm.
 
-As the dotplot showed that there were 388 axes which had measurements for 19 variables from maxwid upwards, and since those variables include some useful descriptors of shape, PCA was attempted again with these 19 variables but a reduced dataset of 390. For brevity, only PCs 1 and 2 will be analysed here (Figure @/ref(fig:no-na-variable-loadings). The variable loadings show that 9 variables are correlated with PC1, with weight and maxwid being the strongest at 0.92 and 0.89 respectively; these are followed by maxthick, blawid, maxleng, blathick, longside, grinside and lengmaxt. For PC2, the strongest correlations are with polwid and polthick at -0.71 and -0.77, followed by moderate correlations with lonpoled, poleng, maxleng and poledwid.
+As the dotplot showed that there were 369 axes which had measurements for 19 variables from maxwid upwards, and since those variables include some useful descriptors of shape, PCA was attempted again with these 19 variables but a reduced dataset of 390. For brevity, only PCs 1 and 2 will be analysed here (Figure \@/ref(fig:no-na-variable-loadings). The variable loadings show that 9 variables are correlated with PC1, with weight and maxwid being the strongest at 0.92 and 0.89 respectively; these are followed by maxthick, blawid, maxleng, blathick, longside, grinside and lengmaxt. For PC2, the strongest correlations are with polwid and polthick at -0.71 and -0.77, followed by moderate correlations with lonpoled, poleng, maxleng and poledwid.
 
 ```{r no-na-variable-loadings}
-pca_no_na <- drop_na(neo_axes_wide19) %>%
+mp_pca_no_na <- drop_na(neo_axes_wide19) %>%
   prcomp(center = TRUE, scale = TRUE)
 
-map_dfc(1:4, ~pca_no_na$rotation[, .] * abs(pca_no_na$sdev)[.]) %>%
+map_dfc(1:4, ~mp_pca_no_na$rotation[, .] * abs(mp_pca_no_na$sdev)[.]) %>%
   mutate(across(everything(), round, digits = 2)) %>%
-  set_rownames(rownames(pca_no_na$rotation)) %>%
+  set_rownames(rownames(mp_pca_no_na$rotation)) %>%
   set_colnames(c("PC1", "PC2", "PC3", "PC4")) %>%
   arrange(desc(abs(PC1))) %>%
   kable(row.names=TRUE, 
@@ -289,9 +278,9 @@ map_dfc(1:4, ~pca_no_na$rotation[, .] * abs(pca_no_na$sdev)[.]) %>%
 
 The biplot shows the variables which were most correlated with PC1 correlating with one another, and likewise for those which correlate the most with PC2. Interestingly, PC2 is characterised by all of the poll measurements, whilst PC1 relates to measurements which define the overall size of an axe. This is reassuringly very similar to the PCA results from all of the axes with 9 variables, as poledwid and lonpoled were correlated with PC2 and the overall size features correlated with PC1.
 
-```{r no-na-pca, fig.cap="PCA with 19 variables measured for 388 axes."}
+```{r no-na-pca, fig.cap="PCA with 19 variables measured for 369 axes."}
 
-fviz_pca_biplot(pca_no_na, title=element_blank(), col.var="black", 
+fviz_pca_biplot(mp_pca_no_na, title=element_blank(), col.var="black", 
                 col.ind="skyblue1") +   coord_fixed()
 ```
 
@@ -302,40 +291,35 @@ fviz_pca_biplot(pca_no_na, title=element_blank(), col.var="black",
 The WSS plot displayed an 'elbow' or sudden change at 2, 5 and 8, whilst the average silhouette overwhelmingly indicated 2 as the optimal number of clusters with subsidiary peaks at 3 and 7 (Figure \@ref(fig:wss-silhouette)).
 
 ```{r wss-silhouette, fig.height=3, fig.cap="WSS and average silhouette plots for k-means clustering."}
-scaled_neo_axes <- neo_axes_wide_imputed$completeObs %>%
+mp_scaled <- neo_axes_wide_imputed$completeObs %>%
   # drop_na() %>%
   scale()
 
-p1 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "wss") +
+p1 <- fviz_nbclust(mp_scaled, kmeans, method = "wss") +
   my_theme
-p2 <- fviz_nbclust(scaled_neo_axes, kmeans, method = "silhouette") +
+p2 <- fviz_nbclust(mp_scaled, kmeans, method = "silhouette") +
   my_theme
 
 p1 + p2
 ```
 
-In light of these results, k-means analyses were performed with clusters set to 2, 3 and 5 (Figure \@ref(fig:k-means)). The axes visible on the far right of the plot in cluster 1 of the 2-cluster arrangement are the same as those which were on the far right of PC1 in the PCA, which have the largest measurements for maxwid, weight, maxleng, and other variables which correlate strongly with PC1. These appear to be lumped in with smaller axes, such as 81005, weighing 285g, with a longside of 95mm. Cluster 2 contains the most individuals, and has the same axes on its far left which were on the far left of PC1.
+In light of these results, k-means analyses were performed with clusters set to 2, 3 and 5 (Figure \@ref(fig:mp-kmeans)). The axes visible on the far left of the plot in cluster 1 of the 2-cluster arrangement are the same as those which were on the far left of PC1 in the PCA, which have the largest measurements for maxwid, weight, maxleng, and other variables which correlate strongly with PC1. These appear to be lumped in with smaller axes, such as 81005, weighing 285g, with a longside of 95mm. Cluster 2 contains the most individuals, and has the same smaller axes on its far right which were on the far left of PC1.
 
-```{r k-means, echo=FALSE, message=FALSE, fig.cap="K-means analyses with 2, 3 and 5 clusters."}
-kclust2 <- kmeans(scaled_neo_axes, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
-kclust3 <- kmeans(scaled_neo_axes, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
-kclust5 <- kmeans(scaled_neo_axes, centers = 5, nstart = 50, algorithm = "Hartigan-Wong")
+```{r mp-kmeans, echo=FALSE, message=FALSE, fig.cap="K-means analyses with 2, 3 and 5 clusters."}
+mp_kmeans2 <- kmeans(mp_scaled, centers = 2, nstart = 50, algorithm = "Hartigan-Wong")
+mp_kmeans3 <- kmeans(mp_scaled, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
+mp_kmeans5 <- kmeans(mp_scaled, centers = 5, nstart = 50, algorithm = "Hartigan-Wong")
 
-kclust2_lookup <- kclust2$cluster %>%
+mp_kmeans3_lookup <- mp_kmeans3$cluster %>%
   enframe() %>%
   rename(axe_id = name, cluster = value) %>%
   mutate_at("cluster", ~ as_factor(as.character(.)))
 
-kclust3_lookup <- kclust3$cluster %>%
-  enframe() %>%
-  rename(axe_id = name, cluster = value) %>%
-  mutate_at("cluster", ~ as_factor(as.character(.)))
-
-k2 <- fviz_cluster(kclust2, data = scaled_neo_axes, labelsize=6) +
+k2 <- fviz_cluster(mp_kmeans2, data = mp_scaled, labelsize=6) +
   my_theme
-k3 <- fviz_cluster(kclust3, data = scaled_neo_axes, labelsize=6) +
+k3 <- fviz_cluster(mp_kmeans3, data = mp_scaled, labelsize=6) +
   my_theme
-k5 <- fviz_cluster(kclust5, data = scaled_neo_axes, labelsize=6) +
+k5 <- fviz_cluster(mp_kmeans5, data = mp_scaled, labelsize=6) +
   my_theme
 
 k2 /
@@ -349,11 +333,11 @@ The 5-cluster plot has reassuringly made very little changes to the previous clu
 
 ### Within-cluster densities
 
-It is clear that cluster 1 mostly contains the axes with the largest values for blaleng, blathick, blawid, lengmaxt, longside, maxleng, maxthick, maxwid and weight (Figure \@ref(fig:cluster-densities)). Interestingly, cluster 1 also has the widest distribution for weight, polwid, maxthick, lengmaxw and blaleng. Cluster 1 tends to have a mode close to cluster 2's on many variables, but cluster 2 generally is dominated by axes with the smallest measurements for most variables. Cluster 1 also seems to have similar distributions to cluster 3 of polwid, polthick, lonpoled and perhaps bladang. The bimodal distributions of grinside and gripoled are still evident here and it is clear which clusters cause these. Clusters 1 and 2 cause the mode at lower values for grinside and cluster 3 causes the mode at higher values, whilst cluster 2 and clusters 1 and 3 combined create the two modes for gripoled. Bladang, poledwid and poleng do not show much difference in distributions between the clusters.
+It is clear that cluster 3 mostly contains the axes with the largest values for grinside, longside, maxthick and weight (Figure \@ref(fig:cluster-densities)). Clusters 3 and 2 have similar modes for lonpoled and gripoled. Cluster 1 is clearly characterised by the smallest values for most variables, however it shares a mode with cluster 2 for longside. The bimodal distributions of grinside and gripoled are still evident here and it is clear which clusters cause these. For grinside, the subsidiary mode is due to one of cluster 1's modes, and the largest mode consists of the most common values for cluster 2, 3 and the other mode for cluster 1. Gripoled's main mode is just characterised by cluster 1, whilst its subsidiary mode is created by clusters 1 and 2. Bladang and poledwid do not show much difference in distributions between the clusters.
 
 ```{r cluster-densities, fig.height=3.5, fig.width=6, fig.cap="Density plots to show distribution of variables within 3 k-means clusters."}
 neo_axes_long_mcf2 %>%
-  right_join(kclust3_lookup, by = "axe_id") %>%
+  right_join(mp_kmeans3_lookup, by = "axe_id") %>%
   ggplot(aes(x = measurement)) +
   geom_density(aes(colour = cluster, fill = cluster), alpha = 0.3) +
   # geom_density(alpha = 0.2) +
@@ -368,18 +352,17 @@ neo_axes_long_mcf2 %>%
 
 ### Clusters on PCA
 
-The clusters are very clearly visible on PC1 and PC2, but are amalgamated on PC3 and PC4 (\@ref(fig:pca-cluster)). Clusters 1 and 2 overlap, appearing to split an already existing cluster in two, and cluster 3 is shown trailing off to the right, containing the axes with larger measurements for the variables correlated with PC1. Cluster 2 contains the majority of axes. Overall the arrangement of the clusters suggests that membership depends on the size of the measurements an axe has for the variables correlated with PC1. Interestingly, cluster 1 contains the three extreme outliers on PC3 and PC4.
+The clusters are very clearly visible on PC1 and PC2, but are amalgamated on PC3 and PC4 (\@ref(fig:pca-cluster)). All clusters overlap, with cluster 3 trailing off to the left, containing the axes with larger measurements for the variables correlated with PC1. Cluster 2 has all of the axes which have large measurements for variables correlated with PC2, however this could be a coincidence as they are also placed roughly in the same area of PC2 as the rest of cluster 2. Clusters 2 and 3 show a fair amount of variation on PCs 3 and 4, with cluster 1 mostly staying around the origin.
 
 ```{r pca-cluster, fig.height=10, fig.cap = "PCA of the first and second pairs of PCs with individuals coloured by k-means cluster."}
-#pcl1 <- autoplot(neo_axes_PCA, data = kclust3, x = 1, y = 2, variance_percentage = TRUE, colour = 'cluster') + my_theme
-#pcl2 <- autoplot(neo_axes_PCA, data = kclust3, x = 3, y = 4, variance_percentage = TRUE, colour = 'cluster') + my_theme
 
-pcl1 <- fviz_pca_ind(neo_axes_PCA, habillage=kclust3$cluster) +   coord_fixed()
-pcl2 <- fviz_pca_ind(neo_axes_PCA, axes=c(3,4), habillage=kclust3$cluster) +   coord_fixed()
+pcl1 <- fviz_pca_ind(mp_pca, 
+                     habillage=mp_kmeans3$cluster) +   coord_fixed()
+pcl2 <- fviz_pca_ind(mp_pca, axes=c(3,4), 
+                     habillage=mp_kmeans3$cluster) +   coord_fixed()
 
 pcl1 /
 pcl2
-
 ```
 
 \clearpage
@@ -455,9 +438,9 @@ hcontrib(ef, harm.r = 1:10, main=element_blank())
 The PC contribution plot indicates that only the first three PCs explain any variation in the outlines (Figure \@ref(fig:pccontrib)). Here, we can see that the first PC accounts for width, and PC2 is characterised by the ratio of blade width to poll width. PC3 appears to distinguish rounder blades and edges from straighter blades and edges, but seems to contain shapes which do not exist. The rest of the PCs do not appear to show much variation at all.
 
 ```{r pccontrib, results='hide', message=FALSE, warning=FALSE, fig.cap="Variation in outlines explained by each principal component."}
-pca <- PCA(ef)
+mm_pca <- Momocs::PCA(ef)
 
-pccontrib <- PCcontrib(pca, nax=1:10)
+pccontrib <- PCcontrib(mm_pca, nax=1:10)
 
 #pccontrib$gg + geom_polygon(fill="thistle", col="slategrey")
 ```
@@ -465,14 +448,14 @@ pccontrib <- PCcontrib(pca, nax=1:10)
 Although some variation is shown in PCs 3 and 4, the proportion of overall variance they explain is negligible (Figure \@ref(fig:momocs-screeplot)). In light of this, only PC1 and PC2 were used for PCA.
 
 ```{r momocs-screeplot, fig.height=3, fig.width=3, fig.cap="Scree plot of proportion of variance explained by each principal component."}
-scree_plot(pca, nax=1:4) + my_theme
+scree_plot(mm_pca, nax=1:4) + my_theme
 ```
 
 The mean shapes drawn onto the morphospace are wider toward the left of PC1 and thinner toward the right (Figure \@ref(fig:momocs-pca)). Mean shapes at the top of PC2 have much wider blades than polls, and wider polls than blades toward the bottom, with straight axe shapes appearing toward the origin. The majority of axe shapes fall around and just beyond the origin, represented by the mean shapes in the centre. The mean shapes on the morphospace show some odd, seemingly predictive shapes at the far edges where no axes are plotted, for example the almost bowling-pin-like shapes at the top and bottom right corners. At first glance it would appear that the shapes are facing two different directions, which was initially assumed to be due to incorrect alignment, however this has been observed in other studies which use Momocs (Bourcy 2013, p49, Figure 13). As PC2 appears to represent the ratio of blade to poll width, these odd shapes indicate an attempt to show thinness at opposing ends of the outline. On the far left of PC1 but in the centre of PC2, individuals are plotted where the mean shapes are wide and square. The vast majority of individuals appear to fall where the mean shapes are slightly narrower toward the poll edge and in the mid-range of thickness, represented by the shapes just to the left of and at the origin. In addition, some straight oblong shapes seem to be present in the dataset, plotted just to the right of the origin. Some less common shapes have also become evident here, with individuals plotted on the far left end of PC1 which are wide and square, and to the far right, which are slightly bulbous at the blade end. There are also a small amount of outliers at the top and bottom of PC2 just to the left of the origin, showing there are axes in the dataset with much larger blades than polls and vice versa.
 
 ```{r momocs-pca, results='hide', message=FALSE, warning=FALSE, fig.cap="PCA of elliptical Fourier-transformed outlines"}
 
-plot(pca)
+Momocs:::plot.PCA(mm_pca)
 ```
 
 ### K-means analysis on the Momocs PCA results
@@ -485,21 +468,21 @@ Firstly, the 2-cluster solution shows more narrow, straighter axes in the blue c
 
 ```{r momocs-2kmeans, results='hide', fig.cap="Momocs k-means with 2 clusters"}
 
-kmeans2 <- KMEANS(pca, centers = 2,
+mm_kmeans2 <- KMEANS(mm_pca, centers = 2,
                  algorithm = "Hartigan-Wong") 
 ```
 
 For 3 clusters, there is now a wider, more trapezoidal mean shape cluster in purple, a narrower, straighter shape cluster in red, and a shape which appears to be between these two extremes in the central blue cluster. The clustering of individuals around the origin has mostly been contained in the blue cluster, however some are still being split into the neighbouring red cluster with the most narrow shapes. The purple cluster contains the most extreme outliers (Figure \@ref(fig:momocs-3kmeans)).
 
 ```{r momocs-3kmeans, fig.cap="Momocs k-means with 3 clusters"}
-kmeans3 <- KMEANS(pca, centers = 3,
+mm_kmeans3 <- KMEANS(mm_pca, centers = 3,
                  algorithm = "Hartigan-Wong")
 ```
 
 When attempting to separate the shapes into 4 clusters, the plot shows two very similar looking mean axe shapes for the central clusters which partition the majority of axes, however the thinnest group and the widest group now have more exaggerated mean shapes and smaller cluster membership (Figure \@ref(fig:momocs-4kmeans)). The wider axe group's mean shape now looks more squat, and the narrower axe group's mean shape is now even more narrow and straight. These probably account better for the axe shapes at both extremes. The two clusters in the centre show broadly similar shapes, however the blue cluster's axes will typically be thinner than those in the yellow cluster. Despite the total within cluster sum of squares not indicating much change at 4 clusters, this option does seem to be the most appealing, as although there may be overfitting of the two central clusters, the most narrow and most wide axes are best represented here. In addition, whilst the mean shapes of the blue and yellow clusters are similar, they do differ in width and straightness.
 
 ```{r momocs-4kmeans, fig.cap="Momocs k-means with 4 clusters"}
-kmeans4 <- KMEANS(pca, centers = 4,
+mm_kmeans4 <- KMEANS(mm_pca, centers = 4,
                  algorithm = "Hartigan-Wong")
 ```
 
@@ -513,59 +496,126 @@ outline_names <- names(outlines) %>% str_extract("[0-9]{2,}[ab]*")
 #postscript(file="panel-clusters.ps")
 panel(outlines,
       palette = col_spring,
-      fac = as.factor(kmeans4$cluster),
+      fac = as.factor(mm_kmeans4$cluster),
       #names = as.factor(outline_names),
-      names = as.factor(kmeans4$cluster),
+      names = as.factor(mm_kmeans4$cluster),
       cex.names=0.5) 
 #dev.off()
 
 #include_graphics("panel-clusters.ps", dpi=600)
 ```
 
-The mean shapes plot enables us to see a typical axe for each cluster more clearly (Figure \@ref(fig:meanshapes)). A typical axe from clusters 1 and 2 tends to be wider at the bottom than they are at the top, and is wider overall than those in clusters 3 and 4. Cluster 4 axes are almost entirely straight, and cluster 4 axes appear very squat.
+## Comparisons
 
-```{r meanshapes, fig.height=4, fig.cap="Mean shapes for each of the 4 clusters"}
+The mean shapes of the 4 clusters revealed by using Momocs on the axe outlines show distinct shapes for each group (Figure \@ref(fig:momocs-meanshapes)). A typical axe from clusters 1 and 2 tends to be wider at the bottom than they are at the top, and is wider overall than those in clusters 3 and 4. Cluster 4 axes are almost entirely straight, and cluster 4 axes appear very squat.
 
-axe_means <- MSHAPES(ef, fac = as.factor(kmeans4$cluster))
-Out(axe_means$shp) %>% panel(names=TRUE)
+```{r momocs-meanshapes, fig.height=4, fig.cap="Mean shapes for each of the 4 clusters"}
+
+mm_meanshapes <- MSHAPES(ef, fac = as.factor(mm_kmeans4$cluster))
+Out(mm_meanshapes$shp) %>% panel(names=TRUE)
 ```
 
-```{r comparisons}
+Meanwhile, it is difficult to distinguish any difference between mean shapes of outlines within the 3-cluster solution from the k-means analysis of the axe measurements (Figure \@ref(fig:mp-data-meanshapes)). This is also the same for the mean shapes of outlines within 3 clusters on the reduced dataset with 19 variables (Figure \@ref(fig:mp-19f-meanshapes)).
 
-mp_kmeans <- enframe(kclust2$cluster, name = "axe_id", value = "mp_cluster")
+```{r mp-data-meanshapes, fig.height=4, fig.cap="Mean shapes for the 3-cluster solution on the axe measurement data."}
 
-mm_kmeans <- enframe(kmeans4$cluster, name = "stem", value = "mm_cluster") %>%
+mp_kmeans <- enframe(mp_kmeans3$cluster, name = "axe_id", value = "mp_cluster")
+
+mm_kmeans <- enframe(mm_kmeans4$cluster, name = "stem", value = "mm_cluster") %>%
   mutate(axe_id = str_extract(stem, "[0-9]{2,}[ab]*"))
 
 comparison <- full_join(mp_kmeans, mm_kmeans, by = "axe_id")
 
 both <- comparison %>% filter(!is.na(stem)) %>% drop_na()
 
-mp_clusters <- both %>%
+mp_cluster <- both %>%
   select(stem, mp_cluster) %>%
   deframe()
 
-mp_ef <- MSHAPES(ef, fac = as.factor(mp_clusters))
-Out(mp_ef$shp) %>% panel(names = TRUE)
+mp_meanshapes <- MSHAPES(ef, fac = as.factor(mp_cluster))
+Out(mp_meanshapes$shp) %>% panel(names = TRUE)
 
+```
+
+```{r mp-19f-meanshapes, fig.height=4, fig.cap="Mean shapes for 3 clusters on axe measurement data with 19 variables."}
+mp_scaled_19f <- neo_axes_wide19 %>%
+  drop_na() %>%
+  scale()
+mp_kmeans3_19f <- kmeans(mp_scaled_19f, centers = 3, nstart = 50, algorithm = "Hartigan-Wong")
+
+mp_kmeans_19f <- enframe(mp_kmeans3_19f$cluster, name = "axe_id", value = "mp_cluster_19f")
+
+mm_kmeans <- enframe(mm_kmeans4$cluster, name = "stem", value = "mm_cluster") %>%
+  mutate(axe_id = str_extract(stem, "[0-9]{2,}[ab]*"))
+
+comparison_2 <- full_join(mp_kmeans_19f, mm_kmeans, by = "axe_id")
+
+both <- comparison_2 %>% filter(!is.na(stem)) %>% drop_na()
+
+mp_cluster_19f <- both %>%
+  select(stem, mp_cluster_19f) %>%
+  deframe()
+
+mp_meanshapes_19f <- MSHAPES(ef, fac = as.factor(mp_cluster_19f))
+Out(mp_meanshapes_19f$shp) %>% panel(names = TRUE)
+```
+
+```{r maps}
+neo_axes_coords_kclust <-
+  neo_axes %>%
+  filter(!is.na(lat) & !is.na(lon)) %>%
+  left_join(mp_kmeans3_lookup %>% rename(mp_cluster = cluster),
+            by = "axe_id") %>%
+  left_join(mm_kmeans %>% select(-stem),
+            by = "axe_id") %>%
+  select(axe_id, lon, lat, contains("cluster")) %>%
+  mutate(across(contains("cluster"), as.character))
+
+britain <- c(left = -7.5, bottom = 49.9, right = 2, top = 59)
+britain_map <- get_stamenmap(britain, zoom = 7, maptype = "terrain-background",
+                             color = "color", force = TRUE)
+
+mp_map <- ggmap(britain_map, extent = 'device') +
+  geom_point(aes(x = lon, y = lat),
+             alpha = 0.8,
+             filter(neo_axes_coords_kclust, !is.na(mp_cluster)),
+             size = 1) +
+  geom_density_2d(aes(colour = mp_cluster, x = lon, y = lat),
+                  alpha = 0.8,
+                  filter(neo_axes_coords_kclust, !is.na(mp_cluster)),
+                  size = 1) +
+  theme(legend.position = "right") +
+  facet_grid(cols = vars(mp_cluster)) +
+  my_theme +
+  theme(legend.position = "none")
+
+mm_map <- ggmap(britain_map, extent = 'device') +
+  geom_point(aes(x = lon, y = lat),
+             alpha = 0.8,
+             filter(neo_axes_coords_kclust, !is.na(mm_cluster)),
+             size = 1) +
+  geom_density_2d(aes(colour = mm_cluster, x = lon, y = lat),
+             alpha = 0.8,
+             filter(neo_axes_coords_kclust, !is.na(mm_cluster)),
+             size = 1) +
+  theme(legend.position = "right") +
+  facet_grid(cols = vars(mm_cluster)) +
+  my_theme +
+  theme(legend.position = "none")
+  
+
+mp_map / mm_map
 ```
 
 ```{r}
-neo_axes_coords_kclust <-
-  neo_axes %>%
-  filter(!is.na(lat)) %>%
-  left_join(kclust3_lookup, by = "id") %>%
-  filter(!is.na(cluster))
-
-britain <- c(left = -8.1, bottom = 49.9, right = 2, top = 59)
-britain_map <- get_stamenmap(britain, zoom = 7, maptype = "terrain-background")
-
-ggmap(britain_map, extent = 'device') +
-# ggplot(neo_axes_coords_clustered, aes(x = lon, y = lat, alpha = 0.5)) +
-  geom_point(aes(colour = cluster, x = lon, y = lat), alpha = 0.8,
-             neo_axes_coords_kclust, size = 1.5) +
-  # coord_map() +
-  # theme_stripped +
-  # theme_empty +
-  theme(legend.position = "right")
+comparison %>%
+  select(-stem, -axe_id) %>%
+  group_by(mm_cluster, mp_cluster) %>%
+  tally() %>%
+  drop_na() %>%
+  pivot_wider(names_from = mp_cluster,
+              values_from = n) %>%
+  mutate(total = `1` + `2` + `3`,
+         across(1:3, ~`/`(.x, total) * 100))
 ```
+
