@@ -7,6 +7,8 @@ suppressPackageStartupMessages(
     library(fs)
     library(janitor)
     library(rebus)
+    library(rnrfa)
+    library(leaflet)
   }
 )
 
@@ -49,16 +51,22 @@ sheets <- sheets_uncorrected %>%
   mutate(value = if_else(is.na(new_value), value, new_value)) %>%
   select(-new_value)
 
-info <- sheets %>%
+info_long <- sheets %>%
   filter(field_type == "info") %>%
-  select(-field_type, -user_idip) %>%
-  # group_by(axe_id, task_id, info_id) %>%
-  # add_tally(sort = TRUE) %>%
+  select(-field_type, -user_idip)
+
+cat("Duplicates:\n")
+info_long %>%
+  group_by(axe_id, task_id, info_id) %>%
+  add_tally(sort = TRUE) %>%
+  filter(n > 1)
+
+info_wide <- info_long %>%
   pivot_wider(names_from = info_id, values_from = value) %>%
   rename(.condition = condition)
 
 #making new tibble with corrected condition names
-conditions <- info %>% distinct(.condition) %>%
+conditions <- info_wide %>% distinct(.condition) %>%
   mutate(condition = case_when(
     str_detect(tolower(.condition), "frag") ~ "fragment",
     str_detect(tolower(.condition), "comp") ~ "complete",
@@ -86,7 +94,32 @@ measurements <- sheets %>%
   rename(feature = info_id) %>%
   pivot_wider(names_from = feature, values_from = measurement)
 
-neo_axes <- info %>%
+safe_osg_parse <- safely(osg_parse)
+
+neo_axes_coords <- info_wide %>%
+  select(axe_id, ngr) %>%
+  filter(ngr != "unprov.") %>%
+  mutate_at("ngr", str_replace, "unprov.", "50 50") %>%
+  mutate_at("ngr", str_replace_all, "\\s", "") %>%
+  # filter(!is.na(ngr)) %>%
+  mutate(safe_parse = map(.x = ngr,
+                          .f = ~ safe_osg_parse(.x, "WGS84")),
+         result = map(.x = safe_parse,
+                      .f = "result")) %>%
+  unnest(result) %>%
+  group_by(axe_id) %>%
+  mutate(key = row_number()) %>%
+  pivot_wider(id_cols = axe_id, names_from = "key", values_from = "result") %>%
+  rename(lon = `1`, lat = `2`) %>%
+  unnest(cols = c(lat, lon)) %>%
+  ungroup()
+
+#leaflet(data = neo_axes_coords) %>% 
+  #addTiles() %>%
+  #addMarkers(~lon, ~lat, popup = ~paste(lat, lon), label = ~axe_id)
+
+neo_axes <- info_wide %>%
+  left_join(neo_axes_coords, by = "axe_id") %>%
   left_join(conditions, by = ".condition") %>%
   left_join(measurements, by = "axe_id") %>%
   select(-.condition)
