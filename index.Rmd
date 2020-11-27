@@ -4,7 +4,7 @@ date: 'November 2020'
 division: 'Computational Archaeology'
 advisor: 'Andrew Bevan'
 altadvisor: 'Mark Altaweel'
-department: 'Institute of Arcaeology'
+department: 'Institute of Archaeology'
 title: 'Neo Axes'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -47,32 +47,7 @@ If you receive a duplicate label error after knitting, make sure to delete the i
 # This chunk ensures that the thesisdown package is
 # installed and loaded. This thesisdown package includes
 # the template files for the thesis.
-if (!require(remotes)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("remotes", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste('You need to run install.packages("remotes")",
-            "first in the Console.')
-    )
-  }
-}
-if (!require(thesisdown)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    remotes::install_github("ismayc/thesisdown")
-  } else {
-    stop(
-      paste(
-        "You need to run",
-        'remotes::install_github("ismayc/thesisdown")',
-        "first in the Console."
-      )
-    )
-  }
-}
-library(thesisdown)
-# Set how wide the R output will go
-options(width = 80)
+
 ```
 
 <!--
