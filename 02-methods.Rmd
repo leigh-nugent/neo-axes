@@ -70,7 +70,8 @@ outlines = segments.copy()
 #append curved contours to list
 contour_list = []
 for contour in contours:
-    approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
+    approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength
+            (contour,True),True)
     area = cv2.contourArea(contour)
     if ((len(approx) > 4) & (area > 60) ):
         contour_list.append(contour)
@@ -164,6 +165,7 @@ kernel, iterations=10)
 include_graphics("figure/10031-final-fill.jpg", dpi = axe_dpi)
 ```
 
+\clearpage
 
 ## Analysis
 
