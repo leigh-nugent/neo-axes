@@ -1,3 +1,23 @@
+```{r packages}
+library(reticulate)
+library(knitr)
+library(patchwork)
+library(magick)
+library(tidyverse)
+axe_dpi <- 350L
+use_virtualenv(here::here(".venv"), required = TRUE)
+knit_engines$set(python = reticulate::eng_python)
+```
+
+```{python pip}
+import cv2
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+```
+
+
 # Data and methods
 
 ## The dataset
@@ -7,17 +27,17 @@ The raw data in this dataset has its own biases and difficulties which are worth
 
 ## Makefile
 
-A Makefile has been used to automate the building of this project and simplify it for easier reproducibility. The beauty of this is that it can run many files and control the order of their execution, simplifying the build. This eliminates the need to provide extensive instructions on the order to execute the files in. In addition, once ran, Makefiles only create files which are not already made, saving time on each execution (Marwick et al. 2018 p82). This entire project can be built by running the command `make` using the terminal inside the top level of the dissertation folder. GNU Make is already part of the software on Unix systems, however will need to be purposely installed if using Windows. The Makefile has ‘targets’, which are files it needs to create, ‘dependencies’, which are prerequisite files that are needed to make the targets, and ‘recipes’, which tell the Makefile how to make the targets.
+A Makefile has been used to automate the building of this project and simplify it for easier reproducibility. The beauty of this is that it can run many files and control the order of their execution, simplifying the build. This eliminates the need to provide extensive instructions on the order to execute the files in. In addition, once ran, Makefiles only create files which are not already made, saving time on each execution (Marwick *et al.* 2018 p82). This entire project can be built by running the command `make` using the terminal inside the top level of the dissertation folder. GNU Make is already part of the software on Unix systems, however will need to be purposely installed if using Windows. The Makefile has ‘targets’, which are files it needs to create, ‘dependencies’, which are prerequisite files that are needed to make the targets, and ‘recipes’, which tell the Makefile how to make the targets.
 
 ## Data extraction
 
 ### Extracting record sheet data
 
-The method initially considered for digitizing the data from the record sheets was to use a handwriting recognition model. I found a handwriting recognition model written in Python and implemented with TensorFlow, which took single words/numbers (from GitHub: githubharald/SimpleHTR). The model was chosen as it looked straightforward, had a good ReadME, and had been starred by other GitHub users 963 times. In order to get the record sheet data into this format, however, they needed to be split into as many images as there were measurement fields. For the more qualitative fields such as the comments, either something else would need to be considered, or perhaps they would be left out. This was attempted using homography and brute force matching with the python-opencv library in Jupyter Notebooks to find the coordinates of the record sheet grids, which would then be used to crop the sheets, so that each image was split into 56 squares (please see Appendices). This method successfully found the grid lines, and was able to crop one of the grid squares. In addition, to check that the model would work on this dataset, some single numbers were manually cropped and fed into the model. These were all predicted incorrectly, mainly with decimal points being omitted, or ‘5’ being mistaken as an ‘S’. This would most likely have been improved considerably by training the model on the handwriting in this dataset, however this would have required manually transcribing a large number of the record sheets to use as labels for the training data. Eventually this method was decided against as it would take too long to ensure this method worked successfully, especially as everything returned by the model would need to be checked, which would be a mammoth task.
+The method initially considered for digitizing the data from the record sheets was to use a handwriting recognition model. I found a handwriting recognition model written in Python and implemented with TensorFlow, which took single words/numbers (from GitHub: githubharald/SimpleHTR). The model was chosen as it looked straightforward, had a good ReadME, and had been starred by other GitHub users 963 times. In order to get the record sheet data into this format, however, they needed to be split into as many images as there were measurement fields. For the more qualitative fields such as the comments, either something else would need to be considered, or perhaps they would be left out. This was attempted using homography and brute force matching with the python-opencv library in Jupyter Notebooks to find the coordinates of the record sheet grids, which would then be used to crop the sheets, so that each image was split into 56 squares (see Appendices). This method successfully found the grid lines, and was able to crop one of the grid squares. In addition, to check that the model would work on this dataset, some single numbers were manually cropped and fed into the model. These were all predicted incorrectly, mainly with decimal points being omitted, or ‘5’ being mistaken as an ‘S’. This would most likely have been improved considerably by training the model on the handwriting in this dataset, however this would have required manually transcribing a large number of the record sheets to use as labels for the training data. Eventually this method was decided against as it would take too long to ensure this method worked successfully, especially as everything returned by the model would need to be checked, which would be a mammoth task.
 
 Another HTR method is Transkribus, launched in 2015 to help digitize historical archives as part of the Transcriptorium project. This is, however, mainly used for historical documents which are usually solely lines of handwriting (Muehlberger 2019, p 955). As of this year, larger datasets require a fee for processing. This also had the problem of needing a training dataset, which would mean transcribing a large number of the record sheets to provide labels for the sheets used in training. In addition, the returned data would also need to be checked for accuracy. Again, this method was decided against due to time constraints.
 
-After considering these deep learning methods, it was decided that transcriptions of the record sheets would be crowdsourced instead. This would enable more time to be spent on processing the axe drawings, as this would take much longer to do manually using PhotoShop. The crowdsourcing platform chosen was MicroPasts as it is specifically for archaeological projects. MicroPasts runs on Pybossa, which uploads projects and tasks to the platform, and has an API which can be used via the command line. The tasks, in this case the record sheet images, needed to be hosted on another website and linked to using URLs imported to MicroPasts with Pybossa. To do this, the sheets first needed to be separated from the drawings, and any sheets which did not have a drawing associated, or had duplicated axe ids in their filenames, were omitted. This left 1825 pairs of record sheets and drawings, each representing one axe. These were separated into a separate folder and their filenames were saved to csv by `image-organiser.R`. They were then uploaded to a GitHub repository and the filenames imported into an R dataframe in `task-generator.R`, which then joined the filenames with the GitHub URL to create their individual URLs and exported to csv for Pybossa to import. 
+After considering these deep learning methods, it was decided that transcriptions of the record sheets would be crowdsourced instead. This would enable more time to be spent on processing the axe drawings, as this would take much longer to do manually using PhotoShop. The crowdsourcing platform chosen was MicroPasts as it is specifically for archaeological projects. MicroPasts runs on Pybossa, which uploads projects and tasks to the platform, and has an API which can be used via the command line. The tasks, in this case the record sheet images, needed to be hosted on another website and linked to using URLs imported to MicroPasts with Pybossa. To do this, the sheets first needed to be separated from the drawings, and any sheets which did not have a drawing associated, or had duplicated axe ids in their filenames, were omitted. This left 1825 pairs of record sheets and drawings, each representing one axe. These were separated into a separate folder and their filenames were saved to csv. They were then uploaded to a GitHub repository and the filenames from the csv were imported into an R dataframe, which then joined the filenames with the GitHub URL to create their individual URLs and exported to csv for Pybossa to import. 
 
 To create the project, the template HTML from the Bronze Age Index Card transcription project on MicroPasts’ GitHub was modified to show the 63 fields in the record sheets and a tutorial. This template was chosen as it had a similar input form which could be modified for this project easily. Once this was modified to the needs of this project, most fields were single-line, however the comments and museum labels were multiple-line fields. It was then important to provide detailed instructions on how the transcribers should fill out the forms provided due to some ambiguous aspects of the record sheets. Firstly, the field names were abbreviated variables which needed to be defined so that the volunteers knew what they were entering, and the units of measurement for these were also provided to help discern how large or small a number was. In addition, volunteers were asked to enter ellipses in square brackets next to any transcribed text that they were unsure about to ensure it was found during data cleanup. The instructions also asked volunteers to make sure all characters were transcribed, even if it did not make sense, for example brackets around numbers. This was because this project is aiming to preserve as much of the original information as possible, which be used for training data at a later date. Below is a screenshot of the form designed, alongside one of the images for transcription, or ‘tasks’ (figure).
 
@@ -27,35 +47,121 @@ Due to time constraints and the volume of axes in the dataset, the redundancy wa
 
 ### Processing the axe drawings
 
-Since the majority of analyses involving calculations performed on the geometry of shapes in archaeology extracted their data manually, this methodology sets out to not only automate these processes, but also make them reproducible. `Momocs` requires raster silhouettes - black shapes on white backgrounds - for input, and takes one shape per image. In addition, these shapes need to be similar enough to compare (Bonhomme et al 2014, pxxx). Each axe drawing usually shows 3 views: plan, profile and top, so to compare effectively, each type would need to be analysed with others of the same view. 
+Since the majority of analyses involving calculations performed on the geometry of shapes in archaeology extracted their data manually, this methodology sets out to not only automate these processes, but also make them reproducible. `Momocs` requires raster silhouettes - black shapes on white backgrounds - for input, and takes one shape per image. In addition, these shapes need to be similar enough to compare (Bonhomme *et al.* 2014, p5, 11). Each axe drawing usually shows 3 views: plan, profile and top Figure \@ref(fig:example-drawing), so to compare effectively, each type would need to be analysed with others of the same view. The workflow for image processing from pencil outline to filled binary image is as follows.
 
-Workflow for image processing from pencil outline to filled binary image is as follows: 
-view-finder.py: find threshold, dilate threshold to join lines (differing pencil pressure created gaps); use the edges in this to draw contours; use contours to find bounding boxes of each angle; create list of bounding box coordinates for each angle then export to CSV with filename, new filename, index no. (figure: drawing with contours and bounding boxes drawn)
+```{r example-drawing, echo=FALSE, fig.align="center", fig.cap="Example drawing of axe 10031."}
+include_graphics("drawings/10031d.jpg", dpi = axe_dpi)
+```
 
-The axe cropping is done in the Makefile using a formula which is replaced with the coordinates for the bounding boxes (formula from Makefile).
+\pagebreak
 
-`axe-filler.py`: import each individual image file of axe views and threshold; dilate threshold by 2 iterations (this will distort the shape of the axe by connecting the outline to the noise around it); find contours and fill them in; remove all contours which have a smaller area than the largest contour, which will be the axe shape; erode the axe shape so that the rest of the noise connected to the largest contour becomes disconnected and is no longer shown, as it is not part of the largest contour, and eroding reveals the original axe outline. Finally, inverts colours so that the axe shape is a black silhouette on white mask (figure: filled plan, final image).
+The first step was to crop the drawings into single views, which is carried out by `scripts/view-finder.py`. This was done by first finding the contours of the drawing outlines. Contours are found by using edge detection on an image, then finding the contours of the edge-detected image. Because the pencil drawings are faint in some areas, the lines have gaps, which creates problems finding the entire shape. To mitigate against this, the edge-detected image was dilated so that the edges were thicker, forcing them to join, and making the contours larger (code snippet; Figure \@ref(fig:draw-contours)).
 
-```{python eval=FALSE, python.reticulate=FALSE}
-#draw the contours onto the axe angles, trying to find curves
+```{python find-contours, eval=FALSE}
+#find the edges of the drawing
+edge_detected_image = cv2.Canny(imgray, 1, 100)
+#force increase width of edges
+kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9))
+dilated = cv2.dilate(edge_detected_image, kernel)
+#find contours of dilated edge-detected image
+contours, hierarchy = cv2.findContours(dilated.copy(), 
+                    cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+outlines = segments.copy()
+#append curved contours to list
 contour_list = []
 for contour in contours:
     approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
     area = cv2.contourArea(contour)
     if ((len(approx) > 4) & (area > 60) ):
         contour_list.append(contour)
+        
+cv2.drawContours(outlines, contour_list, -1, (255,0,0))
+```
 
-#get list of boxes
-boxes = []
-contour_areas = []
+
+```{r draw-contours, echo=FALSE, fig.align="center", fig.cap="Dilated contours found from edge-detecting the drawing, then superimposed onto the drawing"}
+include_graphics("figure/10031-contours.jpg", dpi = axe_dpi)
+```
+
+Once the contours were found, it was possible to find the bounding boxes of each view (code snippet; Figure \@ref(fig:bounding-boxes)). The coordinates for each box were appended to a list of lists, which was then converted to a `pandas` dataframe for export to csv. 
+
+```{python find-boxes, eval=FALSE}
 for c in contours:
     rect = cv2.boundingRect(c)
     if rect[2] < 100 or rect[3] < 100: continue
+    print(cv2.contourArea(c))
     x,y,w,h = rect
-    list(rect)
-    boxes.append(rect)
-    area = cv2.contourArea(c)
-    contour_areas.append(area)
+    cv2.rectangle(outlines,(x,y),(x+w,y+h),(0,255,0),2)
+```
+
+
+```{r bounding-boxes, echo=FALSE, fig.align="center", fig.cap="Bounding boxes drawn around each view."}
+include_graphics("figure/10031-boxes.jpg", dpi = axe_dpi)
+```
+
+This dataframe also included the area and aspect ratio of each view, which was used to determine which view had been cropped, and this was used in the filename (code snippet). The dataframe is exported to csv for each axe, which the Makefile looks in for instructions. 
+
+\pagebreak
+
+```{python construct-df, eval=FALSE}
+df = pd.DataFrame(boxes, columns=['x', 'y', 'w', 'h'])
+df['axe'] = df.index
+df['drawing'] = image
+df['area'] = df['h'] * df['w']
+df['aspect_ratio'] = df['h'] / df['w']
+
+df['view'] = vectfunc(df['area'], max(df['area']), min(df['area']), 
+            df['aspect_ratio'], max(df['aspect_ratio']), 
+            min(df['aspect_ratio']))
+
+df['filename'] = df.drawing.str.replace('d\.jpg','').str.cat
+            ('-'+df.view.astype(str)+'-'+df.axe.astype(str) 
+            +'.jpg')
+```
+
+The `Makefile` crops the views using the `convert` function from the `imagemagick` program and a formula which is replaced with the coordinates for the bounding boxes. Finally, the cropped axe views are filled in by `scripts/fill_view.py` in three steps. The outline is first filled by finding the contours again, but this time filling them when drawing over the image (code snippet; Figure \@ref(fig:filled-conts)).
+
+```{python fill-cont, eval=FALSE}
+cv2.drawContours(outlines_copy, contour_list, -1, (0,0,0), \
+thickness=cv2.FILLED)
+```
+
+```{r filled-conts, echo=FALSE, fig.align="center", fig.cap="Filled contours."}
+include_graphics("figure/10031-filled-contours.jpg", dpi = axe_dpi)
+```
+
+\pagebreak
+
+The largest contour was then found, which is the axe shape, and only that was drawn onto the image, removing other contours which were not connected to it (code snippet; Figure \@ref(fig:largest-cont)).
+
+```{python draw-largest-cont, eval=FALSE}
+large_cont = []
+
+for cont in contours:
+    if cv2.contourArea(cont) >= cv2.contourArea(maxcont):
+        large_cont.append(cont)
+        
+outlines4 = first_angle.copy()
+
+cv2.drawContours(outlines4, large_cont, -1, (0,0,0), \
+thickness=cv2.FILLED)
+```
+
+```{r largest-cont, echo=FALSE, fig.align="center", fig.cap="Only the largest contour is now drawn."}
+include_graphics("figure/10031-largest-contour.jpg", dpi = axe_dpi)
+```
+
+Finally, the now-filled largest contour was thresholded so that `cv2.MORPH_OPEN` could be used on it to dilate the contour and remove the connected nearby shapes from its outline (code snippet; Figure \@ref(fig:final-fill)).
+
+```{python final-filled, eval=FALSE}
+thresh, outlines_thresh = cv2.threshold(outlines4, 250, 255, 
+cv2.THRESH_BINARY_INV)
+closing = cv2.morphologyEx(outlines_thresh, cv2.MORPH_OPEN, 
+kernel, iterations=10)
+```
+
+```{r final-fill, echo=FALSE, fig.align="center", fig.cap="Final filled axe shape."}
+include_graphics("figure/10031-final-fill.jpg", dpi = axe_dpi)
 ```
 
 
