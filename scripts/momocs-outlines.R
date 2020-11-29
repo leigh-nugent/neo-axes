@@ -1,5 +1,9 @@
 #!/usr/bin/env Rscript
 
+library(tidyverse)
+library(fs)
+library(Momocs)
+
 #getting image ids
 views <- dir_ls("drawings", glob = "*-c.csv") %>%
   map_dfr(read_csv, col_types = cols(.default = "c")) %>%
