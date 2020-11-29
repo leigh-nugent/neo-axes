@@ -1,4 +1,3 @@
-# https://jtreminio.com/blog/running-docker-containers-as-current-host-user/
 FROM rocker/geospatial:4.0.3
 RUN /rocker_scripts/install_python.sh
 RUN apt-get update \
@@ -6,9 +5,13 @@ RUN apt-get update \
     imagemagick \
     jq \
     moreutils
-ENV RENV_VERSION 0.12.2
+ENV RENV_VERSION 0.12.3
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
-RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
-WORKDIR /project
+RUN R -e "remotes::install_version('renv', '${RENV_VERSION}')"
+WORKDIR /home/rstudio/neo-axes
 COPY . .
-RUN make .venv
+RUN make clean \
+  && make .venv \
+  && touch -r requirements.txt .venv .venv/bin/activate
+RUN tlmgr install $(cat tlmgr_installed | tr '\n' ' ')
+RUN R -e "renv::restore()"
