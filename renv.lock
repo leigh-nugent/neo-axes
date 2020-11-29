@@ -179,10 +179,15 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.21",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "1bf627f1f77313e345f71e779b658578"
+      "Version": "0.21.4",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "leigh-nugent",
+      "RemoteRepo": "bookdown",
+      "RemoteRef": "master",
+      "RemoteSha": "5133ef28993cb7a41948335331ab02e605235e67",
+      "Hash": "f373e9e834171fecea1a0cd74f71be8b"
     },
     "boot": {
       "Package": "boot",
@@ -1166,10 +1171,15 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "20a0a94af9e8f7040510447763aab3e9"
+      "Version": "2.5.3",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteUsername": "rstudio",
+      "RemoteRepo": "rmarkdown",
+      "RemoteRef": "master",
+      "RemoteSha": "4187c885f0a914d89568f19f7e7104a7cff03050",
+      "RemoteHost": "api.github.com",
+      "Hash": "26985ca4c584dc168305c129ea5f7a9d"
     },
     "rnrfa": {
       "Package": "rnrfa",
