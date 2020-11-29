@@ -5,7 +5,7 @@ division: 'Computational Archaeology'
 advisor: 'Andrew Bevan'
 altadvisor: 'Mark Altaweel'
 department: 'Institute of Archaeology'
-title: 'Neo Axes'
+title: 'Exploring shape and size in British Neolithic Axes using old data: a comparison of methods'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 
@@ -14,7 +14,7 @@ output:
 
 abstract: '`r if(knitr:::is_latex_output()) paste(readLines(here::here("prelims", "00-abstract.Rmd")), collapse = "\n  ")`'
 acknowledgements: |
-  I want to thank a few people.
+  Many thanks to Andrew Bevan for providing mentoring and introducing me to this dataset, to Michael Pitts for creating it, and to the Implement Petrology Group for scanning it and making it publicly available.
 dedication: |
   You can have a dedication here if you wish. 
 preface: |
@@ -30,33 +30,6 @@ lof: true
 header-includes:
 - \usepackage[all]{nowidow}
 ---
-<!--
-Above is the YAML (YAML Ain't Markup Language) header that includes a lot of 
-metadata used to produce the document.  Be careful with spacing in this header!
-
-If you'd prefer to not include a Dedication, for example, simply delete the section entirely, or silence them (add # before each line). 
-
-If you have other LaTeX packages you would like to include, delete the # before header-includes and list the packages after hyphens on new lines.
-
-If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this.
-
-If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
--->
-
-```{r include_packages, include=FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
-# the template files for the thesis.
-
-```
-
-<!--
-The ackowledgements, preface, dedication, and abstract are added into the PDF
-version automatically by inputing them in the YAML at the top of this file.
-Alternatively, you can put that content in files like 00--prelim.Rmd and
-00-abstract.Rmd like done below.
--->
-
 
 
 ```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00--prelim.Rmd")}
@@ -67,34 +40,8 @@ Alternatively, you can put that content in files like 00--prelim.Rmd and
 
 ```
 
-<!-- The {.unnumbered} option here means that the introduction will be 
-"Chapter 0." You can also use {-} for no numbers on chapters.
--->
-
 # Introduction {.unnumbered}
 
-Welcome to the _R Markdown_ thesis template. This template is based on (and in many places copied directly from) the Reed College LaTeX template, but hopefully it will provide a nicer interface for those that have never used TeX or LaTeX before.  Using _R Markdown_ will also allow you to easily keep track of your analyses in **R** chunks of code, with the resulting plots and output included as well.  The hope is this _R Markdown_ template gets you in the habit of doing reproducible research, which benefits you long-term as a researcher, but also will greatly help anyone that is trying to reproduce or build onto your results down the road.
+This dissertation follows two main lines of investigation: how data can be extracted from legacy formats for use with modern analytical techniques, and whether size, shape or both can cluster Neolithic axes from Britain. The author firstly takes special interest in analogue datasets as they may not have been used for years or with recent techniques, and also because they pose unique challenges in data extraction and cleanup. Extracting old archaeological data could help to give new insight into the past through use with modern methods, and helps to highlight that much paper-based information remains unused ever, or in recent years, which could be tapped into. Secondly, the differing morphology of British Neolithic axes is of particular interest as these tools are so ubiquitous in the archaeological record, yet the reasons behind their designs are still relatively ambiguous. Further, quantifying traits of artefacts to aid in grouping as an alternative to classical typological methods is of particular appeal for approaching the archaeological problem domain inferentially. In light of and in combination with recent research on British Neolithic axes, investigating this seldom-pursued aspect could help to reveal more about these tools and their manufacturers from a period with no surviving writing which lasted thousands of years.
 
-Hopefully, you won't have much of a learning period to go through and you will reap the benefits of a nicely formatted thesis.  The use of LaTeX in combination with _Markdown_ is more consistent than the output of a word processor, much less prone to corruption or crashing, and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is likely going to be about twice as large and complex as anything you've written before, taxing Word's capabilities.  After working with _Markdown_ and **R** together for a few weeks, we are confident this will be your reporting style of choice going forward.
-
-<!-- 
-If you're still on the fence about using _R Markdown_, check out the resource
-for newbies available at <https://rbasics.netlify.com>. 
--->
-
-**Why use it?**
-
-_R Markdown_ creates a simple and straightforward way to interface with the beauty of LaTeX.  Packages have been written in **R** to work directly with LaTeX to produce nicely formatting tables and paragraphs. In addition to creating a user friendly interface to LaTeX, _R Markdown_ also allows you to read in your data, to analyze it and to visualize it using **R** functions, and also to provide the documentation and commentary on the results of your project.  Further, it allows for **R** results to be passed inline to the commentary of your results.  You'll see more on this later.  
-
-<!-- 
-Having your code and commentary all together in one place has a plethora of 
-benefits!
--->
-
-**Who should use it?**
-
-Anyone who needs to use data analysis, math, tables, a lot of figures, complex cross-references, or who just cares about the final appearance of their document should use _R Markdown_. Of particular use should be anyone in the sciences, but the user-friendly nature of _Markdown_ and its ability to keep track of and easily include figures, automatically generate a table of contents, index, references, table of figures, etc. should make it of great benefit to nearly anyone writing a thesis project.
-
-**For additional help with bookdown** 
-
-Please visit [the free online bookdown reference guide](https://bookdown.org/yihui/bookdown/).
+The data used in this project is a paper-based dataset compiled by Mike Pitts in the 1970s, scanned to images in 2016, which contains technical drawings of British Neolithic axes and record sheets cataloguing their measurements in addition to other information such as their find places and materials. Before any data extraction, the literature of both the archaeological and methodological contexts relevant to this dissertation are reviewed in order to place this research into perspective.  Next, to extract the analogue data, transcriptions of the record sheets were crowdsourced using the MicroPasts online platform, and the drawing images were processed using Python’s OpenCV library into a format compatible with the Momocs R package for outline morphometry. After the data was digitised, the two sets were then subjected to similar separate analyses. The measurements from the record sheet data were explored first with density and violin plots and then analysed with principal components analysis and k-means clustering, whilst the processed drawings were elliptical Fourier-transformed and then subjected to the same multivariate analyses. The results of both sets of k-means clustering were then compared by plotting the find places of the axes from each on a map of Britain to see which clusters persisted geographically, in addition to finding the similarity in axe membership between the two sets of clusters. All data extraction methods, analyses, and the building of this dissertation PDF were made reproducible using a Makefile, Docker, renv for R and venv for Python. The implications of the results from both sets of analyses and their comparisons are then discussed in light of the initial literature review.
