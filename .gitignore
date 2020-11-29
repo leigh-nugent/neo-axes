@@ -43,9 +43,15 @@ vignettes/*.pdf
 extracted-jpgs
 
 # Python
-.venv
+venv
 
 # bookdown/thesisdown
 *.log
 dissertation_files/
 dissertation.Rmd
+
+# renv with Docker
+renv/docker-cache
+
+# vim
+*.swp
