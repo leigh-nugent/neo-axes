@@ -3,103 +3,55 @@
 `r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'` 
 
 
-# The First Appendix
+# List of appendix files
 
-<!--
-If you feel it necessary to include an appendix, it goes here.
--->
-
-This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readibility and/or setup.
-
-**In the main Rmd file**
-
-```{r ref.label='include_packages', results='hide', echo = TRUE}
+```{bash}
+ls -1 appendices
 ```
 
-**In Chapter \@ref(ref-labels):**
-
-```{r ref.label='include_packages_2', results='hide', echo = TRUE}
-```
 
 # List of abbreviations
 
-Poledwid: Width of poll edge (g)
+|Measurement|Description (unit)|
+|-----------|-----------------|
+|Poledwid| Width of poll edge (g)|
+|Lefedwid| Max width of left side edge (mm)|
+|Ritedwid| Max width of right side edge (mm)|
+|Blaedwid| Width of blade edge (mm)|
+|Bladang| Angle at blade edge (degrees)|
+|Grifropl| Area of grinding on poll, front face (cm^2^)|
+|Grifroby| Area of grinding on body, front face (cm^2^)|
+|Grifrobl| Area of grinding on blade, front face  (cm^2^)|
+|Gribapl| Area of grinding on poll, back face (cm^2^)|
+|Gribaby| Area of grinding on body, back face (cm^2^)|
+|Gribabl| Area of grinding on blade, back face (cm^2^)|
+|Blacon| Concavity of blade (mm)|
+|Blasin| Blade sinuosity (mm)|
+|Edcon| Right edge concavity (mm)|
+|Edsin| Right edge sinuosity (mm)|
+|Maxthick| Maximum thickness (mm)|
+|Polthick| Thickness of poll (mm)|
+|Blathick| Thickness of blade (mm)|
+|Lefthick| Thickness left of centre, opposite point of max thickness (mm)|
+|Rithick| Same as LEFTHICK, but right of centre (mm)|
+|Topthick| Thickness of top half (mm)|
+|Bothick| Thickness of bottom half (mm)|
+|Maxleng| Maxmimum length (mm)|
+|Poleng| Poll length (mm)|
+|Blaleng| Blade length (mm)|
+|Maxwid| Maximum width (mm)|
+|Polwid| Poll width (mm)|
+|Bladwid| Blade width (mm)|
+|Lengmaxt| Length from blade to point of max thickness (mm)|
+|Lengmaxw| Length from blade to point of max width (mm)|
+|Gripoled| Length of poll edge ground (mm)|
+|Lonpoled| Total length of poll edge (mm)|
+|Grinside| Extent of grinding on left side edge (mm)|
+|Longside| Length of left side edge (mm)|
+|Areapoll| Area of poll (cm^2^)|
+|Areabody| Area of body (cm^2^)|
+|Areablal| Area of left segment of blade (cm^2^)|
+|Areablar| Area of right segment of blade (cm^2^)|
+|Areablad| Total area of blade (cm^2^)|
 
-Lefedwid: Max width of left side edge (mm)
-
-Ritedwid: Max width of right side edge (mm)
-
-Blaedwid: Width of blade edge (mm)
-
-Bladang: Angle at blade edge (degrees)
-
-Grifropl: Area of grinding on poll, front face (cm^2^)
-
-Grifroby: Area of grinding on body, front face (cm^2^)
-
-Grifrobl: Area of grinding on blade, front face  (cm^2^)
-
-Gribapl: Area of grinding on poll, back face (cm^2^)
-
-Gribaby: Area of grinding on body, back face (cm^2^)
-
-Gribabl: Area of grinding on blade, back face (cm^2^)
-
-Variables beginning with POL, REF and COR are the same as GRI measurements but instead of 
-grinding replace with polish, reworking and cortex respectively, and also in cm^2^
-
-Blacon: Concavity of blade (mm)
-
-Blasin: Blade sinuosity (mm)
-
-Edcon: Right edge concavity (mm)
-
-Edsin: Right edge sinuosity (mm)
-
-Maxthick: Maximum thickness (mm)
-
-Polthick: Thickness of poll (mm)
-
-Blathick: Thickness of blade (mm)
-
-Lefthick: Thickness left of centre, opposite point of max thickness (mm)
-
-Rithick: Same as LEFTHICK, but right of centre (mm)
-
-Topthick: Thickness of top half (mm)
-
-Bothick: Thickness of bottom half (mm)
-
-Maxleng: Maxmimum length (mm)
-
-Poleng: Poll length (mm)
-
-Blaleng: Blade length (mm)
-
-Maxwid: Maximum width (mm)
-
-Polwid: Poll width (mm)
-
-Bladwid: Blade width (mm)
-
-Lengmaxt: Length from blade to point of max thickness (mm)
-
-Lengmaxw: Length from blade to point of max width (mm)
-
-Gripoled: Length of poll edge ground (mm)
-
-Lonpoled: Total length of poll edge (mm)
-
-Grinside: Extent of grinding on left side edge (mm)
-
-Longside: Length of left side edge (mm)
-
-Areapoll: Area of poll (cm^2^)
-
-Areabody: Area of body (cm^2^)
-
-Areablal: Area of left segment of blade (cm^2^)
-
-Areablar: Area of right segment of blade (cm^2^)
-
-Areablad: Total area of blade (cm^2^)
+Variables beginning with POL, REF and COR are the same as GRI measurements but instead of grinding replace with polish, reworking and cortex respectively, and also in cm^2^

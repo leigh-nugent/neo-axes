@@ -106,6 +106,8 @@ neo_axes_long %>%
 
 ```
 
+\pagebreak
+
 A tally was created in order to choose a cut-off amount for the most frequently measured features, which showed that bladang was recorded 1202 times, whereas the next feature below it, maxleng, is recorded just 407 times. Using 1207 occurrences as the cut-off left 13 features, which helped to reduce dimensions considerably even before PCA. Next, the conditions of the axes were considered. By far, the vast majority of axes were in complete condition. Roughout and cast condition axes were also kept as these retain the original or intended shape. Axes in other conditions were excluded. After these exclusions, 125 axes were omitted, leaving 1700 axes in the analysis.
 
 ### Univariate
@@ -233,7 +235,8 @@ map_dfc(1:4, ~mp_pca$rotation[, .] * abs(mp_pca$sdev)[.]) %>%
   arrange(desc(abs(PC1))) %>%
   kable(row.names=TRUE, 
       caption = "Variable loadings sorted by strongest correlation with PC1.", 
-      booktabs = TRUE)
+      booktabs = TRUE,
+      position = "!b") 
 ```
 
 Gripoled, lefedwid and lonpoled are also moderately correlated. For PC2, its strongest correlation is with poledwid at -0.69, and is moderately correlated with longside, bladang and lefedwid. PC3 has no particularly strong correlations, however it mainly relates to lonpoled and gripoled. Finally, PC4's correlations are weaker still, with its strongest being grinside and lefedwid at 0.47 and 0.46.
@@ -248,8 +251,6 @@ fviz_pca_biplot(mp_pca, title=element_blank(), col.var="black",
 ```
 
 Weight and maxthick are strongly correlated with one another, as are gripoled, lonpoled and lefedwid. The arrangement of the individuals on PC1 and PC2 shows long, heavy, thick axes with substantial grinding on their left side edges on the right, and the shortest, lightest, thinnest axes with smaller values for grinside on the left. For example, 62050 on the far right weighs 2085g, has a longside of 320mm, and a maxthick of 58mm. Similarly 60201 weighs 2110g with a longside of 270mm and a maxthick of 58mm. Meanwhile on the far left, which is difficult to discern as so many axes fall here, examples include 10787 which weighs just 25g with a longside of 45mm and 70006 weighing 30g with a longside of 70mm. Axes which are plotted further down PC2 may have larger polls, for example 50027 and 70053 which have poledwid measurements of 80mm and 55mm.
-
-\pagebreak
 
 For PC3 and PC4, the biplot reveals some interesting inverse relationships between variables (Figure \@ref(fig:pc3-pc4)).
 
@@ -280,9 +281,9 @@ kable(map_dfc(1:4, ~mp_pca_no_na$rotation[, .] * abs(mp_pca_no_na$sdev)[.]) %>%
   kable_styling(font_size = 10)
 ```
 
-The biplot shows the variables which were most correlated with PC1 correlating with one another, and likewise for those which correlate the most with PC2 (Figure \@ref(tab:no-na-pca)). Interestingly, PC2 is characterised by all of the poll measurements, whilst PC1 relates to measurements which define the overall size of an axe. This is reassuringly similar to the PCA results from the larger dataset with 9 variables, as poledwid and lonpoled were correlated with PC2 and the overall size features correlated with PC1.
+The biplot shows the variables which were most correlated with PC1 correlating with one another, and likewise for those which correlate the most with PC2 (Figure \@ref(fig:no-na-pca)). Interestingly, PC2 is characterised by all of the poll measurements, whilst PC1 relates to measurements which define the overall size of an axe. This is reassuringly similar to the PCA results from the larger dataset with 9 variables, as poledwid and lonpoled were correlated with PC2 and the overall size features correlated with PC1.
 
-```{r no-na-pca, fig.cap="PCA with 19 variables measured for 369 axes."}
+```{r no-na-pca, out.width="90%", fig.cap="PCA with 19 variables measured for 369 axes."}
 
 fviz_pca_biplot(mp_pca_no_na, title=element_blank(), col.var="black", 
                 col.ind="skyblue1") +   coord_fixed()
@@ -331,7 +332,7 @@ k3 /
 k5 
 ```
 
-Moving onto the 3 cluster plot, the axes on the extremities of the plot are still in the same places, however many of the axes which were on the borders between clusters 1 and 2 previously have now been relocated to cluster 1. Most of the axes tend to fall into clusters 1 and 2, which are similar sizes. This solution has removed some of the smaller axes from the cluster with the largest axes in, which is an improvement, however all clusters are partitioned through where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting (Rhys 2019, p403). The axes with the largest measurements for bladang, gripoled and lonpoled.
+Moving onto the 3 cluster plot, the axes on the extremities of the plot are still in the same places, however many of the axes which were on the borders between clusters 1 and 2 previously have now been relocated to cluster 1. Most of the axes tend to fall into clusters 1 and 2, which are similar sizes. This solution has removed some of the smaller axes from the cluster with the largest axes in, which is an improvement, however all clusters are partitioned through where most of the axes fall, almost appearing to overlap, which suggests poor partitioning or overfitting [@rhys2019 403]. The axes with the largest measurements for bladang, gripoled and lonpoled.
 
 The 5-cluster plot has reassuringly made negligible changes to the previous cluster 1 membership from the 3-cluster analysis, which has now become cluster 4. Cluster 2 also appears to have stayed more or less the same as cluster 3 from the 3-cluster plot, but overlaps considerably with the other three clusters, which were previously one middle cluster. Because this potential solution has made little changes to clusters 1 and 3 from the 3-cluster solution, plus clusters 2, 3 and 4 appear to be splitting one cluster, the 3-cluster solution was chosen as the best option from these.
 
@@ -455,7 +456,7 @@ Although some variation is shown in PCs 3 and 4, the proportion of overall varia
 scree_plot(mm_pca, nax=1:4) + my_theme
 ```
 
-The mean shapes drawn onto the morphospace are wider toward the left of PC1 and thinner toward the right (Figure \@ref(fig:momocs-pca)). Mean shapes at the top of PC2 have much wider blades than polls, and wider polls than blades toward the bottom, with straight axe shapes appearing toward the origin. The majority of axe shapes fall around and just beyond the origin, represented by the mean shapes in the centre. The mean shapes on the morphospace show some odd, seemingly predictive shapes at the far edges where no axes are plotted, for example the almost bowling-pin-like shapes at the top and bottom right corners. At first glance it would appear that the shapes are facing two different directions, which was initially assumed to be due to incorrect alignment, however this has been observed in other studies which use Momocs (Bourcy 2013, p49, Figure 13). As PC2 appears to represent the ratio of blade to poll width, these odd shapes indicate an attempt to show thinness at opposing ends of the outline. On the far left of PC1 but in the centre of PC2, individuals are plotted where the mean shapes are wide and square. The vast majority of individuals appear to fall where the mean shapes are slightly narrower toward the poll edge and in the mid-range of thickness, represented by the shapes just to the left of and at the origin. In addition, some straight oblong shapes seem to be present in the dataset, plotted just to the right of the origin. Some less common shapes have also become evident here, with individuals plotted on the far left end of PC1 which are wide and square, and to the far right, which are slightly bulbous at the blade end. There are also a small amount of outliers at the top and bottom of PC2 just to the left of the origin, showing there are axes in the dataset with much larger blades than polls and vice versa.
+The mean shapes drawn onto the morphospace are wider toward the left of PC1 and thinner toward the right (Figure \@ref(fig:momocs-pca)). Mean shapes at the top of PC2 have much wider blades than polls, and wider polls than blades toward the bottom, with straight axe shapes appearing toward the origin. The majority of axe shapes fall around and just beyond the origin, represented by the mean shapes in the centre. The mean shapes on the morphospace show some odd, seemingly predictive shapes at the far edges where no axes are plotted, for example the almost bowling-pin-like shapes at the top and bottom right corners. At first glance it would appear that the shapes are facing two different directions, which was initially assumed to be due to incorrect alignment, however this has been observed in other studies which use Momocs [@bourcy2018 49]. As PC2 appears to represent the ratio of blade to poll width, these odd shapes indicate an attempt to show thinness at opposing ends of the outline. On the far left of PC1 but in the centre of PC2, individuals are plotted where the mean shapes are wide and square. The vast majority of individuals appear to fall where the mean shapes are slightly narrower toward the poll edge and in the mid-range of thickness, represented by the shapes just to the left of and at the origin. In addition, some straight oblong shapes seem to be present in the dataset, plotted just to the right of the origin. Some less common shapes have also become evident here, with individuals plotted on the far left end of PC1 which are wide and square, and to the far right, which are slightly bulbous at the blade end. There are also a small amount of outliers at the top and bottom of PC2 just to the left of the origin, showing there are axes in the dataset with much larger blades than polls and vice versa.
 
 ```{r momocs-pca, results='hide', message=FALSE, warning=FALSE, fig.cap="PCA of elliptical Fourier-transformed outlines"}
 
@@ -490,7 +491,7 @@ mm_kmeans4 <- KMEANS(mm_pca, centers = 4,
 
 ### Outline cluster membership
 
-In the panel plot with the clusters colour-coded, we can see that the widest axes are in the red cluster, and the most narrow, straightest axes are in the green (Figure \@ref(fig:panel-clusters)). The two similar clusters which were in the centre of the k-means plot do appear slightly different here, with the axes in the blue group being consistently thinner than those in the yellow. Axes in the blue group also appear to have wider blades than polls compared to the yellow group. Overall it seems that the aspect ratio of the outlines is the deciding factor in the groupings here, however the two wider groups tend to have more axes with wider blades than polls compared to the two narrower groups. The red group also contains all of the most square axes in the dataset, further suggesting that width of shapes is the cause for this partitioning.
+In the panel plot with the clusters numbered and colour-coded, the widest axes are clearly in cluster 4, and the most narrow in cluster 1 (Figure \@ref(fig:panel-clusters)). The two similar clusters, 2 and 3, which were in the centre of the k-means plot, do appear slightly different here, with the axes in 2 mostly being wider than those in 3. Axes in cluster 2 also appear more trapezoidal than cluster 3. Overall it seems that the aspect ratio of the outlines is the deciding factor in the groupings here, however the two wider groups tend to have more axes with wider blades than polls compared to the two narrower groups. Cluster 4 also contains all of the most square axes in the dataset, further suggesting that width of shapes is the cause for this partitioning.
 
 ```{r panel-clusters, fig.height=7, fig.align="center", message="hide", fig.cap='The 4 Momocs clusters colour coded onto a panel plot of axe outlines'}
 outline_names <- names(outlines) %>% str_extract("[0-9]{2,}[ab]*")
@@ -561,6 +562,7 @@ mp_cluster_19f <- both %>%
 mp_meanshapes_19f <- MSHAPES(ef, fac = as.factor(mp_cluster_19f))
 Out(mp_meanshapes_19f$shp) %>% panel(names = TRUE)
 ```
+
 In terms of overlapping clusters between the two sets of k-means analyses, Momocs’ group 1 membership is 74.6% the same as measurement group 3, the smallest axes (Table \@ref(tab:comparison-table)). Measurement group 1, the largest axes, appears the least numerous, and tends to have either Momocs group 1 or Momocs group 3 shape. The widest group in Momocs is split almost evenly between the mid-size and smallest axe groups from the measurements. 
 
 ```{r comparison-table}
@@ -574,12 +576,13 @@ kable(comparison %>%
   mutate(total = `1` + `2` + `3`,
          across(1:3, ~`/`(.x, total) * 100)),
   caption="Percent similarity between outline and measurement clusters",
-  booktabs=TRUE)
+  booktabs=TRUE,
+  position= "!b")
 ```
 
 Moving onto the geographical distributions of the clusters, we can see that all groups concentrate around the Norfolk area (Figure \@ref(fig:maps)). Measurement group 1 appears to hint at concentration in north-west England. Measurement group 3 has the most axes in south-west england out of the size groups, and appears to concentrate equally in three areas. Momocs group 4, the widest, has no axes in the north-west. Narrow axes are least common in Wales.
 
-```{r maps, fig.cap="Find places of axes in each cluster plotted onto a map of Britain, with measurement clusters above and outline clusters below."}
+```{r maps, fig.align="center", fig.cap="Find places of axes in each cluster plotted onto a map of Britain, with measurement clusters above and outline clusters below."}
 neo_axes_coords_kclust <-
   neo_axes %>%
   filter(!is.na(lat) & !is.na(lon)) %>%
