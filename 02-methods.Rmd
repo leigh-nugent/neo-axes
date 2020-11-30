@@ -55,7 +55,7 @@ include_graphics("drawings/10031d.jpg", dpi = axe_dpi)
 
 The first step was to crop the drawings into single views, which is carried out by `scripts/view-finder.py`. This was done by first finding the contours of the drawing outlines. Contours are found by using edge detection on an image, then finding the contours of the edge-detected image. Because the pencil drawings are faint in some areas, the lines have gaps, which creates problems finding the entire shape. To mitigate against this, the edge-detected image was dilated so that the edges were thicker, forcing them to join, and making the contours larger (code snippet; Figure \@ref(fig:draw-contours)).
 
-```{python find-contours, eval=FALSE}
+```{python find-contours, eval=FALSE, python.reticulate=FALSE}
 #find the edges of the drawing
 edge_detected_image = cv2.Canny(imgray, 1, 100)
 #increase width of edges forcing them to join
@@ -84,7 +84,7 @@ include_graphics("figure/10031-contours.jpg", dpi = axe_dpi)
 
 Once the contours were found, it was possible to find the bounding boxes of each view (code snippet; Figure \@ref(fig:bounding-boxes)). The coordinates for each box were appended to a list of lists, which was then converted to a `pandas` dataframe for export to csv. 
 
-```{python find-boxes, eval=FALSE}
+```{python find-boxes, eval=FALSE, python.reticulate=FALSE}
 for c in contours:
     rect = cv2.boundingRect(c)
     if rect[2] < 100 or rect[3] < 100: continue
@@ -102,7 +102,7 @@ This dataframe also included the area and aspect ratio of each view, which was u
 
 \pagebreak
 
-```{python construct-df, eval=FALSE}
+```{python construct-df, eval=FALSE, python.reticulate=FALSE}
 #function to name views based on logic
 def nameview(ca, max_ca, min_ca, ratio, max_r, min_r):
     if ca == max_ca:
@@ -137,7 +137,7 @@ df['filename'] = df.drawing.str.replace('d\.jpg','').str.cat \
 
 The `Makefile` crops the views using the `convert` program from `imagemagick` and arguments are given to it which are replaced with the coordinates for the bounding boxes (please see `Makefile`). Finally, the cropped axe views are filled in by `scripts/fill_view.py` in three steps. The outline is first filled by finding the contours again, but this time filling them when drawing over the image (code snippet; Figure \@ref(fig:filled-conts)).
 
-```{python fill-cont, eval=FALSE}
+```{python fill-cont, eval=FALSE, python.reticulate=FALSE}
 cv2.drawContours(outlines_copy, contour_list, -1, (0,0,0), \
                 thickness=cv2.FILLED)
 ```
@@ -148,7 +148,7 @@ include_graphics("figure/10031-filled-contours.jpg", dpi = axe_dpi)
 
 The largest contour was then found, which is the axe shape, and only that was drawn onto the image, removing other contours which were not connected to it (code snippet; Figure \@ref(fig:largest-cont)).
 
-```{python draw-largest-cont, eval=FALSE}
+```{python draw-largest-cont, eval=FALSE, python.reticulate=FALSE}
 #using contour area to find largest contour
 maxcont = max(contours, key = cv2.contourArea)
 large_cont = []
@@ -171,7 +171,7 @@ include_graphics("figure/10031-largest-contour.jpg", dpi = axe_dpi)
 
 Finally, the now-filled largest contour was thresholded so that `cv2.MORPH_OPEN` could be used on it to dilate the contour and remove the connected nearby shapes from its outline (code snippet; Figure \@ref(fig:final-fill)).
 
-```{python final-filled, eval=FALSE}
+```{python final-filled, eval=FALSE, python.reticulate=FALSE}
 #thresholding the filled largest contour
 thresh, outlines_thresh = cv2.threshold(outlines4, 250, 255, \
                             cv2.THRESH_BINARY_INV)

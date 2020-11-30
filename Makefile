@@ -49,7 +49,7 @@ drawings/%-cropped : drawings/%-c.csv
 drawings/%-c.csv : drawings/%d.jpg venv scripts/view-finder.py
 	source venv/bin/activate; ./scripts/view-finder.py $< $@
 
-.PRECIOUS : $(coords)
+.PRECIOUS : $(coords) $(cropped)
 
 # venv with Makefile inspired by https://stackoverflow.com/a/46188210
 venv : venv/bin/activate
