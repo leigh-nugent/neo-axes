@@ -1,0 +1,700 @@
+<style>
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+</style>
+
+<!-- Add scripts etc -->
+<script src="/static/js/vendor/jquery.serializeJSON.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="/static/vendor/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<!-- Add style sheets -->
+<link rel="stylesheet" href="/static/vendor/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+
+<!-- Browser not compatible message -->
+<div style="display:none;margin-top:15px; height:500px;" id="oldbrowser" class="row">
+    <!-- Success and Error Messages for the user -->
+    <div class="col-md-8 col-md-offset-1 alert alert-info">
+        <strong>Sorry, but your browser does not support the current application. If you want to contribute, please,
+            upgrade to a modern web browser like the open source and free alternative <a
+                    href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a> or <a
+                    href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></strong>.
+    </div>
+</div>
+<!-- End of Row -->
+<!-- end of browser -->
+
+<!-- Start of messages -->
+<div style="margin-top:15px;">
+    <div id="success" class="alert alert-success" style="display:none;">
+        <strong>Well done!</strong> You have successfully submitted your contribution. Here is another to try if you
+        wish!
+    </div>
+    <div id="loading" class="alert alert-info" style="display:none;">
+        <img src="/static/img/loading.gif">Loading next task...
+    </div>
+    <div id="taskcompleted" class="alert alert-info" style="display:none;">
+        <strong>The task has been completed!</strong> Thanks a lot!
+    </div>
+    <div id="finish" class="alert alert-success" style="display:none;">
+        <h2>Congratulations!</h2>
+        <p>
+            You have participated in all available tasks!
+        </p>
+        <div class="alert-actions">
+            <a class="btn-default btn" href="/">Go back to the home page</a>
+            <a class="btn-default btn" href="/app">or, have a look at our
+                other applications</a>
+        </div>
+    </div>
+    <div id="error" class="alert alert-danger" style="display:none;">
+        <a class="close">×</a>
+        <strong>Error!</strong> Something went wrong, please contact the site administrators
+    </div>
+</div>
+<!-- End Success and Error Messages for the user -->
+
+<!--
+Task DOM for loading the S3 Images
+It uses the class="skeleton" to identify the elements that belong to the
+task.
+-->
+
+<div class="row skeleton" id="">
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="btn-group">
+                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
+                    <i class="glyphicon glyphicon-eye-open"></i> Tutorial
+                </button>
+                <a class="btn btn-info btn-xs" id="imgLink" target="_blank" data-toggle="tooltip" data-placement="top"
+                   title="Opens in a new window" href="http://community.micropasts.org/"><i
+                        class="glyphicon glyphicon-book"></i> Community Help</a>
+                <!-- Overlay image -->
+                <a id="raw" href="" class="btn btn-xs btn-info fancybox"><i class="glyphicon glyphicon-picture"></i>
+                    Overlay</a>
+                <a id="toggle" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-repeat"></i> Rotate image</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The pdf section -->
+    <div class="col-md-12">
+        <div class="row">
+            <h4>Please help us to transcribe this record sheet.</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form id="magicData" role="form">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label class="control-label" for="number">No.</label>
+                        <input type="text" class="form-control" name="number" id="number">
+                    </div>
+          
+                          
+                      <div class="form-group">
+                        <label class="control-label" for="reign">NGR</label>
+                          <input type="text" class="form-control" name="ngr" id="ngr" placeholder="National Grid Reference">
+                    </div>
+                    
+                        <div class="form-group">
+                        <label class="control-label" for="material">Material</label>
+                        <input type="text" class="form-control" name="material" id="material">
+                    </div>
+                    
+                        <div class="form-group">
+                        <label class="control-label" for="find-date">Date of find</label>
+                        <input type="text" class="form-control" name="find-date" id="find-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="condition">Condition</label>
+                        <input type="text" class="form-control" name="condition" id="condition">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="weight">WEIGHT</label>
+                        <input type="text" class="form-control" name="weight" id="weight">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="poledwid">POLEDWID</label>
+                        <input type="text" class="form-control" name="poledwid" id="poledwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="lefedwid">LEFEDWID</label>
+                        <input type="text" class="form-control" name="lefedwid" id="lefedwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="find-date">RITEDWID</label>
+                        <input type="text" class="form-control" name="ritedwid" id="ritedwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blaedwid">BLAEDWID</label>
+                        <input type="text" class="form-control" name="blaedwid" id="blaedwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="bladang">BLADANG</label>
+                        <input type="text" class="form-control" name="bladang" id="bladang">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="grifropl">GRIFROPL</label>
+                        <input type="text" class="form-control" name="grifropl" id="grifropl">
+                    </div>
+                    
+                   <div class="form-group">
+                        <label class="control-label" for="grifroby">GRIFROBY</label>
+                        <input type="text" class="form-control" name="grifroby" id="grifroby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="grifrobl">GRIFROBL</label>
+                        <input type="text" class="form-control" name="grifrobl" id="grifrobl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="gribapl">GRIBAPL</label>
+                        <input type="text" class="form-control" name="gribapl" id="gribapl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="gribaby">GRIBABY</label>
+                        <input type="text" class="form-control" name="gribaby" id="gribaby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="gribabl">GRIBABL</label>
+                        <input type="text" class="form-control" name="gribabl" id="gribabl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polfropl">POLFROPL</label>
+                        <input type="text" class="form-control" name="polfropl" id="polfropl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polfroby">POLFROBY</label>
+                        <input type="text" class="form-control" name="polfroby" id="polfroby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polfrobl">POLFROBL</label>
+                        <input type="text" class="form-control" name="polfrobl" id="polfrobl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polbapl">POLBAPL</label>
+                        <input type="text" class="form-control" name="polbapl" id="polbapl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polbaby">POLBABY</label>
+                        <input type="text" class="form-control" name="polbaby" id="polbaby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polbabl">POLBABL</label>
+                        <input type="text" class="form-control" name="polbabl" id="polbabl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="refropl">REFROPL</label>
+                        <input type="text" class="form-control" name="refropl" id="refropl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="refroby">REFROBY</label>
+                        <input type="text" class="form-control" name="refroby" id="refroby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="refrobl">REFROBL</label>
+                        <input type="text" class="form-control" name="refrobl" id="refrobl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="rebapl">REBAPL</label>
+                        <input type="text" class="form-control" name="rebapl" id="rebapl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="rebaby">REBABY</label>
+                        <input type="text" class="form-control" name="rebaby" id="rebaby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="rebabl">REBABL</label>
+                        <input type="text" class="form-control" name="rebabl" id="rebabl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="corfropl">CORFROPL</label>
+                        <input type="text" class="form-control" name="corfropl" id="corfropl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="corfroby">CORFROBY</label>
+                        <input type="text" class="form-control" name="corfroby" id="corfroby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="corbapl">CORBAPL</label>
+                        <input type="text" class="form-control" name="corbapl" id="corbapl">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="corbaby">CORBABY</label>
+                        <input type="text" class="form-control" name="corbaby" id="corbaby">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blacon">BLACON</label>
+                        <input type="text" class="form-control" name="blacon" id="blacon">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blasin">BLASIN</label>
+                        <input type="text" class="form-control" name="blasin" id="blasin">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="edcon">EDCON</label>
+                        <input type="text" class="form-control" name="edcon" id="edcon">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="edsin">EDSIN</label>
+                        <input type="text" class="form-control" name="edsin" id="edsin">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="maxthick">MAXTHICK</label>
+                        <input type="text" class="form-control" name="maxthick" id="maxthick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polthick">POLTHICK</label>
+                        <input type="text" class="form-control" name="polthick" id="polthick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blathick">BLATHICK</label>
+                        <input type="text" class="form-control" name="blathick" id="blathick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="lefthick">LEFTHICK</label>
+                        <input type="text" class="form-control" name="lefthick" id="lefthick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="rithick">RITHICK</label>
+                        <input type="text" class="form-control" name="rithick" id="rithick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="topthick">TOPTHICK</label>
+                        <input type="text" class="form-control" name="topthick" id="topthick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="bothick">BOTHICK</label>
+                        <input type="text" class="form-control" name="bothick" id="bothick">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="maxleng">MAXLENG</label>
+                        <input type="text" class="form-control" name="maxleng" id="maxleng">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="poleng">POLENG</label>
+                        <input type="text" class="form-control" name="poleng" id="poleng">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blaleng">BLALENG</label>
+                        <input type="text" class="form-control" name="blaleng" id="blaleng">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="maxwid">MAXWID</label>
+                        <input type="text" class="form-control" name="maxwid" id="maxwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="polwid">POLWID</label>
+                        <input type="text" class="form-control" name="polwid" id="polwid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="blawid">BLAWID</label>
+                        <input type="text" class="form-control" name="blawid" id="blawid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="lengmaxt">LENGMAXT</label>
+                        <input type="text" class="form-control" name="lengmaxt" id="lengmaxt">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="lengmaxw">LENGMAXW</label>
+                        <input type="text" class="form-control" name="lengmaxw" id="lengmaxw">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="gripoled">GRIPOLED</label>
+                        <input type="text" class="form-control" name="gripoled" id="gripoled">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="lonpoled">LONPOLED</label>
+                        <input type="text" class="form-control" name="lonpoled" id="lonpoled">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="areapoll">AREAPOLL</label>
+                        <input type="text" class="form-control" name="areapoll" id="areapoll">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="areabody">AREABODY</label>
+                        <input type="text" class="form-control" name="areabody" id="areabody">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="areablal">AREABLAL</label>
+                        <input type="text" class="form-control" name="areablal" id="areablal">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="areablar">AREABLAR</label>
+                        <input type="text" class="form-control" name="areablar" id="areablar">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="areablad">AREABLAD</label>
+                        <input type="text" class="form-control" name="areablad" id="areablad">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="grinside">GRINSIDE</label>
+                        <input type="text" class="form-control" name="grinside" id="grinside">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="longside">LONGSIDE</label>
+                        <input type="text" class="form-control" name="longside" id="longside">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="find-place">Find place</label>
+                        <input type="text" class="form-control" name="find-place" id="find-place" placeholder="Please Google/use the NGR to check the place names if you are unsure">
+                    </div>
+                    
+                  <div class="form-group">
+                    <label class="control-label" for="collection">Collection</label>
+                        <textarea name="collection" rows="4" class="form-control"></textarea>
+                   </div>
+                    
+                    <div class="form-group">
+                    <label class="control-label" for="labels">Labels</label>
+                        <textarea name="labels" rows="4" class="form-control" placeholder="These are usually several different labels, it is usually clear which words belong together for a single label. Please write each label on a new line so that it is clear which words go together"></textarea>
+                   </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="date-rec">Date</label>
+                        <input type="text" class="form-control" name="date-rec" id="date-rec" placeholder="Date sheet created">
+                    </div>
+                    
+                    <div class="form-group">
+                    <label class="control-label" for="comments">Comments</label>
+                        <textarea name="comments" rows="6" class="form-control"></textarea>
+                   </div>
+                    
+                    
+                    <button class="btn btn-success btn-answer" value='Yes'>
+                        Submit your transcription
+                    </button>
+                </div>
+            </form>
+
+            <div id="imgContainer" class="col-md-6 sticky">
+             <span id="postcardImage">
+                <img id="photo" src="/static/img/loading.gif" class="loadingicon" style="max-width:100%;">
+             </span>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- End of pdf section -->
+    <!-- The data entry section using html table -->
+    <div class="row">
+
+        <!-- Feedback items for the user -->
+        <p>
+            You are working now on task: <span id="task-id" class="label label-warning">#</span>
+        </p>
+        <p>
+            You have completed: <span id="done" class="label label-info"></span> tasks from
+            <!-- Progress bar for the user -->
+            <span id="total" class="label label-inverse"></span>
+        </p>
+        <div class="progress progress-striped">
+            <div id="progress" rel="tooltip" title="#" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+        </div>
+        <!-- End of feedback row -->
+    </div>
+    <!-- End of the section -->
+</div>
+<!-- End of DOM Skeleton row -->
+
+<!-- Modal start -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal header -->
+            <div class="modal-header">
+                <h3>How to transcribe the axe record sheets</h3>
+            </div>
+
+            <!-- Step 1 of the tutorial -->
+            <div id="0" class="modal-body" style="display:none">
+                 <p>
+                    The time it will take to transcribe a particular record sheet depends on whether it is completely
+filled out, or if all variables are present.
+                </p>
+                
+                <p>Below is an example of a completely filled out sheet with all variables present:</p> <br/>
+                
+                <img style="max-width:70%;" src="https://leigh-nugent.github.io/neo-axes-transcribe/sheets/10058-2016_07_11_10_16_37-0002_0013PDF-000.jpg" />
+            </div>
+
+            <!-- Step 2 of the tutorial -->
+            <div id="1" class="modal-body" style="display:none">
+                <p>
+                    However, the notebook sheets can also look like the below, a shorter version. Please be aware that due to this, the order of variables may change, so please pay attention to which field you are filling out so that you are filling it in with the correct value, and not the value of another variable.
+                </p>
+                
+                <img style="max-width:70%;" src="https://leigh-nugent.github.io/neo-axes-transcribe/sheets/20009-2016_07_12_11_29_58PDF-000.jpg" />
+                
+                <p>It may also be the case that hardly any of the variables are filled in, e.g. only a value for weight is present. Please do still fill out this information, and just leave blank any fields that have not been filled out on the sheet, or that are just not present.</p> 
+                <p>If you spot any odd capital letters or punctuation such as brackets around numbers, please still include these in your transcription, as we want the transcription to be as close to the original data as possible. Finally, please enter square brackets with an ellipsis between (like this: [...]) if you are unsure about a word/number you have transcribed so that it can be found easily and checked at a later date.</p>
+                
+                           </div>
+            
+            <!-- Step 3 of the tutorial -->
+                           <div id="2" class="modal-body" style="display:none">
+     <p><b>Meanings of variable abbreviations and their units of measurement.</b></p>
+                <p>Note: please do not include units of measurement in your transcription, these are just to help with figuring out how large/small numbers should be.</p>
+             <p>WEIGHT: Weight of axe<br/>
+                POLEDWID: Width of poll edge (g)<br/>
+                LEFEDWID: Max width of left side edge (mm)<br/>
+                RITEDWID: Max width of right side edge (mm)<br/>
+                BLAEDWID: Width of blade edge (mm)<br/>
+                BLADANG: Angle at blade edge (degrees)<br/>
+                GRIFROPL: Area of grinding on poll, front face (cm<sup>2</sup>)<br/>
+                GRIFROBY: Area of grinding on body, front face (cm<sup>2</sup>)<br/>
+                GRIFROBL: Area of grinding on blade, front face (cm<sup>2</sup>)<br/>
+                GRIBAPL: Area of grinding on poll, back face (cm<sup>2</sup>)<br/>
+                GRIBABY: Area of grinding on body, back face (cm<sup>2</sup>)<br/>
+                GRIBABL: Area of grinding on blade, back face (cm<sup>2</sup>)<br/>
+                Variables beginning with POL, REF and COR are the same as above but instead of grinding
+                replace with polish, reworking and cortex respectively, and also in cm<sup>2</sup>. <br/>
+                BLACON: Concavity of blade (mm)<br/>
+                BLASIN: Blade sinuosity (mm)<br/>
+                EDCON: Right edge concavity (mm)<br/>
+                EDSIN: Right edge sinuosity (mm)<br/>
+                MAXTHICK: Maximum thickness (mm)<br/>
+                POLTHICK: Thickness of poll (mm)<br/>
+                BLATHICK: Thickness of blade (mm)<br/>
+                LEFTHICK: Thickness left of centre, opposite point of max thickness (mm)<br/>
+                RITHICK: Same as LEFTHICK, but right of centre (mm)<br/>
+                TOPTHICK: Thickness of top half (mm)<br/>
+                BOTHICK: Thickness of bottom half (mm)<br/>
+                MAXLENG: Maxmimum length (mm)<br/>
+                POLENG: Poll length (mm)<br/>
+                BLALENG: Blade length (mm)<br/>
+                MAXWID: Maximum width (mm)<br/>
+                POLWID: Poll width (mm)<br/>
+                BLAWID: Blade width (mm)<br/>
+                LENGMAXT: Length from blade to point of max thickness (mm)<br/>
+                LENGMAXW: Length from blade to point of max width (mm)<br/>
+                GRIPOLED: Length of poll edge ground (mm)<br/>
+                LONGPOLED: Total length of poll edge (mm)<br/>
+                AREAPOLL: Area of poll (cm<sup>2</sup>)<br/>
+                AREABODY: Area of body (cm<sup>2</sup>)<br/>
+                AREABLAL: Area of left segment of blade (cm<sup>2</sup>)<br/>
+                AREABLAR: Area of right segment of blade (cm<sup>2</sup>)<br/>
+                AREABLAD: Total area of blade (cm<sup>2</sup>)<br/>
+                </p>
+                           </div>
+
+
+            <!-- End of stepped modal body -->
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a id="prevBtn" href="#" onclick="showStep('prev')" class="btn btn-default">Previous</a>
+                <a id="nextBtn" href="#" onclick="showStep('next')" class="btn btn-success">Next</a>
+                <button id="closeBtn" data-dismiss="modal" onclick="showStep('finish')" class="btn btn-primary"
+                        style="display:none"><i class="glyphicon glyphicon-thumbs-up"></i> Back to task
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Client side scripts -->
+<script>
+	// Quick fix for IE8
+	Modernizr.load({
+		test : window.JSON,
+		nope : '/static/js/vendor/json2.min.js'
+	});
+
+
+
+
+</script>
+
+<!-- Step through modals -->
+<script type="text/javascript">
+	var step = -1;
+	function showStep(action) {
+		$("#" + step).hide();
+		if (action == 'next') {
+			step = step + 1;
+		}
+		if (action == 'prev') {
+			step = step - 1;
+		}
+		if (step == 0) {
+			$("#prevBtn").hide();
+		} else {
+			$("#prevBtn").show();
+		}
+
+		// this line below needs to match the id of the last modal div. If you have 4 divs, you need to
+		// change this to step = 3 and if you have 2 you would say step = 1. Id starts at 0.
+
+		if (step == 2) {
+			$("#nextBtn").hide();
+			$("#closeBtn").show();
+		}
+		if (action == 'finish') {
+			step = 0;
+			$("#closeBtn").hide();
+			$("#prevBtn").hide();
+			$("#nextBtn").show();
+		}
+		$("#" + step).show();
+	}
+	showStep('next');
+	$("#modal").modal('show');
+
+
+
+
+</script>
+
+<!-- Load user progress -->
+<script>
+
+    // This part of the script loads the user's progress through the project
+
+	function loadUserProgress() {
+		pybossa.userProgress('neoaxes1').done(function(data) {
+			console.log(data);
+			console.log("Total answers done for user: " + data.done);
+			var pct = Math.round((data.done * 100) / data.total);
+			$("#progress").css("width", pct.toString() + "%");
+			$("#progress").attr("title", pct.toString() + "% completed!");
+			$("#progress").tooltip({ 'placement' : 'left' });
+			$("#total").text(data.total);
+			$("#done").text(data.done);
+			$('a[rel]').tooltip({'placement' : 'left'});
+		});
+	}
+
+    //This part loads the script
+
+	pybossa.taskLoaded(function(task, deferred) {
+		if (! $.isEmptyObject(task)) {
+			loadUserProgress();
+			deferred.resolve(task);
+		} else {
+			deferred.resolve(task);
+		}
+	});
+
+	// This part presents the task and then saves the answers
+
+	pybossa.presentTask(function(task, deferred) {
+		if (!$.isEmptyObject(task)) {
+		    console.log(task)
+			$("#question").html(task.info.question);
+			$('#task-id').html(task.id);
+			$("#photo").attr('src', task.info.url_b);
+			$("a#raw").attr("href", task.info.url_b);
+			$(".fancybox").fancybox();
+			$( "#toggle" ).click( function() {
+                $("#photo").toggleClass('flip');
+            });
+            $("a#flickr").attr("href", task.info.link + '/sizes/k/');
+			var data = [[]];
+			$('.btn-answer').off('click').on('click', function(evt) {
+				evt.preventDefault();
+				var answer = $(evt.target).attr("value");
+				if ( typeof answer != 'undefined') {
+					task.answer = $("#magicData").serializeJSON();
+					console.log(task.answer);
+					pybossa.saveTask(task.id, task.answer).done(function() {
+						$("html, body").animate( {scrollTop : 0 }, "slow");
+						$("#success").fadeIn(500).fadeOut(500);
+						$("#loading").fadeIn(500).fadeOut(500);
+						$('#magicData')[0].reset();
+						deferred.resolve();
+					});
+				} else {
+					$("#error").show();
+				}
+			});
+			$("#loading").hide();
+		} else {
+			$(".skeleton").hide();
+			$("#loading").hide();
+			$("#finish").fadeIn(500);
+		}
+	});
+	pybossa.run('neoaxes1');
+
+</script>
+
+<style type="text/css">
+    .btn-answer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    .btn-group {
+    margin-bottom: 0px
+    }
+
+   .flip { transform: rotate(-90deg);}
+
+</style>

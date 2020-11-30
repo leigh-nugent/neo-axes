@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-md-12">
+        <div id="modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                <h3>How to transcribe the axe record sheets</h3>
+            </div>
+
+            <!-- Step 1 of the tutorial -->
+            <div id="0" class="modal-body" style="display:none">
+                <p>
+                    The time it will take to transcribe a particular record sheet depends on whether it is completely
+filled out, or if all variables are present. 
+                </p>
+                
+                <p>Below is an example of a completely filled out sheet with all variables present:</p> <br/>
+                
+                <img style="max-width:70%;" src="https://leigh-nugent.github.io/neo-axes-transcribe/sheets/10058-2016_07_11_10_16_37-0002_0013PDF-000.jpg" />
+
+            </div>
+
+            <!-- Step 2 of the tutorial -->
+            <div id="1" class="modal-body" style="display:none">
+                <p>
+                    However, the record sheets can also look like the below, a shorter version. Please be aware that due to this, the order of variables may change, so please pay attention to which field you are filling out so that you are filling it in with the correct value, and not the value of another variable.
+                </p>
+                
+                <img style="max-width:70%;" src="https://leigh-nugent.github.io/neo-axes-transcribe/sheets/20009-2016_07_12_11_29_58PDF-000.jpg" />
+                
+                <p>It may also be the case that hardly any of the variables are filled in, e.g. only a value for weight is present. Please do still fill out this information, and just leave blank any fields that have not been filled out on the sheet, or that are just not present.</p>
+                <p>If you spot any odd capital letters or punctuation such as brackets around numbers, please still include these in your transcription, as we want the transcription to be as close to the original data as possible. Finally, please enter square brackets with an ellipsis between (like this: [...]) if you are unsure about a word/number you have transcribed so that it can be found easily and checked at a later date.</p>
+                           </div>
+                           
+            <!-- Step 3 of the tutorial -->
+                           <div id="2" class="modal-body" style="display:none">
+                <p><b>Meanings of variable abbreviations and their units of measurement.</b></p>
+                <p>Note: please do not include units of measurement in your transcription, these are just to help with figuring out how large/small values should be.</p>
+             <p>WEIGHT: Weight of axe<br/>
+                POLEDWID: Width of poll edge (g)<br/>
+                LEFEDWID: Max width of left side edge (mm)<br/>
+                RITEDWID: Max width of right side edge (mm)<br/>
+                BLAEDWID: Width of blade edge (mm)<br/>
+                BLADANG: Angle at blade edge (degrees)<br/>
+                GRIFROPL: Area of grinding on poll, front face (cm<sup>2</sup>)<br/>
+                GRIFROBY: Area of grinding on body, front face (cm<sup>2</sup>)<br/>
+                GRIFROBL: Area of grinding on blade, front face (cm<sup>2</sup>)<br/>
+                GRIBAPL: Area of grinding on poll, back face (cm<sup>2</sup>)<br/>
+                GRIBABY: Area of grinding on body, back face (cm<sup>2</sup>)<br/>
+                GRIBABL: Area of grinding on blade, back face (cm<sup>2</sup>)<br/>
+                Variables beginning with POL, REF and COR are the same as above but instead of grinding
+                replace with polish, reworking and cortex respectively, and also in cm<sup>2</sup>. <br/>
+                BLACON: Concavity of blade (mm)<br/>
+                BLASIN: Blade sinuosity (mm)<br/>
+                EDCON: Right edge concavity (mm)<br/>
+                EDSIN: Right edge sinuosity (mm)<br/>
+                MAXTHICK: Maximum thickness (mm)<br/>
+                POLTHICK: Thickness of poll (mm)<br/>
+                BLATHICK: Thickness of blade (mm)<br/>
+                LEFTHICK: Thickness left of centre, opposite point of max thickness (mm)<br/>
+                RITHICK: Same as LEFTHICK, but right of centre (mm)<br/>
+                TOPTHICK: Thickness of top half (mm)<br/>
+                BOTHICK: Thickness of bottom half (mm)<br/>
+                MAXLENG: Maxmimum length (mm)<br/>
+                POLENG: Poll length (mm)<br/>
+                BLALENG: Blade length (mm)<br/>
+                MAXWID: Maximum width (mm)<br/>
+                POLWID: Poll width (mm)<br/>
+                BLAWID: Blade width (mm)<br/>
+                LENGMAXT: Length from blade to point of max thickness (mm)<br/>
+                LENGMAXW: Length from blade to point of max width (mm)<br/>
+                GRIPOLED: Length of poll edge ground (mm)<br/>
+                LONGPOLED: Total length of poll edge (mm)<br/>
+                AREAPOLL: Area of poll (cm<sup>2</sup>)<br/>
+                AREABODY: Area of body (cm<sup>2</sup>)<br/>
+                AREABLAL: Area of left segment of blade (cm<sup>2</sup>)<br/>
+                AREABLAR: Area of right segment of blade (cm<sup>2</sup>)<br/>
+                AREABLAD: Total area of blade (cm<sup>2</sup>)<br/>
+                </p>
+                  
+                           </div>
+
+
+            <!-- End of stepped modal body -->
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <a id="prevBtn" href="#" onclick="showStep('prev')" class="btn btn-default">Previous</a>
+                        <a id="nextBtn" href="#" onclick="showStep('next')" class="btn btn-success">Next</a>
+                        <a id="startContrib" data-dismiss="modal" href="../middleEastPostcards/newtask" class="btn btn-primary"
+                           style="display:none"/><i class="glyphicon glyphicon-thumbs-up"></i> Let's start!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var step = -1;
+    function showStep(action) {
+        $("#" + step).hide();
+        if (action == 'next') {
+            step = step + 1;
+        }
+        if (action == 'prev') {
+            step = step - 1;
+        }
+        if (step == 0) {
+            $("#prevBtn").hide();
+        }
+        else {
+            $("#prevBtn").show();
+        }
+        if (step == 2 ) {
+            $("#nextBtn").hide();
+            $("#startContrib").show();
+        }
+        $("#" + step).show();
+    }
+    showStep('next');
+    $("#modal").modal('show');
+</script>
+
