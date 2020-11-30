@@ -10,8 +10,8 @@ RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.
 RUN R -e "remotes::install_version('renv', '${RENV_VERSION}')"
 WORKDIR /home/rstudio/neo-axes
 COPY . .
-RUN make clean \
-  && make .venv \
-  && touch -r requirements.txt .venv .venv/bin/activate
 RUN tlmgr install $(cat tlmgr_installed | tr '\n' ' ')
-RUN R -e "renv::restore()"
+RUN make clean \
+  && make venv \
+  && touch -r requirements.txt venv venv/bin/activate
+RUN chown -R rstudio:rstudio .
