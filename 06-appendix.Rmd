@@ -33,20 +33,20 @@ Blaedwid: Width of blade edge (mm)
 
 Bladang: Angle at blade edge (degrees)
 
-Grifropl: Area of grinding on poll, front face (cm2)
+Grifropl: Area of grinding on poll, front face (cm^2^)
 
-Grifroby: Area of grinding on body, front face (cm2)
+Grifroby: Area of grinding on body, front face (cm^2^)
 
-Grifrobl: Area of grinding on blade, front face  (cm2)
+Grifrobl: Area of grinding on blade, front face  (cm^2^)
 
-Gribapl: Area of grinding on poll, back face (cm2)
+Gribapl: Area of grinding on poll, back face (cm^2^)
 
-Gribaby: Area of grinding on body, back face (cm2)
+Gribaby: Area of grinding on body, back face (cm^2^)
 
-Gribabl: Area of grinding on blade, back face (cm2)
+Gribabl: Area of grinding on blade, back face (cm^2^)
 
 Variables beginning with POL, REF and COR are the same as GRI measurements but instead of 
-grinding replace with polish, reworking and cortex respectively, and also in cm2
+grinding replace with polish, reworking and cortex respectively, and also in cm^2^
 
 Blacon: Concavity of blade (mm)
 
@@ -94,12 +94,12 @@ Grinside: Extent of grinding on left side edge (mm)
 
 Longside: Length of left side edge (mm)
 
-Areapoll: Area of poll (cm2)
+Areapoll: Area of poll (cm^2^)
 
-Areabody: Area of body (cm2)
+Areabody: Area of body (cm^2^)
 
-Areablal: Area of left segment of blade (cm2)
+Areablal: Area of left segment of blade (cm^2^)
 
-Areablar: Area of right segment of blade (cm2)
+Areablar: Area of right segment of blade (cm^2^)
 
-Areablad: Total area of blade (cm2)
+Areablad: Total area of blade (cm^2^)
