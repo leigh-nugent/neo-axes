@@ -21,4 +21,85 @@ This first appendix includes all of the R chunks of code that were hidden throug
 ```{r ref.label='include_packages_2', results='hide', echo = TRUE}
 ```
 
-# The Second Appendix, for Fun
+# List of abbreviations
+
+Poledwid: Width of poll edge (g)
+
+Lefedwid: Max width of left side edge (mm)
+
+Ritedwid: Max width of right side edge (mm)
+
+Blaedwid: Width of blade edge (mm)
+
+Bladang: Angle at blade edge (degrees)
+
+Grifropl: Area of grinding on poll, front face (cm2)
+
+Grifroby: Area of grinding on body, front face (cm2)
+
+Grifrobl: Area of grinding on blade, front face  (cm2)
+
+Gribapl: Area of grinding on poll, back face (cm2)
+
+Gribaby: Area of grinding on body, back face (cm2)
+
+Gribabl: Area of grinding on blade, back face (cm2)
+
+Variables beginning with POL, REF and COR are the same as GRI measurements but instead of 
+grinding replace with polish, reworking and cortex respectively, and also in cm2
+
+Blacon: Concavity of blade (mm)
+
+Blasin: Blade sinuosity (mm)
+
+Edcon: Right edge concavity (mm)
+
+Edsin: Right edge sinuosity (mm)
+
+Maxthick: Maximum thickness (mm)
+
+Polthick: Thickness of poll (mm)
+
+Blathick: Thickness of blade (mm)
+
+Lefthick: Thickness left of centre, opposite point of max thickness (mm)
+
+Rithick: Same as LEFTHICK, but right of centre (mm)
+
+Topthick: Thickness of top half (mm)
+
+Bothick: Thickness of bottom half (mm)
+
+Maxleng: Maxmimum length (mm)
+
+Poleng: Poll length (mm)
+
+Blaleng: Blade length (mm)
+
+Maxwid: Maximum width (mm)
+
+Polwid: Poll width (mm)
+
+Bladwid: Blade width (mm)
+
+Lengmaxt: Length from blade to point of max thickness (mm)
+
+Lengmaxw: Length from blade to point of max width (mm)
+
+Gripoled: Length of poll edge ground (mm)
+
+Lonpoled: Total length of poll edge (mm)
+
+Grinside: Extent of grinding on left side edge (mm)
+
+Longside: Length of left side edge (mm)
+
+Areapoll: Area of poll (cm2)
+
+Areabody: Area of body (cm2)
+
+Areablal: Area of left segment of blade (cm2)
+
+Areablar: Area of right segment of blade (cm2)
+
+Areablad: Total area of blade (cm2)
