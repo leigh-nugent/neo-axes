@@ -12,7 +12,7 @@ Clone the repository, then run `make build` followed by `make run`.
 
 ## Main aspects
 
-### Data extraction :page_with_curl: :outbox_tray:
+### Data extraction :page_with_curl:
 
 For the axe measurement data, transcriptions of the record sheets were sourced using MicroPasts (crowdsourced.micropasts.org), which are downloaded by the subsidiary `Makefile` (`micropasts.mk`) as 19 jsons containing data for 1825 record sheets. This data is then cleaned by `sheets.R`, which uses `correction-sheet.csv` to amend any incorrect data or typos. The final dataset created by `sheets.R` is `micropasts-neoaxes1.csv`, the filename being the name of my MicroPasts project. 
 
@@ -24,7 +24,7 @@ If you would like to see the code and its output step-by-step, please check out 
 
 Extraction stage produces `micropasts-neoaxes1.csv`, which has had some data changed from the original record sheets due to discrepancies noticed in the raw data collection; and `outlines.Rds`, which is an R object created from importing the filled front images into `Momocs` and converting them into the data type supported by that package. The latter was performed outside of the R Markdown analysis file as it was rather computationally intensive and inhibited fast knitting. In addition to provenance information, National Grid Reference,  `micropasts-neoaxes1.csv` has 56 columns relating to different axe measurements such as weight, maximum thickness, length of poll edge, blade angle and so on, which are abbreviated; please see the list of abbreviations in `Dissertation.pdf` if interested in some clarity on these.
 
-## The analysis 📈
+### The analysis 📈
 
 Both `micropasts-neoaxes1.csv` and `outlines.Rds` were subjected to comparable multivariate analyses to reveal groups in the axe data and drawings, resulting in some pretty graphs and graphics :sparkles:
 
