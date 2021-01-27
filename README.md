@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project has been made entirely reproducible using renv, venv, Docker and Makefile. It extracts data from jsons containing transcribed data from analogue record sheets, and from scanned drawings. The original dataset of record sheets and drawings was created and compiled by Mike Pitts (Pitts 1996).
+This project has been made entirely reproducible using renv, venv, Docker and Makefile. It extracts data from scanned drawings and jsons containing transcribed data from analogue record sheets. The original dataset of record sheets and drawings was created and compiled by Mike Pitts (Pitts 1996).
 
 ## Licensing
 
