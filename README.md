@@ -4,7 +4,11 @@
 
 ## Introduction
 
-This project has been made entirely reproducible using renv, venv, Docker and Makefile. It extracts data from an analog dataset created by Mike Pitts (Pitts 1996) and then uses this data for analysis. 
+This project has been made entirely reproducible using renv, venv, Docker and Makefile. It extracts data from jsons containing transcribed data from analogue record sheets, and from scanned drawings. The original dataset of record sheets and drawings was created and compiled by Mike Pitts (Pitts 1996).
+
+## Licensing
+
+The GNU General Public License 3.0 on this repository does not apply to the `/drawings` folder. This contains Mike Pitts' original axe drawings, which are not my work. The drawings and the record sheets – the latter not being included in this repository – are hosted on the Implement Petrology Group's website [here](https://implementpetrology.org/resources/mike-pitts-archive/).
 
 ## Getting it to run
 
@@ -14,7 +18,7 @@ Clone the repository, then run `make build` followed by `make run`.
 
 ### Data extraction :page_with_curl:
 
-For the axe measurement data, transcriptions of the record sheets were sourced using MicroPasts (crowdsourced.micropasts.org), which are downloaded by the subsidiary `Makefile` (`micropasts.mk`) as 19 jsons containing data for 1825 record sheets. This data is then cleaned by `sheets.R`, which uses `correction-sheet.csv` to amend any incorrect data or typos. The final dataset created by `sheets.R` is `micropasts-neoaxes1.csv`, the filename being the name of my MicroPasts project. 
+For the axe measurement data, transcriptions of the record sheets were crowdsourced using [MicroPasts](crowdsourced.micropasts.org), which are downloaded by the subsidiary `Makefile` (`micropasts.mk`) as 19 jsons containing data for 1825 record sheets. This data is then cleaned by `sheets.R`, which uses `correction-sheet.csv` to amend any incorrect data or typos. The final dataset created by `sheets.R` is `micropasts-neoaxes1.csv`, the filename being the name of my MicroPasts project. 
 
 The axe drawings, of which there are also 1825 and are paired with the sheets, needed to be processed into binary silhouettes for use with `Momocs` outline morphometrics package. This was done using `opencv-python`. As each drawing contains multiple shapes (different views of the same axe), and only the front view was needed, the images needed to be cropped into separate shapes. The process for creating the silhouettes is as follows: first, the contours of each shape were found, then from these the bounding boxes could be found, and the coordinates saved to a csv per drawing; then each image is cropped on these coordinates by the `Makefile` using `imagemagick`; and finally each front view is then filled. 
 
@@ -41,3 +45,8 @@ As mentioned above, the image processing step to extract the axe silhouettes fro
 A second point is that there are 626 silhouettes which have not been checked due to time constraints for submission of this work. These could potentially have successful silhouettes within them, so checking through these would provide more opportunity for further enlarging the outlines dataset.
 
 Finally, as is also mentioned above, the workflow for processing the binary silhouettes has the potential to be repurposed for other shapes, so please feel free to use this to create your own silhouettes for outline morphometric analysis using `Momocs`. 
+
+## References
+
+Pitts, M. (1996). The stone axe in Neolithic Britain. *Proceedings of the Prehistoric Society*, 62, pp.311–371.
+
