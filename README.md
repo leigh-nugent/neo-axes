@@ -4,6 +4,8 @@
 
 ## Introduction
 
+A dissertation submitted in partial fulﬁllment of the requirements for the degree of Master of Science of University College London.
+
 This project has been made entirely reproducible using renv, venv, Docker and Makefile. It extracts data from scanned drawings and jsons containing transcribed data from analogue record sheets. The original dataset of record sheets and drawings was created and compiled by Mike Pitts (Pitts 1996).
 
 ## Licensing
